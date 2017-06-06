@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="CBI-m4-K7u" customClass="WKSelectedScore">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="253"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cX-7L-yrW">
+                    <rect key="frame" x="178.5" y="27" width="45" height="181"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="zmS-ao-W82"/>
+                    </constraints>
+                </pickerView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZC2-Uf-EY1">
+                    <rect key="frame" x="183.5" y="10" width="35" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="jgc-rs-OaZ"/>
+                        <constraint firstAttribute="width" constant="35" id="snX-MJ-ELW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hh-Ms-Ho1">
+                    <rect key="frame" x="137" y="208" width="54" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="54" id="TMb-vt-H2Z"/>
+                        <constraint firstAttribute="height" constant="25" id="r46-75-S8O"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="取消"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heP-tA-vFT">
+                    <rect key="frame" x="211" y="208" width="54" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="5Qk-Yf-c1d"/>
+                        <constraint firstAttribute="height" constant="25" id="9BK-Ff-lox"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="RJC-ZF-hZU"/>
+                        <constraint firstAttribute="width" constant="54" id="fwk-Pk-WmC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="确定"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZC2-Uf-EY1" firstAttribute="top" secondItem="CBI-m4-K7u" secondAttribute="top" constant="10" id="421-fw-9F3"/>
+                <constraint firstAttribute="bottom" secondItem="6hh-Ms-Ho1" secondAttribute="bottom" constant="20" id="Dc2-Ub-lGi"/>
+                <constraint firstItem="ZC2-Uf-EY1" firstAttribute="centerX" secondItem="CBI-m4-K7u" secondAttribute="centerX" id="G2J-WJ-7Ce"/>
+                <constraint firstAttribute="bottom" secondItem="heP-tA-vFT" secondAttribute="bottom" constant="20" id="RAo-wh-lol"/>
+                <constraint firstItem="heP-tA-vFT" firstAttribute="top" secondItem="6cX-7L-yrW" secondAttribute="bottom" id="VUy-2O-b7B"/>
+                <constraint firstItem="6hh-Ms-Ho1" firstAttribute="centerX" secondItem="CBI-m4-K7u" secondAttribute="centerX" constant="-37" id="XJ0-ew-ssC"/>
+                <constraint firstItem="heP-tA-vFT" firstAttribute="leading" secondItem="6hh-Ms-Ho1" secondAttribute="trailing" constant="20" id="lwl-eT-R2y"/>
+                <constraint firstItem="6cX-7L-yrW" firstAttribute="top" secondItem="ZC2-Uf-EY1" secondAttribute="bottom" id="oIy-aX-aPU"/>
+                <constraint firstItem="6cX-7L-yrW" firstAttribute="centerX" secondItem="CBI-m4-K7u" secondAttribute="centerX" id="qm5-16-hwy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="6hh-Ms-Ho1" id="OAl-2K-Fqc"/>
+                <outlet property="pikerView" destination="6cX-7L-yrW" id="mtp-7L-0ro"/>
+                <outlet property="scoreTitle" destination="ZC2-Uf-EY1" id="dxO-aD-MRQ"/>
+                <outlet property="sureButton" destination="heP-tA-vFT" id="IuH-il-GfW"/>
+            </connections>
+            <point key="canvasLocation" x="57" y="123.5"/>
+        </view>
+    </objects>
+</document>

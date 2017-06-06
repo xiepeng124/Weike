@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WKHomeCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="175" height="142"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="175" height="142"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl" translatesAutoresizingMaskIntoConstraints="NO" id="ilm-xZ-mhO">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="97"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="97" id="u5u-bI-ORW"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是一个测试" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9n1-xE-fBF">
+                        <rect key="frame" x="5" y="97" width="170" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="ACK-0o-Qmc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_-Teacher" translatesAutoresizingMaskIntoConstraints="NO" id="Mus-b1-scM">
+                        <rect key="frame" x="5" y="122" width="12" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="O1O-GY-HSa"/>
+                            <constraint firstAttribute="width" constant="12" id="faL-Mr-Mje"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_grade" translatesAutoresizingMaskIntoConstraints="NO" id="FvF-3u-sX9">
+                        <rect key="frame" x="109" y="122" width="12" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="Ybb-ha-oJu"/>
+                            <constraint firstAttribute="height" constant="15" id="ZHY-eD-8G8"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高二级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D8-Dz-77s">
+                        <rect key="frame" x="126" y="122" width="44" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="QRm-ls-vkC"/>
+                            <constraint firstAttribute="width" constant="44" id="XyY-JX-B82"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="谢鹏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmC-aM-z9W">
+                        <rect key="frame" x="22" y="122" width="50" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="HhB-kf-Yks"/>
+                            <constraint firstAttribute="height" constant="15" id="qFU-f0-cr3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="JmC-aM-z9W" firstAttribute="leading" secondItem="Mus-b1-scM" secondAttribute="trailing" constant="5" id="3Ka-m5-DPZ"/>
+                <constraint firstItem="ilm-xZ-mhO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="60E-Ed-cwx"/>
+                <constraint firstItem="Mus-b1-scM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="CiO-Y0-Ztp"/>
+                <constraint firstAttribute="trailing" secondItem="9n1-xE-fBF" secondAttribute="trailing" id="Kut-WJ-qlN"/>
+                <constraint firstItem="9D8-Dz-77s" firstAttribute="top" secondItem="9n1-xE-fBF" secondAttribute="bottom" id="Lwl-A7-h8s"/>
+                <constraint firstAttribute="trailing" secondItem="9D8-Dz-77s" secondAttribute="trailing" constant="5" id="QJx-v0-INY"/>
+                <constraint firstAttribute="trailing" secondItem="ilm-xZ-mhO" secondAttribute="trailing" id="QNs-Vh-g41"/>
+                <constraint firstItem="JmC-aM-z9W" firstAttribute="top" secondItem="9n1-xE-fBF" secondAttribute="bottom" id="fQw-zr-CdG"/>
+                <constraint firstItem="Mus-b1-scM" firstAttribute="top" secondItem="9n1-xE-fBF" secondAttribute="bottom" id="jQL-8h-KDL"/>
+                <constraint firstItem="FvF-3u-sX9" firstAttribute="top" secondItem="9n1-xE-fBF" secondAttribute="bottom" id="rar-Xv-GWA"/>
+                <constraint firstItem="ilm-xZ-mhO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wFX-5W-F9I"/>
+                <constraint firstItem="9n1-xE-fBF" firstAttribute="top" secondItem="ilm-xZ-mhO" secondAttribute="bottom" id="xPj-JN-zYo"/>
+                <constraint firstItem="9n1-xE-fBF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="xZg-7Z-vgT"/>
+                <constraint firstItem="9D8-Dz-77s" firstAttribute="leading" secondItem="FvF-3u-sX9" secondAttribute="trailing" constant="5" id="zHh-Fa-7no"/>
+            </constraints>
+            <size key="customSize" width="271" height="182"/>
+            <connections>
+                <outlet property="CeImage" destination="ilm-xZ-mhO" id="3pm-BM-YgH"/>
+                <outlet property="TeacherName" destination="JmC-aM-z9W" id="qlo-Zx-ilF"/>
+                <outlet property="Title" destination="9n1-xE-fBF" id="4Ld-XQ-NsK"/>
+                <outlet property="gradeLabel" destination="9D8-Dz-77s" id="S0L-Di-YGf"/>
+            </connections>
+            <point key="canvasLocation" x="121.5" y="20"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="girl" width="380" height="290"/>
+        <image name="home_-Teacher" width="12" height="10"/>
+        <image name="home_grade" width="14" height="7"/>
+    </resources>
+</document>

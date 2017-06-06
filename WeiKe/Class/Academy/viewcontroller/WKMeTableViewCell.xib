@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WKMeTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_work" translatesAutoresizingMaskIntoConstraints="NO" id="5iB-Rj-4GZ">
+                        <rect key="frame" x="10" y="0.0" width="20" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="fk4-JK-Ebg"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75Y-gf-IgG">
+                        <rect key="frame" x="38" y="0.0" width="80" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Fdn-pY-7PO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5iB-Rj-4GZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EXn-gk-QPV"/>
+                    <constraint firstItem="75Y-gf-IgG" firstAttribute="leading" secondItem="5iB-Rj-4GZ" secondAttribute="trailing" constant="8" id="f5v-um-9M5"/>
+                    <constraint firstItem="75Y-gf-IgG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ffs-eu-Uto"/>
+                    <constraint firstItem="5iB-Rj-4GZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hhM-dY-7TY"/>
+                    <constraint firstAttribute="bottom" secondItem="75Y-gf-IgG" secondAttribute="bottom" id="jTf-OG-4h6"/>
+                    <constraint firstAttribute="bottom" secondItem="5iB-Rj-4GZ" secondAttribute="bottom" id="sKu-Ei-oYR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="DataImage" destination="5iB-Rj-4GZ" id="W7M-xb-MtF"/>
+                <outlet property="DataTitle" destination="75Y-gf-IgG" id="C9g-Os-VMg"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="my_work" width="17" height="16"/>
+    </resources>
+</document>

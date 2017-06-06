@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WKPlayTitleTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="24.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teacher_name" translatesAutoresizingMaskIntoConstraints="NO" id="BPO-Qm-tr5">
+                        <rect key="frame" x="10" y="4" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="GA6-PS-kIY"/>
+                            <constraint firstAttribute="width" constant="15" id="gZv-Ba-Bfx"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_time" translatesAutoresizingMaskIntoConstraints="NO" id="nPp-Zl-dAT">
+                        <rect key="frame" x="92" y="5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="fnJ-pu-Sc0"/>
+                            <constraint firstAttribute="width" constant="15" id="t6Q-Rn-kOF"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_subject" translatesAutoresizingMaskIntoConstraints="NO" id="nsu-qU-l9f">
+                        <rect key="frame" x="177" y="5" width="12" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="0gL-3k-DY9"/>
+                            <constraint firstAttribute="width" constant="12" id="CUW-Re-bnM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-td-kgr">
+                        <rect key="frame" x="30" y="0.0" width="42" height="24.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="xLI-oo-JFO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d20-xR-Whd">
+                        <rect key="frame" x="112" y="0.0" width="45" height="24.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="G0W-Eg-es4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="初一级·数学" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CV1-qj-9iT">
+                        <rect key="frame" x="194" y="0.0" width="80" height="24.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="ucD-XV-797"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nsu-qU-l9f" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0zo-IU-k1I"/>
+                    <constraint firstAttribute="bottom" secondItem="d20-xR-Whd" secondAttribute="bottom" id="AC6-IB-ZdK"/>
+                    <constraint firstItem="d20-xR-Whd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IgX-mR-gcD"/>
+                    <constraint firstItem="BPO-Qm-tr5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MfB-6g-Tbz"/>
+                    <constraint firstItem="mXS-td-kgr" firstAttribute="leading" secondItem="BPO-Qm-tr5" secondAttribute="trailing" constant="5" id="XXy-fm-7Jc"/>
+                    <constraint firstItem="nPp-Zl-dAT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZFH-2T-Uto"/>
+                    <constraint firstItem="nPp-Zl-dAT" firstAttribute="leading" secondItem="mXS-td-kgr" secondAttribute="trailing" constant="20" id="Zc1-wK-MoN"/>
+                    <constraint firstItem="d20-xR-Whd" firstAttribute="leading" secondItem="nPp-Zl-dAT" secondAttribute="trailing" constant="5" id="fEX-lZ-4d5"/>
+                    <constraint firstAttribute="bottom" secondItem="CV1-qj-9iT" secondAttribute="bottom" id="q0E-k0-gYN"/>
+                    <constraint firstItem="BPO-Qm-tr5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qTm-xE-dBf"/>
+                    <constraint firstItem="CV1-qj-9iT" firstAttribute="leading" secondItem="nsu-qU-l9f" secondAttribute="trailing" constant="5" id="rMU-Xg-37T"/>
+                    <constraint firstItem="nsu-qU-l9f" firstAttribute="leading" secondItem="d20-xR-Whd" secondAttribute="trailing" constant="20" id="sde-Dg-aVa"/>
+                    <constraint firstAttribute="bottom" secondItem="mXS-td-kgr" secondAttribute="bottom" id="tW1-fh-wC6"/>
+                    <constraint firstItem="CV1-qj-9iT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uQd-60-zzK"/>
+                    <constraint firstItem="mXS-td-kgr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yQj-gb-K3c"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="91" y="48"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="teacher_name" width="11" height="10"/>
+        <image name="video_subject" width="8" height="11"/>
+        <image name="video_time" width="12" height="12"/>
+    </resources>
+</document>

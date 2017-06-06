@@ -1,0 +1,2062 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E047C4B1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E047C491EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m */; };
+		4E047C4C1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E047C4A1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib */; };
+		4E0A1DFC1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A1DFA1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m */; };
+		4E0A1DFD1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0A1DFB1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib */; };
+		4E0A1DFF1ED4025600E99776 /* ACSelectMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A1DFE1ED4025600E99776 /* ACSelectMediaView.m */; };
+		4E0A1E021ED42DF200E99776 /* WKEditVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A1E011ED42DF200E99776 /* WKEditVideoViewController.m */; };
+		4E0A370F1E9E030900438BAC /* WKCarouselFigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A370E1E9E030900438BAC /* WKCarouselFigureViewController.m */; };
+		4E0A37131E9E362900438BAC /* WKSearcherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A37121E9E362900438BAC /* WKSearcherViewController.m */; };
+		4E0C1DA71EA06BBC00B96A54 /* SLScreenEdgePanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0C1DA41EA06BBC00B96A54 /* SLScreenEdgePanGestureRecognizer.m */; };
+		4E0C1DA81EA06BBC00B96A54 /* SLSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0C1DA61EA06BBC00B96A54 /* SLSlideMenu.m */; };
+		4E0C1DB71EA09EE900B96A54 /* WKMenuDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0C1DB61EA09EE900B96A54 /* WKMenuDetail.m */; };
+		4E0D22F21ECA90B700631072 /* WKVideoClassfiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D22F01ECA90B700631072 /* WKVideoClassfiCollectionViewCell.m */; };
+		4E0D22F31ECA90B700631072 /* WKVideoClassfiCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D22F11ECA90B700631072 /* WKVideoClassfiCollectionViewCell.xib */; };
+		4E0DF1F61ED6704800F7B251 /* WKApprovalingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF1F41ED6704800F7B251 /* WKApprovalingViewController.m */; };
+		4E0DF1F71ED6704800F7B251 /* WKApprovalingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0DF1F51ED6704800F7B251 /* WKApprovalingViewController.xib */; };
+		4E0DF1FC1ED68F4100F7B251 /* WKIndicatorSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF1FA1ED68F4100F7B251 /* WKIndicatorSetViewController.m */; };
+		4E0DF1FD1ED68F4100F7B251 /* WKIndicatorSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0DF1FB1ED68F4100F7B251 /* WKIndicatorSetViewController.xib */; };
+		4E0DF2001ED6B94600F7B251 /* WKIndicatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF1FF1ED6B94600F7B251 /* WKIndicatorModel.m */; };
+		4E0DF2041ED6D8C300F7B251 /* WKJobManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF2031ED6D8C300F7B251 /* WKJobManagerViewController.m */; };
+		4E0DF2091ED6E10800F7B251 /* WKJobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0DF2071ED6E10800F7B251 /* WKJobTableViewCell.m */; };
+		4E0DF20A1ED6E10800F7B251 /* WKJobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0DF2081ED6E10800F7B251 /* WKJobTableViewCell.xib */; };
+		4E0E78FA1EBFFD7D00DB3C07 /* WKRolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E78F91EBFFD7D00DB3C07 /* WKRolesViewController.m */; };
+		4E0E78FD1EC00A0D00DB3C07 /* WKHeadview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E78FC1EC00A0D00DB3C07 /* WKHeadview.m */; };
+		4E0E79001EC00CA400DB3C07 /* UIView+WKFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E78FF1EC00CA400DB3C07 /* UIView+WKFont.m */; };
+		4E0E79061EC05B5300DB3C07 /* WKRolesEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E79051EC05B5300DB3C07 /* WKRolesEditViewController.m */; };
+		4E13B43E1ED03C9C00D98102 /* uploadVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E13B43D1ED03C9C00D98102 /* uploadVideo.xib */; };
+		4E13B4411ED04BF900D98102 /* WKUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E13B4401ED04BF900D98102 /* WKUpload.m */; };
+		4E179B3C1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E179B3A1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.m */; };
+		4E179B3D1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E179B3B1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.xib */; };
+		4E192B6D1ED7CCE800082C9C /* WKJobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E192B6C1ED7CCE800082C9C /* WKJobModel.m */; };
+		4E192B711ED7FE2100082C9C /* WKJobEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E192B6F1ED7FE2100082C9C /* WKJobEditViewController.m */; };
+		4E192B721ED7FE2100082C9C /* WKJobEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E192B701ED7FE2100082C9C /* WKJobEditViewController.xib */; };
+		4E1F7B5A1EA5B7670088B481 /* WKHomeAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F7B591EA5B7670088B481 /* WKHomeAD.m */; };
+		4E1F7B5D1EA5BDA60088B481 /* WKHomeAdHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F7B5C1EA5BDA60088B481 /* WKHomeAdHandler.m */; };
+		4E1F7B601EA612A00088B481 /* WKHomeNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F7B5F1EA612A00088B481 /* WKHomeNew.m */; };
+		4E2264901EC543B4004BD057 /* WKVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E22648E1EC543B4004BD057 /* WKVideoTableViewCell.m */; };
+		4E2264911EC543B4004BD057 /* WKVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E22648F1EC543B4004BD057 /* WKVideoTableViewCell.xib */; };
+		4E2264941EC565D9004BD057 /* WKVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2264931EC565D9004BD057 /* WKVideoModel.m */; };
+		4E2264971EC599FC004BD057 /* WKUploadVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2264961EC599FC004BD057 /* WKUploadVideoViewController.m */; };
+		4E2264991EC5B802004BD057 /* remindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E2264981EC5B802004BD057 /* remindView.xib */; };
+		4E22649C1EC5B835004BD057 /* WKRemindView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E22649B1EC5B835004BD057 /* WKRemindView.m */; };
+		4E23FAC21EA9B8E100A83674 /* WKClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FAC11EA9B8E100A83674 /* WKClassViewController.m */; };
+		4E23FAC91EA9F28200A83674 /* WKAcadeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E23FAC71EA9F28200A83674 /* WKAcadeTableViewCell.m */; };
+		4E23FACA1EA9F28200A83674 /* WKAcadeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E23FAC81EA9F28200A83674 /* WKAcadeTableViewCell.xib */; };
+		4E27BE201ED56E1700549975 /* WKUploadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E27BE1F1ED56E1700549975 /* WKUploadModel.m */; };
+		4E27BE271ED595A100549975 /* WKApprovalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E27BE261ED595A100549975 /* WKApprovalViewController.m */; };
+		4E33B4DA1EE3A03A003CB8F0 /* WKMyJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B4D91EE3A03A003CB8F0 /* WKMyJobViewController.m */; };
+		4E33B4DE1EE3A194003CB8F0 /* WKMyJobTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B4DC1EE3A194003CB8F0 /* WKMyJobTableViewCell.m */; };
+		4E33B4DF1EE3A194003CB8F0 /* WKMyJobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E33B4DD1EE3A194003CB8F0 /* WKMyJobTableViewCell.xib */; };
+		4E33B4E11EE3B047003CB8F0 /* MyJobheader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E33B4E01EE3B047003CB8F0 /* MyJobheader.xib */; };
+		4E33B4E41EE3B2F0003CB8F0 /* WKMyJobheader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B4E31EE3B2F0003CB8F0 /* WKMyJobheader.m */; };
+		4E33B4E71EE3D37F003CB8F0 /* WKMyJobModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B4E61EE3D37F003CB8F0 /* WKMyJobModel.m */; };
+		4E33B4EB1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B4E91EE3E6E0003CB8F0 /* WKUploadMyJobViewController.m */; };
+		4E33B4EC1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E33B4EA1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.xib */; };
+		4E3EE79B1EDEC7B800D57E6C /* UIButton+WKIndexpath.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EE79A1EDEC7B800D57E6C /* UIButton+WKIndexpath.m */; };
+		4E4135421EC9BF91009CD900 /* WKSetVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4135411EC9BF91009CD900 /* WKSetVideoViewController.m */; };
+		4E4635451EBDBBFA00C140F0 /* WKRoleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4635431EBDBBFA00C140F0 /* WKRoleTableViewCell.m */; };
+		4E4635461EBDBBFA00C140F0 /* WKRoleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4635441EBDBBFA00C140F0 /* WKRoleTableViewCell.xib */; };
+		4E5CFEFF1EA8667F003DF637 /* WKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5CFEFE1EA8667F003DF637 /* WKColor.m */; };
+		4E6130501E9B6CEC00580BF4 /* WKTeacherStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E61304F1E9B6CEC00580BF4 /* WKTeacherStyleViewController.m */; };
+		4E6130531E9B782700580BF4 /* WKStudentStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6130521E9B782700580BF4 /* WKStudentStyleViewController.m */; };
+		4E6130561E9B7A8E00580BF4 /* WKSingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6130551E9B7A8E00580BF4 /* WKSingleTon.m */; };
+		4E6929441EB8331600CFFF7D /* WKCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6929431EB8331600CFFF7D /* WKCourse.m */; };
+		4E74151F1EAD8BF70023FBAB /* WKGradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E74151D1EAD8BF70023FBAB /* WKGradeTableViewCell.m */; };
+		4E7415201EAD8BF70023FBAB /* WKGradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E74151E1EAD8BF70023FBAB /* WKGradeTableViewCell.xib */; };
+		4E7415241EAD93A20023FBAB /* WKCourseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7415221EAD93A20023FBAB /* WKCourseTableViewCell.m */; };
+		4E7415251EAD93A20023FBAB /* WKCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E7415231EAD93A20023FBAB /* WKCourseTableViewCell.xib */; };
+		4E7D92B81E9C847200241C80 /* WKTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D92B71E9C847200241C80 /* WKTabBarViewController.m */; };
+		4E944EA71EE00B2100889145 /* JobScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E944EA61EE00B2100889145 /* JobScore.xib */; };
+		4E944EAA1EE0139B00889145 /* WKJobScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E944EA91EE0139B00889145 /* WKJobScore.m */; };
+		4E944EAD1EE014D600889145 /* WKJobScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E944EAC1EE014D600889145 /* WKJobScoreViewController.m */; };
+		4E9BCE1E1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9BCE1D1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.m */; };
+		4E9BCE221EB09006004787F0 /* WKPlayTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9BCE201EB09006004787F0 /* WKPlayTitleTableViewCell.m */; };
+		4E9BCE231EB09006004787F0 /* WKPlayTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9BCE211EB09006004787F0 /* WKPlayTitleTableViewCell.xib */; };
+		4E9BCE261EB09A8C004787F0 /* WKPlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9BCE251EB09A8C004787F0 /* WKPlayerTableViewCell.m */; };
+		4E9BCE2A1EB09CB5004787F0 /* WKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9BCE281EB09CB5004787F0 /* WKCollectionViewCell.m */; };
+		4E9BCE2B1EB09CB5004787F0 /* WKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E9BCE291EB09CB5004787F0 /* WKCollectionViewCell.xib */; };
+		4EA142E01EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA142DE1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.m */; };
+		4EA142E11EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA142DF1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.xib */; };
+		4EA7E5E91EB2D21500B2B87C /* WKBackmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5E81EB2D21500B2B87C /* WKBackmenu.m */; };
+		4EA7E5ED1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5EB1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.m */; };
+		4EA7E5EE1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA7E5EC1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.xib */; };
+		4EA7E5F41EB31DA000B2B87C /* WKAcadeResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5F31EB31DA000B2B87C /* WKAcadeResultsViewController.m */; };
+		4EA7E5F71EB33A5900B2B87C /* WKAcedemyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5F61EB33A5900B2B87C /* WKAcedemyHandler.m */; };
+		4EA7E5FD1EB34BEF00B2B87C /* WKGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5FC1EB34BEF00B2B87C /* WKGrade.m */; };
+		4EBC283E1EAEFCC300B920D4 /* WKMyMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC283D1EAEFCC300B920D4 /* WKMyMenu.m */; };
+		4EBC28421EAF251E00B920D4 /* WKMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC28401EAF251E00B920D4 /* WKMeTableViewCell.m */; };
+		4EBC28431EAF251E00B920D4 /* WKMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC28411EAF251E00B920D4 /* WKMeTableViewCell.xib */; };
+		4ECE89FD1ECBECCB00153F70 /* WKVideoADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE89FC1ECBECCB00153F70 /* WKVideoADViewController.m */; };
+		4ECE8A031ECC1A0B00153F70 /* WKUploadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECE8A021ECC1A0B00153F70 /* WKUploadImage.m */; };
+		4EDE11A21EBC86E200109E42 /* Headview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDE11A11EBC86E200109E42 /* Headview.xib */; };
+		4EDF94491ECD2A2200FEE211 /* WKVideoMergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF94481ECD2A2200FEE211 /* WKVideoMergeViewController.m */; };
+		4EE008391EC4532E00F590CF /* WKVideoManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE008381EC4532E00F590CF /* WKVideoManagerViewController.m */; };
+		4EE0083B1EC471CE00F590CF /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE0083A1EC471CE00F590CF /* DetailView.xib */; };
+		4EE0083E1EC4743200F590CF /* WKVideoDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE0083D1EC4743200F590CF /* WKVideoDetailView.m */; };
+		4EEB11501ED171210078DF6E /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11361ED171210078DF6E /* NSBundle+TZImagePicker.m */; };
+		4EEB11511ED171210078DF6E /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11381ED171210078DF6E /* TZAssetCell.m */; };
+		4EEB11521ED171210078DF6E /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB113A1ED171210078DF6E /* TZAssetModel.m */; };
+		4EEB11531ED171210078DF6E /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB113C1ED171210078DF6E /* TZGifPhotoPreviewController.m */; };
+		4EEB11541ED171210078DF6E /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB113E1ED171210078DF6E /* TZImageCropManager.m */; };
+		4EEB11551ED171210078DF6E /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11401ED171210078DF6E /* TZImageManager.m */; };
+		4EEB11561ED171210078DF6E /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB11411ED171210078DF6E /* TZImagePickerController.bundle */; };
+		4EEB11571ED171210078DF6E /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11431ED171210078DF6E /* TZImagePickerController.m */; };
+		4EEB11581ED171210078DF6E /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11451ED171210078DF6E /* TZPhotoPickerController.m */; };
+		4EEB11591ED171210078DF6E /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11471ED171210078DF6E /* TZPhotoPreviewCell.m */; };
+		4EEB115A1ED171210078DF6E /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11491ED171210078DF6E /* TZPhotoPreviewController.m */; };
+		4EEB115B1ED171210078DF6E /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB114B1ED171210078DF6E /* TZProgressView.m */; };
+		4EEB115C1ED171210078DF6E /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB114D1ED171210078DF6E /* TZVideoPlayerController.m */; };
+		4EEB115D1ED171210078DF6E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB114F1ED171210078DF6E /* UIView+Layout.m */; };
+		4EEB11751ED171D50078DF6E /* ACMediaFrame.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EEB115F1ED171D50078DF6E /* ACMediaFrame.bundle */; };
+		4EEB11761ED171D50078DF6E /* ACMediaImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11631ED171D50078DF6E /* ACMediaImageCell.m */; };
+		4EEB11771ED171D50078DF6E /* ACMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11651ED171D50078DF6E /* ACMediaManager.m */; };
+		4EEB11781ED171D50078DF6E /* ACMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11671ED171D50078DF6E /* ACMediaModel.m */; };
+		4EEB117A1ED171D50078DF6E /* NSString+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB116C1ED171D50078DF6E /* NSString+ACMediaExt.m */; };
+		4EEB117B1ED171D50078DF6E /* UIImage+ACGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB116E1ED171D50078DF6E /* UIImage+ACGif.m */; };
+		4EEB117C1ED171D50078DF6E /* UIImageView+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11701ED171D50078DF6E /* UIImageView+ACMediaExt.m */; };
+		4EEB117D1ED171D50078DF6E /* UIView+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11721ED171D50078DF6E /* UIView+ACMediaExt.m */; };
+		4EEB117E1ED171D50078DF6E /* UIViewController+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB11741ED171D50078DF6E /* UIViewController+ACMediaExt.m */; };
+		4EEE019A1ED2DBB900ADA0DB /* WKUploadOutLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEE01991ED2DBB900ADA0DB /* WKUploadOutLinkViewController.m */; };
+		4EEF20F21ED920A800289B91 /* WKSelectedJoinClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF20F11ED920A800289B91 /* WKSelectedJoinClassViewController.m */; };
+		4EEF20F51ED9305400289B91 /* WKJObClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF20F41ED9305400289B91 /* WKJObClassModel.m */; };
+		4EEF20F81ED930D000289B91 /* WKJobGradeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF20F71ED930D000289B91 /* WKJobGradeModel.m */; };
+		4EEF20FD1ED95C4000289B91 /* WKJobSelectClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF20FB1ED95C4000289B91 /* WKJobSelectClassTableViewCell.m */; };
+		4EEF20FE1ED95C4000289B91 /* WKJobSelectClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF20FC1ED95C4000289B91 /* WKJobSelectClassTableViewCell.xib */; };
+		4EEF21001ED962C100289B91 /* ClassHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF20FF1ED962C100289B91 /* ClassHeadView.xib */; };
+		4EEF21031ED9670200289B91 /* WKJobClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF21021ED9670200289B91 /* WKJobClass.m */; };
+		4EEF4CDB1EB1930500259D09 /* WKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF4CDA1EB1930500259D09 /* WKFlowLayout.m */; };
+		4EEF4CDE1EB1962800259D09 /* WKMyteacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF4CDD1EB1962800259D09 /* WKMyteacherViewController.m */; };
+		4EEF4CE41EB1DFF000259D09 /* WKTeacherHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF4CE31EB1DFF000259D09 /* WKTeacherHandler.m */; };
+		4EEF4CE71EB1E7DF00259D09 /* WKMeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF4CE61EB1E7DF00259D09 /* WKMeHandler.m */; };
+		4EEF4CEB1EB1ED9F00259D09 /* WKBackstageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF4CE91EB1ED9F00259D09 /* WKBackstageCollectionViewCell.m */; };
+		4EEF4CEC1EB1ED9F00259D09 /* WKBackstageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EEF4CEA1EB1ED9F00259D09 /* WKBackstageCollectionViewCell.xib */; };
+		4EEF4CEF1EB1F9D800259D09 /* WKBackstageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF4CEE1EB1F9D800259D09 /* WKBackstageCollectionViewController.m */; };
+		4EF0A2001EC19C970043A713 /* WKBackstage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0A1FF1EC19C970043A713 /* WKBackstage.m */; };
+		4EF0A2031EC1A1B10043A713 /* WKRolesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF0A2021EC1A1B10043A713 /* WKRolesModel.m */; };
+		4EF3D7651EE0ED8A009D7B07 /* WKJobSureScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3D7641EE0ED8A009D7B07 /* WKJobSureScoreViewController.m */; };
+		4EF3D7691EE0F49F009D7B07 /* WKJobScoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3D7671EE0F49F009D7B07 /* WKJobScoreTableViewCell.m */; };
+		4EF3D76A1EE0F49F009D7B07 /* WKJobScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3D7681EE0F49F009D7B07 /* WKJobScoreTableViewCell.xib */; };
+		4EF3D76C1EE0FFFA009D7B07 /* scoreHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3D76B1EE0FFFA009D7B07 /* scoreHeaderView.xib */; };
+		4EF3D76F1EE1036C009D7B07 /* WKJobImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3D76E1EE1036C009D7B07 /* WKJobImageTableViewCell.m */; };
+		4EF3D7721EE10749009D7B07 /* WKScoreHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3D7711EE10749009D7B07 /* WKScoreHeaderView.m */; };
+		4EF3D7751EE110C7009D7B07 /* WKSelectedScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3D7741EE110C7009D7B07 /* WKSelectedScore.m */; };
+		4EF3D7771EE110E1009D7B07 /* selectScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3D7761EE110E1009D7B07 /* selectScore.xib */; };
+		4EF3D77A1EE12CB9009D7B07 /* WKJobStu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3D7791EE12CB9009D7B07 /* WKJobStu.m */; };
+		4EF3D8111EE12D86009D7B07 /* WKJobDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3D8101EE12D86009D7B07 /* WKJobDetail.m */; };
+		4EF4469E1EC2E52D0040EC9C /* WKBindOnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4469D1EC2E52D0040EC9C /* WKBindOnView.m */; };
+		4EF446A11EC2E5ED0040EC9C /* WKRoleBindOnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF446A01EC2E5ED0040EC9C /* WKRoleBindOnViewController.m */; };
+		4EF446A41EC2ECFF0040EC9C /* WKRoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF446A31EC2ECFF0040EC9C /* WKRoleView.m */; };
+		4EF446A81EC2FCE70040EC9C /* WKRoleBindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF446A61EC2FCE70040EC9C /* WKRoleBindTableViewCell.m */; };
+		4EF446A91EC2FCE70040EC9C /* WKRoleBindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EF446A71EC2FCE70040EC9C /* WKRoleBindTableViewCell.xib */; };
+		4EF446AC1EC310D20040EC9C /* WKRoleBindUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF446AB1EC310D20040EC9C /* WKRoleBindUser.m */; };
+		4EF446AF1EC325030040EC9C /* WKRoleBindAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF446AE1EC325030040EC9C /* WKRoleBindAddViewController.m */; };
+		4EF4ADE71E9F1C610054D269 /* WKHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4ADE51E9F1C610054D269 /* WKHomeCollectionViewCell.m */; };
+		4EF4ADE81E9F1C610054D269 /* WKHomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4ADE61E9F1C610054D269 /* WKHomeCollectionViewCell.xib */; };
+		4EF4ADEB1E9F29BE0054D269 /* WKHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4ADEA1E9F29BE0054D269 /* WKHeaderCollectionReusableView.m */; };
+		4EF4ADEE1E9F759A0054D269 /* WKSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4ADED1E9F759A0054D269 /* WKSearchResultViewController.m */; };
+		4EFA27BD1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA27BC1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m */; };
+		4EFE988E1EB987EB006F3703 /* WKTeacherList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE988D1EB987EB006F3703 /* WKTeacherList.m */; };
+		4EFE98911EB999BE006F3703 /* WKTeacherScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE98901EB999BE006F3703 /* WKTeacherScreenViewController.m */; };
+		4EFE98951EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE98931EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.m */; };
+		4EFE98961EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE98941EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.xib */; };
+		4EFE989A1EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE98981EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.m */; };
+		4EFE989B1EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE98991EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.xib */; };
+		4EFE989F1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE989D1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.m */; };
+		4EFE98A01EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE989E1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.xib */; };
+		5A2835261E977D3E005AF4B2 /* WKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2835251E977D3E005AF4B2 /* WKBaseViewController.m */; };
+		5A2835291E977E38005AF4B2 /* WKMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2835281E977E38005AF4B2 /* WKMeViewController.m */; };
+		5A28352C1E977E76005AF4B2 /* WKHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A28352B1E977E76005AF4B2 /* WKHomeViewController.m */; };
+		5A28352F1E977EA4005AF4B2 /* WKAcademyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A28352E1E977EA4005AF4B2 /* WKAcademyViewController.m */; };
+		5A2835321E977EC7005AF4B2 /* WKTeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2835311E977EC7005AF4B2 /* WKTeacherViewController.m */; };
+		5A2835361E977F88005AF4B2 /* WKSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2835351E977F88005AF4B2 /* WKSelectedViewController.m */; };
+		5A4FBAE01E9B6676005E2FE8 /* WKplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4FBADF1E9B6676005E2FE8 /* WKplayViewController.m */; };
+		5A8CF6E51E95E12D00D08AA1 /* UIImageView+WKsdwebimage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8CF6E41E95E12D00D08AA1 /* UIImageView+WKsdwebimage.m */; };
+		5AFB761B1E949BF4000CE6E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB761A1E949BF4000CE6E8 /* main.m */; };
+		5AFB76241E949BF4000CE6E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB76221E949BF4000CE6E8 /* Main.storyboard */; };
+		5AFB76261E949BF4000CE6E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB76251E949BF4000CE6E8 /* Assets.xcassets */; };
+		5AFB76291E949BF4000CE6E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB76271E949BF4000CE6E8 /* LaunchScreen.storyboard */; };
+		5AFB76341E949BF4000CE6E8 /* WeiKeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB76331E949BF4000CE6E8 /* WeiKeTests.m */; };
+		5AFB763F1E949BF4000CE6E8 /* WeiKeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB763E1E949BF4000CE6E8 /* WeiKeUITests.m */; };
+		5AFB76A11E94A159000CE6E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB768A1E94A159000CE6E8 /* AppDelegate.m */; };
+		5AFB76A51E94A3B2000CE6E8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB76A41E94A3B2000CE6E8 /* Podfile */; };
+		5AFB76AB1E94E35A000CE6E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB76AA1E94E35A000CE6E8 /* ViewController.m */; };
+		5AFB76B21E94EED6000CE6E8 /* WKHttpmanager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB76B11E94EED6000CE6E8 /* WKHttpmanager.m */; };
+		5AFB76B81E94F336000CE6E8 /* WKHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB76B71E94F336000CE6E8 /* WKHttpTool.m */; };
+		5AFB76BB1E94FDC0000CE6E8 /* WKHttpbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB76BA1E94FDC0000CE6E8 /* WKHttpbase.m */; };
+		A112B0D6A0BD2F960E77D334 /* libPods-WeiKe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F0A3C94EE67A16477B0BCF /* libPods-WeiKe.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AFB76301E949BF4000CE6E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AFB760E1E949BF4000CE6E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AFB76151E949BF4000CE6E8;
+			remoteInfo = WeiKe;
+		};
+		5AFB763B1E949BF4000CE6E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AFB760E1E949BF4000CE6E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AFB76151E949BF4000CE6E8;
+			remoteInfo = WeiKe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4E047C481EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHomeFooterCollectionReusableView.h; path = WeiKe/Class/Home/model/WKHomeFooterCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
+		4E047C491EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHomeFooterCollectionReusableView.m; path = WeiKe/Class/Home/model/WKHomeFooterCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
+		4E047C4A1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKHomeFooterCollectionReusableView.xib; path = WeiKe/Class/Home/model/WKHomeFooterCollectionReusableView.xib; sourceTree = SOURCE_ROOT; };
+		4E0A1DF91ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUpVideoCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E0A1DFA1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUpVideoCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E0A1DFB1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKUpVideoCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E0A1DFE1ED4025600E99776 /* ACSelectMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSelectMediaView.m; sourceTree = "<group>"; };
+		4E0A1E001ED42DF200E99776 /* WKEditVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKEditVideoViewController.h; sourceTree = "<group>"; };
+		4E0A1E011ED42DF200E99776 /* WKEditVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKEditVideoViewController.m; sourceTree = "<group>"; };
+		4E0A370D1E9E030900438BAC /* WKCarouselFigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCarouselFigureViewController.h; sourceTree = "<group>"; };
+		4E0A370E1E9E030900438BAC /* WKCarouselFigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCarouselFigureViewController.m; sourceTree = "<group>"; };
+		4E0A37111E9E362900438BAC /* WKSearcherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSearcherViewController.h; sourceTree = "<group>"; };
+		4E0A37121E9E362900438BAC /* WKSearcherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSearcherViewController.m; sourceTree = "<group>"; };
+		4E0C1DA31EA06BBC00B96A54 /* SLScreenEdgePanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLScreenEdgePanGestureRecognizer.h; sourceTree = "<group>"; };
+		4E0C1DA41EA06BBC00B96A54 /* SLScreenEdgePanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLScreenEdgePanGestureRecognizer.m; sourceTree = "<group>"; };
+		4E0C1DA51EA06BBC00B96A54 /* SLSlideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSlideMenu.h; sourceTree = "<group>"; };
+		4E0C1DA61EA06BBC00B96A54 /* SLSlideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSlideMenu.m; sourceTree = "<group>"; };
+		4E0C1DB51EA09EE900B96A54 /* WKMenuDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMenuDetail.h; path = WeiKe/Class/Search/WKMenuDetail.h; sourceTree = SOURCE_ROOT; };
+		4E0C1DB61EA09EE900B96A54 /* WKMenuDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMenuDetail.m; path = WeiKe/Class/Search/WKMenuDetail.m; sourceTree = SOURCE_ROOT; };
+		4E0D22EF1ECA90B700631072 /* WKVideoClassfiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoClassfiCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E0D22F01ECA90B700631072 /* WKVideoClassfiCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoClassfiCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E0D22F11ECA90B700631072 /* WKVideoClassfiCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKVideoClassfiCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E0DF1F31ED6704800F7B251 /* WKApprovalingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApprovalingViewController.h; sourceTree = "<group>"; };
+		4E0DF1F41ED6704800F7B251 /* WKApprovalingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApprovalingViewController.m; sourceTree = "<group>"; };
+		4E0DF1F51ED6704800F7B251 /* WKApprovalingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKApprovalingViewController.xib; sourceTree = "<group>"; };
+		4E0DF1F91ED68F4100F7B251 /* WKIndicatorSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKIndicatorSetViewController.h; sourceTree = "<group>"; };
+		4E0DF1FA1ED68F4100F7B251 /* WKIndicatorSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKIndicatorSetViewController.m; sourceTree = "<group>"; };
+		4E0DF1FB1ED68F4100F7B251 /* WKIndicatorSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKIndicatorSetViewController.xib; sourceTree = "<group>"; };
+		4E0DF1FE1ED6B94600F7B251 /* WKIndicatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKIndicatorModel.h; path = WeiKe/Class/Backstage/viewcontroller/WKIndicatorModel.h; sourceTree = SOURCE_ROOT; };
+		4E0DF1FF1ED6B94600F7B251 /* WKIndicatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKIndicatorModel.m; path = WeiKe/Class/Backstage/viewcontroller/WKIndicatorModel.m; sourceTree = SOURCE_ROOT; };
+		4E0DF2021ED6D8C300F7B251 /* WKJobManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobManagerViewController.h; sourceTree = "<group>"; };
+		4E0DF2031ED6D8C300F7B251 /* WKJobManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobManagerViewController.m; sourceTree = "<group>"; };
+		4E0DF2061ED6E10800F7B251 /* WKJobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E0DF2071ED6E10800F7B251 /* WKJobTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E0DF2081ED6E10800F7B251 /* WKJobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKJobTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E0E78F81EBFFD7D00DB3C07 /* WKRolesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRolesViewController.h; sourceTree = "<group>"; };
+		4E0E78F91EBFFD7D00DB3C07 /* WKRolesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRolesViewController.m; sourceTree = "<group>"; };
+		4E0E78FB1EC00A0D00DB3C07 /* WKHeadview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHeadview.h; path = WeiKe/Class/Backstage/viewcontroller/WKHeadview.h; sourceTree = SOURCE_ROOT; };
+		4E0E78FC1EC00A0D00DB3C07 /* WKHeadview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHeadview.m; path = WeiKe/Class/Backstage/viewcontroller/WKHeadview.m; sourceTree = SOURCE_ROOT; };
+		4E0E78FE1EC00CA400DB3C07 /* UIView+WKFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WKFont.h"; sourceTree = "<group>"; };
+		4E0E78FF1EC00CA400DB3C07 /* UIView+WKFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WKFont.m"; sourceTree = "<group>"; };
+		4E0E79041EC05B5300DB3C07 /* WKRolesEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRolesEditViewController.h; sourceTree = "<group>"; };
+		4E0E79051EC05B5300DB3C07 /* WKRolesEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRolesEditViewController.m; sourceTree = "<group>"; };
+		4E13B43D1ED03C9C00D98102 /* uploadVideo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideo.xib; sourceTree = SOURCE_ROOT; };
+		4E13B43F1ED04BF900D98102 /* WKUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUpload.h; sourceTree = SOURCE_ROOT; };
+		4E13B4401ED04BF900D98102 /* WKUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUpload.m; sourceTree = SOURCE_ROOT; };
+		4E179B3A1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTeacherCollectionViewCell.m; path = WeiKe/Class/Search/WKTeacherCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E179B3B1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKTeacherCollectionViewCell.xib; path = WeiKe/Class/Search/WKTeacherCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E192B6B1ED7CCE800082C9C /* WKJobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobModel.h; sourceTree = SOURCE_ROOT; };
+		4E192B6C1ED7CCE800082C9C /* WKJobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobModel.m; sourceTree = SOURCE_ROOT; };
+		4E192B6E1ED7FE2100082C9C /* WKJobEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobEditViewController.h; sourceTree = "<group>"; };
+		4E192B6F1ED7FE2100082C9C /* WKJobEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobEditViewController.m; sourceTree = "<group>"; };
+		4E192B701ED7FE2100082C9C /* WKJobEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKJobEditViewController.xib; sourceTree = "<group>"; };
+		4E1F7B581EA5B7670088B481 /* WKHomeAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeAD.h; sourceTree = "<group>"; };
+		4E1F7B591EA5B7670088B481 /* WKHomeAD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeAD.m; sourceTree = "<group>"; };
+		4E1F7B5B1EA5BDA60088B481 /* WKHomeAdHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHomeAdHandler.h; path = WeiKe/Class/Home/model/WKHomeAdHandler.h; sourceTree = SOURCE_ROOT; };
+		4E1F7B5C1EA5BDA60088B481 /* WKHomeAdHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHomeAdHandler.m; path = WeiKe/Class/Home/model/WKHomeAdHandler.m; sourceTree = SOURCE_ROOT; };
+		4E1F7B5E1EA612A00088B481 /* WKHomeNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeNew.h; sourceTree = "<group>"; };
+		4E1F7B5F1EA612A00088B481 /* WKHomeNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeNew.m; sourceTree = "<group>"; };
+		4E22648D1EC543B4004BD057 /* WKVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKVideoTableViewCell.h; path = WeiKe/Class/Backstage/viewcontroller/WKVideoTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E22648E1EC543B4004BD057 /* WKVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKVideoTableViewCell.m; path = WeiKe/Class/Backstage/viewcontroller/WKVideoTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E22648F1EC543B4004BD057 /* WKVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKVideoTableViewCell.xib; path = WeiKe/Class/Backstage/viewcontroller/WKVideoTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E2264921EC565D9004BD057 /* WKVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKVideoModel.h; path = WeiKe/Class/Backstage/viewcontroller/WKVideoModel.h; sourceTree = SOURCE_ROOT; };
+		4E2264931EC565D9004BD057 /* WKVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKVideoModel.m; path = WeiKe/Class/Backstage/viewcontroller/WKVideoModel.m; sourceTree = SOURCE_ROOT; };
+		4E2264951EC599FC004BD057 /* WKUploadVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUploadVideoViewController.h; sourceTree = "<group>"; };
+		4E2264961EC599FC004BD057 /* WKUploadVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUploadVideoViewController.m; sourceTree = "<group>"; };
+		4E2264981EC5B802004BD057 /* remindView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = remindView.xib; path = WeiKe/Class/Backstage/viewcontroller/remindView.xib; sourceTree = SOURCE_ROOT; };
+		4E22649A1EC5B835004BD057 /* WKRemindView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRemindView.h; path = WeiKe/Class/Backstage/viewcontroller/WKRemindView.h; sourceTree = SOURCE_ROOT; };
+		4E22649B1EC5B835004BD057 /* WKRemindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRemindView.m; path = WeiKe/Class/Backstage/viewcontroller/WKRemindView.m; sourceTree = SOURCE_ROOT; };
+		4E23FAC01EA9B8E100A83674 /* WKClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKClassViewController.h; sourceTree = "<group>"; };
+		4E23FAC11EA9B8E100A83674 /* WKClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKClassViewController.m; sourceTree = "<group>"; };
+		4E23FAC61EA9F28200A83674 /* WKAcadeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKAcadeTableViewCell.h; path = WeiKe/Class/Academy/viewcontroller/WKAcadeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E23FAC71EA9F28200A83674 /* WKAcadeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKAcadeTableViewCell.m; path = WeiKe/Class/Academy/viewcontroller/WKAcadeTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E23FAC81EA9F28200A83674 /* WKAcadeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKAcadeTableViewCell.xib; path = WeiKe/Class/Academy/viewcontroller/WKAcadeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E27BE1E1ED56E1700549975 /* WKUploadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKUploadModel.h; path = WeiKe/Class/Backstage/viewcontroller/WKUploadModel.h; sourceTree = SOURCE_ROOT; };
+		4E27BE1F1ED56E1700549975 /* WKUploadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKUploadModel.m; path = WeiKe/Class/Backstage/viewcontroller/WKUploadModel.m; sourceTree = SOURCE_ROOT; };
+		4E27BE251ED595A100549975 /* WKApprovalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApprovalViewController.h; sourceTree = "<group>"; };
+		4E27BE261ED595A100549975 /* WKApprovalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApprovalViewController.m; sourceTree = "<group>"; };
+		4E33B4D81EE3A03A003CB8F0 /* WKMyJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyJobViewController.h; sourceTree = "<group>"; };
+		4E33B4D91EE3A03A003CB8F0 /* WKMyJobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyJobViewController.m; sourceTree = "<group>"; };
+		4E33B4DB1EE3A194003CB8F0 /* WKMyJobTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMyJobTableViewCell.h; path = WeiKe/Class/Me/viewcontroller/WKMyJobTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E33B4DC1EE3A194003CB8F0 /* WKMyJobTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMyJobTableViewCell.m; path = WeiKe/Class/Me/viewcontroller/WKMyJobTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E33B4DD1EE3A194003CB8F0 /* WKMyJobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKMyJobTableViewCell.xib; path = WeiKe/Class/Me/viewcontroller/WKMyJobTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E33B4E01EE3B047003CB8F0 /* MyJobheader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyJobheader.xib; path = WeiKe/Class/Me/viewcontroller/MyJobheader.xib; sourceTree = SOURCE_ROOT; };
+		4E33B4E21EE3B2F0003CB8F0 /* WKMyJobheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMyJobheader.h; path = WeiKe/Class/Me/viewcontroller/WKMyJobheader.h; sourceTree = SOURCE_ROOT; };
+		4E33B4E31EE3B2F0003CB8F0 /* WKMyJobheader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMyJobheader.m; path = WeiKe/Class/Me/viewcontroller/WKMyJobheader.m; sourceTree = SOURCE_ROOT; };
+		4E33B4E51EE3D37F003CB8F0 /* WKMyJobModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMyJobModel.h; path = WeiKe/Class/Me/viewcontroller/WKMyJobModel.h; sourceTree = SOURCE_ROOT; };
+		4E33B4E61EE3D37F003CB8F0 /* WKMyJobModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMyJobModel.m; path = WeiKe/Class/Me/viewcontroller/WKMyJobModel.m; sourceTree = SOURCE_ROOT; };
+		4E33B4E81EE3E6E0003CB8F0 /* WKUploadMyJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUploadMyJobViewController.h; sourceTree = "<group>"; };
+		4E33B4E91EE3E6E0003CB8F0 /* WKUploadMyJobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUploadMyJobViewController.m; sourceTree = "<group>"; };
+		4E33B4EA1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKUploadMyJobViewController.xib; sourceTree = "<group>"; };
+		4E3EE7991EDEC7B800D57E6C /* UIButton+WKIndexpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WKIndexpath.h"; sourceTree = "<group>"; };
+		4E3EE79A1EDEC7B800D57E6C /* UIButton+WKIndexpath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WKIndexpath.m"; sourceTree = "<group>"; };
+		4E4135401EC9BF91009CD900 /* WKSetVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSetVideoViewController.h; sourceTree = "<group>"; };
+		4E4135411EC9BF91009CD900 /* WKSetVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSetVideoViewController.m; sourceTree = "<group>"; };
+		4E4635421EBDBBFA00C140F0 /* WKRoleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRoleTableViewCell.h; path = WeiKe/Class/Teacher/viewcontroller/WKRoleTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E4635431EBDBBFA00C140F0 /* WKRoleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRoleTableViewCell.m; path = WeiKe/Class/Teacher/viewcontroller/WKRoleTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E4635441EBDBBFA00C140F0 /* WKRoleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKRoleTableViewCell.xib; path = WeiKe/Class/Teacher/viewcontroller/WKRoleTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E5CFEFD1EA8667F003DF637 /* WKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKColor.h; sourceTree = "<group>"; };
+		4E5CFEFE1EA8667F003DF637 /* WKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKColor.m; sourceTree = "<group>"; };
+		4E61304E1E9B6CEC00580BF4 /* WKTeacherStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTeacherStyleViewController.h; sourceTree = "<group>"; };
+		4E61304F1E9B6CEC00580BF4 /* WKTeacherStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTeacherStyleViewController.m; sourceTree = "<group>"; };
+		4E6130511E9B782700580BF4 /* WKStudentStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKStudentStyleViewController.h; sourceTree = "<group>"; };
+		4E6130521E9B782700580BF4 /* WKStudentStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKStudentStyleViewController.m; sourceTree = "<group>"; };
+		4E6130541E9B7A8E00580BF4 /* WKSingleTon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSingleTon.h; sourceTree = "<group>"; };
+		4E6130551E9B7A8E00580BF4 /* WKSingleTon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSingleTon.m; sourceTree = "<group>"; };
+		4E6929421EB8331600CFFF7D /* WKCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKCourse.h; path = WeiKe/Class/Academy/viewcontroller/WKCourse.h; sourceTree = SOURCE_ROOT; };
+		4E6929431EB8331600CFFF7D /* WKCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKCourse.m; path = WeiKe/Class/Academy/viewcontroller/WKCourse.m; sourceTree = SOURCE_ROOT; };
+		4E74151C1EAD8BF70023FBAB /* WKGradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKGradeTableViewCell.h; path = WeiKe/Class/Academy/viewcontroller/WKGradeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E74151D1EAD8BF70023FBAB /* WKGradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKGradeTableViewCell.m; path = WeiKe/Class/Academy/viewcontroller/WKGradeTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E74151E1EAD8BF70023FBAB /* WKGradeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKGradeTableViewCell.xib; path = WeiKe/Class/Academy/viewcontroller/WKGradeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E7415211EAD93A20023FBAB /* WKCourseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKCourseTableViewCell.h; path = WeiKe/Class/Academy/viewcontroller/WKCourseTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E7415221EAD93A20023FBAB /* WKCourseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKCourseTableViewCell.m; path = WeiKe/Class/Academy/viewcontroller/WKCourseTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E7415231EAD93A20023FBAB /* WKCourseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKCourseTableViewCell.xib; path = WeiKe/Class/Academy/viewcontroller/WKCourseTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E7D92B61E9C847200241C80 /* WKTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTabBarViewController.h; sourceTree = "<group>"; };
+		4E7D92B71E9C847200241C80 /* WKTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTabBarViewController.m; sourceTree = "<group>"; };
+		4E944EA61EE00B2100889145 /* JobScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobScore.xib; sourceTree = SOURCE_ROOT; };
+		4E944EA81EE0139B00889145 /* WKJobScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobScore.h; sourceTree = SOURCE_ROOT; };
+		4E944EA91EE0139B00889145 /* WKJobScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobScore.m; sourceTree = SOURCE_ROOT; };
+		4E944EAB1EE014D600889145 /* WKJobScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobScoreViewController.h; sourceTree = "<group>"; };
+		4E944EAC1EE014D600889145 /* WKJobScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobScoreViewController.m; sourceTree = "<group>"; };
+		4E9BCE1C1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ZFFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		4E9BCE1D1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ZFFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		4E9BCE1F1EB09006004787F0 /* WKPlayTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayTitleTableViewCell.h; path = WeiKe/Class/Backstage/viewcontroller/WKPlayTitleTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E9BCE201EB09006004787F0 /* WKPlayTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKPlayTitleTableViewCell.m; path = WeiKe/Class/Backstage/viewcontroller/WKPlayTitleTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E9BCE211EB09006004787F0 /* WKPlayTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKPlayTitleTableViewCell.xib; path = WeiKe/Class/Backstage/viewcontroller/WKPlayTitleTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4E9BCE241EB09A8C004787F0 /* WKPlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayerTableViewCell.h; path = WeiKe/Class/Backstage/viewcontroller/WKPlayerTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E9BCE251EB09A8C004787F0 /* WKPlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKPlayerTableViewCell.m; path = WeiKe/Class/Backstage/viewcontroller/WKPlayerTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E9BCE271EB09CB5004787F0 /* WKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKCollectionViewCell.h; path = WeiKe/Class/Backstage/viewcontroller/WKCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		4E9BCE281EB09CB5004787F0 /* WKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKCollectionViewCell.m; path = WeiKe/Class/Backstage/viewcontroller/WKCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		4E9BCE291EB09CB5004787F0 /* WKCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKCollectionViewCell.xib; path = WeiKe/Class/Backstage/viewcontroller/WKCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EA142DD1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTeacherHeaderCollectionReusableView.h; path = WeiKe/Class/Academy/viewcontroller/WKTeacherHeaderCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
+		4EA142DE1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTeacherHeaderCollectionReusableView.m; path = WeiKe/Class/Academy/viewcontroller/WKTeacherHeaderCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
+		4EA142DF1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKTeacherHeaderCollectionReusableView.xib; path = WeiKe/Class/Academy/viewcontroller/WKTeacherHeaderCollectionReusableView.xib; sourceTree = SOURCE_ROOT; };
+		4EA142E51EAE10230043F5B3 /* WKTeacherCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTeacherCollectionViewCell.h; path = WeiKe/Class/Academy/viewcontroller/WKTeacherCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EA7E5E71EB2D21500B2B87C /* WKBackmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKBackmenu.h; path = WeiKe/Class/Backstage/viewcontroller/WKBackmenu.h; sourceTree = SOURCE_ROOT; };
+		4EA7E5E81EB2D21500B2B87C /* WKBackmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKBackmenu.m; path = WeiKe/Class/Backstage/viewcontroller/WKBackmenu.m; sourceTree = SOURCE_ROOT; };
+		4EA7E5EA1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKAcadeallTableViewCell.h; path = WeiKe/Class/Backstage/viewcontroller/WKAcadeallTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EA7E5EB1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKAcadeallTableViewCell.m; path = WeiKe/Class/Backstage/viewcontroller/WKAcadeallTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EA7E5EC1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKAcadeallTableViewCell.xib; path = WeiKe/Class/Backstage/viewcontroller/WKAcadeallTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EA7E5F21EB31DA000B2B87C /* WKAcadeResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAcadeResultsViewController.h; sourceTree = "<group>"; };
+		4EA7E5F31EB31DA000B2B87C /* WKAcadeResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAcadeResultsViewController.m; sourceTree = "<group>"; };
+		4EA7E5F51EB33A5900B2B87C /* WKAcedemyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKAcedemyHandler.h; path = WeiKe/Class/Academy/viewcontroller/WKAcedemyHandler.h; sourceTree = SOURCE_ROOT; };
+		4EA7E5F61EB33A5900B2B87C /* WKAcedemyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKAcedemyHandler.m; path = WeiKe/Class/Academy/viewcontroller/WKAcedemyHandler.m; sourceTree = SOURCE_ROOT; };
+		4EA7E5FB1EB34BEF00B2B87C /* WKGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKGrade.h; path = WeiKe/Class/Academy/viewcontroller/WKGrade.h; sourceTree = SOURCE_ROOT; };
+		4EA7E5FC1EB34BEF00B2B87C /* WKGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKGrade.m; path = WeiKe/Class/Academy/viewcontroller/WKGrade.m; sourceTree = SOURCE_ROOT; };
+		4EBC283C1EAEFCC300B920D4 /* WKMyMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMyMenu.h; path = WeiKe/Class/Academy/viewcontroller/WKMyMenu.h; sourceTree = SOURCE_ROOT; };
+		4EBC283D1EAEFCC300B920D4 /* WKMyMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMyMenu.m; path = WeiKe/Class/Academy/viewcontroller/WKMyMenu.m; sourceTree = SOURCE_ROOT; };
+		4EBC283F1EAF251E00B920D4 /* WKMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMeTableViewCell.h; path = WeiKe/Class/Academy/viewcontroller/WKMeTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EBC28401EAF251E00B920D4 /* WKMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMeTableViewCell.m; path = WeiKe/Class/Academy/viewcontroller/WKMeTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EBC28411EAF251E00B920D4 /* WKMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKMeTableViewCell.xib; path = WeiKe/Class/Academy/viewcontroller/WKMeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4ECE89FB1ECBECCB00153F70 /* WKVideoADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoADViewController.h; sourceTree = "<group>"; };
+		4ECE89FC1ECBECCB00153F70 /* WKVideoADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoADViewController.m; sourceTree = "<group>"; };
+		4ECE8A011ECC1A0B00153F70 /* WKUploadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUploadImage.h; sourceTree = "<group>"; };
+		4ECE8A021ECC1A0B00153F70 /* WKUploadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUploadImage.m; sourceTree = "<group>"; };
+		4EDE11A11EBC86E200109E42 /* Headview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Headview.xib; path = WeiKe/Class/Teacher/viewcontroller/Headview.xib; sourceTree = SOURCE_ROOT; };
+		4EDF94471ECD2A2200FEE211 /* WKVideoMergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoMergeViewController.h; sourceTree = "<group>"; };
+		4EDF94481ECD2A2200FEE211 /* WKVideoMergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoMergeViewController.m; sourceTree = "<group>"; };
+		4EE008371EC4532E00F590CF /* WKVideoManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoManagerViewController.h; sourceTree = "<group>"; };
+		4EE008381EC4532E00F590CF /* WKVideoManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoManagerViewController.m; sourceTree = "<group>"; };
+		4EE0083A1EC471CE00F590CF /* DetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailView.xib; path = WeiKe/Class/Backstage/viewcontroller/DetailView.xib; sourceTree = SOURCE_ROOT; };
+		4EE0083C1EC4743200F590CF /* WKVideoDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKVideoDetailView.h; path = WeiKe/Class/Backstage/viewcontroller/WKVideoDetailView.h; sourceTree = SOURCE_ROOT; };
+		4EE0083D1EC4743200F590CF /* WKVideoDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKVideoDetailView.m; path = WeiKe/Class/Backstage/viewcontroller/WKVideoDetailView.m; sourceTree = SOURCE_ROOT; };
+		4EEB11351ED171210078DF6E /* NSBundle+TZImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TZImagePicker.h"; sourceTree = "<group>"; };
+		4EEB11361ED171210078DF6E /* NSBundle+TZImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+TZImagePicker.m"; sourceTree = "<group>"; };
+		4EEB11371ED171210078DF6E /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
+		4EEB11381ED171210078DF6E /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
+		4EEB11391ED171210078DF6E /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
+		4EEB113A1ED171210078DF6E /* TZAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetModel.m; sourceTree = "<group>"; };
+		4EEB113B1ED171210078DF6E /* TZGifPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZGifPhotoPreviewController.h; sourceTree = "<group>"; };
+		4EEB113C1ED171210078DF6E /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
+		4EEB113D1ED171210078DF6E /* TZImageCropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageCropManager.h; sourceTree = "<group>"; };
+		4EEB113E1ED171210078DF6E /* TZImageCropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageCropManager.m; sourceTree = "<group>"; };
+		4EEB113F1ED171210078DF6E /* TZImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageManager.h; sourceTree = "<group>"; };
+		4EEB11401ED171210078DF6E /* TZImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageManager.m; sourceTree = "<group>"; };
+		4EEB11411ED171210078DF6E /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
+		4EEB11421ED171210078DF6E /* TZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePickerController.h; sourceTree = "<group>"; };
+		4EEB11431ED171210078DF6E /* TZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePickerController.m; sourceTree = "<group>"; };
+		4EEB11441ED171210078DF6E /* TZPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPickerController.h; sourceTree = "<group>"; };
+		4EEB11451ED171210078DF6E /* TZPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPickerController.m; sourceTree = "<group>"; };
+		4EEB11461ED171210078DF6E /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewCell.h; sourceTree = "<group>"; };
+		4EEB11471ED171210078DF6E /* TZPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewCell.m; sourceTree = "<group>"; };
+		4EEB11481ED171210078DF6E /* TZPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewController.h; sourceTree = "<group>"; };
+		4EEB11491ED171210078DF6E /* TZPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewController.m; sourceTree = "<group>"; };
+		4EEB114A1ED171210078DF6E /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
+		4EEB114B1ED171210078DF6E /* TZProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZProgressView.m; sourceTree = "<group>"; };
+		4EEB114C1ED171210078DF6E /* TZVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZVideoPlayerController.h; sourceTree = "<group>"; };
+		4EEB114D1ED171210078DF6E /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
+		4EEB114E1ED171210078DF6E /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		4EEB114F1ED171210078DF6E /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		4EEB115F1ED171D50078DF6E /* ACMediaFrame.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ACMediaFrame.bundle; sourceTree = "<group>"; };
+		4EEB11601ED171D50078DF6E /* ACMediaFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaFrame.h; sourceTree = "<group>"; };
+		4EEB11611ED171D50078DF6E /* ACMediaFrameConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaFrameConst.h; sourceTree = "<group>"; };
+		4EEB11621ED171D50078DF6E /* ACMediaImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaImageCell.h; sourceTree = "<group>"; };
+		4EEB11631ED171D50078DF6E /* ACMediaImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMediaImageCell.m; sourceTree = "<group>"; };
+		4EEB11641ED171D50078DF6E /* ACMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaManager.h; sourceTree = "<group>"; };
+		4EEB11651ED171D50078DF6E /* ACMediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMediaManager.m; sourceTree = "<group>"; };
+		4EEB11661ED171D50078DF6E /* ACMediaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMediaModel.h; sourceTree = "<group>"; };
+		4EEB11671ED171D50078DF6E /* ACMediaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMediaModel.m; sourceTree = "<group>"; };
+		4EEB11681ED171D50078DF6E /* ACSelectMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACSelectMediaView.h; sourceTree = "<group>"; };
+		4EEB116B1ED171D50078DF6E /* NSString+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ACMediaExt.h"; sourceTree = "<group>"; };
+		4EEB116C1ED171D50078DF6E /* NSString+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ACMediaExt.m"; sourceTree = "<group>"; };
+		4EEB116D1ED171D50078DF6E /* UIImage+ACGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ACGif.h"; sourceTree = "<group>"; };
+		4EEB116E1ED171D50078DF6E /* UIImage+ACGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ACGif.m"; sourceTree = "<group>"; };
+		4EEB116F1ED171D50078DF6E /* UIImageView+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ACMediaExt.h"; sourceTree = "<group>"; };
+		4EEB11701ED171D50078DF6E /* UIImageView+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ACMediaExt.m"; sourceTree = "<group>"; };
+		4EEB11711ED171D50078DF6E /* UIView+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ACMediaExt.h"; sourceTree = "<group>"; };
+		4EEB11721ED171D50078DF6E /* UIView+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ACMediaExt.m"; sourceTree = "<group>"; };
+		4EEB11731ED171D50078DF6E /* UIViewController+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ACMediaExt.h"; sourceTree = "<group>"; };
+		4EEB11741ED171D50078DF6E /* UIViewController+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACMediaExt.m"; sourceTree = "<group>"; };
+		4EEE01981ED2DBB900ADA0DB /* WKUploadOutLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUploadOutLinkViewController.h; sourceTree = "<group>"; };
+		4EEE01991ED2DBB900ADA0DB /* WKUploadOutLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUploadOutLinkViewController.m; sourceTree = "<group>"; };
+		4EEF20F01ED920A800289B91 /* WKSelectedJoinClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSelectedJoinClassViewController.h; sourceTree = "<group>"; };
+		4EEF20F11ED920A800289B91 /* WKSelectedJoinClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSelectedJoinClassViewController.m; sourceTree = "<group>"; };
+		4EEF20F31ED9305400289B91 /* WKJObClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKJObClassModel.h; path = WeiKe/Class/Backstage/viewcontroller/WKJObClassModel.h; sourceTree = SOURCE_ROOT; };
+		4EEF20F41ED9305400289B91 /* WKJObClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKJObClassModel.m; path = WeiKe/Class/Backstage/viewcontroller/WKJObClassModel.m; sourceTree = SOURCE_ROOT; };
+		4EEF20F61ED930D000289B91 /* WKJobGradeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKJobGradeModel.h; path = WeiKe/Class/Backstage/viewcontroller/WKJobGradeModel.h; sourceTree = SOURCE_ROOT; };
+		4EEF20F71ED930D000289B91 /* WKJobGradeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKJobGradeModel.m; path = WeiKe/Class/Backstage/viewcontroller/WKJobGradeModel.m; sourceTree = SOURCE_ROOT; };
+		4EEF20FA1ED95C4000289B91 /* WKJobSelectClassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobSelectClassTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EEF20FB1ED95C4000289B91 /* WKJobSelectClassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobSelectClassTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EEF20FC1ED95C4000289B91 /* WKJobSelectClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKJobSelectClassTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EEF20FF1ED962C100289B91 /* ClassHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassHeadView.xib; sourceTree = SOURCE_ROOT; };
+		4EEF21011ED9670200289B91 /* WKJobClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobClass.h; sourceTree = SOURCE_ROOT; };
+		4EEF21021ED9670200289B91 /* WKJobClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobClass.m; sourceTree = SOURCE_ROOT; };
+		4EEF4CD91EB1930500259D09 /* WKFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKFlowLayout.h; path = WeiKe/Class/Backstage/viewcontroller/WKFlowLayout.h; sourceTree = SOURCE_ROOT; };
+		4EEF4CDA1EB1930500259D09 /* WKFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKFlowLayout.m; path = WeiKe/Class/Backstage/viewcontroller/WKFlowLayout.m; sourceTree = SOURCE_ROOT; };
+		4EEF4CDC1EB1962800259D09 /* WKMyteacherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMyteacherViewController.h; sourceTree = "<group>"; };
+		4EEF4CDD1EB1962800259D09 /* WKMyteacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMyteacherViewController.m; sourceTree = "<group>"; };
+		4EEF4CE21EB1DFF000259D09 /* WKTeacherHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTeacherHandler.h; path = WeiKe/Class/Me/viewcontroller/WKTeacherHandler.h; sourceTree = SOURCE_ROOT; };
+		4EEF4CE31EB1DFF000259D09 /* WKTeacherHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTeacherHandler.m; path = WeiKe/Class/Me/viewcontroller/WKTeacherHandler.m; sourceTree = SOURCE_ROOT; };
+		4EEF4CE51EB1E7DF00259D09 /* WKMeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMeHandler.h; path = WeiKe/Class/Me/viewcontroller/WKMeHandler.h; sourceTree = SOURCE_ROOT; };
+		4EEF4CE61EB1E7DF00259D09 /* WKMeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMeHandler.m; path = WeiKe/Class/Me/viewcontroller/WKMeHandler.m; sourceTree = SOURCE_ROOT; };
+		4EEF4CE81EB1ED9F00259D09 /* WKBackstageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKBackstageCollectionViewCell.h; path = WeiKe/Class/Me/viewcontroller/WKBackstageCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EEF4CE91EB1ED9F00259D09 /* WKBackstageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKBackstageCollectionViewCell.m; path = WeiKe/Class/Me/viewcontroller/WKBackstageCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EEF4CEA1EB1ED9F00259D09 /* WKBackstageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKBackstageCollectionViewCell.xib; path = WeiKe/Class/Me/viewcontroller/WKBackstageCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EEF4CED1EB1F9D800259D09 /* WKBackstageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBackstageCollectionViewController.h; sourceTree = "<group>"; };
+		4EEF4CEE1EB1F9D800259D09 /* WKBackstageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBackstageCollectionViewController.m; sourceTree = "<group>"; };
+		4EF0A1FE1EC19C970043A713 /* WKBackstage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKBackstage.h; path = WeiKe/Class/Backstage/viewcontroller/WKBackstage.h; sourceTree = SOURCE_ROOT; };
+		4EF0A1FF1EC19C970043A713 /* WKBackstage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKBackstage.m; path = WeiKe/Class/Backstage/viewcontroller/WKBackstage.m; sourceTree = SOURCE_ROOT; };
+		4EF0A2011EC1A1B10043A713 /* WKRolesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRolesModel.h; path = WeiKe/Class/Backstage/viewcontroller/WKRolesModel.h; sourceTree = SOURCE_ROOT; };
+		4EF0A2021EC1A1B10043A713 /* WKRolesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRolesModel.m; path = WeiKe/Class/Backstage/viewcontroller/WKRolesModel.m; sourceTree = SOURCE_ROOT; };
+		4EF3D7631EE0ED8A009D7B07 /* WKJobSureScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobSureScoreViewController.h; sourceTree = "<group>"; };
+		4EF3D7641EE0ED8A009D7B07 /* WKJobSureScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobSureScoreViewController.m; sourceTree = "<group>"; };
+		4EF3D7661EE0F49F009D7B07 /* WKJobScoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobScoreTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EF3D7671EE0F49F009D7B07 /* WKJobScoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobScoreTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EF3D7681EE0F49F009D7B07 /* WKJobScoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKJobScoreTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EF3D76B1EE0FFFA009D7B07 /* scoreHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scoreHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		4EF3D76D1EE1036C009D7B07 /* WKJobImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobImageTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EF3D76E1EE1036C009D7B07 /* WKJobImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobImageTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EF3D7701EE10749009D7B07 /* WKScoreHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKScoreHeaderView.h; sourceTree = SOURCE_ROOT; };
+		4EF3D7711EE10749009D7B07 /* WKScoreHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKScoreHeaderView.m; sourceTree = SOURCE_ROOT; };
+		4EF3D7731EE110C7009D7B07 /* WKSelectedScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSelectedScore.h; sourceTree = SOURCE_ROOT; };
+		4EF3D7741EE110C7009D7B07 /* WKSelectedScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSelectedScore.m; sourceTree = SOURCE_ROOT; };
+		4EF3D7761EE110E1009D7B07 /* selectScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectScore.xib; sourceTree = SOURCE_ROOT; };
+		4EF3D7781EE12CB9009D7B07 /* WKJobStu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJobStu.h; sourceTree = SOURCE_ROOT; };
+		4EF3D7791EE12CB9009D7B07 /* WKJobStu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJobStu.m; sourceTree = SOURCE_ROOT; };
+		4EF3D80F1EE12D86009D7B07 /* WKJobDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKJobDetail.h; path = WeiKe/Class/Backstage/viewcontroller/WKJobDetail.h; sourceTree = SOURCE_ROOT; };
+		4EF3D8101EE12D86009D7B07 /* WKJobDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKJobDetail.m; path = WeiKe/Class/Backstage/viewcontroller/WKJobDetail.m; sourceTree = SOURCE_ROOT; };
+		4EF4469C1EC2E52D0040EC9C /* WKBindOnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKBindOnView.h; path = WeiKe/Class/Backstage/viewcontroller/WKBindOnView.h; sourceTree = SOURCE_ROOT; };
+		4EF4469D1EC2E52D0040EC9C /* WKBindOnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKBindOnView.m; path = WeiKe/Class/Backstage/viewcontroller/WKBindOnView.m; sourceTree = SOURCE_ROOT; };
+		4EF4469F1EC2E5ED0040EC9C /* WKRoleBindOnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRoleBindOnViewController.h; sourceTree = "<group>"; };
+		4EF446A01EC2E5ED0040EC9C /* WKRoleBindOnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRoleBindOnViewController.m; sourceTree = "<group>"; };
+		4EF446A21EC2ECFF0040EC9C /* WKRoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRoleView.h; path = WeiKe/Class/Backstage/viewcontroller/WKRoleView.h; sourceTree = SOURCE_ROOT; };
+		4EF446A31EC2ECFF0040EC9C /* WKRoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRoleView.m; path = WeiKe/Class/Backstage/viewcontroller/WKRoleView.m; sourceTree = SOURCE_ROOT; };
+		4EF446A51EC2FCE70040EC9C /* WKRoleBindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRoleBindTableViewCell.h; path = WeiKe/Class/Backstage/viewcontroller/WKRoleBindTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EF446A61EC2FCE70040EC9C /* WKRoleBindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRoleBindTableViewCell.m; path = WeiKe/Class/Backstage/viewcontroller/WKRoleBindTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EF446A71EC2FCE70040EC9C /* WKRoleBindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKRoleBindTableViewCell.xib; path = WeiKe/Class/Backstage/viewcontroller/WKRoleBindTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EF446AA1EC310D20040EC9C /* WKRoleBindUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKRoleBindUser.h; path = WeiKe/Class/Backstage/viewcontroller/WKRoleBindUser.h; sourceTree = SOURCE_ROOT; };
+		4EF446AB1EC310D20040EC9C /* WKRoleBindUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKRoleBindUser.m; path = WeiKe/Class/Backstage/viewcontroller/WKRoleBindUser.m; sourceTree = SOURCE_ROOT; };
+		4EF446AD1EC325030040EC9C /* WKRoleBindAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRoleBindAddViewController.h; sourceTree = "<group>"; };
+		4EF446AE1EC325030040EC9C /* WKRoleBindAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRoleBindAddViewController.m; sourceTree = "<group>"; };
+		4EF4ADE41E9F1C610054D269 /* WKHomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHomeCollectionViewCell.h; path = WeiKe/Class/Home/WKHomeCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EF4ADE51E9F1C610054D269 /* WKHomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHomeCollectionViewCell.m; path = WeiKe/Class/Home/WKHomeCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EF4ADE61E9F1C610054D269 /* WKHomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKHomeCollectionViewCell.xib; path = WeiKe/Class/Home/WKHomeCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EF4ADE91E9F29BE0054D269 /* WKHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHeaderCollectionReusableView.h; path = WeiKe/Class/Home/WKHeaderCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
+		4EF4ADEA1E9F29BE0054D269 /* WKHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHeaderCollectionReusableView.m; path = WeiKe/Class/Home/WKHeaderCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
+		4EF4ADEC1E9F759A0054D269 /* WKSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSearchResultViewController.h; sourceTree = "<group>"; };
+		4EF4ADED1E9F759A0054D269 /* WKSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSearchResultViewController.m; sourceTree = "<group>"; };
+		4EFA27BB1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTeachclassificationCollectionViewController.h; sourceTree = "<group>"; };
+		4EFA27BC1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTeachclassificationCollectionViewController.m; sourceTree = "<group>"; };
+		4EFE988C1EB987EB006F3703 /* WKTeacherList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTeacherList.h; path = WeiKe/Class/Academy/viewcontroller/WKTeacherList.h; sourceTree = SOURCE_ROOT; };
+		4EFE988D1EB987EB006F3703 /* WKTeacherList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTeacherList.m; path = WeiKe/Class/Academy/viewcontroller/WKTeacherList.m; sourceTree = SOURCE_ROOT; };
+		4EFE988F1EB999BE006F3703 /* WKTeacherScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTeacherScreenViewController.h; sourceTree = "<group>"; };
+		4EFE98901EB999BE006F3703 /* WKTeacherScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTeacherScreenViewController.m; sourceTree = "<group>"; };
+		4EFE98921EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTeachScreenCollectionViewCell.h; path = WeiKe/Class/Teacher/viewcontroller/WKTeachScreenCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		4EFE98931EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTeachScreenCollectionViewCell.m; path = WeiKe/Class/Teacher/viewcontroller/WKTeachScreenCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		4EFE98941EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKTeachScreenCollectionViewCell.xib; path = WeiKe/Class/Teacher/viewcontroller/WKTeachScreenCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		4EFE98971EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTescreenHeadCollectionReusableView.h; path = WeiKe/Class/Teacher/viewcontroller/WKTescreenHeadCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
+		4EFE98981EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTescreenHeadCollectionReusableView.m; path = WeiKe/Class/Teacher/viewcontroller/WKTescreenHeadCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
+		4EFE98991EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKTescreenHeadCollectionReusableView.xib; path = WeiKe/Class/Teacher/viewcontroller/WKTescreenHeadCollectionReusableView.xib; sourceTree = SOURCE_ROOT; };
+		4EFE989C1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTeScreenFootCollectionReusableView.h; path = WeiKe/Class/Teacher/viewcontroller/WKTeScreenFootCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
+		4EFE989D1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTeScreenFootCollectionReusableView.m; path = WeiKe/Class/Teacher/viewcontroller/WKTeScreenFootCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
+		4EFE989E1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKTeScreenFootCollectionReusableView.xib; path = WeiKe/Class/Teacher/viewcontroller/WKTeScreenFootCollectionReusableView.xib; sourceTree = SOURCE_ROOT; };
+		5A2835241E977D3E005AF4B2 /* WKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBaseViewController.h; sourceTree = "<group>"; };
+		5A2835251E977D3E005AF4B2 /* WKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBaseViewController.m; sourceTree = "<group>"; };
+		5A2835271E977E38005AF4B2 /* WKMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMeViewController.h; sourceTree = "<group>"; };
+		5A2835281E977E38005AF4B2 /* WKMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMeViewController.m; sourceTree = "<group>"; };
+		5A28352A1E977E76005AF4B2 /* WKHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHomeViewController.h; sourceTree = "<group>"; };
+		5A28352B1E977E76005AF4B2 /* WKHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHomeViewController.m; sourceTree = "<group>"; };
+		5A28352D1E977EA4005AF4B2 /* WKAcademyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKAcademyViewController.h; sourceTree = "<group>"; };
+		5A28352E1E977EA4005AF4B2 /* WKAcademyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAcademyViewController.m; sourceTree = "<group>"; };
+		5A2835301E977EC7005AF4B2 /* WKTeacherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTeacherViewController.h; sourceTree = "<group>"; };
+		5A2835311E977EC7005AF4B2 /* WKTeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTeacherViewController.m; sourceTree = "<group>"; };
+		5A2835341E977F88005AF4B2 /* WKSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSelectedViewController.h; sourceTree = "<group>"; };
+		5A2835351E977F88005AF4B2 /* WKSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSelectedViewController.m; sourceTree = "<group>"; };
+		5A4FBADE1E9B6676005E2FE8 /* WKplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKplayViewController.h; sourceTree = "<group>"; };
+		5A4FBADF1E9B6676005E2FE8 /* WKplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKplayViewController.m; sourceTree = "<group>"; };
+		5A8CF6E31E95E12D00D08AA1 /* UIImageView+WKsdwebimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WKsdwebimage.h"; sourceTree = "<group>"; };
+		5A8CF6E41E95E12D00D08AA1 /* UIImageView+WKsdwebimage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WKsdwebimage.m"; sourceTree = "<group>"; };
+		5AFB76161E949BF4000CE6E8 /* WeiKe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiKe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AFB761A1E949BF4000CE6E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AFB76231E949BF4000CE6E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5AFB76251E949BF4000CE6E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5AFB76281E949BF4000CE6E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5AFB762A1E949BF4000CE6E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AFB762F1E949BF4000CE6E8 /* WeiKeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiKeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AFB76331E949BF4000CE6E8 /* WeiKeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiKeTests.m; sourceTree = "<group>"; };
+		5AFB76351E949BF4000CE6E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AFB763A1E949BF4000CE6E8 /* WeiKeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiKeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AFB763E1E949BF4000CE6E8 /* WeiKeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiKeUITests.m; sourceTree = "<group>"; };
+		5AFB76401E949BF4000CE6E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AFB76891E94A159000CE6E8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5AFB768A1E94A159000CE6E8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5AFB76A41E94A3B2000CE6E8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5AFB76A71E94D3CF000CE6E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5AFB76A81E94DD15000CE6E8 /* WKMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKMacros.h; sourceTree = "<group>"; };
+		5AFB76A91E94E35A000CE6E8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5AFB76AA1E94E35A000CE6E8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5AFB76AC1E94E43B000CE6E8 /* APIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIConfig.h; sourceTree = "<group>"; };
+		5AFB76B01E94EED6000CE6E8 /* WKHttpmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpmanager.h; sourceTree = "<group>"; };
+		5AFB76B11E94EED6000CE6E8 /* WKHttpmanager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpmanager.m; sourceTree = "<group>"; };
+		5AFB76B61E94F336000CE6E8 /* WKHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpTool.h; sourceTree = "<group>"; };
+		5AFB76B71E94F336000CE6E8 /* WKHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpTool.m; sourceTree = "<group>"; };
+		5AFB76B91E94FDC0000CE6E8 /* WKHttpbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKHttpbase.h; sourceTree = "<group>"; };
+		5AFB76BA1E94FDC0000CE6E8 /* WKHttpbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKHttpbase.m; sourceTree = "<group>"; };
+		B2F0A3C94EE67A16477B0BCF /* libPods-WeiKe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeiKe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D41E12DC020D80C388E5B6D7 /* Pods-WeiKe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiKe.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiKe/Pods-WeiKe.release.xcconfig"; sourceTree = "<group>"; };
+		DEB70ED7965E5119DB418497 /* Pods-WeiKe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiKe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiKe/Pods-WeiKe.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AFB76131E949BF4000CE6E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A112B0D6A0BD2F960E77D334 /* libPods-WeiKe.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB762C1E949BF4000CE6E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB76371E949BF4000CE6E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EE39503E5BACF2C9D7DECC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2F0A3C94EE67A16477B0BCF /* libPods-WeiKe.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E0A37101E9E35FA00438BAC /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4E0A37111E9E362900438BAC /* WKSearcherViewController.h */,
+				4E0A37121E9E362900438BAC /* WKSearcherViewController.m */,
+				4EF4ADEC1E9F759A0054D269 /* WKSearchResultViewController.h */,
+				4EF4ADED1E9F759A0054D269 /* WKSearchResultViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		4E0C1DA21EA06BBC00B96A54 /* SLSlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4E0C1DA31EA06BBC00B96A54 /* SLScreenEdgePanGestureRecognizer.h */,
+				4E0C1DA41EA06BBC00B96A54 /* SLScreenEdgePanGestureRecognizer.m */,
+				4E0C1DA51EA06BBC00B96A54 /* SLSlideMenu.h */,
+				4E0C1DA61EA06BBC00B96A54 /* SLSlideMenu.m */,
+			);
+			path = SLSlideMenu;
+			sourceTree = "<group>";
+		};
+		4E0D22EA1ECA86DC00631072 /* Role */ = {
+			isa = PBXGroup;
+			children = (
+				4EF446A21EC2ECFF0040EC9C /* WKRoleView.h */,
+				4EF446A31EC2ECFF0040EC9C /* WKRoleView.m */,
+				4EF4469C1EC2E52D0040EC9C /* WKBindOnView.h */,
+				4EF4469D1EC2E52D0040EC9C /* WKBindOnView.m */,
+				4E4635421EBDBBFA00C140F0 /* WKRoleTableViewCell.h */,
+				4E4635431EBDBBFA00C140F0 /* WKRoleTableViewCell.m */,
+				4E4635441EBDBBFA00C140F0 /* WKRoleTableViewCell.xib */,
+				4EF446A51EC2FCE70040EC9C /* WKRoleBindTableViewCell.h */,
+				4EF446A61EC2FCE70040EC9C /* WKRoleBindTableViewCell.m */,
+				4EF446A71EC2FCE70040EC9C /* WKRoleBindTableViewCell.xib */,
+			);
+			name = Role;
+			sourceTree = "<group>";
+		};
+		4E0D22EC1ECA874B00631072 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				4EE0083A1EC471CE00F590CF /* DetailView.xib */,
+				4E2264981EC5B802004BD057 /* remindView.xib */,
+				4E13B43D1ED03C9C00D98102 /* uploadVideo.xib */,
+				4E13B43F1ED04BF900D98102 /* WKUpload.h */,
+				4E13B4401ED04BF900D98102 /* WKUpload.m */,
+				4EE0083C1EC4743200F590CF /* WKVideoDetailView.h */,
+				4EE0083D1EC4743200F590CF /* WKVideoDetailView.m */,
+				4E22649A1EC5B835004BD057 /* WKRemindView.h */,
+				4E22649B1EC5B835004BD057 /* WKRemindView.m */,
+				4E22648D1EC543B4004BD057 /* WKVideoTableViewCell.h */,
+				4E22648E1EC543B4004BD057 /* WKVideoTableViewCell.m */,
+				4E22648F1EC543B4004BD057 /* WKVideoTableViewCell.xib */,
+				4E0D22EF1ECA90B700631072 /* WKVideoClassfiCollectionViewCell.h */,
+				4E0D22F01ECA90B700631072 /* WKVideoClassfiCollectionViewCell.m */,
+				4E0D22F11ECA90B700631072 /* WKVideoClassfiCollectionViewCell.xib */,
+				4E0A1DF91ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.h */,
+				4E0A1DFA1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m */,
+				4E0A1DFB1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		4E0D22ED1ECA879300631072 /* Rolecontroller */ = {
+			isa = PBXGroup;
+			children = (
+				4E0E78F81EBFFD7D00DB3C07 /* WKRolesViewController.h */,
+				4E0E78F91EBFFD7D00DB3C07 /* WKRolesViewController.m */,
+				4E0E79041EC05B5300DB3C07 /* WKRolesEditViewController.h */,
+				4E0E79051EC05B5300DB3C07 /* WKRolesEditViewController.m */,
+				4EF4469F1EC2E5ED0040EC9C /* WKRoleBindOnViewController.h */,
+				4EF446A01EC2E5ED0040EC9C /* WKRoleBindOnViewController.m */,
+				4EF446AD1EC325030040EC9C /* WKRoleBindAddViewController.h */,
+				4EF446AE1EC325030040EC9C /* WKRoleBindAddViewController.m */,
+			);
+			name = Rolecontroller;
+			sourceTree = "<group>";
+		};
+		4E0D22EE1ECA87C800631072 /* Videocontroller */ = {
+			isa = PBXGroup;
+			children = (
+				4EE008371EC4532E00F590CF /* WKVideoManagerViewController.h */,
+				4EE008381EC4532E00F590CF /* WKVideoManagerViewController.m */,
+				4E2264951EC599FC004BD057 /* WKUploadVideoViewController.h */,
+				4E2264961EC599FC004BD057 /* WKUploadVideoViewController.m */,
+				4EEE01981ED2DBB900ADA0DB /* WKUploadOutLinkViewController.h */,
+				4EEE01991ED2DBB900ADA0DB /* WKUploadOutLinkViewController.m */,
+				4E4135401EC9BF91009CD900 /* WKSetVideoViewController.h */,
+				4E4135411EC9BF91009CD900 /* WKSetVideoViewController.m */,
+				4EDF94471ECD2A2200FEE211 /* WKVideoMergeViewController.h */,
+				4EDF94481ECD2A2200FEE211 /* WKVideoMergeViewController.m */,
+				4ECE89FB1ECBECCB00153F70 /* WKVideoADViewController.h */,
+				4ECE89FC1ECBECCB00153F70 /* WKVideoADViewController.m */,
+				4E0A1E001ED42DF200E99776 /* WKEditVideoViewController.h */,
+				4E0A1E011ED42DF200E99776 /* WKEditVideoViewController.m */,
+			);
+			name = Videocontroller;
+			sourceTree = "<group>";
+		};
+		4E0DF1F81ED68EFF00F7B251 /*  Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				4E0DF1F91ED68F4100F7B251 /* WKIndicatorSetViewController.h */,
+				4E0DF1FA1ED68F4100F7B251 /* WKIndicatorSetViewController.m */,
+				4E0DF1FB1ED68F4100F7B251 /* WKIndicatorSetViewController.xib */,
+			);
+			name = " Indicator";
+			sourceTree = "<group>";
+		};
+		4E0DF2011ED6CDEC00F7B251 /* JobManager */ = {
+			isa = PBXGroup;
+			children = (
+				4E0DF2021ED6D8C300F7B251 /* WKJobManagerViewController.h */,
+				4E0DF2031ED6D8C300F7B251 /* WKJobManagerViewController.m */,
+				4E192B6E1ED7FE2100082C9C /* WKJobEditViewController.h */,
+				4E192B6F1ED7FE2100082C9C /* WKJobEditViewController.m */,
+				4E192B701ED7FE2100082C9C /* WKJobEditViewController.xib */,
+				4EEF20F01ED920A800289B91 /* WKSelectedJoinClassViewController.h */,
+				4EEF20F11ED920A800289B91 /* WKSelectedJoinClassViewController.m */,
+				4E944EAB1EE014D600889145 /* WKJobScoreViewController.h */,
+				4E944EAC1EE014D600889145 /* WKJobScoreViewController.m */,
+				4EF3D7631EE0ED8A009D7B07 /* WKJobSureScoreViewController.h */,
+				4EF3D7641EE0ED8A009D7B07 /* WKJobSureScoreViewController.m */,
+			);
+			name = JobManager;
+			sourceTree = "<group>";
+		};
+		4E0DF2051ED6DFDD00F7B251 /* Job */ = {
+			isa = PBXGroup;
+			children = (
+				4E0DF2061ED6E10800F7B251 /* WKJobTableViewCell.h */,
+				4E0DF2071ED6E10800F7B251 /* WKJobTableViewCell.m */,
+				4E0DF2081ED6E10800F7B251 /* WKJobTableViewCell.xib */,
+				4EEF20FA1ED95C4000289B91 /* WKJobSelectClassTableViewCell.h */,
+				4EEF20FB1ED95C4000289B91 /* WKJobSelectClassTableViewCell.m */,
+				4EEF20FC1ED95C4000289B91 /* WKJobSelectClassTableViewCell.xib */,
+				4EEF20FF1ED962C100289B91 /* ClassHeadView.xib */,
+				4EEF21011ED9670200289B91 /* WKJobClass.h */,
+				4EEF21021ED9670200289B91 /* WKJobClass.m */,
+				4E944EA61EE00B2100889145 /* JobScore.xib */,
+				4E944EA81EE0139B00889145 /* WKJobScore.h */,
+				4E944EA91EE0139B00889145 /* WKJobScore.m */,
+				4EF3D76B1EE0FFFA009D7B07 /* scoreHeaderView.xib */,
+				4EF3D7701EE10749009D7B07 /* WKScoreHeaderView.h */,
+				4EF3D7711EE10749009D7B07 /* WKScoreHeaderView.m */,
+				4EF3D7761EE110E1009D7B07 /* selectScore.xib */,
+				4EF3D7731EE110C7009D7B07 /* WKSelectedScore.h */,
+				4EF3D7741EE110C7009D7B07 /* WKSelectedScore.m */,
+				4EF3D76D1EE1036C009D7B07 /* WKJobImageTableViewCell.h */,
+				4EF3D76E1EE1036C009D7B07 /* WKJobImageTableViewCell.m */,
+				4EF3D7661EE0F49F009D7B07 /* WKJobScoreTableViewCell.h */,
+				4EF3D7671EE0F49F009D7B07 /* WKJobScoreTableViewCell.m */,
+				4EF3D7681EE0F49F009D7B07 /* WKJobScoreTableViewCell.xib */,
+			);
+			name = Job;
+			sourceTree = "<group>";
+		};
+		4E27BE241ED5956600549975 /* Approval */ = {
+			isa = PBXGroup;
+			children = (
+				4E27BE251ED595A100549975 /* WKApprovalViewController.h */,
+				4E27BE261ED595A100549975 /* WKApprovalViewController.m */,
+				4E0DF1F31ED6704800F7B251 /* WKApprovalingViewController.h */,
+				4E0DF1F41ED6704800F7B251 /* WKApprovalingViewController.m */,
+				4E0DF1F51ED6704800F7B251 /* WKApprovalingViewController.xib */,
+			);
+			name = Approval;
+			sourceTree = "<group>";
+		};
+		4E9BCE1B1EB0492E004787F0 /* ZFNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				4E9BCE1C1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.h */,
+				4E9BCE1D1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.m */,
+			);
+			path = ZFNavigationController;
+			sourceTree = "<group>";
+		};
+		4EEB11341ED171210078DF6E /* TZImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB11351ED171210078DF6E /* NSBundle+TZImagePicker.h */,
+				4EEB11361ED171210078DF6E /* NSBundle+TZImagePicker.m */,
+				4EEB11371ED171210078DF6E /* TZAssetCell.h */,
+				4EEB11381ED171210078DF6E /* TZAssetCell.m */,
+				4EEB11391ED171210078DF6E /* TZAssetModel.h */,
+				4EEB113A1ED171210078DF6E /* TZAssetModel.m */,
+				4EEB113B1ED171210078DF6E /* TZGifPhotoPreviewController.h */,
+				4EEB113C1ED171210078DF6E /* TZGifPhotoPreviewController.m */,
+				4EEB113D1ED171210078DF6E /* TZImageCropManager.h */,
+				4EEB113E1ED171210078DF6E /* TZImageCropManager.m */,
+				4EEB113F1ED171210078DF6E /* TZImageManager.h */,
+				4EEB11401ED171210078DF6E /* TZImageManager.m */,
+				4EEB11411ED171210078DF6E /* TZImagePickerController.bundle */,
+				4EEB11421ED171210078DF6E /* TZImagePickerController.h */,
+				4EEB11431ED171210078DF6E /* TZImagePickerController.m */,
+				4EEB11441ED171210078DF6E /* TZPhotoPickerController.h */,
+				4EEB11451ED171210078DF6E /* TZPhotoPickerController.m */,
+				4EEB11461ED171210078DF6E /* TZPhotoPreviewCell.h */,
+				4EEB11471ED171210078DF6E /* TZPhotoPreviewCell.m */,
+				4EEB11481ED171210078DF6E /* TZPhotoPreviewController.h */,
+				4EEB11491ED171210078DF6E /* TZPhotoPreviewController.m */,
+				4EEB114A1ED171210078DF6E /* TZProgressView.h */,
+				4EEB114B1ED171210078DF6E /* TZProgressView.m */,
+				4EEB114C1ED171210078DF6E /* TZVideoPlayerController.h */,
+				4EEB114D1ED171210078DF6E /* TZVideoPlayerController.m */,
+				4EEB114E1ED171210078DF6E /* UIView+Layout.h */,
+				4EEB114F1ED171210078DF6E /* UIView+Layout.m */,
+			);
+			path = TZImagePickerController;
+			sourceTree = "<group>";
+		};
+		4EEB115E1ED171D50078DF6E /* ACMediaFrame */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB115F1ED171D50078DF6E /* ACMediaFrame.bundle */,
+				4EEB11601ED171D50078DF6E /* ACMediaFrame.h */,
+				4EEB11611ED171D50078DF6E /* ACMediaFrameConst.h */,
+				4EEB11621ED171D50078DF6E /* ACMediaImageCell.h */,
+				4EEB11631ED171D50078DF6E /* ACMediaImageCell.m */,
+				4EEB11641ED171D50078DF6E /* ACMediaManager.h */,
+				4EEB11651ED171D50078DF6E /* ACMediaManager.m */,
+				4EEB11661ED171D50078DF6E /* ACMediaModel.h */,
+				4EEB11671ED171D50078DF6E /* ACMediaModel.m */,
+				4EEB11681ED171D50078DF6E /* ACSelectMediaView.h */,
+				4E0A1DFE1ED4025600E99776 /* ACSelectMediaView.m */,
+				4EEB116A1ED171D50078DF6E /* Libraries */,
+			);
+			name = ACMediaFrame;
+			path = TZImagePickerController/ACMediaFrame;
+			sourceTree = "<group>";
+		};
+		4EEB116A1ED171D50078DF6E /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB116B1ED171D50078DF6E /* NSString+ACMediaExt.h */,
+				4EEB116C1ED171D50078DF6E /* NSString+ACMediaExt.m */,
+				4EEB116D1ED171D50078DF6E /* UIImage+ACGif.h */,
+				4EEB116E1ED171D50078DF6E /* UIImage+ACGif.m */,
+				4EEB116F1ED171D50078DF6E /* UIImageView+ACMediaExt.h */,
+				4EEB11701ED171D50078DF6E /* UIImageView+ACMediaExt.m */,
+				4EEB11711ED171D50078DF6E /* UIView+ACMediaExt.h */,
+				4EEB11721ED171D50078DF6E /* UIView+ACMediaExt.m */,
+				4EEB11731ED171D50078DF6E /* UIViewController+ACMediaExt.h */,
+				4EEB11741ED171D50078DF6E /* UIViewController+ACMediaExt.m */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		54DB6A92D89B548C9355DAA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DEB70ED7965E5119DB418497 /* Pods-WeiKe.debug.xcconfig */,
+				D41E12DC020D80C388E5B6D7 /* Pods-WeiKe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5A2835331E977F20005AF4B2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5A2835341E977F88005AF4B2 /* WKSelectedViewController.h */,
+				5A2835351E977F88005AF4B2 /* WKSelectedViewController.m */,
+				4E61304E1E9B6CEC00580BF4 /* WKTeacherStyleViewController.h */,
+				4E61304F1E9B6CEC00580BF4 /* WKTeacherStyleViewController.m */,
+				4E6130511E9B782700580BF4 /* WKStudentStyleViewController.h */,
+				4E6130521E9B782700580BF4 /* WKStudentStyleViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5AFB760D1E949BF4000CE6E8 = {
+			isa = PBXGroup;
+			children = (
+				5AFB76A41E94A3B2000CE6E8 /* Podfile */,
+				5AFB76181E949BF4000CE6E8 /* WeiKe */,
+				5AFB76321E949BF4000CE6E8 /* WeiKeTests */,
+				5AFB763D1E949BF4000CE6E8 /* WeiKeUITests */,
+				5AFB76171E949BF4000CE6E8 /* Products */,
+				54DB6A92D89B548C9355DAA1 /* Pods */,
+				2EE39503E5BACF2C9D7DECC4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5AFB76171E949BF4000CE6E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76161E949BF4000CE6E8 /* WeiKe.app */,
+				5AFB762F1E949BF4000CE6E8 /* WeiKeTests.xctest */,
+				5AFB763A1E949BF4000CE6E8 /* WeiKeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AFB76181E949BF4000CE6E8 /* WeiKe */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76A91E94E35A000CE6E8 /* ViewController.h */,
+				5AFB76AA1E94E35A000CE6E8 /* ViewController.m */,
+				5AFB76771E94A159000CE6E8 /* Class */,
+				5AFB76191E949BF4000CE6E8 /* Supporting Files */,
+			);
+			path = WeiKe;
+			sourceTree = "<group>";
+		};
+		5AFB76191E949BF4000CE6E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76221E949BF4000CE6E8 /* Main.storyboard */,
+				5AFB76251E949BF4000CE6E8 /* Assets.xcassets */,
+				5AFB76271E949BF4000CE6E8 /* LaunchScreen.storyboard */,
+				5AFB762A1E949BF4000CE6E8 /* Info.plist */,
+				5AFB761A1E949BF4000CE6E8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AFB76321E949BF4000CE6E8 /* WeiKeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76331E949BF4000CE6E8 /* WeiKeTests.m */,
+				5AFB76351E949BF4000CE6E8 /* Info.plist */,
+			);
+			path = WeiKeTests;
+			sourceTree = "<group>";
+		};
+		5AFB763D1E949BF4000CE6E8 /* WeiKeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB763E1E949BF4000CE6E8 /* WeiKeUITests.m */,
+				5AFB76401E949BF4000CE6E8 /* Info.plist */,
+			);
+			path = WeiKeUITests;
+			sourceTree = "<group>";
+		};
+		5AFB76771E94A159000CE6E8 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				4E0A37101E9E35FA00438BAC /* Search */,
+				5A2835331E977F20005AF4B2 /* Login */,
+				5AFB76A01E94A159000CE6E8 /* Tools */,
+				5AFB76941E94A159000CE6E8 /* Network */,
+				5AFB76871E94A159000CE6E8 /* Lib */,
+				5AFB76961E94A159000CE6E8 /* Player */,
+				5AFB768F1E94A159000CE6E8 /* Me */,
+				5AFB767D1E94A159000CE6E8 /* Backstage */,
+				5AFB769B1E94A159000CE6E8 /* Teacher */,
+				5AFB76781E94A159000CE6E8 /* Academy */,
+				5AFB76821E94A159000CE6E8 /* Home */,
+				5AFB76881E94A159000CE6E8 /* Main */,
+				5AFB76951E94A159000CE6E8 /* Others */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		5AFB76781E94A159000CE6E8 /* Academy */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76791E94A159000CE6E8 /* handler */,
+				5AFB767A1E94A159000CE6E8 /* model */,
+				5AFB767B1E94A159000CE6E8 /* view */,
+				5AFB767C1E94A159000CE6E8 /* viewcontroller */,
+			);
+			path = Academy;
+			sourceTree = "<group>";
+		};
+		5AFB76791E94A159000CE6E8 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				4EA7E5F51EB33A5900B2B87C /* WKAcedemyHandler.h */,
+				4EA7E5F61EB33A5900B2B87C /* WKAcedemyHandler.m */,
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		5AFB767A1E94A159000CE6E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4E0C1DB51EA09EE900B96A54 /* WKMenuDetail.h */,
+				4E0C1DB61EA09EE900B96A54 /* WKMenuDetail.m */,
+				4EA7E5FB1EB34BEF00B2B87C /* WKGrade.h */,
+				4EA7E5FC1EB34BEF00B2B87C /* WKGrade.m */,
+				4E6929421EB8331600CFFF7D /* WKCourse.h */,
+				4E6929431EB8331600CFFF7D /* WKCourse.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5AFB767B1E94A159000CE6E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4E23FAC61EA9F28200A83674 /* WKAcadeTableViewCell.h */,
+				4E23FAC71EA9F28200A83674 /* WKAcadeTableViewCell.m */,
+				4E23FAC81EA9F28200A83674 /* WKAcadeTableViewCell.xib */,
+				4E74151C1EAD8BF70023FBAB /* WKGradeTableViewCell.h */,
+				4E74151D1EAD8BF70023FBAB /* WKGradeTableViewCell.m */,
+				4E74151E1EAD8BF70023FBAB /* WKGradeTableViewCell.xib */,
+				4E7415211EAD93A20023FBAB /* WKCourseTableViewCell.h */,
+				4E7415221EAD93A20023FBAB /* WKCourseTableViewCell.m */,
+				4E7415231EAD93A20023FBAB /* WKCourseTableViewCell.xib */,
+				4EA7E5EA1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.h */,
+				4EA7E5EB1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.m */,
+				4EA7E5EC1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5AFB767C1E94A159000CE6E8 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				5A28352D1E977EA4005AF4B2 /* WKAcademyViewController.h */,
+				5A28352E1E977EA4005AF4B2 /* WKAcademyViewController.m */,
+				4EA7E5F21EB31DA000B2B87C /* WKAcadeResultsViewController.h */,
+				4EA7E5F31EB31DA000B2B87C /* WKAcadeResultsViewController.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		5AFB767D1E94A159000CE6E8 /* Backstage */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB767E1E94A159000CE6E8 /* handler */,
+				5AFB767F1E94A159000CE6E8 /* model */,
+				5AFB76801E94A159000CE6E8 /* view */,
+				5AFB76811E94A159000CE6E8 /* viewcontroller */,
+			);
+			path = Backstage;
+			sourceTree = "<group>";
+		};
+		5AFB767E1E94A159000CE6E8 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				4EF0A1FE1EC19C970043A713 /* WKBackstage.h */,
+				4EF0A1FF1EC19C970043A713 /* WKBackstage.m */,
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		5AFB767F1E94A159000CE6E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4EA7E5E71EB2D21500B2B87C /* WKBackmenu.h */,
+				4EA7E5E81EB2D21500B2B87C /* WKBackmenu.m */,
+				4EF0A2011EC1A1B10043A713 /* WKRolesModel.h */,
+				4EF0A2021EC1A1B10043A713 /* WKRolesModel.m */,
+				4EF446AA1EC310D20040EC9C /* WKRoleBindUser.h */,
+				4EF446AB1EC310D20040EC9C /* WKRoleBindUser.m */,
+				4E2264921EC565D9004BD057 /* WKVideoModel.h */,
+				4E2264931EC565D9004BD057 /* WKVideoModel.m */,
+				4E27BE1E1ED56E1700549975 /* WKUploadModel.h */,
+				4E27BE1F1ED56E1700549975 /* WKUploadModel.m */,
+				4E0DF1FE1ED6B94600F7B251 /* WKIndicatorModel.h */,
+				4E0DF1FF1ED6B94600F7B251 /* WKIndicatorModel.m */,
+				4E192B6B1ED7CCE800082C9C /* WKJobModel.h */,
+				4E192B6C1ED7CCE800082C9C /* WKJobModel.m */,
+				4EEF20F31ED9305400289B91 /* WKJObClassModel.h */,
+				4EEF20F41ED9305400289B91 /* WKJObClassModel.m */,
+				4EEF20F61ED930D000289B91 /* WKJobGradeModel.h */,
+				4EEF20F71ED930D000289B91 /* WKJobGradeModel.m */,
+				4EF3D7781EE12CB9009D7B07 /* WKJobStu.h */,
+				4EF3D7791EE12CB9009D7B07 /* WKJobStu.m */,
+				4EF3D80F1EE12D86009D7B07 /* WKJobDetail.h */,
+				4EF3D8101EE12D86009D7B07 /* WKJobDetail.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5AFB76801E94A159000CE6E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4EEF4CE81EB1ED9F00259D09 /* WKBackstageCollectionViewCell.h */,
+				4EEF4CE91EB1ED9F00259D09 /* WKBackstageCollectionViewCell.m */,
+				4EEF4CEA1EB1ED9F00259D09 /* WKBackstageCollectionViewCell.xib */,
+				4EDE11A11EBC86E200109E42 /* Headview.xib */,
+				4E0E78FB1EC00A0D00DB3C07 /* WKHeadview.h */,
+				4E0E78FC1EC00A0D00DB3C07 /* WKHeadview.m */,
+				4E0DF2051ED6DFDD00F7B251 /* Job */,
+				4E0D22EA1ECA86DC00631072 /* Role */,
+				4E0D22EC1ECA874B00631072 /* Video */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5AFB76811E94A159000CE6E8 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				4EEF4CED1EB1F9D800259D09 /* WKBackstageCollectionViewController.h */,
+				4EEF4CEE1EB1F9D800259D09 /* WKBackstageCollectionViewController.m */,
+				4E0DF2011ED6CDEC00F7B251 /* JobManager */,
+				4E0DF1F81ED68EFF00F7B251 /*  Indicator */,
+				4E27BE241ED5956600549975 /* Approval */,
+				4E0D22EE1ECA87C800631072 /* Videocontroller */,
+				4E0D22ED1ECA879300631072 /* Rolecontroller */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		5AFB76821E94A159000CE6E8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76831E94A159000CE6E8 /* handler */,
+				5AFB76841E94A159000CE6E8 /* model */,
+				5AFB76851E94A159000CE6E8 /* view */,
+				5AFB76861E94A159000CE6E8 /* viewcontroller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5AFB76831E94A159000CE6E8 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				4E1F7B5B1EA5BDA60088B481 /* WKHomeAdHandler.h */,
+				4E1F7B5C1EA5BDA60088B481 /* WKHomeAdHandler.m */,
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		5AFB76841E94A159000CE6E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4E1F7B581EA5B7670088B481 /* WKHomeAD.h */,
+				4E1F7B591EA5B7670088B481 /* WKHomeAD.m */,
+				4E1F7B5E1EA612A00088B481 /* WKHomeNew.h */,
+				4E1F7B5F1EA612A00088B481 /* WKHomeNew.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5AFB76851E94A159000CE6E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4EF4ADE41E9F1C610054D269 /* WKHomeCollectionViewCell.h */,
+				4EF4ADE51E9F1C610054D269 /* WKHomeCollectionViewCell.m */,
+				4EF4ADE61E9F1C610054D269 /* WKHomeCollectionViewCell.xib */,
+				4EF4ADE91E9F29BE0054D269 /* WKHeaderCollectionReusableView.h */,
+				4EF4ADEA1E9F29BE0054D269 /* WKHeaderCollectionReusableView.m */,
+				4E047C481EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.h */,
+				4E047C491EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m */,
+				4E047C4A1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5AFB76861E94A159000CE6E8 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				5A28352A1E977E76005AF4B2 /* WKHomeViewController.h */,
+				5A28352B1E977E76005AF4B2 /* WKHomeViewController.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		5AFB76871E94A159000CE6E8 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				4EEB115E1ED171D50078DF6E /* ACMediaFrame */,
+				4EEB11341ED171210078DF6E /* TZImagePickerController */,
+				4E9BCE1B1EB0492E004787F0 /* ZFNavigationController */,
+				4E0C1DA21EA06BBC00B96A54 /* SLSlideMenu */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		5AFB76881E94A159000CE6E8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76891E94A159000CE6E8 /* AppDelegate.h */,
+				5AFB768A1E94A159000CE6E8 /* AppDelegate.m */,
+				5AFB76B91E94FDC0000CE6E8 /* WKHttpbase.h */,
+				5AFB76BA1E94FDC0000CE6E8 /* WKHttpbase.m */,
+				5A2835241E977D3E005AF4B2 /* WKBaseViewController.h */,
+				5A2835251E977D3E005AF4B2 /* WKBaseViewController.m */,
+				4E7D92B61E9C847200241C80 /* WKTabBarViewController.h */,
+				4E7D92B71E9C847200241C80 /* WKTabBarViewController.m */,
+				5AFB768B1E94A159000CE6E8 /* handler */,
+				5AFB768C1E94A159000CE6E8 /* model */,
+				5AFB768D1E94A159000CE6E8 /* view */,
+				5AFB768E1E94A159000CE6E8 /* viewcontroller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5AFB768B1E94A159000CE6E8 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		5AFB768C1E94A159000CE6E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5AFB768D1E94A159000CE6E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5AFB768E1E94A159000CE6E8 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		5AFB768F1E94A159000CE6E8 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76901E94A159000CE6E8 /* handler */,
+				5AFB76911E94A159000CE6E8 /* model */,
+				5AFB76921E94A159000CE6E8 /* view */,
+				5AFB76931E94A159000CE6E8 /* viewcontroller */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		5AFB76901E94A159000CE6E8 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				4EEF4CE51EB1E7DF00259D09 /* WKMeHandler.h */,
+				4EEF4CE61EB1E7DF00259D09 /* WKMeHandler.m */,
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		5AFB76911E94A159000CE6E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4EBC283C1EAEFCC300B920D4 /* WKMyMenu.h */,
+				4EBC283D1EAEFCC300B920D4 /* WKMyMenu.m */,
+				4E33B4E51EE3D37F003CB8F0 /* WKMyJobModel.h */,
+				4E33B4E61EE3D37F003CB8F0 /* WKMyJobModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5AFB76921E94A159000CE6E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4EBC283F1EAF251E00B920D4 /* WKMeTableViewCell.h */,
+				4EBC28401EAF251E00B920D4 /* WKMeTableViewCell.m */,
+				4EBC28411EAF251E00B920D4 /* WKMeTableViewCell.xib */,
+				4EEF4CD91EB1930500259D09 /* WKFlowLayout.h */,
+				4EEF4CDA1EB1930500259D09 /* WKFlowLayout.m */,
+				4E33B4DB1EE3A194003CB8F0 /* WKMyJobTableViewCell.h */,
+				4E33B4DC1EE3A194003CB8F0 /* WKMyJobTableViewCell.m */,
+				4E33B4DD1EE3A194003CB8F0 /* WKMyJobTableViewCell.xib */,
+				4E33B4E01EE3B047003CB8F0 /* MyJobheader.xib */,
+				4E33B4E21EE3B2F0003CB8F0 /* WKMyJobheader.h */,
+				4E33B4E31EE3B2F0003CB8F0 /* WKMyJobheader.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5AFB76931E94A159000CE6E8 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				5A2835271E977E38005AF4B2 /* WKMeViewController.h */,
+				5A2835281E977E38005AF4B2 /* WKMeViewController.m */,
+				4EEF4CDC1EB1962800259D09 /* WKMyteacherViewController.h */,
+				4EEF4CDD1EB1962800259D09 /* WKMyteacherViewController.m */,
+				4E33B4D81EE3A03A003CB8F0 /* WKMyJobViewController.h */,
+				4E33B4D91EE3A03A003CB8F0 /* WKMyJobViewController.m */,
+				4E33B4E81EE3E6E0003CB8F0 /* WKUploadMyJobViewController.h */,
+				4E33B4E91EE3E6E0003CB8F0 /* WKUploadMyJobViewController.m */,
+				4E33B4EA1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.xib */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		5AFB76941E94A159000CE6E8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76AC1E94E43B000CE6E8 /* APIConfig.h */,
+				5AFB76B01E94EED6000CE6E8 /* WKHttpmanager.h */,
+				5AFB76B11E94EED6000CE6E8 /* WKHttpmanager.m */,
+				5AFB76B61E94F336000CE6E8 /* WKHttpTool.h */,
+				5AFB76B71E94F336000CE6E8 /* WKHttpTool.m */,
+				5A8CF6E31E95E12D00D08AA1 /* UIImageView+WKsdwebimage.h */,
+				5A8CF6E41E95E12D00D08AA1 /* UIImageView+WKsdwebimage.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5AFB76951E94A159000CE6E8 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76A71E94D3CF000CE6E8 /* PrefixHeader.pch */,
+				5AFB76A81E94DD15000CE6E8 /* WKMacros.h */,
+				4E0A370D1E9E030900438BAC /* WKCarouselFigureViewController.h */,
+				4E0A370E1E9E030900438BAC /* WKCarouselFigureViewController.m */,
+				4E23FAC01EA9B8E100A83674 /* WKClassViewController.h */,
+				4E23FAC11EA9B8E100A83674 /* WKClassViewController.m */,
+				4ECE8A011ECC1A0B00153F70 /* WKUploadImage.h */,
+				4ECE8A021ECC1A0B00153F70 /* WKUploadImage.m */,
+				4EFA27BB1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.h */,
+				4EFA27BC1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		5AFB76961E94A159000CE6E8 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB76971E94A159000CE6E8 /* handler */,
+				5AFB76981E94A159000CE6E8 /* model */,
+				5AFB76991E94A159000CE6E8 /* view */,
+				5AFB769A1E94A159000CE6E8 /* viewcontroller */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		5AFB76971E94A159000CE6E8 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		5AFB76981E94A159000CE6E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5AFB76991E94A159000CE6E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4E9BCE1F1EB09006004787F0 /* WKPlayTitleTableViewCell.h */,
+				4E9BCE201EB09006004787F0 /* WKPlayTitleTableViewCell.m */,
+				4E9BCE211EB09006004787F0 /* WKPlayTitleTableViewCell.xib */,
+				4E9BCE241EB09A8C004787F0 /* WKPlayerTableViewCell.h */,
+				4E9BCE251EB09A8C004787F0 /* WKPlayerTableViewCell.m */,
+				4E9BCE271EB09CB5004787F0 /* WKCollectionViewCell.h */,
+				4E9BCE281EB09CB5004787F0 /* WKCollectionViewCell.m */,
+				4E9BCE291EB09CB5004787F0 /* WKCollectionViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5AFB769A1E94A159000CE6E8 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				5A4FBADE1E9B6676005E2FE8 /* WKplayViewController.h */,
+				5A4FBADF1E9B6676005E2FE8 /* WKplayViewController.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		5AFB769B1E94A159000CE6E8 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB769C1E94A159000CE6E8 /* handler */,
+				5AFB769D1E94A159000CE6E8 /* model */,
+				5AFB769E1E94A159000CE6E8 /* view */,
+				5AFB769F1E94A159000CE6E8 /* viewcontroller */,
+			);
+			path = Teacher;
+			sourceTree = "<group>";
+		};
+		5AFB769C1E94A159000CE6E8 /* handler */ = {
+			isa = PBXGroup;
+			children = (
+				4EEF4CE21EB1DFF000259D09 /* WKTeacherHandler.h */,
+				4EEF4CE31EB1DFF000259D09 /* WKTeacherHandler.m */,
+			);
+			path = handler;
+			sourceTree = "<group>";
+		};
+		5AFB769D1E94A159000CE6E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4EFE988C1EB987EB006F3703 /* WKTeacherList.h */,
+				4EFE988D1EB987EB006F3703 /* WKTeacherList.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5AFB769E1E94A159000CE6E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4EA142E51EAE10230043F5B3 /* WKTeacherCollectionViewCell.h */,
+				4E179B3A1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.m */,
+				4E179B3B1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.xib */,
+				4EA142DD1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.h */,
+				4EA142DE1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.m */,
+				4EA142DF1EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.xib */,
+				4EFE98921EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.h */,
+				4EFE98931EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.m */,
+				4EFE98941EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.xib */,
+				4EFE98971EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.h */,
+				4EFE98981EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.m */,
+				4EFE98991EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.xib */,
+				4EFE989C1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.h */,
+				4EFE989D1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.m */,
+				4EFE989E1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5AFB769F1E94A159000CE6E8 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				5A2835301E977EC7005AF4B2 /* WKTeacherViewController.h */,
+				5A2835311E977EC7005AF4B2 /* WKTeacherViewController.m */,
+				4EFE988F1EB999BE006F3703 /* WKTeacherScreenViewController.h */,
+				4EFE98901EB999BE006F3703 /* WKTeacherScreenViewController.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		5AFB76A01E94A159000CE6E8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4E6130541E9B7A8E00580BF4 /* WKSingleTon.h */,
+				4E6130551E9B7A8E00580BF4 /* WKSingleTon.m */,
+				4E5CFEFD1EA8667F003DF637 /* WKColor.h */,
+				4E5CFEFE1EA8667F003DF637 /* WKColor.m */,
+				4E0E78FE1EC00CA400DB3C07 /* UIView+WKFont.h */,
+				4E0E78FF1EC00CA400DB3C07 /* UIView+WKFont.m */,
+				4E3EE7991EDEC7B800D57E6C /* UIButton+WKIndexpath.h */,
+				4E3EE79A1EDEC7B800D57E6C /* UIButton+WKIndexpath.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AFB76151E949BF4000CE6E8 /* WeiKe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AFB76431E949BF4000CE6E8 /* Build configuration list for PBXNativeTarget "WeiKe" */;
+			buildPhases = (
+				8367F4EFAFF6FFCC8201D757 /* [CP] Check Pods Manifest.lock */,
+				5AFB76121E949BF4000CE6E8 /* Sources */,
+				5AFB76131E949BF4000CE6E8 /* Frameworks */,
+				5AFB76141E949BF4000CE6E8 /* Resources */,
+				9403C42A99EFCC4E2274B998 /* [CP] Embed Pods Frameworks */,
+				AF2E33DC776E911489DF5BBD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeiKe;
+			productName = WeiKe;
+			productReference = 5AFB76161E949BF4000CE6E8 /* WeiKe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AFB762E1E949BF4000CE6E8 /* WeiKeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AFB76461E949BF4000CE6E8 /* Build configuration list for PBXNativeTarget "WeiKeTests" */;
+			buildPhases = (
+				5AFB762B1E949BF4000CE6E8 /* Sources */,
+				5AFB762C1E949BF4000CE6E8 /* Frameworks */,
+				5AFB762D1E949BF4000CE6E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AFB76311E949BF4000CE6E8 /* PBXTargetDependency */,
+			);
+			name = WeiKeTests;
+			productName = WeiKeTests;
+			productReference = 5AFB762F1E949BF4000CE6E8 /* WeiKeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5AFB76391E949BF4000CE6E8 /* WeiKeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AFB76491E949BF4000CE6E8 /* Build configuration list for PBXNativeTarget "WeiKeUITests" */;
+			buildPhases = (
+				5AFB76361E949BF4000CE6E8 /* Sources */,
+				5AFB76371E949BF4000CE6E8 /* Frameworks */,
+				5AFB76381E949BF4000CE6E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AFB763C1E949BF4000CE6E8 /* PBXTargetDependency */,
+			);
+			name = WeiKeUITests;
+			productName = WeiKeUITests;
+			productReference = 5AFB763A1E949BF4000CE6E8 /* WeiKeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AFB760E1E949BF4000CE6E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WK;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "谢鹏";
+				TargetAttributes = {
+					5AFB76151E949BF4000CE6E8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RQ7VB9S9NX;
+						ProvisioningStyle = Automatic;
+					};
+					5AFB762E1E949BF4000CE6E8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RQ7VB9S9NX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5AFB76151E949BF4000CE6E8;
+					};
+					5AFB76391E949BF4000CE6E8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RQ7VB9S9NX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5AFB76151E949BF4000CE6E8;
+					};
+				};
+			};
+			buildConfigurationList = 5AFB76111E949BF4000CE6E8 /* Build configuration list for PBXProject "WeiKe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 5AFB760D1E949BF4000CE6E8;
+			productRefGroup = 5AFB76171E949BF4000CE6E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AFB76151E949BF4000CE6E8 /* WeiKe */,
+				5AFB762E1E949BF4000CE6E8 /* WeiKeTests */,
+				5AFB76391E949BF4000CE6E8 /* WeiKeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AFB76141E949BF4000CE6E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EF3D76A1EE0F49F009D7B07 /* WKJobScoreTableViewCell.xib in Resources */,
+				4E7415201EAD8BF70023FBAB /* WKGradeTableViewCell.xib in Resources */,
+				4EBC28431EAF251E00B920D4 /* WKMeTableViewCell.xib in Resources */,
+				4EF446A91EC2FCE70040EC9C /* WKRoleBindTableViewCell.xib in Resources */,
+				5AFB76291E949BF4000CE6E8 /* LaunchScreen.storyboard in Resources */,
+				5AFB76261E949BF4000CE6E8 /* Assets.xcassets in Resources */,
+				4EFE98A01EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.xib in Resources */,
+				4EFE98961EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.xib in Resources */,
+				4E179B3D1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.xib in Resources */,
+				4E944EA71EE00B2100889145 /* JobScore.xib in Resources */,
+				4E7415251EAD93A20023FBAB /* WKCourseTableViewCell.xib in Resources */,
+				4E4635461EBDBBFA00C140F0 /* WKRoleTableViewCell.xib in Resources */,
+				4EF3D7771EE110E1009D7B07 /* selectScore.xib in Resources */,
+				4E047C4C1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib in Resources */,
+				4E13B43E1ED03C9C00D98102 /* uploadVideo.xib in Resources */,
+				4EFE989B1EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.xib in Resources */,
+				4E9BCE231EB09006004787F0 /* WKPlayTitleTableViewCell.xib in Resources */,
+				4E33B4EC1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.xib in Resources */,
+				4E2264911EC543B4004BD057 /* WKVideoTableViewCell.xib in Resources */,
+				4E0D22F31ECA90B700631072 /* WKVideoClassfiCollectionViewCell.xib in Resources */,
+				4E0A1DFD1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib in Resources */,
+				4E0DF20A1ED6E10800F7B251 /* WKJobTableViewCell.xib in Resources */,
+				4EF3D76C1EE0FFFA009D7B07 /* scoreHeaderView.xib in Resources */,
+				4EA7E5EE1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.xib in Resources */,
+				4E0DF1F71ED6704800F7B251 /* WKApprovalingViewController.xib in Resources */,
+				4E2264991EC5B802004BD057 /* remindView.xib in Resources */,
+				4E9BCE2B1EB09CB5004787F0 /* WKCollectionViewCell.xib in Resources */,
+				4EEF4CEC1EB1ED9F00259D09 /* WKBackstageCollectionViewCell.xib in Resources */,
+				4E0DF1FD1ED68F4100F7B251 /* WKIndicatorSetViewController.xib in Resources */,
+				4EE0083B1EC471CE00F590CF /* DetailView.xib in Resources */,
+				4EDE11A21EBC86E200109E42 /* Headview.xib in Resources */,
+				5AFB76A51E94A3B2000CE6E8 /* Podfile in Resources */,
+				5AFB76241E949BF4000CE6E8 /* Main.storyboard in Resources */,
+				4EEB11751ED171D50078DF6E /* ACMediaFrame.bundle in Resources */,
+				4EEF21001ED962C100289B91 /* ClassHeadView.xib in Resources */,
+				4E23FACA1EA9F28200A83674 /* WKAcadeTableViewCell.xib in Resources */,
+				4EEB11561ED171210078DF6E /* TZImagePickerController.bundle in Resources */,
+				4E33B4E11EE3B047003CB8F0 /* MyJobheader.xib in Resources */,
+				4EF4ADE81E9F1C610054D269 /* WKHomeCollectionViewCell.xib in Resources */,
+				4EEF20FE1ED95C4000289B91 /* WKJobSelectClassTableViewCell.xib in Resources */,
+				4E192B721ED7FE2100082C9C /* WKJobEditViewController.xib in Resources */,
+				4E33B4DF1EE3A194003CB8F0 /* WKMyJobTableViewCell.xib in Resources */,
+				4EA142E11EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB762D1E949BF4000CE6E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB76381E949BF4000CE6E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8367F4EFAFF6FFCC8201D757 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9403C42A99EFCC4E2274B998 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiKe/Pods-WeiKe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF2E33DC776E911489DF5BBD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiKe/Pods-WeiKe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AFB76121E949BF4000CE6E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E944EAA1EE0139B00889145 /* WKJobScore.m in Sources */,
+				4EF3D7651EE0ED8A009D7B07 /* WKJobSureScoreViewController.m in Sources */,
+				4EEF4CE41EB1DFF000259D09 /* WKTeacherHandler.m in Sources */,
+				4E33B4EB1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.m in Sources */,
+				4E2264901EC543B4004BD057 /* WKVideoTableViewCell.m in Sources */,
+				4E0DF2041ED6D8C300F7B251 /* WKJobManagerViewController.m in Sources */,
+				4EFE98911EB999BE006F3703 /* WKTeacherScreenViewController.m in Sources */,
+				4EEB11501ED171210078DF6E /* NSBundle+TZImagePicker.m in Sources */,
+				4E23FAC21EA9B8E100A83674 /* WKClassViewController.m in Sources */,
+				5A28352F1E977EA4005AF4B2 /* WKAcademyViewController.m in Sources */,
+				4EE0083E1EC4743200F590CF /* WKVideoDetailView.m in Sources */,
+				4EA142E01EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.m in Sources */,
+				4E74151F1EAD8BF70023FBAB /* WKGradeTableViewCell.m in Sources */,
+				4EE008391EC4532E00F590CF /* WKVideoManagerViewController.m in Sources */,
+				5A2835321E977EC7005AF4B2 /* WKTeacherViewController.m in Sources */,
+				4EEF20FD1ED95C4000289B91 /* WKJobSelectClassTableViewCell.m in Sources */,
+				4EEB117C1ED171D50078DF6E /* UIImageView+ACMediaExt.m in Sources */,
+				4EF4ADEE1E9F759A0054D269 /* WKSearchResultViewController.m in Sources */,
+				4E9BCE2A1EB09CB5004787F0 /* WKCollectionViewCell.m in Sources */,
+				4E33B4E71EE3D37F003CB8F0 /* WKMyJobModel.m in Sources */,
+				4EEB11521ED171210078DF6E /* TZAssetModel.m in Sources */,
+				4E1F7B5D1EA5BDA60088B481 /* WKHomeAdHandler.m in Sources */,
+				4EF3D7721EE10749009D7B07 /* WKScoreHeaderView.m in Sources */,
+				4ECE8A031ECC1A0B00153F70 /* WKUploadImage.m in Sources */,
+				4EEF20F51ED9305400289B91 /* WKJObClassModel.m in Sources */,
+				5A8CF6E51E95E12D00D08AA1 /* UIImageView+WKsdwebimage.m in Sources */,
+				4EFE989F1EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.m in Sources */,
+				4E0E78FA1EBFFD7D00DB3C07 /* WKRolesViewController.m in Sources */,
+				4E33B4DE1EE3A194003CB8F0 /* WKMyJobTableViewCell.m in Sources */,
+				4EEB115A1ED171210078DF6E /* TZPhotoPreviewController.m in Sources */,
+				5AFB76AB1E94E35A000CE6E8 /* ViewController.m in Sources */,
+				5AFB761B1E949BF4000CE6E8 /* main.m in Sources */,
+				4E23FAC91EA9F28200A83674 /* WKAcadeTableViewCell.m in Sources */,
+				4E192B6D1ED7CCE800082C9C /* WKJobModel.m in Sources */,
+				4E0D22F21ECA90B700631072 /* WKVideoClassfiCollectionViewCell.m in Sources */,
+				4EEB117E1ED171D50078DF6E /* UIViewController+ACMediaExt.m in Sources */,
+				4E1F7B601EA612A00088B481 /* WKHomeNew.m in Sources */,
+				4E6130501E9B6CEC00580BF4 /* WKTeacherStyleViewController.m in Sources */,
+				4E6929441EB8331600CFFF7D /* WKCourse.m in Sources */,
+				4EEF4CEF1EB1F9D800259D09 /* WKBackstageCollectionViewController.m in Sources */,
+				4EF4ADEB1E9F29BE0054D269 /* WKHeaderCollectionReusableView.m in Sources */,
+				4E7D92B81E9C847200241C80 /* WKTabBarViewController.m in Sources */,
+				4EDF94491ECD2A2200FEE211 /* WKVideoMergeViewController.m in Sources */,
+				4E179B3C1EA4C5AB00101BD6 /* WKTeacherCollectionViewCell.m in Sources */,
+				4E0DF1FC1ED68F4100F7B251 /* WKIndicatorSetViewController.m in Sources */,
+				4EEB117A1ED171D50078DF6E /* NSString+ACMediaExt.m in Sources */,
+				4EEB11571ED171210078DF6E /* TZImagePickerController.m in Sources */,
+				4E0DF2001ED6B94600F7B251 /* WKIndicatorModel.m in Sources */,
+				4EF446A81EC2FCE70040EC9C /* WKRoleBindTableViewCell.m in Sources */,
+				5A2835291E977E38005AF4B2 /* WKMeViewController.m in Sources */,
+				4E944EAD1EE014D600889145 /* WKJobScoreViewController.m in Sources */,
+				4EEF20F21ED920A800289B91 /* WKSelectedJoinClassViewController.m in Sources */,
+				5AFB76A11E94A159000CE6E8 /* AppDelegate.m in Sources */,
+				4E6130531E9B782700580BF4 /* WKStudentStyleViewController.m in Sources */,
+				4EEB117B1ED171D50078DF6E /* UIImage+ACGif.m in Sources */,
+				4E0A1DFC1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m in Sources */,
+				4EF446A41EC2ECFF0040EC9C /* WKRoleView.m in Sources */,
+				4EBC28421EAF251E00B920D4 /* WKMeTableViewCell.m in Sources */,
+				4EEB11591ED171210078DF6E /* TZPhotoPreviewCell.m in Sources */,
+				4EA7E5FD1EB34BEF00B2B87C /* WKGrade.m in Sources */,
+				4EEB115D1ED171210078DF6E /* UIView+Layout.m in Sources */,
+				4EF0A2031EC1A1B10043A713 /* WKRolesModel.m in Sources */,
+				4EF4469E1EC2E52D0040EC9C /* WKBindOnView.m in Sources */,
+				4EEB11541ED171210078DF6E /* TZImageCropManager.m in Sources */,
+				4E27BE201ED56E1700549975 /* WKUploadModel.m in Sources */,
+				5A4FBAE01E9B6676005E2FE8 /* WKplayViewController.m in Sources */,
+				4EF3D7751EE110C7009D7B07 /* WKSelectedScore.m in Sources */,
+				4EEF4CDE1EB1962800259D09 /* WKMyteacherViewController.m in Sources */,
+				4EEE019A1ED2DBB900ADA0DB /* WKUploadOutLinkViewController.m in Sources */,
+				4EEB11581ED171210078DF6E /* TZPhotoPickerController.m in Sources */,
+				4E1F7B5A1EA5B7670088B481 /* WKHomeAD.m in Sources */,
+				4EEF20F81ED930D000289B91 /* WKJobGradeModel.m in Sources */,
+				4EFA27BD1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m in Sources */,
+				4EEF4CE71EB1E7DF00259D09 /* WKMeHandler.m in Sources */,
+				4E2264971EC599FC004BD057 /* WKUploadVideoViewController.m in Sources */,
+				4EEB11781ED171D50078DF6E /* ACMediaModel.m in Sources */,
+				4EA7E5E91EB2D21500B2B87C /* WKBackmenu.m in Sources */,
+				4EEB11511ED171210078DF6E /* TZAssetCell.m in Sources */,
+				4E4135421EC9BF91009CD900 /* WKSetVideoViewController.m in Sources */,
+				4E4635451EBDBBFA00C140F0 /* WKRoleTableViewCell.m in Sources */,
+				4E9BCE261EB09A8C004787F0 /* WKPlayerTableViewCell.m in Sources */,
+				4E13B4411ED04BF900D98102 /* WKUpload.m in Sources */,
+				4ECE89FD1ECBECCB00153F70 /* WKVideoADViewController.m in Sources */,
+				5A28352C1E977E76005AF4B2 /* WKHomeViewController.m in Sources */,
+				4E0A1E021ED42DF200E99776 /* WKEditVideoViewController.m in Sources */,
+				4EEB11551ED171210078DF6E /* TZImageManager.m in Sources */,
+				4E9BCE221EB09006004787F0 /* WKPlayTitleTableViewCell.m in Sources */,
+				4EF3D7691EE0F49F009D7B07 /* WKJobScoreTableViewCell.m in Sources */,
+				4E0E79001EC00CA400DB3C07 /* UIView+WKFont.m in Sources */,
+				4EA7E5ED1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.m in Sources */,
+				4E0C1DB71EA09EE900B96A54 /* WKMenuDetail.m in Sources */,
+				4E0C1DA81EA06BBC00B96A54 /* SLSlideMenu.m in Sources */,
+				5AFB76B21E94EED6000CE6E8 /* WKHttpmanager.m in Sources */,
+				5A2835361E977F88005AF4B2 /* WKSelectedViewController.m in Sources */,
+				4EA7E5F71EB33A5900B2B87C /* WKAcedemyHandler.m in Sources */,
+				4EEB11531ED171210078DF6E /* TZGifPhotoPreviewController.m in Sources */,
+				4E0C1DA71EA06BBC00B96A54 /* SLScreenEdgePanGestureRecognizer.m in Sources */,
+				4EFE988E1EB987EB006F3703 /* WKTeacherList.m in Sources */,
+				4E0A370F1E9E030900438BAC /* WKCarouselFigureViewController.m in Sources */,
+				5A2835261E977D3E005AF4B2 /* WKBaseViewController.m in Sources */,
+				4E27BE271ED595A100549975 /* WKApprovalViewController.m in Sources */,
+				4E0DF1F61ED6704800F7B251 /* WKApprovalingViewController.m in Sources */,
+				4E5CFEFF1EA8667F003DF637 /* WKColor.m in Sources */,
+				4E0DF2091ED6E10800F7B251 /* WKJobTableViewCell.m in Sources */,
+				4EF4ADE71E9F1C610054D269 /* WKHomeCollectionViewCell.m in Sources */,
+				4EEB11761ED171D50078DF6E /* ACMediaImageCell.m in Sources */,
+				4E0A37131E9E362900438BAC /* WKSearcherViewController.m in Sources */,
+				4EF446A11EC2E5ED0040EC9C /* WKRoleBindOnViewController.m in Sources */,
+				4E3EE79B1EDEC7B800D57E6C /* UIButton+WKIndexpath.m in Sources */,
+				4EBC283E1EAEFCC300B920D4 /* WKMyMenu.m in Sources */,
+				4EEB115C1ED171210078DF6E /* TZVideoPlayerController.m in Sources */,
+				4E6130561E9B7A8E00580BF4 /* WKSingleTon.m in Sources */,
+				4EF446AF1EC325030040EC9C /* WKRoleBindAddViewController.m in Sources */,
+				4EF3D77A1EE12CB9009D7B07 /* WKJobStu.m in Sources */,
+				4EF0A2001EC19C970043A713 /* WKBackstage.m in Sources */,
+				4EA7E5F41EB31DA000B2B87C /* WKAcadeResultsViewController.m in Sources */,
+				4E0E78FD1EC00A0D00DB3C07 /* WKHeadview.m in Sources */,
+				4E9BCE1E1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.m in Sources */,
+				4EEB11771ED171D50078DF6E /* ACMediaManager.m in Sources */,
+				4E33B4DA1EE3A03A003CB8F0 /* WKMyJobViewController.m in Sources */,
+				4E0A1DFF1ED4025600E99776 /* ACSelectMediaView.m in Sources */,
+				4E7415241EAD93A20023FBAB /* WKCourseTableViewCell.m in Sources */,
+				4E22649C1EC5B835004BD057 /* WKRemindView.m in Sources */,
+				5AFB76BB1E94FDC0000CE6E8 /* WKHttpbase.m in Sources */,
+				4EEF4CDB1EB1930500259D09 /* WKFlowLayout.m in Sources */,
+				4E0E79061EC05B5300DB3C07 /* WKRolesEditViewController.m in Sources */,
+				4E192B711ED7FE2100082C9C /* WKJobEditViewController.m in Sources */,
+				4EEB115B1ED171210078DF6E /* TZProgressView.m in Sources */,
+				4E047C4B1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m in Sources */,
+				4EFE989A1EB9CEF9006F3703 /* WKTescreenHeadCollectionReusableView.m in Sources */,
+				5AFB76B81E94F336000CE6E8 /* WKHttpTool.m in Sources */,
+				4EF446AC1EC310D20040EC9C /* WKRoleBindUser.m in Sources */,
+				4EF3D76F1EE1036C009D7B07 /* WKJobImageTableViewCell.m in Sources */,
+				4EEB117D1ED171D50078DF6E /* UIView+ACMediaExt.m in Sources */,
+				4EF3D8111EE12D86009D7B07 /* WKJobDetail.m in Sources */,
+				4EFE98951EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.m in Sources */,
+				4E33B4E41EE3B2F0003CB8F0 /* WKMyJobheader.m in Sources */,
+				4EEF4CEB1EB1ED9F00259D09 /* WKBackstageCollectionViewCell.m in Sources */,
+				4E2264941EC565D9004BD057 /* WKVideoModel.m in Sources */,
+				4EEF21031ED9670200289B91 /* WKJobClass.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB762B1E949BF4000CE6E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AFB76341E949BF4000CE6E8 /* WeiKeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AFB76361E949BF4000CE6E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AFB763F1E949BF4000CE6E8 /* WeiKeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AFB76311E949BF4000CE6E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AFB76151E949BF4000CE6E8 /* WeiKe */;
+			targetProxy = 5AFB76301E949BF4000CE6E8 /* PBXContainerItemProxy */;
+		};
+		5AFB763C1E949BF4000CE6E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AFB76151E949BF4000CE6E8 /* WeiKe */;
+			targetProxy = 5AFB763B1E949BF4000CE6E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AFB76221E949BF4000CE6E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AFB76231E949BF4000CE6E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5AFB76271E949BF4000CE6E8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AFB76281E949BF4000CE6E8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AFB76411E949BF4000CE6E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AFB76421E949BF4000CE6E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AFB76441E949BF4000CE6E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEB70ED7965E5119DB418497 /* Pods-WeiKe.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = RQ7VB9S9NX;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WeiKe/Class/Others/PrefixHeader.pch";
+				INFOPLIST_FILE = WeiKe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huachi.WeiKe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5AFB76451E949BF4000CE6E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D41E12DC020D80C388E5B6D7 /* Pods-WeiKe.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = RQ7VB9S9NX;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WeiKe/Class/Others/PrefixHeader.pch";
+				INFOPLIST_FILE = WeiKe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huachi.WeiKe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5AFB76471E949BF4000CE6E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = RQ7VB9S9NX;
+				INFOPLIST_FILE = WeiKeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huachi.WeiKeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeiKe.app/WeiKe";
+			};
+			name = Debug;
+		};
+		5AFB76481E949BF4000CE6E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = RQ7VB9S9NX;
+				INFOPLIST_FILE = WeiKeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huachi.WeiKeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeiKe.app/WeiKe";
+			};
+			name = Release;
+		};
+		5AFB764A1E949BF4000CE6E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RQ7VB9S9NX;
+				INFOPLIST_FILE = WeiKeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huachi.WeiKeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WeiKe;
+			};
+			name = Debug;
+		};
+		5AFB764B1E949BF4000CE6E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = RQ7VB9S9NX;
+				INFOPLIST_FILE = WeiKeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.huachi.WeiKeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WeiKe;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AFB76111E949BF4000CE6E8 /* Build configuration list for PBXProject "WeiKe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFB76411E949BF4000CE6E8 /* Debug */,
+				5AFB76421E949BF4000CE6E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AFB76431E949BF4000CE6E8 /* Build configuration list for PBXNativeTarget "WeiKe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFB76441E949BF4000CE6E8 /* Debug */,
+				5AFB76451E949BF4000CE6E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AFB76461E949BF4000CE6E8 /* Build configuration list for PBXNativeTarget "WeiKeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFB76471E949BF4000CE6E8 /* Debug */,
+				5AFB76481E949BF4000CE6E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AFB76491E949BF4000CE6E8 /* Build configuration list for PBXNativeTarget "WeiKeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AFB764A1E949BF4000CE6E8 /* Debug */,
+				5AFB764B1E949BF4000CE6E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AFB760E1E949BF4000CE6E8 /* Project object */;
+}

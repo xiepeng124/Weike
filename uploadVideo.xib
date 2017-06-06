@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UXw-f3-kSj" customClass="WKUpload">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="water" translatesAutoresizingMaskIntoConstraints="NO" id="5Lr-IU-dn8">
+                    <rect key="frame" x="0.0" y="0.0" width="145" height="84"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="145" id="Pec-Ct-yIt"/>
+                        <constraint firstAttribute="height" constant="84" id="z2X-dd-cdS"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYo-el-Ztq">
+                    <rect key="frame" x="36" y="33" width="72" height="25"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="9ff-Qr-PrM"/>
+                        <constraint firstAttribute="height" constant="25" id="d1F-Dr-AxE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="编辑封面"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94x-MV-TSU">
+                    <rect key="frame" x="165" y="67" width="42" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="Lcf-B4-15z"/>
+                        <constraint firstAttribute="height" constant="12" id="uzq-sL-VTn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbL-dK-h1K">
+                    <rect key="frame" x="173.5" y="37" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="KGP-Va-vS1"/>
+                        <constraint firstAttribute="width" constant="25" id="lsy-ju-hdD"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="add"/>
+                    <connections>
+                        <action selector="addAction:" destination="UXw-f3-kSj" eventType="touchUpInside" id="IOn-Af-myz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDd-Sq-Fip">
+                    <rect key="frame" x="165" y="0.0" width="46" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="add2Action:" destination="UXw-f3-kSj" eventType="touchUpInside" id="SWU-Vd-WBr"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5Lr-IU-dn8" firstAttribute="top" secondItem="UXw-f3-kSj" secondAttribute="top" id="6eq-fj-Sii"/>
+                <constraint firstItem="94x-MV-TSU" firstAttribute="top" secondItem="tbL-dK-h1K" secondAttribute="bottom" constant="5" id="ZXQ-9U-ATh"/>
+                <constraint firstItem="94x-MV-TSU" firstAttribute="leading" secondItem="5Lr-IU-dn8" secondAttribute="trailing" constant="20" id="aPQ-Vz-gFh"/>
+                <constraint firstItem="xYo-el-Ztq" firstAttribute="centerX" secondItem="5Lr-IU-dn8" secondAttribute="centerX" id="hKT-AO-YI8"/>
+                <constraint firstItem="tbL-dK-h1K" firstAttribute="leading" secondItem="5Lr-IU-dn8" secondAttribute="trailing" constant="28.5" id="lYN-gO-cnt"/>
+                <constraint firstAttribute="bottom" secondItem="94x-MV-TSU" secondAttribute="bottom" constant="20" id="nVJ-xN-MKl"/>
+                <constraint firstItem="xYo-el-Ztq" firstAttribute="top" secondItem="5Lr-IU-dn8" secondAttribute="bottom" constant="-51" id="stx-Ey-4MI"/>
+                <constraint firstItem="5Lr-IU-dn8" firstAttribute="leading" secondItem="UXw-f3-kSj" secondAttribute="leading" id="xAL-Pg-hkj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addButton" destination="tbL-dK-h1K" id="Edg-zG-3Oi"/>
+                <outlet property="addLabel" destination="94x-MV-TSU" id="Eba-Ch-jdN"/>
+                <outlet property="editCover" destination="xYo-el-Ztq" id="gDw-cu-vOt"/>
+                <outlet property="videoCover" destination="5Lr-IU-dn8" id="diY-jA-pYm"/>
+            </connections>
+            <point key="canvasLocation" x="-219" y="338.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="add" width="25" height="25"/>
+        <image name="water" width="250" height="156"/>
+    </resources>
+</document>
