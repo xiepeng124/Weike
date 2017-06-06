@@ -11,4 +11,6 @@
 @interface WKMeHandler : WKHttpbase
 +(void)executeGetmyTeacherListWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMyJobSearchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMyJobHandWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMyJobWatchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 @end

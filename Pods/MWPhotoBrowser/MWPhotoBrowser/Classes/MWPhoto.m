@@ -12,6 +12,7 @@
 #import "SDWebImageManager.h"
 #import "SDWebImageOperation.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @interface MWPhoto () {
 
@@ -97,7 +98,7 @@
 // Set the underlyingImage and call decompressImageAndFinishLoading on the main thread when complete.
 // On error, set underlyingImage to nil and then call decompressImageAndFinishLoading on the main thread.
 - (void)performLoadUnderlyingImageAndNotify {
-    
+  
     // Get underlying image
     if (_image) {
         
@@ -106,10 +107,10 @@
         [self decompressImageAndFinishLoading];
         
     } else if (_photoURL) {
-        
+      
         // Check what type of url it is
         if ([[[_photoURL scheme] lowercaseString] isEqualToString:@"assets-library"]) {
-            
+           
             // Load from asset library async
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 @autoreleasepool {
@@ -138,6 +139,7 @@
             
         } else if ([_photoURL isFileReferenceURL]) {
             
+           
             // Load from local file async
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 @autoreleasepool {
@@ -154,9 +156,23 @@
             
         } else {
             
-            // Load async from web (using SDWebImage)
+            //Load async from web (using SDWebImage)
             @try {
-//                SDWebImageManager *manager = [SDWebImageManager sharedManager];
+                SDWebImageManager *manager = [SDWebImageManager sharedManager];
+                [manager downloadImageWithURL:_photoURL options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                    if (expectedSize > 0) {
+                        float progress = receivedSize / (float)expectedSize;
+                        NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              [NSNumber numberWithFloat:progress], @"progress",
+                                              self, @"photo", nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:MWPHOTO_PROGRESS_NOTIFICATION object:dict];
+                    }
+
+                } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                    self.underlyingImage = image;
+                    [self decompressImageAndFinishLoading];
+
+                }];
 //                _webImageOperation = [manager downloadWithURL:_photoURL
 //                                                      options:0
 //                                                     progress:^(NSUInteger receivedSize, long long expectedSize) {

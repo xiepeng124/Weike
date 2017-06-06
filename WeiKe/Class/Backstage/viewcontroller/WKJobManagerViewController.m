@@ -76,6 +76,7 @@
     self.jobTableView.dataSource = self;
     self.jobTableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     self.jobTableView.showsVerticalScrollIndicator = NO;
+    self.jobTableView.showsHorizontalScrollIndicator = NO;
     [self.jobTableView registerNib:[UINib nibWithNibName:@"WKJobTableViewCell" bundle:nil]
             forCellReuseIdentifier:@"mycell"];
     self.jobTableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];

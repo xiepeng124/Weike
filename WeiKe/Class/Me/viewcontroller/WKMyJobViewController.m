@@ -11,13 +11,15 @@
 #import "WKMyJobTableViewCell.h"
 #import "WKMeHandler.h"
 #import "WKUploadMyJobViewController.h"
-@interface WKMyJobViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+#import "MWPhotoBrowser.h"
+@interface WKMyJobViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,MWPhotoBrowserDelegate>
 @property (nonatomic,strong) UITableView *jobTableView;
 @property (nonatomic,strong) WKMyJobheader *myJobheader;
 @property (nonatomic,assign) BOOL isHand;
 @property (nonatomic,assign) NSInteger page;
 @property (nonatomic,assign)BOOL isMore;
 @property (nonatomic,strong) NSMutableArray *arrlist;
+@property (nonatomic,strong) NSMutableArray *arrImage;
 
 @end
 
@@ -27,6 +29,12 @@
         _arrlist = [NSMutableArray array];
     }
     return _arrlist;
+}
+-(NSMutableArray*)arrImage{
+    if (!_arrImage) {
+        _arrImage = [NSMutableArray array];
+    }
+    return _arrImage;
 }
 -(void)initStyle{
     self.myJobheader = [[WKMyJobheader alloc]init];
@@ -46,6 +54,8 @@
     self.jobTableView.dataSource = self;
     self.jobTableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     self.jobTableView.showsVerticalScrollIndicator = NO;
+    self.jobTableView.showsHorizontalScrollIndicator = NO;
+      self.jobTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.jobTableView registerNib:[UINib nibWithNibName:@"WKMyJobTableViewCell" bundle:nil]
             forCellReuseIdentifier:@"mycell"];
     self.jobTableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
@@ -111,11 +121,15 @@
             switch (model.starCount) {
                 case 1:
                     cell.oneImageView.image = [UIImage imageNamed:@"star_on"];
+                     cell.twoImageView.image = [UIImage imageNamed:@"star_off"];
+                     cell.threeImage.image = [UIImage imageNamed:@"star_off"];
+                
                     break;
                 case 2:
                 {
                      cell.oneImageView.image = [UIImage imageNamed:@"star_on"];
                      cell.twoImageView.image = [UIImage imageNamed:@"star_on"];
+                     cell.threeImage.image = [UIImage imageNamed:@"star_off"];
                 }
                     break;
                 case 3:
@@ -127,11 +141,18 @@
                     break;
                     
                 default:
+                {
+                    cell.oneImageView.image = [UIImage imageNamed:@"star_off"];
+                    cell.twoImageView.image = [UIImage imageNamed:@"star_off"];
+                    cell.threeImage.image = [UIImage imageNamed:@"star_off"];
+                }
+
                     break;
             }
            
             [cell.sendbutton setTitle:@"下载附件" forState:UIControlStateNormal];
             [cell.downloadButton setTitle:@"作业查看" forState:UIControlStateNormal];
+            [cell.downloadButton addTarget:self action:@selector(watchMytaskAction:) forControlEvents:UIControlEventTouchUpInside];
         }
         else{
             cell.oneImageView.hidden = YES;
@@ -202,6 +223,7 @@
 }
 -(void)uploadJobAction:(UIButton*)sender {
     WKUploadMyJobViewController *upload = [[WKUploadMyJobViewController alloc]init];
+    upload.model = self.arrlist [sender.tag];
     [self.navigationController pushViewController:upload animated:YES];
     
 }
@@ -242,6 +264,53 @@
         [self initData];
     }
     return YES;
+}
+-(void)watchMytaskAction:(UIButton*)sender{
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = NO;
+    browser.alwaysShowControls = NO;
+    browser.displaySelectionButtons = NO;
+    browser.zoomPhotosToFill = YES;
+    browser.displayNavArrows = NO;
+    browser.startOnGrid = NO;
+    browser.enableGrid = YES;
+    [browser showNextPhotoAnimated:YES];
+    WKMyJobModel *model = self.arrlist[sender.tag];
+    NSDictionary *dic = @{@"schoolId":SCOOLID,@"stuTaskId":[NSNumber numberWithInteger:model.id]};
+    __weak typeof(self) weakself = self;
+    [self.arrImage removeAllObjects];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKMeHandler executeGetMyJobWatchWithParameter:dic success:^(id object) {
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           NSArray  *arr = [object objectForKey:@"urlList"];
+                           for (NSDictionary *dic in arr) {
+                               NSLog(@"dic =%@",[dic objectForKey:@"url"]);
+                              // MWPhoto *photo = [MWPhoto photoWithImage:[UIImage imageNamed:@"water"]];
+                               MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:[dic objectForKey:@"url"]]];
+                               //[browser setCurrentPhotoIndex:0];
+
+                              // NSLog(@"photo .url= %@",photo.photoURL);
+                           [weakself.arrImage addObject:photo];
+                           }
+                           [browser reloadData];
+                    [weakself.navigationController pushViewController:browser animated:YES];
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
+
+}
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.arrImage.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.arrImage.count) {
+        NSLog(@"...%@",[self.arrImage objectAtIndex:index ]);
+        return  [self.arrImage objectAtIndex:index];
+    }
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning {

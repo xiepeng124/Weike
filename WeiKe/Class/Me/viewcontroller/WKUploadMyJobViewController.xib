@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WKUploadMyJobViewController">
             <connections>
+                <outlet property="backgroundView" destination="cTD-xz-LiX" id="iHp-dN-rVd"/>
                 <outlet property="keepButton" destination="m2s-s8-w43" id="eC0-Nb-xIi"/>
                 <outlet property="line1" destination="L0g-SC-C4u" id="DrP-zg-9Ue"/>
                 <outlet property="line2" destination="0RG-d5-wPB" id="JZ6-T7-j84"/>
@@ -23,6 +24,7 @@
                 <outlet property="remarkText" destination="e9p-Qb-Ern" id="geO-v2-Pb7"/>
                 <outlet property="schoolYear" destination="joe-f5-0nj" id="AXi-yd-6gI"/>
                 <outlet property="schoolYearText" destination="9MS-iP-m7f" id="4fr-ic-IUK"/>
+                <outlet property="tableviewH" destination="e8g-So-Asq" id="S1r-f5-zc6"/>
                 <outlet property="taskFile" destination="jy5-Vs-2hB" id="FyY-Jc-nP1"/>
                 <outlet property="taskName" destination="Ich-IA-Sgg" id="Bqu-FQ-nB0"/>
                 <outlet property="taskNameText" destination="da0-Dy-SoE" id="0QJ-z2-gng"/>
@@ -154,6 +156,9 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rHc-1a-stL">
                             <rect key="frame" x="85" y="157.5" width="260" height="72.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="72.5" id="e8g-So-Asq"/>
+                            </constraints>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,7 +199,6 @@
                         <constraint firstItem="9Ym-wu-Mi5" firstAttribute="leading" secondItem="GvR-st-ATc" secondAttribute="leading" id="vp2-Iv-aSP"/>
                         <constraint firstItem="c8n-iZ-hhD" firstAttribute="top" secondItem="9MS-iP-m7f" secondAttribute="bottom" id="wuy-So-vI6"/>
                         <constraint firstAttribute="trailing" secondItem="da0-Dy-SoE" secondAttribute="trailing" id="y1Y-aI-bOD"/>
-                        <constraint firstAttribute="bottom" secondItem="rHc-1a-stL" secondAttribute="bottom" id="yLu-Ap-mMk"/>
                         <constraint firstItem="da0-Dy-SoE" firstAttribute="top" secondItem="GvR-st-ATc" secondAttribute="top" id="yyS-KL-cWe"/>
                     </constraints>
                 </view>
@@ -216,7 +220,7 @@
                 <constraint firstAttribute="trailing" secondItem="GvR-st-ATc" secondAttribute="trailing" constant="10" id="YtL-Ol-xdi"/>
                 <constraint firstItem="GvR-st-ATc" firstAttribute="top" secondItem="s94-Wt-yIu" secondAttribute="top" constant="74" id="bZT-ex-ZFo"/>
             </constraints>
-            <point key="canvasLocation" x="452.5" y="96.5"/>
+            <point key="canvasLocation" x="147" y="-7"/>
         </view>
     </objects>
 </document>

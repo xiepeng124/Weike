@@ -319,18 +319,18 @@
     self.arrayGrade = [NSMutableArray array];
     self.arrayCourse = [NSMutableArray array];
     
-    NSIndexPath *path1 = [NSIndexPath indexPathForRow:1 inSection:0];
-    [self.onetableview selectRowAtIndexPath:path1 animated:YES scrollPosition:UITableViewScrollPositionTop];
-    [self tableView:self.onetableview didSelectRowAtIndexPath:path1];
+//    NSIndexPath *path1 = [NSIndexPath indexPathForRow:1 inSection:0];
+//    [self.onetableview selectRowAtIndexPath:path1 animated:YES scrollPosition:UITableViewScrollPositionTop];
+//    [self tableView:self.onetableview didSelectRowAtIndexPath:path1];
+//    
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        NSIndexPath *path2 = [NSIndexPath indexPathForRow:2 inSection:0];
+//        [self.twotableview selectRowAtIndexPath:path2 animated:YES scrollPosition:UITableViewScrollPositionTop];
+//        [self tableView:self.twotableview didSelectRowAtIndexPath:path2];
     
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSIndexPath *path2 = [NSIndexPath indexPathForRow:2 inSection:0];
-        [self.twotableview selectRowAtIndexPath:path2 animated:YES scrollPosition:UITableViewScrollPositionTop];
-        [self tableView:self.twotableview didSelectRowAtIndexPath:path2];
         
-        
-    });
+    //});
 
 }
 #pragma mark - Action

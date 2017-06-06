@@ -19,7 +19,7 @@
      self.promulgator.textColor = [WKColor colorWithHexString:DARK_COLOR];
      self.score.textColor = [WKColor colorWithHexString:DARK_COLOR];
      self.remark.textColor = [WKColor colorWithHexString:DARK_COLOR];
-    self.line.backgroundColor =[WKColor colorWithHexString:LIGHT_COLOR];
+    self.line.backgroundColor =[WKColor colorWithHexString:BACK_COLOR];
      [self.sendbutton setTitleColor:[ WKColor colorWithHexString:DARK_COLOR] forState:UIControlStateNormal] ;
     self.sendbutton.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
     self.sendbutton.layer.cornerRadius = 3;

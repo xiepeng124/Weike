@@ -76,6 +76,7 @@
     self.videoTableview.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     self.videoTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.videoTableview.showsVerticalScrollIndicator = NO;
+    self.videoTableview.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:self.videoTableview];
     self.hud = [[MBProgressHUD alloc]init];
     self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);

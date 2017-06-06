@@ -120,5 +120,9 @@
 #define JOB_HAND_SEARCH @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/handTaskQuery"
 //上交作业
 #define JOB_HAND @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/handInTask"
+//作业查看
+#define JOB_WATCH @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/queryStuTask"
+
+
 
 #endif /* APIConfig_h */

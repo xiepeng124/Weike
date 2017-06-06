@@ -10,12 +10,14 @@
 #import "WKScoreHeaderView.h"
 #import "WKJobImageTableViewCell.h"
 #import "WKSelectedScore.h"
-@interface WKJobSureScoreViewController ()<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource>
+#import "MWPhotoBrowser.h"
+@interface WKJobSureScoreViewController ()<UITableViewDelegate,UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,MWPhotoBrowserDelegate>
 @property (nonatomic,strong)WKScoreHeaderView *headerView;
 @property (nonatomic,strong)UITableView *ImageTableView;
 @property (nonatomic,strong)WKSelectedScore *selectedView;
 @property (nonatomic,strong)  UIView *blackView;
 @property (nonatomic,strong) NSMutableArray *arrlist;
+@property (nonatomic,strong) NSMutableArray *arrImage;
 
 @end
 
@@ -25,6 +27,12 @@
         _arrlist = [NSMutableArray array];
     }
     return _arrlist;
+}
+-(NSMutableArray*)arrImage{
+    if (!_arrImage) {
+        _arrImage = [NSMutableArray array];
+    }
+    return _arrImage;
 }
 -(void)InitStyle{
     self.headerView = [[WKScoreHeaderView alloc]init];
@@ -86,7 +94,38 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = NO;
+    browser.alwaysShowControls = NO;
+    browser.displaySelectionButtons = NO;
+    browser.zoomPhotosToFill = YES;
+    browser.displayNavArrows = NO;
+    browser.startOnGrid = NO;
+    browser.enableGrid = YES;
+    [browser showNextPhotoAnimated:YES];
+    [self.arrImage removeAllObjects];
+    for (int i=0; i<self.model.urlList.count; i++) {
+        NSString *sting =[self.model.urlList[i] objectForKey:@"url"];
+        MWPhoto *photo =[MWPhoto photoWithURL:[NSURL URLWithString:sting]];
+        [self.arrImage addObject:photo];
+    }
+    [browser reloadData];
+    [self.navigationController pushViewController:browser animated:YES];
+  
 
+}
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.arrImage.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.arrImage.count) {
+        NSLog(@"...%@",[self.arrImage objectAtIndex:index ]);
+        return  [self.arrImage objectAtIndex:index];
+    }
+    return nil;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     WKJobImageTableViewCell *cell = (WKJobImageTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];

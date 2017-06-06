@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "ACMediaModel.h"
 #import "WKUploadModel.h"
+#import "WKMyUploadTaskmodel.h"
+
 /** 媒体资源的类型 */
 typedef NS_ENUM(NSInteger, ACMediaType) {
     /** 本地图片和相机 */
@@ -31,11 +33,17 @@ typedef void(^ACMediaHeightBlock)(CGFloat mediaHeight);
 
 typedef void(^ACSelectMediaBackBlock)(NSArray<ACMediaModel *> *list);
 
+@protocol ACImageDelegate <NSObject>
+@optional
+-(void)selectedImages:(NSInteger)count;
+@end
+
 /** 选择媒体 并 排列展示 的页面 */
 @interface ACSelectMediaView : UIView
 
 #pragma mark - properties
 
+@property (nonatomic,weak) id<ACImageDelegate>delegate;
 /** 
  * 需要展示的媒体的资源类型：如仅显示图片等，默认是 ACMediaTypePhotoAndCamera
  */

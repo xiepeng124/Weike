@@ -25,7 +25,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.minimumLineSpacing = 40 ;
     layout.minimumInteritemSpacing = 30;
-    layout.itemSize = CGSizeMake((SCREEN_WIDTH-80-60)*0.33, 60);
+    layout.itemSize = CGSizeMake((SCREEN_WIDTH-80-60)*0.33, 64);
     layout.sectionInset = UIEdgeInsetsMake(40, 40, 35, 40);
     return [super initWithCollectionViewLayout:layout];
 }

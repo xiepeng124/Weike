@@ -28,4 +28,20 @@
     }];
     
 }
++(void)executeGetMyJobHandWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    [WKHttpTool postWithURLString:JOB_HAND parameters:dic success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+}
++(void)executeGetMyJobWatchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    [WKHttpTool postWithURLString:JOB_WATCH parameters:dic success:^(id responseObject) {
+        NSLog(@"respner = %@",responseObject);
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+}
+
 @end

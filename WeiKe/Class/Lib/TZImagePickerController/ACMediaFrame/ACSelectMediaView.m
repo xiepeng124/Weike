@@ -265,6 +265,7 @@
                         if (_selectedImageModels[idx] == model) {
                             [_selectedImageAssets removeObjectAtIndex:idx];
                             [_selectedImageModels removeObject:model];
+                      
                             break;
                         }
                     }
@@ -274,6 +275,7 @@
             }
             
             //总数据源中删除对应项
+            [_upModelarr removeObjectAtIndex:indexPath.row];
             [_mediaArray removeObjectAtIndex:indexPath.row];
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -537,13 +539,24 @@
             model.name = name;
             model.uploadType = pathData;
             model.image = photos[index];
+             __weak typeof(self) weakself = self;
+            [self.hud showAnimated:YES];
+            self.hud.label.text = [NSString stringWithFormat:@"正在上传图片" ];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                 [WKHttpTool uploadWithURLString:self.uploadUrl parameters:self.dic images:model.image success:^(id responseObject) {
                     NSLog(@" ...%@",responseObject);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if ([[responseObject objectForKey:@"flag" ]intValue]) {
+                            WKMyUploadTaskmodel *myUpload = [WKMyUploadTaskmodel mj_objectWithKeyValues:responseObject];
+                            myUpload.sourceName = model.name;
+                            [weakself.upModelarr addObject:myUpload];
+                            [self.hud hideAnimated:YES];
+                        }
+                    });
                 } failure:^(NSError *error) {
                     
                 } upload:^(NSProgress *progress) {
-                    
+                       [progress addObserver:self forKeyPath:@"fractionCompleted" options:NSKeyValueObservingOptionNew context:nil];
                 }];
             });
             
@@ -565,7 +578,7 @@
             }
             [models addObject:model];
             if (index == assets.count - 1) {
-                dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
                     if (!_allowMultipleSelection) {
                         
                         //删除公共存在的，剩下的就是已经不存在的
@@ -579,6 +592,7 @@
                         //总媒体数组中在后面添加新数据
                         [_mediaArray addObjectsFromArray:models];
                         NSLog(@"%lu....",_mediaArray.count);
+                        [self.delegate selectedImages:_mediaArray.count];
                         
                     }
                     else {
@@ -587,20 +601,20 @@
                     }
                     
                     [self layoutCollection];
-                });
+          });
             }
         }];
     }
-    NSLog(@"33");
-   // __weak typeof(self) weakself = self;
-    NSLog(@"----%lu",_mediaArray.count);
-    for (int i =0; i<_mediaArray.count; i++) {
-        ACMediaModel *Imagemodel = [[ACMediaModel alloc] init];
-            NSLog(@"34");
-        Imagemodel = _mediaArray[i];
-        
-    }
+   // NSLog(@"33");
 
+//    NSLog(@"----%lu",_mediaArray.count);
+//    for (int i =0; i<_mediaArray.count; i++) {
+//        ACMediaModel *Imagemodel = [[ACMediaModel alloc] init];
+//            NSLog(@"34");
+//        Imagemodel = _mediaArray[i];
+//        
+//    }
+//
     
 }
 

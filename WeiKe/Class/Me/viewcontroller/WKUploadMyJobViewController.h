@@ -7,7 +7,7 @@
 //
 
 #import "WKBaseViewController.h"
-
+#import "WKMeHandler.h"
 @interface WKUploadMyJobViewController : WKBaseViewController
-
+@property (nonatomic,strong)WKMyJobModel *model;
 @end

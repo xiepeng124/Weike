@@ -45,7 +45,7 @@
     [self.view addSubview:self.collectionview];
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-   
+    NSLog(@"@@@@@");
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
@@ -171,23 +171,24 @@
     self.NewVideo=[[NSMutableArray alloc]init];
     self.HotVideo=[NSMutableArray array];
     [self initCollectionView];
-//    [self loadadvertisement];
-//    [self loadNewVideo];
-//    [self loadHotVideo];
+    [self loadadvertisement];
+    [self loadNewVideo];
+    [self loadHotVideo];
 }
 #pragma mark - 获取数据
 -(void)loadadvertisement{
     __weak typeof(self) weakself =self;
+    [self.advertiselist removeAllObjects];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [WKHomeAdHandler executeGetHomeAdWithSuccess:^(id object) {
-            NSLog(@"object= %@",object);
+            //NSLog(@"object= %@",object);
             for (WKHomeAD *ad in object) {
              NSString *string=[ad valueForKey:@"bannerUrl"];
               //NSString *bannerURL=[NSString stringWithFormat:SERVER_IP@"%@",string];
              [weakself.advertiselist addObject:string];
                 
             }
-            NSLog(@"object1 =%@",object);
+           // NSLog(@"object1 =%@",object);
                         dispatch_async(dispatch_get_main_queue(), ^{
                     if (weakself.advertiselist.count) {
                     [weakself.collectionview reloadData];
@@ -200,13 +201,14 @@
     });
 }
 -(void)loadNewVideo{
+    [self.NewVideo removeAllObjects];
      __weak typeof(self) weakself =self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [WKHomeAdHandler executeGetHomeNewVideoWithSuccess:^(id object) {
             for (WKHomeNew *ad in object) {
                 [weakself.NewVideo addObject:ad];
             }
-            NSLog(@"object2 =%@",object);
+          //  NSLog(@"object2 =%@",object);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //NSLog(@"new=%lu",self.NewVideo.count);
                 if (weakself.NewVideo.count) {
@@ -223,9 +225,10 @@
     
 }
 -(void)loadHotVideo{
+    [self.HotVideo removeAllObjects];
      __weak typeof(self) weakself =self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [WKHomeAdHandler executeGetHomeNewVideoWithSuccess:^(id object) {
+        [WKHomeAdHandler executeGetHomeHotVideoWithSuccess:^(id object) {
             for (WKHomeNew *ad in object) {
                 [weakself.HotVideo addObject:ad];
             }
@@ -248,6 +251,9 @@
 
 #pragma mark - Action
 -(void)freshaction{
+    [self loadmore];
+    [self loadNewVideo];
+    [self loadHotVideo];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.collectionview.mj_header endRefreshing];
     });
@@ -258,6 +264,9 @@
     });
 
     
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return NO;
 }
 -(void)viewDidAppear:(BOOL)animated{
     
