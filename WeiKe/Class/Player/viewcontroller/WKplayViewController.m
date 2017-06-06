@@ -89,6 +89,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 10;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         WKPlayTitleTableViewCell *cell = (WKPlayTitleTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
@@ -134,6 +135,15 @@
 //    
 //}
 
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return nil;
+    }
+    if (section == 1) {
+        return @"视频目录(5)";
+    }
+    return @"学生评论(20)";
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     NSLog(@"----");
     return 10;
