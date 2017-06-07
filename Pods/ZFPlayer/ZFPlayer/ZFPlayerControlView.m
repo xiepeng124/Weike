@@ -27,6 +27,7 @@
 #import "UIView+CustomControlView.h"
 #import "MMMaterialDesignSpinner.h"
 
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
 
@@ -122,7 +123,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         [self.bottomImageView addSubview:self.fullScreenBtn];
         [self.bottomImageView addSubview:self.totalTimeLabel];
         
-        [self.topImageView addSubview:self.downLoadBtn];
+      [self.topImageView addSubview:self.downLoadBtn];
+       // [self.downLoadBtn setHidden:YES];
         [self addSubview:self.lockBtn];
         [self.topImageView addSubview:self.backBtn];
         [self addSubview:self.activity];
@@ -511,7 +513,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     self.fullScreen             = YES;
     self.lockBtn.hidden         = !self.isFullScreen;
     self.fullScreenBtn.selected = self.isFullScreen;
-    [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_back_full") forState:UIControlStateNormal];
+//    [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_back_full") forState:UIControlStateNormal];
+       [self.backBtn setImage:[UIImage imageNamed:@"video_return"] forState:UIControlStateNormal];
     [self layoutIfNeeded];
     [self.backBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.topImageView.mas_top).offset(23);
@@ -634,6 +637,9 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         _topImageView                        = [[UIImageView alloc] init];
         _topImageView.userInteractionEnabled = YES;
         _topImageView.image                  = ZFPlayerImage(@"ZFPlayer_top_shadow");
+        
+        //_topImageView.backgroundColor = [UIColor blackColor];
+        _topImageView.alpha = 0.4;
     }
     return _topImageView;
 }
@@ -642,29 +648,20 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     if (!_bottomImageView) {
         _bottomImageView                        = [[UIImageView alloc] init];
         _bottomImageView.userInteractionEnabled = YES;
-        _bottomImageView.image                  = ZFPlayerImage(@"ZFPlayer_bottom_shadow");
+      _bottomImageView.image                  = ZFPlayerImage(@"ZFPlayer_bottom_shadow");
+       // _bottomImageView.backgroundColor = [UIColor blackColor];
+        _bottomImageView.alpha = 0.4;
     }
     return _bottomImageView;
 }
-
-- (UIButton *)lockBtn {
-    if (!_lockBtn) {
-        _lockBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_lockBtn setImage:ZFPlayerImage(@"ZFPlayer_unlock-nor") forState:UIControlStateNormal];
-//        [_lockBtn setImage:ZFPlayerImage(@"ZFPlayer_lock-nor") forState:UIControlStateSelected];
-        [_lockBtn setImage:[UIImage imageNamed:@"video_full"] forState:UIControlStateNormal];
-        [_lockBtn setImage:[UIImage imageNamed:@"shrink"] forState:UIControlStateSelected];
-        [_lockBtn addTarget:self action:@selector(lockScrrenBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-
-    }
-    return _lockBtn;
-}
-
+ 
 - (UIButton *)startBtn {
     if (!_startBtn) {
         _startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_startBtn setImage:ZFPlayerImage(@"ZFPlayer_play") forState:UIControlStateNormal];
-        [_startBtn setImage:ZFPlayerImage(@"ZFPlayer_pause") forState:UIControlStateSelected];
+        //[_startBtn setImage:ZFPlayerImage(@"ZFPlayer_play") forState:UIControlStateNormal];
+       // [_startBtn setImage:ZFPlayerImage(@"ZFPlayer_pause") forState:UIControlStateSelected];
+        [_startBtn setImage:[UIImage imageNamed:@"video_begin"] forState:UIControlStateNormal];
+        [_startBtn setImage:[UIImage imageNamed:@"video_end"] forState:UIControlStateSelected];
         [_startBtn addTarget:self action:@selector(playBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _startBtn;
@@ -673,7 +670,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 - (UIButton *)closeBtn {
     if (!_closeBtn) {
         _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+       [_closeBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+        // [_closeBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
         [_closeBtn addTarget:self action:@selector(closeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _closeBtn;
@@ -707,8 +705,9 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 
         [_videoSlider setThumbImage:ZFPlayerImage(@"ZFPlayer_slider") forState:UIControlStateNormal];
         _videoSlider.maximumValue          = 1;
-        _videoSlider.minimumTrackTintColor = [UIColor whiteColor];
+        _videoSlider.minimumTrackTintColor = [UIColor greenColor];
         _videoSlider.maximumTrackTintColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
+        _videoSlider.thumbTintColor = [UIColor greenColor];
         
         // slider开始滑动事件
         [_videoSlider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
@@ -744,8 +743,10 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 - (UIButton *)fullScreenBtn {
     if (!_fullScreenBtn) {
         _fullScreenBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_fullScreenBtn setImage:ZFPlayerImage(@"ZFPlayer_fullscreen") forState:UIControlStateNormal];
-        [_fullScreenBtn setImage:ZFPlayerImage(@"ZFPlayer_shrinkscreen") forState:UIControlStateSelected];
+//        [_fullScreenBtn setImage:ZFPlayerImage(@"ZFPlayer_fullscreen") forState:UIControlStateNormal];
+//        [_fullScreenBtn setImage:ZFPlayerImage(@"ZFPlayer_shrinkscreen") forState:UIControlStateSelected];
+        [_fullScreenBtn setImage:[UIImage imageNamed:@"video_full"] forState:UIControlStateNormal];
+       [_fullScreenBtn setImage:[UIImage imageNamed:@"shrink"] forState:UIControlStateSelected];
         [_fullScreenBtn addTarget:self action:@selector(fullScreenBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullScreenBtn;
@@ -1103,7 +1104,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
  是否有下载功能 
  */
 - (void)zf_playerHasDownloadFunction:(BOOL)sender {
-    self.downLoadBtn.hidden = !sender;
+//    self.downLoadBtn.hidden = !sender;
+    self.downLoadBtn.hidden = YES;
 }
 
 /**

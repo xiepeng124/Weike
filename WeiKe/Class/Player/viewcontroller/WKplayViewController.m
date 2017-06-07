@@ -14,6 +14,8 @@
 #import "UINavigationController+ZFFullscreenPopGesture.h"
 #import "WKPlayTitleTableViewCell.h"
 #import "WKPlayerTableViewCell.h"
+#import "WKPlaycommentTableViewCell.h"
+#import "WKReplyTableViewCell.h"
 @interface WKplayViewController ()<ZFPlayerDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIView *playerFatherView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
@@ -23,6 +25,7 @@
 @property (nonatomic, assign) BOOL isPlaying;
 @property (nonatomic, strong) ZFPlayerModel *playerModel;
 @property (weak, nonatomic) IBOutlet UITableView *playerTable;
+@property (strong,nonatomic) UITableView *replyTableView;
 @end
 
 @implementation WKplayViewController
@@ -32,7 +35,7 @@
     self.playerTable.dataSource = self;
     [self.playerTable registerNib:[UINib nibWithNibName:@"WKPlayTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"TitleCell"];
     [self.playerTable registerClass:[WKPlayerTableViewCell class] forCellReuseIdentifier:@"VideoCell"];
-}
+     [self.playerTable registerNib:[UINib nibWithNibName:@"WKPlaycommentTableViewCell" bundle:nil] forCellReuseIdentifier:@"CommentCell"];}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,57 +70,90 @@
     self.tabBarController.tabBar.hidden = NO;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 2) {
+        return 10;
+    }
     return 1;
     
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    if (tableView == self.playerTable) {
+          return 3;
+    }
+    return 3;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return 20;
+    if (tableView == self.playerTable) {
+        if (indexPath.section == 0) {
+            return 20;
+        }
+        if (indexPath.section ==1) {
+            return 122;
+        }
+        return 300;
+
     }
-    return 122;
-}
+    return 100;
+    }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 0;
+    if (tableView ==self.playerTable) {
+        if (section == 0) {
+            return 0;
+        }
+        return 20;
+
     }
-    return 20;
-}
+    return 0;
+    }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 10;
-}
+    if (tableView == self.playerTable) {
+        return 10;
+
+    }
+    return 0;
+  }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        WKPlayTitleTableViewCell *cell = (WKPlayTitleTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
+    if (tableView == self.playerTable) {
+        if (indexPath.section == 0) {
+            WKPlayTitleTableViewCell *cell = (WKPlayTitleTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TitleCell" forIndexPath:indexPath];
+            return cell;
+        }
+        if (indexPath.section ==1) {
+            WKPlayerTableViewCell *cell = (WKPlayerTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"VideoCell" forIndexPath:indexPath];
+            
+            UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+            layout.itemSize = CGSizeMake(128, 102);
+            layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+            layout.minimumLineSpacing = 10;
+            layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
+            //layout.minimumInteritemSpacing =10;
+            UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, 102) collectionViewLayout:layout];
+            collectionView.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
+            collectionView.delegate = self;
+            collectionView.dataSource = self;
+            collectionView.scrollsToTop = NO;
+            collectionView.showsVerticalScrollIndicator = NO;
+            collectionView.showsHorizontalScrollIndicator = NO;
+            [collectionView registerNib:[UINib nibWithNibName:@"WKCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Videocell2"];
+            [cell addSubview:collectionView];
+            return cell;
+            
+        }
+        WKPlaycommentTableViewCell *cell = (WKPlaycommentTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+//        self.replyTableView  = [[UITableView alloc]initWithFrame:CGRectMake(10, 120, SCREEN_WIDTH-20, 100) style:UITableViewStylePlain];
+        cell.replyTableView.delegate = self;
+        cell.replyTableView.dataSource = self;
+        [cell.replyTableView  registerNib:[UINib nibWithNibName:@"WKReplyTableViewCell" bundle:nil] forCellReuseIdentifier:@"myReplyCell"];
         return cell;
-    }
-    WKPlayerTableViewCell *cell = (WKPlayerTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"VideoCell" forIndexPath:indexPath];
-   
-    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-    layout.itemSize = CGSizeMake(128, 102);
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.minimumLineSpacing = 10;
-    layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
- //layout.minimumInteritemSpacing =10;
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, 102) collectionViewLayout:layout];
-    collectionView.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
-        collectionView.delegate = self;
-        collectionView.dataSource = self;
-    collectionView.scrollsToTop = NO;
-    collectionView.showsVerticalScrollIndicator = NO;
-    collectionView.showsHorizontalScrollIndicator = NO;
-    [collectionView registerNib:[UINib nibWithNibName:@"WKCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Videocell2"];
 
-    [cell addSubview:collectionView];
-//    cell.collectionView.dataSource = self;
-//    cell.collectionView.delegate = self;
-  
+    }
+    NSLog(@"replucell");
+    WKReplyTableViewCell *cell = (WKReplyTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"myReplyCell" forIndexPath:indexPath];
+    
     return cell;
-}
+    }
 //-(void)initCollectionview{
 //    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
 //    layout.itemSize = CGSizeMake(128, 102);
