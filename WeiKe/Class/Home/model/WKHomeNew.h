@@ -35,6 +35,7 @@
 @property (nonatomic, strong) NSString * videoImgUrl;
 @property (nonatomic, strong) NSString * videoImage;
 @property (nonatomic, strong) NSString * videoTimeLength;
+@property (nonatomic,strong) NSString *videoLink;
 @property (nonatomic, strong) NSString * videoType;
 
 @end

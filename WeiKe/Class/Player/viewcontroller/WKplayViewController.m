@@ -16,7 +16,10 @@
 #import "WKPlayerTableViewCell.h"
 #import "WKPlaycommentTableViewCell.h"
 #import "WKReplyTableViewCell.h"
-@interface WKplayViewController ()<ZFPlayerDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+#import "WKPlayerSectionView.h"
+#import "WKCommentSectionView.h"
+#import "UUInputAccessoryView.h"
+@interface WKplayViewController ()<ZFPlayerDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *playerFatherView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) ZFPlayerView *playerView;
@@ -26,11 +29,17 @@
 @property (nonatomic, strong) ZFPlayerModel *playerModel;
 @property (weak, nonatomic) IBOutlet UITableView *playerTable;
 @property (strong,nonatomic) UITableView *replyTableView;
+@property (assign,nonatomic)CGFloat replyHeight;
+@property (assign,nonatomic)CGFloat commentHeight;
+@property (assign,nonatomic)CGFloat allReply;
+@property (strong,nonatomic)WKPlayerSectionView *sectionView;
+@property (strong,nonatomic)WKCommentSectionView  *commentSectionView;
 @end
 
 @implementation WKplayViewController
 -(void)initTableview
 {
+
     self.playerTable.delegate = self;
     self.playerTable.dataSource = self;
     [self.playerTable registerNib:[UINib nibWithNibName:@"WKPlayTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"TitleCell"];
@@ -70,18 +79,21 @@
     self.tabBarController.tabBar.hidden = NO;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 2) {
-        return 10;
+    if (tableView == self.playerTable) {
+        if (section == 2) {
+            return 10;
+        }
+        return 1;
+
     }
-    return 1;
-    
+    return 3;
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (tableView == self.playerTable) {
           return 3;
     }
-    return 3;
+    return 1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView == self.playerTable) {
@@ -91,17 +103,20 @@
         if (indexPath.section ==1) {
             return 122;
         }
-        return 300;
+        return self.allReply+self.commentHeight+55+30;
 
     }
-    return 100;
+    return self.replyHeight;
     }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (tableView ==self.playerTable) {
         if (section == 0) {
             return 0;
         }
-        return 20;
+        if (section == 1) {
+            return 37;
+        }
+        return 77;
 
     }
     return 0;
@@ -142,44 +157,69 @@
             
         }
         WKPlaycommentTableViewCell *cell = (WKPlaycommentTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
-//        self.replyTableView  = [[UITableView alloc]initWithFrame:CGRectMake(10, 120, SCREEN_WIDTH-20, 100) style:UITableViewStylePlain];
+
         cell.replyTableView.delegate = self;
         cell.replyTableView.dataSource = self;
         [cell.replyTableView  registerNib:[UINib nibWithNibName:@"WKReplyTableViewCell" bundle:nil] forCellReuseIdentifier:@"myReplyCell"];
+        self.commentHeight = [WKPlaycommentTableViewCell heightForLabel:cell.commmentLabel.text];
+        cell.commntH.constant = self.commentHeight;
+        [cell.replyButton addTarget:self action:@selector(replyAction:) forControlEvents:UIControlEventTouchUpInside];
+//        cell.commmentLabel.frame = CGRectMake(10, 55, SCREEN_WIDTH-20, self.commentHeight);
+//        cell.replyTableView.frame = CGRectMake(10, self.commentHeight+55, SCREEN_WIDTH-20, self.allReply);
         return cell;
 
     }
     NSLog(@"replucell");
-    WKReplyTableViewCell *cell = (WKReplyTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"myReplyCell" forIndexPath:indexPath];
+    WKReplyTableViewCell *cell2 = (WKReplyTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"myReplyCell" forIndexPath:indexPath];
+    self.replyHeight = [WKReplyTableViewCell heightForLabel:cell2.replyLabel.text];
     
-    return cell;
+    if (indexPath.row==0) {
+        self.allReply = self.replyHeight;
     }
-//-(void)initCollectionview{
-//    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-//    layout.itemSize = CGSizeMake(128, 102);
-//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-//    layout.minimumLineSpacing = 10;
-//    layout.minimumInteritemSpacing =10;
-//    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 102) collectionViewLayout:layout];
-//    //collectionView.backgroundColor = [UIColor redColor];
-//    //    collectionView.delegate = self;
-//    //    collectionView.dataSource = self;
-//    collectionView.scrollsToTop = NO;
-//    collectionView.showsVerticalScrollIndicator = NO;
-//    collectionView.showsHorizontalScrollIndicator = NO;
-//    [collectionView registerNib:[UINib nibWithNibName:@"WKCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Videocell2"];
-//    
-//}
-
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return nil;
+    else{
+        self.allReply = self.allReply+self.replyHeight;
     }
-    if (section == 1) {
-        return @"视频目录(5)";
-    }
-    return @"学生评论(20)";
+    return cell2;
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (tableView == self.playerTable) {
+        if (section == 1) {
+            self.sectionView = [[WKPlayerSectionView alloc]init];
+            self.sectionView = [[[NSBundle mainBundle]loadNibNamed:@"PlayerSectionHeader" owner:nil options:nil]lastObject];
+            self.sectionView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 37);
+            self.sectionView.layer.borderColor = [WKColor colorWithHexString:BACK_COLOR].CGColor;
+            self.sectionView.layer.borderWidth = 0.5;
+            return self.sectionView;
+
+        }
+        if (section == 2) {
+            self.commentSectionView = [[WKCommentSectionView alloc]init];
+            self.commentSectionView = [[[NSBundle mainBundle]loadNibNamed:@"CommentSectionView" owner:nil options:nil]lastObject];
+            self.commentSectionView.myComment.delegate = self;
+            self.commentSectionView.layer.borderColor = [WKColor colorWithHexString:BACK_COLOR].CGColor;
+            self.commentSectionView.layer.borderWidth = 0.5;
+            return self.commentSectionView;
+           
+
+        }
+        return nil;
+            }
+    return nil;
+  }
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    [self.playerTable reloadData];
+    NSIndexPath * dayOne = [NSIndexPath indexPathForRow:0 inSection:2];
+    [self.playerTable scrollToRowAtIndexPath:dayOne atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+//- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return nil;
+//    }
+//    if (section == 1) {
+//        return @"视频目录(5)";
+//    }
+//    return @"学生评论(20)";
+//}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     NSLog(@"----");
     return 10;
@@ -192,7 +232,20 @@
     //cell.videoImage.image = [UIImage imageNamed:@"water"];
     return cell;
 }
+-(void)replyAction: (UIButton*)sender{
+    UIKeyboardType type =  UIKeyboardTypeDefault;
+    NSString *content = @"";
+    
+    [UUInputAccessoryView showKeyboardType:type
+                                   content:content
+                                     Block:^(NSString *contentStr)
+     {
+        // if (contentStr.length == 0) return ;
+         //[sender setTitle:contentStr forState:UIControlStateNormal];
+     }];
 
+
+}
 // 返回值要必须为NO
 - (BOOL)shouldAutorotate {
     return NO;

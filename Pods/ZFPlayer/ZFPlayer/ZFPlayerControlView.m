@@ -707,7 +707,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         _videoSlider.maximumValue          = 1;
         _videoSlider.minimumTrackTintColor = [UIColor greenColor];
         _videoSlider.maximumTrackTintColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
-        _videoSlider.thumbTintColor = [UIColor greenColor];
+        //_videoSlider.thumbTintColor = [UIColor greenColor];
         
         // slider开始滑动事件
         [_videoSlider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];

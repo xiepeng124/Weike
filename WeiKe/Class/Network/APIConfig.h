@@ -30,6 +30,8 @@
 #define ALL_TEACHER @"http://192.168.1.151:8080/wksys/app/teaCol/loadTeaList"
 
 #define MY_TEACHER @"http://192.168.1.151:8080/wksys/app/myInfo/myTeaVideo"
+                            /*视频播放和评论*/
+#define VIDEO_PLAY @"http://192.168.1.151:8080/wksys/app/video/play"
                             /*后台管理*/
 //角色搜索
 #define ROLE_SEARCH @"http://192.168.1.151:8080/wksys/app/sys/role/query"

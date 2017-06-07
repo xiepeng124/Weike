@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *commentTime;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UILabel *commmentLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commntH;
 @property (weak, nonatomic) IBOutlet UITableView *replyTableView;
-
++ (CGFloat)heightForLabel:(NSString *)text;
 @end

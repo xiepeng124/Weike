@@ -46,14 +46,43 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"@@@@@");
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
-    WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
-    
-    //跳转事件
-    [self.navigationController pushViewController:player animated:YES];
-    
+    if (indexPath.section ==1) {
+       WKHomeNew *new= self.NewVideo[indexPath.row];
+        NSLog(@"new.link = %@",new.videoLink);
+        if(![new.videoLink  isEqual: @""] ){
+            if (![new.videoLink  isEqual: @"1"]) {
+                NSLog(@"111");
+                [[UIApplication sharedApplication]openURL:[NSURL URLWithString:new.videoLink]];
+            }
+    }
+        else{
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
+        WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
+        
+        //跳转事件
+        [self.navigationController pushViewController:player animated:YES];
+        }
+
+    }
+    if (indexPath.section ==2) {
+        WKHomeNew *new= self.HotVideo[indexPath.row];
+        if(![new.videoLink  isEqual: @""] ){
+            if (![new.videoLink  isEqual: @"1"]) {
+                
+            }
+        }
+        else{
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
+        WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
+        
+        //跳转事件
+        [self.navigationController pushViewController:player animated:YES];
+        }
+    }
 }
 #pragma mark - collectiondatasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

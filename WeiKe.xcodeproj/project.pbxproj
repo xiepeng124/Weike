@@ -169,6 +169,11 @@
 		4EF4ADEB1E9F29BE0054D269 /* WKHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4ADEA1E9F29BE0054D269 /* WKHeaderCollectionReusableView.m */; };
 		4EF4ADEE1E9F759A0054D269 /* WKSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4ADED1E9F759A0054D269 /* WKSearchResultViewController.m */; };
 		4EFA27BD1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA27BC1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m */; };
+		4EFC64E91EE7F147004BF4DE /* PlayerSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC64E81EE7F147004BF4DE /* PlayerSectionHeader.xib */; };
+		4EFC64EE1EE7F282004BF4DE /* WKPlayerSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC64ED1EE7F282004BF4DE /* WKPlayerSectionView.m */; };
+		4EFC64F11EE7F6C6004BF4DE /* WKCommentSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC64F01EE7F6C6004BF4DE /* WKCommentSectionView.m */; };
+		4EFC64F31EE7F6DE004BF4DE /* CommentSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC64F21EE7F6DE004BF4DE /* CommentSectionView.xib */; };
+		4EFC64F71EE80DF3004BF4DE /* UUInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC64F61EE80DF3004BF4DE /* UUInputAccessoryView.m */; };
 		4EFE988E1EB987EB006F3703 /* WKTeacherList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE988D1EB987EB006F3703 /* WKTeacherList.m */; };
 		4EFE98911EB999BE006F3703 /* WKTeacherScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE98901EB999BE006F3703 /* WKTeacherScreenViewController.m */; };
 		4EFE98951EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE98931EB9ACAF006F3703 /* WKTeachScreenCollectionViewCell.m */; };
@@ -506,6 +511,14 @@
 		4EF4ADED1E9F759A0054D269 /* WKSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSearchResultViewController.m; sourceTree = "<group>"; };
 		4EFA27BB1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTeachclassificationCollectionViewController.h; sourceTree = "<group>"; };
 		4EFA27BC1ECED93E00DB825A /* WKTeachclassificationCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTeachclassificationCollectionViewController.m; sourceTree = "<group>"; };
+		4EFC64E81EE7F147004BF4DE /* PlayerSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerSectionHeader.xib; path = WeiKe/Class/Me/viewcontroller/PlayerSectionHeader.xib; sourceTree = SOURCE_ROOT; };
+		4EFC64EC1EE7F282004BF4DE /* WKPlayerSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKPlayerSectionView.h; path = WeiKe/Class/Me/viewcontroller/WKPlayerSectionView.h; sourceTree = SOURCE_ROOT; };
+		4EFC64ED1EE7F282004BF4DE /* WKPlayerSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKPlayerSectionView.m; path = WeiKe/Class/Me/viewcontroller/WKPlayerSectionView.m; sourceTree = SOURCE_ROOT; };
+		4EFC64EF1EE7F6C6004BF4DE /* WKCommentSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKCommentSectionView.h; path = WeiKe/Class/Me/viewcontroller/WKCommentSectionView.h; sourceTree = SOURCE_ROOT; };
+		4EFC64F01EE7F6C6004BF4DE /* WKCommentSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKCommentSectionView.m; path = WeiKe/Class/Me/viewcontroller/WKCommentSectionView.m; sourceTree = SOURCE_ROOT; };
+		4EFC64F21EE7F6DE004BF4DE /* CommentSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentSectionView.xib; path = WeiKe/Class/Me/viewcontroller/CommentSectionView.xib; sourceTree = SOURCE_ROOT; };
+		4EFC64F51EE80DF3004BF4DE /* UUInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUInputAccessoryView.h; sourceTree = "<group>"; };
+		4EFC64F61EE80DF3004BF4DE /* UUInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUInputAccessoryView.m; sourceTree = "<group>"; };
 		4EFE988C1EB987EB006F3703 /* WKTeacherList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKTeacherList.h; path = WeiKe/Class/Academy/viewcontroller/WKTeacherList.h; sourceTree = SOURCE_ROOT; };
 		4EFE988D1EB987EB006F3703 /* WKTeacherList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKTeacherList.m; path = WeiKe/Class/Academy/viewcontroller/WKTeacherList.m; sourceTree = SOURCE_ROOT; };
 		4EFE988F1EB999BE006F3703 /* WKTeacherScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKTeacherScreenViewController.h; sourceTree = "<group>"; };
@@ -850,6 +863,15 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
+		4EFC64F41EE80DF3004BF4DE /* UUInputAccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC64F51EE80DF3004BF4DE /* UUInputAccessoryView.h */,
+				4EFC64F61EE80DF3004BF4DE /* UUInputAccessoryView.m */,
+			);
+			path = UUInputAccessoryView;
+			sourceTree = "<group>";
+		};
 		54DB6A92D89B548C9355DAA1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1156,6 +1178,7 @@
 		5AFB76871E94A159000CE6E8 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				4EFC64F41EE80DF3004BF4DE /* UUInputAccessoryView */,
 				4EEB115E1ED171D50078DF6E /* ACMediaFrame */,
 				4EEB11341ED171210078DF6E /* TZImagePickerController */,
 				4E9BCE1B1EB0492E004787F0 /* ZFNavigationController */,
@@ -1351,6 +1374,12 @@
 				4E1CBA9A1EE7B203007185DF /* WKReplyTableViewCell.h */,
 				4E1CBA9B1EE7B203007185DF /* WKReplyTableViewCell.m */,
 				4E1CBA9C1EE7B203007185DF /* WKReplyTableViewCell.xib */,
+				4EFC64E81EE7F147004BF4DE /* PlayerSectionHeader.xib */,
+				4EFC64EC1EE7F282004BF4DE /* WKPlayerSectionView.h */,
+				4EFC64ED1EE7F282004BF4DE /* WKPlayerSectionView.m */,
+				4EFC64F21EE7F6DE004BF4DE /* CommentSectionView.xib */,
+				4EFC64EF1EE7F6C6004BF4DE /* WKCommentSectionView.h */,
+				4EFC64F01EE7F6C6004BF4DE /* WKCommentSectionView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1555,6 +1584,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFC64F31EE7F6DE004BF4DE /* CommentSectionView.xib in Resources */,
 				4EF3D76A1EE0F49F009D7B07 /* WKJobScoreTableViewCell.xib in Resources */,
 				4E7415201EAD8BF70023FBAB /* WKGradeTableViewCell.xib in Resources */,
 				4EBC28431EAF251E00B920D4 /* WKMeTableViewCell.xib in Resources */,
@@ -1578,6 +1608,7 @@
 				4E0D22F31ECA90B700631072 /* WKVideoClassfiCollectionViewCell.xib in Resources */,
 				4E0A1DFD1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib in Resources */,
 				4E0DF20A1ED6E10800F7B251 /* WKJobTableViewCell.xib in Resources */,
+				4EFC64E91EE7F147004BF4DE /* PlayerSectionHeader.xib in Resources */,
 				4EF3D76C1EE0FFFA009D7B07 /* scoreHeaderView.xib in Resources */,
 				4EA7E5EE1EB2F6AB00B2B87C /* WKAcadeallTableViewCell.xib in Resources */,
 				4E0DF1F71ED6704800F7B251 /* WKApprovalingViewController.xib in Resources */,
@@ -1730,11 +1761,13 @@
 				4E0A1DFC1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m in Sources */,
 				4EF446A41EC2ECFF0040EC9C /* WKRoleView.m in Sources */,
 				4EBC28421EAF251E00B920D4 /* WKMeTableViewCell.m in Sources */,
+				4EFC64F71EE80DF3004BF4DE /* UUInputAccessoryView.m in Sources */,
 				4EEB11591ED171210078DF6E /* TZPhotoPreviewCell.m in Sources */,
 				4EA7E5FD1EB34BEF00B2B87C /* WKGrade.m in Sources */,
 				4EEB115D1ED171210078DF6E /* UIView+Layout.m in Sources */,
 				4EF0A2031EC1A1B10043A713 /* WKRolesModel.m in Sources */,
 				4EF4469E1EC2E52D0040EC9C /* WKBindOnView.m in Sources */,
+				4EFC64EE1EE7F282004BF4DE /* WKPlayerSectionView.m in Sources */,
 				4EEB11541ED171210078DF6E /* TZImageCropManager.m in Sources */,
 				4E27BE201ED56E1700549975 /* WKUploadModel.m in Sources */,
 				5A4FBAE01E9B6676005E2FE8 /* WKplayViewController.m in Sources */,
@@ -1788,6 +1821,7 @@
 				4E1CBA9D1EE7B203007185DF /* WKReplyTableViewCell.m in Sources */,
 				4EF3D77A1EE12CB9009D7B07 /* WKJobStu.m in Sources */,
 				4EF0A2001EC19C970043A713 /* WKBackstage.m in Sources */,
+				4EFC64F11EE7F6C6004BF4DE /* WKCommentSectionView.m in Sources */,
 				4EA7E5F41EB31DA000B2B87C /* WKAcadeResultsViewController.m in Sources */,
 				4E0E78FD1EC00A0D00DB3C07 /* WKHeadview.m in Sources */,
 				4E9BCE1E1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.m in Sources */,

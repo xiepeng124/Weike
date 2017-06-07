@@ -53,16 +53,17 @@
                         </constraints>
                         <state key="normal" backgroundImage="video_comment"/>
                     </button>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dP6-5e-5eQ">
-                        <rect key="frame" x="19" y="155" width="348" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dP6-5e-5eQ">
+                        <rect key="frame" x="15" y="110" width="392" height="184.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是一个 e fe j f n j e a j f na e j fa f j en f ne f ne f na en f ne an f" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQh-MM-vVc">
-                        <rect key="frame" x="10" y="53" width="346" height="56"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一个 e fe j f n j e a j f na e j fa f j en f ne f ne f na en f ne an f" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQh-MM-vVc">
+                        <rect key="frame" x="10" y="55" width="402" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="014-nS-KPw"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -70,18 +71,26 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="HZk-vJ-V4M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="1N6-Re-UBK"/>
+                    <constraint firstAttribute="bottom" secondItem="dP6-5e-5eQ" secondAttribute="bottom" constant="10" id="1jl-hg-OY2"/>
+                    <constraint firstItem="dP6-5e-5eQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="8v7-fB-2bA"/>
                     <constraint firstItem="XUa-BP-pCl" firstAttribute="leading" secondItem="HZk-vJ-V4M" secondAttribute="trailing" constant="7" id="GP1-Hx-ADt"/>
                     <constraint firstItem="rBm-5Y-P15" firstAttribute="leading" secondItem="HZk-vJ-V4M" secondAttribute="trailing" constant="7" id="NiL-2u-FXP"/>
+                    <constraint firstItem="dP6-5e-5eQ" firstAttribute="top" secondItem="cQh-MM-vVc" secondAttribute="bottom" constant="10" id="TIe-IC-BoC"/>
+                    <constraint firstItem="cQh-MM-vVc" firstAttribute="top" secondItem="rBm-5Y-P15" secondAttribute="bottom" constant="10" id="aRN-8m-IXD"/>
                     <constraint firstItem="YDV-Ho-6AJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="dmq-f0-K03"/>
                     <constraint firstItem="HZk-vJ-V4M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="g4P-52-fDi"/>
                     <constraint firstAttribute="trailing" secondItem="YDV-Ho-6AJ" secondAttribute="trailing" constant="10" id="hHz-Wv-2h0"/>
                     <constraint firstItem="XUa-BP-pCl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="iL5-pj-tyg"/>
+                    <constraint firstItem="cQh-MM-vVc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="mt9-lO-LeQ"/>
+                    <constraint firstAttribute="trailing" secondItem="dP6-5e-5eQ" secondAttribute="trailing" constant="15" id="oeZ-Q1-wfv"/>
+                    <constraint firstAttribute="trailing" secondItem="cQh-MM-vVc" secondAttribute="trailing" constant="10" id="osr-kw-Cdl"/>
                     <constraint firstItem="rBm-5Y-P15" firstAttribute="top" secondItem="XUa-BP-pCl" secondAttribute="bottom" constant="3" id="tvs-gB-i8i"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="commentTime" destination="rBm-5Y-P15" id="qBF-ba-Lrz"/>
                 <outlet property="commmentLabel" destination="cQh-MM-vVc" id="8JR-4X-sGu"/>
+                <outlet property="commntH" destination="014-nS-KPw" id="LXk-KF-uyX"/>
                 <outlet property="headPhoto" destination="HZk-vJ-V4M" id="QK9-Jn-RQz"/>
                 <outlet property="replyButton" destination="YDV-Ho-6AJ" id="zCp-m9-vUQ"/>
                 <outlet property="replyTableView" destination="dP6-5e-5eQ" id="BSl-YR-Riq"/>

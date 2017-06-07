@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface WKReplyTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *headPhoto;
-@property (weak, nonatomic) IBOutlet UILabel *stuName;
-@property (weak, nonatomic) IBOutlet UILabel *replyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *commentTime;
 
+@property (weak, nonatomic) IBOutlet UILabel *replyLabel;
+
++ (CGFloat)heightForLabel:(NSString *)text;
 @end

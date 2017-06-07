@@ -25,5 +25,12 @@
 
     // Configure the view for the selected state
 }
++ (CGFloat)heightForLabel:(NSString *)text{
+    
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 20, 0) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont fontWithName:FONT_REGULAR size:15]} context:nil];
+    
+    return rect.size.height;
+}
+
 
 @end
