@@ -379,7 +379,9 @@
     self.imageUrl = [Imgestring objectForKey:@"videoImage"];
     }
 }
-
+-(void)sendImagesource:(NSString *)sourceName{
+    
+}
 -(void)selectgradeAction{
     self.mycollectView.hidden =NO;
     self.backgroundView.hidden = NO;

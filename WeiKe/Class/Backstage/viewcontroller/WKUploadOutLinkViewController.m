@@ -199,6 +199,9 @@
     }
 
 }
+-(void)sendImagesource:(NSString *)sourceName{
+    
+}
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
        if (!self.colletionviewcontroller.view.hidden) {
         NSLog(@"344");

@@ -796,5 +796,8 @@
     }
     
 }
+-(void)sendImagesource:(NSString *)sourceName{
+    
+}
 
 @end

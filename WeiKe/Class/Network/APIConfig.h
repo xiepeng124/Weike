@@ -31,7 +31,14 @@
 
 #define MY_TEACHER @"http://192.168.1.151:8080/wksys/app/myInfo/myTeaVideo"
                             /*视频播放和评论*/
+//视频获取
 #define VIDEO_PLAY @"http://192.168.1.151:8080/wksys/app/video/play"
+//视频评论获取
+#define VIDEO_COMMENT @"http://192.168.1.151:8080/wksys/app/message/comment/loadCommentList"
+//视频根评论
+#define VIDEO_COMMENT_SEND @"http://192.168.1.151:8080/wksys/app/message/comment/addRootComment"
+//视频子评论
+#define VIDEO_REPLY_SEND @"http://192.168.1.151:8080/wksys/app/message/comment/addChildComment"
                             /*后台管理*/
 //角色搜索
 #define ROLE_SEARCH @"http://192.168.1.151:8080/wksys/app/sys/role/query"

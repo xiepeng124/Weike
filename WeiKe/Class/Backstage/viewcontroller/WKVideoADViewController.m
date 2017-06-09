@@ -62,6 +62,9 @@
     [self.Imageurl sd_setImageWithURL:[NSURL URLWithString:[Imgestring objectForKey:@"bannerUrl"] ] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
     self.imagead = [Imgestring objectForKey:@"bannerUrl"];
 }
+-(void)sendImagesource:(NSString *)sourceName{
+    
+}
 - (IBAction)keepImageAction:(id)sender {
     NSDictionary *dic = @{@"id":[self.videoDic objectForKey:@"id"],@"bannerUrl":self.imagead};
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

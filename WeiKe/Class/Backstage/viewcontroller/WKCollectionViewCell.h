@@ -10,5 +10,7 @@
 
 @interface WKCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *videoImage;
+@property (weak, nonatomic) IBOutlet UIImageView *piayingImage;
 @property (weak, nonatomic) IBOutlet UILabel *videoTitle;
+@property (weak, nonatomic) IBOutlet UIView *backView;
 @end

@@ -21,6 +21,10 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xie" translatesAutoresizingMaskIntoConstraints="NO" id="VqU-qb-soC">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="140"/>
                     </imageView>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5I-vc-Cw3">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="140"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mf-8h-THT">
                         <rect key="frame" x="0.0" y="140" width="150" height="30"/>
                         <constraints>
@@ -30,19 +34,34 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bvideo_end" translatesAutoresizingMaskIntoConstraints="NO" id="7nl-8u-94d">
+                        <rect key="frame" x="67" y="60" width="15" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="34a-kg-e2Y"/>
+                            <constraint firstAttribute="width" constant="15" id="5EX-WZ-hL4"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="9Mf-8h-THT" firstAttribute="top" secondItem="VqU-qb-soC" secondAttribute="bottom" id="7uJ-5B-232"/>
+                <constraint firstItem="c5I-vc-Cw3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8Lh-CP-Vix"/>
                 <constraint firstItem="VqU-qb-soC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ERH-J9-iH1"/>
+                <constraint firstItem="7nl-8u-94d" firstAttribute="centerY" secondItem="VqU-qb-soC" secondAttribute="centerY" id="Lib-C5-b6w"/>
                 <constraint firstAttribute="trailing" secondItem="VqU-qb-soC" secondAttribute="trailing" id="Rg5-G4-fyV"/>
+                <constraint firstAttribute="trailing" secondItem="c5I-vc-Cw3" secondAttribute="trailing" id="UsK-cf-d0V"/>
                 <constraint firstAttribute="bottom" secondItem="9Mf-8h-THT" secondAttribute="bottom" id="YXZ-vD-mXk"/>
                 <constraint firstItem="9Mf-8h-THT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="h4d-QW-3Xp"/>
                 <constraint firstAttribute="trailing" secondItem="9Mf-8h-THT" secondAttribute="trailing" id="hSl-mK-ulb"/>
+                <constraint firstItem="9Mf-8h-THT" firstAttribute="top" secondItem="c5I-vc-Cw3" secondAttribute="bottom" id="mO1-QX-Nuc"/>
+                <constraint firstItem="7nl-8u-94d" firstAttribute="centerX" secondItem="VqU-qb-soC" secondAttribute="centerX" id="mPJ-yT-YgK"/>
+                <constraint firstItem="c5I-vc-Cw3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sA7-Vf-uQr"/>
                 <constraint firstItem="VqU-qb-soC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wpy-h8-72b"/>
             </constraints>
             <size key="customSize" width="150" height="170"/>
             <connections>
+                <outlet property="backView" destination="c5I-vc-Cw3" id="fHw-IA-Kea"/>
+                <outlet property="piayingImage" destination="7nl-8u-94d" id="oA9-Ap-vXH"/>
                 <outlet property="videoImage" destination="VqU-qb-soC" id="rxA-Yq-uQl"/>
                 <outlet property="videoTitle" destination="9Mf-8h-THT" id="h3O-Ac-jlw"/>
             </connections>
@@ -50,6 +69,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="bvideo_end" width="15" height="25"/>
         <image name="xie" width="166" height="153"/>
     </resources>
 </document>

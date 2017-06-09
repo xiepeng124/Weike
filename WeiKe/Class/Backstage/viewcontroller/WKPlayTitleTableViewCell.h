@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WKPlayTitleTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *videoName;
+@property (weak, nonatomic) IBOutlet UILabel *videoLength;
+@property (weak, nonatomic) IBOutlet UILabel *subjectLable;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
++ (CGFloat)heightForLabel:(NSString *)text;
 @end

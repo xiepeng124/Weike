@@ -29,7 +29,7 @@
 
     
  //[self initCollectionview];
-    NSLog(@"111");
+   // NSLog(@"111");
 }
 -(void)initCollectionview{
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];

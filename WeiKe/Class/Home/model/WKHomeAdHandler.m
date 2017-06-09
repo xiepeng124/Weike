@@ -23,7 +23,7 @@
                               TOKEN};
     [WKHttpTool postWithURLString:NEW_VIDEO parameters:dic success:^(id responseObject) {
         NSArray *newvideo = [WKHomeNew mj_objectArrayWithKeyValuesArray:responseObject[@"videoNewList"]];
-    NSLog(@"responseObject=%@",responseObject);
+    //NSLog(@"responseObject=%@",responseObject);
         success(newvideo);
     } failure:^(NSError *error) {
         failed(error);

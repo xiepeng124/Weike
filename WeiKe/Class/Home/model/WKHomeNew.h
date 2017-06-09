@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSString * fileFormat;
 @property (nonatomic, assign) NSInteger fileSize;
 @property (nonatomic, strong) NSString * gradeName;
-@property (nonatomic, assign) NSInteger idField;
+@property (nonatomic, assign) NSInteger id;
 @property (nonatomic, assign) NSInteger ownerId;
 @property (nonatomic, assign) NSInteger playTimes;
 @property (nonatomic, assign) NSInteger schoolId;

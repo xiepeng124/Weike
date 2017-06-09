@@ -17,6 +17,7 @@
     self.stuName.textColor = [WKColor colorWithHexString:@"4481c2"];
     self.commentTime.textColor = [WKColor colorWithHexString:@"999999"];
     self.commmentLabel.textColor = [WKColor colorWithHexString:@"333333"];
+    self.replyTableView.scrollEnabled = NO;
     // Initialization code
 }
 

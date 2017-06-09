@@ -8,5 +8,5 @@
 
 #import "WKBaseViewController.h"
 @interface WKplayViewController : WKBaseViewController
-
+@property (nonatomic,assign) NSInteger myId;
 @end
