@@ -51,9 +51,9 @@
         //返回为NO则屏蔽手势事件
         return NO;
     }
-//    if ([NSStringFromClass([touch.view class])isEqualToString:@"CollectionCell"] ) {
-//        return NO;
-//    }
+    if ([touch.view isKindOfClass:[UIButton class]]) {
+        return NO;
+    }
     return YES;
 }
 

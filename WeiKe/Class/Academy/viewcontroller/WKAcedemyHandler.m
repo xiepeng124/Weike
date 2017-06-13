@@ -23,7 +23,7 @@
     [ WKHttpTool postWithURLString:WEI_Grade parameters:dic success:^(id responseObject) {
         NSLog(@"=%@",responseObject);
         NSMutableArray *arr = [WKGrade mj_objectArrayWithKeyValuesArray:responseObject[@"sectionList"]];
-        [arr removeLastObject];
+        //[arr removeLastObject];
         success(arr);
     } failure:^(NSError *error) {
         failed(error);

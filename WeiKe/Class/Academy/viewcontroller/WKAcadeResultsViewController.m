@@ -10,6 +10,8 @@
 #import "WKHomeCollectionViewCell.h"
 #import "WKTeacherHeaderCollectionReusableView.h"
 #import "WKAcedemyHandler.h"
+#import "WKplayViewController.h"
+#import "WKHomeOutLinkViewController.h"
 @interface WKAcadeResultsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (strong,nonatomic) UICollectionView *collectionview ;
 @property (strong,nonatomic)NSMutableArray *Videolist;
@@ -40,7 +42,7 @@
     self.Videolist = [NSMutableArray array];
     [self initcollection];
     [self initdata];
-   self.dic = @{@"schoolId":self.schoolId,@"typeId":self.typeId,@"gradeId":self.gradeId,@"courseId":self.courseId,@"sectionId":self.sectionId, @"page":@1};
+   self.dic = @{@"schoolId":SCOOLID,@"typeId":self.typeId,@"gradeId":self.gradeId,@"courseId":self.courseId,@"sectionId":self.sectionId, @"page":@1};
     
     // Do any additional setup after loading the view.
 }
@@ -62,6 +64,9 @@
     });
     }
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationItem.hidesBackButton = YES;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -72,6 +77,12 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     WKHomeCollectionViewCell *cell = (WKHomeCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cellid" forIndexPath:indexPath];
     WKHomeNew *viedos= self.Videolist[indexPath.row];
+    if (viedos.videoLink.length) {
+        cell.outLinkButton.hidden = NO;
+    }
+    else{
+        cell.outLinkButton.hidden = YES;
+    }
     if (viedos.videoImage.length==0) {
         [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:SERVER_IP@"%@",viedos.videoImgUrl]]placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
         
@@ -89,12 +100,61 @@
 -(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     WKTeacherHeaderCollectionReusableView *header=(WKTeacherHeaderCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     [header.bottomButton setHidden:YES];
+    if (self.gradeName.length==0) {
+        header.garde.text = @"全部";
+        header.course.text = @"";
+    }
+    else{
+        header.garde.text = [self.gradeName substringToIndex:2];
+          header.course.text = self.courseName;
+    }
+ 
+  
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(10, 10, 10, 20);
-    [button setBackgroundImage:[UIImage imageNamed:@"boy"] forState:UIControlStateNormal];
+//    if ([USERTYPE intValue]== 2) {
+//        header.selectedbutton.hidden = NO;
+//        header.myteacher.hidden = NO;
+//    }
+//    else{
+        header.selectedbutton.hidden = YES;
+        header.myteacher.hidden = YES;
+
+//    }
+    [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(goResultViewController:) forControlEvents:UIControlEventTouchUpInside];
     [header addSubview:button];
     return header;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    WKHomeNew *new = self.Videolist[indexPath.row];
+    if (new.videoLink.length) {
+        if (![new.videoLink  isEqual: @"1"]) {
+            NSLog(@"111");
+            
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:new.videoLink]];
+        }
+        else{
+            WKHomeOutLinkViewController *outlink = [[WKHomeOutLinkViewController alloc]init];
+            outlink.myId = new.id;
+            //outlink.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:outlink animated:YES];
+        }
+
+    }
+    else{
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
+        
+        WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
+        player.myId = new.id;
+        //跳转事件
+       player.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:player animated:YES];
+    }
+
+   
 }
 #pragma mark - collectiondelegate
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
@@ -109,6 +169,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    if (touch.view.frame.size.height==40) {
+        return YES;
+    }
+    if ([touch.view isKindOfClass:[UIButton class]]) {
+        return NO;
+    }
+    return NO;
+}
+
 
 /*
 #pragma mark - Navigation

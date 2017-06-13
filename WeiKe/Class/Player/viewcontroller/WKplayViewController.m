@@ -95,7 +95,7 @@
          ******************************************************************************************/
        // ZFPlayerControlView *defaultControlView = [[ZFPlayerControlView alloc] init];
      //   [_playerView playerControlView:defaultControlView playerModel:self.playerModel];
-        NSLog(@"url.play = %@",self.playerModel.videoURL);
+        //NSLog(@"url.play = %@",self.playerModel.videoURL);
         
         // 设置代理
         _playerView.delegate = self;
@@ -143,7 +143,10 @@
                            [weakself.playerTable reloadSections:set withRowAnimation:UITableViewRowAnimationNone];
                            
                            [weakself.collectionView reloadData];
-                            [weakself initCommentData];
+//                           if (!model.commentFlag) {
+                                 [weakself initCommentData];
+                           //}
+                          
 //                           for (int i=0; i<self.arrComment.count; i++) {
 //                               NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:2];
 //                               WKPlaycommentTableViewCell *cell = (WKPlaycommentTableViewCell*)[self.playerTable cellForRowAtIndexPath:index];
@@ -169,7 +172,7 @@
                  for (WKVideoCommentModel *modeltwo in  object) {
                      [weakself.arrComment addObject:modeltwo];
                  }
-                 NSLog(@"%@ ...count",self.arrComment);
+                 //NSLog(@"%@ ...count",self.arrComment);
                  NSIndexSet *set = [NSIndexSet indexSetWithIndex:2];
                  [weakself.playerTable reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
                  
@@ -193,7 +196,7 @@
     NSIndexPath *index = [NSIndexPath indexPathForItem:0 inSection:0];
     [self.collectionView deselectItemAtIndexPath:index animated:YES];
     [self.collectionView selectItemAtIndexPath:index animated:YES scrollPosition:UICollectionViewScrollPositionLeft];
-        NSLog(@"2....");
+       // NSLog(@"2....");
    
 
        // Do any additional setup after loading the view.
@@ -216,13 +219,14 @@
     self.tabBarController.tabBar.hidden = YES;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 
 }
 -(void)viewDidAppear:(BOOL)animated{
     NSIndexPath *index = [NSIndexPath indexPathForItem:0 inSection:0];
    // [self.collectionView deselectItemAtIndexPath:index animated:YES];
     [self.collectionView selectItemAtIndexPath:index animated:YES scrollPosition:UICollectionViewScrollPositionLeft];
-    NSLog(@"3....");
+   // NSLog(@"3....");
     
 
 }
@@ -256,8 +260,16 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (tableView == self.playerTable) {
-          return 3;
-    }
+//        if (self.arrlist.count) {
+//            WKPlayVideoModel *model = self.arrlist[0];
+//            if (!model.commentFlag) {
+//                return 3;
+//            }
+        return 3;
+
+       // }
+       
+          }
     return 1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -266,12 +278,17 @@
             return 43+self.titleH;
         }
         if (indexPath.section ==1) {
+          //  NSLog(@"33333");
             return 122;
         }
-        return 200;
+    NSInteger number = self.allReply+75+self.commentHeight;
+    //self.allReply = 0;
+       return number;
+  //return number;
 
     }
-    return 50;
+   // NSLog(@"5555");
+    return self.replyHeight;
     }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (tableView ==self.playerTable) {
@@ -336,57 +353,94 @@
             return cell;
             
         }
-        
-        WKPlaycommentTableViewCell *cell = (WKPlaycommentTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+        model = self.arrlist[self.videoIndex];
+                  WKPlaycommentTableViewCell *cell = (WKPlaycommentTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+        if (!model.commentFlag) {
+            cell.hidden = NO;
+        }
+        else{
+            cell.hidden = YES;
+        }
 
-        cell.replyTableView.delegate = self;
-        cell.replyTableView.dataSource = self;
-        cell.replyButton.tag = indexPath.row;
-        [cell.replyTableView  registerNib:[UINib nibWithNibName:@"WKReplyTableViewCell" bundle:nil] forCellReuseIdentifier:@"myReplyCell"];
-        [cell.replyButton addTarget:self action:@selector(replyAction:) forControlEvents:UIControlEventTouchUpInside];
-        if (self.arrComment.count) {
-            [self.arrReply removeAllObjects];
-            WKVideoCommentModel *commentModel = self.arrComment[indexPath.row];
-               self.videoModel = commentModel;
-            NSArray *arr = [WKReplyModel mj_objectArrayWithKeyValuesArray:self.videoModel.children];
-            for (WKReplyModel *models in arr) {
-                [self.arrReply addObject:models];
+            cell.replyTableView.delegate = self;
+            cell.replyTableView.dataSource = self;
+            cell.replyButton.tag = indexPath.row;
+            [cell.replyTableView  registerNib:[UINib nibWithNibName:@"WKReplyTableViewCell" bundle:nil] forCellReuseIdentifier:@"myReplyCell"];
+            [cell.replyButton addTarget:self action:@selector(replyAction:) forControlEvents:UIControlEventTouchUpInside];
+            if (self.arrComment.count) {
+                [self.arrReply removeAllObjects];
+                WKVideoCommentModel *commentModel = self.arrComment[indexPath.row];
+                self.videoModel = commentModel;
+                NSArray *arr = [WKReplyModel mj_objectArrayWithKeyValuesArray:self.videoModel.children];
+                for (WKReplyModel *models in arr) {
+                    [self.arrReply addObject:models];
+                }
+                // NSLog(@"44444444");
+                [cell.headPhoto sd_setImageWithURL:[NSURL URLWithString:commentModel.senderImgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed ];
+                cell.stuName.text = commentModel.senderName;
+                cell.commentTime.text = commentModel.sendTime;
+                cell.commmentLabel.text  = commentModel.contentText;
+                self.commentHeight = [WKPlaycommentTableViewCell heightForLabel:cell.commmentLabel.text];
+                cell.replyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                cell.commntH.constant = self.commentHeight;
+                //NSLog(@"11111");
+                if (self.arrReply.count ==0) {
+                                self.allReply = 0;
+                            [cell.replyTableView reloadData];
+                            cell.replyTableView.frame = CGRectMake(20 ,65+self.commentHeight, SCREEN_WIDTH-40, self.allReply);
+                                return cell;
+                            }
+              else{
+                for (int i=0; i<self.arrReply.count; i++) {
+                    //                WKReplyTableViewCell *cell2 = (WKReplyTableViewCell*)[cell.replyTableView dequeueReusableCellWithIdentifier:@"myReplyCell" forIndexPath:indexPath];
+                    
+                    
+                    WKReplyModel *replyModel = self.arrReply[i];
+                    
+                    self.replyHeight = [WKReplyTableViewCell heightForLabel: [NSString stringWithFormat:@"%@ :%@",replyModel.senderName,replyModel.contentText]];
+                    //                cell2.replyLabel.frame = CGRectMake(10, 0, SCREEN_WIDTH-60, self.replyHeight);
+                    if (i==0) {
+                        self.allReply = self.replyHeight;
+                    }
+                    else{
+                        self.allReply = self.allReply+self.replyHeight;
+                        NSLog(@" self .allreply =%f  ",self.allReply);
+                    }
+                    
+                }
+                cell.replyTableView.frame = CGRectMake(20 ,65+self.commentHeight, SCREEN_WIDTH-40, self.allReply);
+                
+                [cell.replyTableView reloadData];
+                return cell;
             }
-           // NSLog(@"44444444");
-                 [cell.headPhoto sd_setImageWithURL:[NSURL URLWithString:commentModel.senderImgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed ];
-           cell.stuName.text = commentModel.senderName;
-           cell.commentTime.text = commentModel.sendTime;
-            cell.commmentLabel.text  = commentModel.contentText;
+            }
+            //  }
+            
             self.commentHeight = [WKPlaycommentTableViewCell heightForLabel:cell.commmentLabel.text];
             cell.commntH.constant = self.commentHeight;
-            [cell.replyTableView reloadData];
+            
             return cell;
+            
         }
-       
-        self.commentHeight = [WKPlaycommentTableViewCell heightForLabel:cell.commmentLabel.text];
-        cell.commntH.constant = self.commentHeight;
-        return cell;
+        //return nil;
+        //NSLog(@"replucell");
+        WKReplyTableViewCell *cell2 = (WKReplyTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"myReplyCell" forIndexPath:indexPath];
+        
+        // NSLog(@"----7654321");
+        if (self.arrReply.count) {
+            // NSLog(@"----111111");
+           // NSLog(@"2222");
+            WKReplyModel *replyModel = self.arrReply[indexPath.row];
+            cell2.replyLabel.text =  [NSString stringWithFormat:@"%@ :%@",replyModel.senderName,replyModel.contentText];
+            self.replyHeight = [WKReplyTableViewCell heightForLabel:cell2.replyLabel.text];
+            cell2.replyLabel.frame = CGRectMake(10, 0, SCREEN_WIDTH-60, self.replyHeight);
+            return cell2;
+        }
+        
+        return nil;
 
+  
     }
-    //NSLog(@"replucell");
-         WKReplyTableViewCell *cell2 = (WKReplyTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"myReplyCell" forIndexPath:indexPath];
-    self.replyHeight = [WKReplyTableViewCell heightForLabel:cell2.replyLabel.text];
-   // NSLog(@"----7654321");
-    if (self.arrReply.count) {
-        // NSLog(@"----111111");
-        WKReplyModel *replyModel = self.arrReply[indexPath.row];
-        cell2.replyLabel.text =  [NSString stringWithFormat:@"%@ :%@",replyModel.senderName,replyModel.contentText];
-        return cell2;
-    }
-
-    if (indexPath.row==0) {
-        self.allReply = self.replyHeight;
-    }
-    else{
-        self.allReply = self.allReply+self.replyHeight;
-    }
-    return cell2;
-}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (tableView == self.playerTable) {
         if (section == 1) {
@@ -406,38 +460,53 @@
                         return self.sectionView;
 
         }
-        if (section == 2) {
-            self.commentSectionView = [[WKCommentSectionView alloc]init];
-            self.commentSectionView = [[[NSBundle mainBundle]loadNibNamed:@"CommentSectionView" owner:nil options:nil]lastObject];
-            self.commentSectionView.myComment.delegate = self;
-            self.commentSectionView.layer.borderColor = [WKColor colorWithHexString:BACK_COLOR].CGColor;
-            self.commentSectionView.layer.borderWidth = 0.5;
-            [self.commentSectionView.commentbutton addTarget:self action:@selector(commentSendAction) forControlEvents:UIControlEventTouchUpInside];
-            if (self.arrComment.count) {
-                WKVideoCommentModel *commentModel = _arrComment[0];
-             
-                 self.commentSectionView.commentCount.text = [NSString stringWithFormat:@"(%@)",commentModel.total] ;
-                return self.commentSectionView;
-            }
-           
-            return self.commentSectionView;
-           
+                       if (section == 2) {
+                    self.commentSectionView = [[WKCommentSectionView alloc]init];
+                    self.commentSectionView = [[[NSBundle mainBundle]loadNibNamed:@"CommentSectionView" owner:nil options:nil]lastObject];
+                    self.commentSectionView.myComment.delegate = self;
+                    self.commentSectionView.layer.borderColor = [WKColor colorWithHexString:BACK_COLOR].CGColor;
+                    self.commentSectionView.layer.borderWidth = 0.5;
+                           if (self.arrlist.count) {
+                               WKPlayVideoModel *model = self.arrlist[0];
+                               if (!model.commentFlag) {
+                                   self.commentSectionView.hidden = NO;
+                               }
+                               else{
+                                   self.commentSectionView.hidden = YES;
+                               }
+                           }
 
-        }
-        return nil;
+                    [self.commentSectionView.commentbutton addTarget:self action:@selector(commentSendAction) forControlEvents:UIControlEventTouchUpInside];
+                    if (self.arrComment.count) {
+                        WKVideoCommentModel *commentModel = _arrComment[0];
+                        
+                        self.commentSectionView.commentCount.text = [NSString stringWithFormat:@"(%@)",commentModel.total] ;
+                        return self.commentSectionView;
+                    }
+                    
+                    return self.commentSectionView;
+                    
+                    
+                }
+
+
+    
             }
     return nil;
   }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     
-    [self.playerTable reloadData];
-    NSIndexPath * dayOne = [NSIndexPath indexPathForRow:0 inSection:2];
-    [self.playerTable scrollToRowAtIndexPath:dayOne atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//    [self.playerTable reloadData];
+//    NSIndexPath * dayOne = [NSIndexPath indexPathForRow:0 inSection:2];
+//    [self.playerTable scrollToRowAtIndexPath:dayOne atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 - (void)keyboardWillShow:(NSNotification *)notification{
        CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat height = keyboardFrame.size.height;
-    self.tableviewBottom .constant= height;
+    self.tableviewBottom .constant= height+10;
 //    CGFloat textField_maxY = self.commentSectionView.myComment.frame.origin.y;
 //    NSLog(@"1122");
 //   // CGFloat space = - self.playerTable.contentOffset.y + textField_maxY;

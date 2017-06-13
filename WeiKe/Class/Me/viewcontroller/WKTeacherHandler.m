@@ -40,5 +40,16 @@
     }];
     
 }
++(void)executeGetTeacherOutListWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [ WKHttpTool postWithURLString:TEACHER_LIST parameters:dic success:^(id responseObject) {
+        NSLog(@"=%@",responseObject);
+        NSArray *arr = [WKTeacherVideoList mj_objectArrayWithKeyValuesArray:responseObject[@"videoList"]];
+        //NSLog(@"arr = %@",arr);
+        success(arr);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
 
 @end

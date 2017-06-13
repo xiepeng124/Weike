@@ -30,6 +30,8 @@
 #define ALL_TEACHER @"http://192.168.1.151:8080/wksys/app/teaCol/loadTeaList"
 
 #define MY_TEACHER @"http://192.168.1.151:8080/wksys/app/myInfo/myTeaVideo"
+
+#define TEACHER_LIST @"http://192.168.1.151:8080/wksys/app/teaCol/loadTeaVideoList"
                             /*视频播放和评论*/
 //视频获取
 #define VIDEO_PLAY @"http://192.168.1.151:8080/wksys/app/video/play"
@@ -132,6 +134,11 @@
 //作业查看
 #define JOB_WATCH @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/queryStuTask"
 
+//视频统计管理
+//查询
+#define VIDEO_STATIST @"http://192.168.1.151:8080/wksys/app/video/statistics/query"
+//对应教师视频
+#define VIDEO_STATIST_TEACHER @"http://192.168.1.151:8080/wksys/app/video/statistics/queryTeaVideo"
 
 
 #endif /* APIConfig_h */

@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [WKColor colorWithHexString:GREEN_COLOR];
+     self.navigationController.navigationBar.barTintColor = [WKColor colorWithHexString:GREEN_COLOR];
     self.navigationItem.titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     self.search = [[UITextField alloc]initWithFrame:CGRectMake(10, 0, SCREEN_WIDTH-75, 30)];
     //self.search.placeholder = @"搜索学科／课程";
@@ -46,6 +46,9 @@
    singletap.delegate =self;
     [self.view addGestureRecognizer:singletap];
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+  //  self.navigationController.navigationBar.barTintColor = [WKColor colorWithHexString:GREEN_COLOR];
 }
 -(void)Hidekeyboard:(UITapGestureRecognizer*)gesture{
   [self.view endEditing:YES];

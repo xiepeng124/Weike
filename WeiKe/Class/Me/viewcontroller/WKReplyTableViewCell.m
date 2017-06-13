@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.replyLabel.textColor = [WKColor colorWithHexString:@"333333"];
+    self.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
     // Initialization code
 }
 

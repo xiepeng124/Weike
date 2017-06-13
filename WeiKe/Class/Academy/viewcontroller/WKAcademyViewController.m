@@ -26,6 +26,7 @@
 @property (strong,nonatomic) NSMutableArray *arrayCourse;
 @property (strong,nonatomic) NSNumber *subject;
 @property (strong,nonatomic) NSNumber *Grade;
+@property (strong,nonatomic) NSString *Gradename;
 //@property(strong,nonatomic)WKMenuCollectionViewCell *cell;
 @end
 
@@ -98,7 +99,8 @@
       
         }
         if (indexPath.row ==1) {
-            NSDictionary *dic = @{@"typeId":[NSNumber numberWithInteger:indexPath.row],@"schoolId":@1};
+            self.threetableview.hidden = NO;
+            NSDictionary *dic = @{@"typeId":[NSNumber numberWithInteger:indexPath.row],@"schoolId":SCOOLID};
             __weak typeof(self) weakself = self;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 [WKAcedemyHandler executeGetAcademyGradeWithParameter:dic success:^(id object) {
@@ -118,7 +120,8 @@
             });
         }
         if (indexPath.row ==2||indexPath.row == 3) {
-            NSDictionary *dic = @{@"typeId":[NSNumber numberWithInteger:indexPath.row],@"schoolId":@1};
+            self.threetableview.hidden = YES;
+            NSDictionary *dic = @{@"typeId":[NSNumber numberWithInteger:indexPath.row],@"schoolId":SCOOLID};
             __weak typeof(self) weakself = self;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 [WKAcedemyHandler executeGetAcademySectionWithParameter:dic success:^(id object) {
@@ -155,7 +158,8 @@
             [self.navigationController pushViewController:result animated:YES];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
             
-        }else{
+        }
+        else{
          [self.arrayCourse removeAllObjects];
             if (self.subject.intValue !=1) {
                 WKAcadeResultsViewController *result = [[WKAcadeResultsViewController alloc]init];
@@ -165,6 +169,13 @@
                 result.courseId = @0;
                 result.sectionId= [NSNumber numberWithInteger:grade.sectionId];
                 result.gradeId = @0;
+                if (grade.sectionId ==1) {
+                    result.gradeName = @"初中部";
+                    
+                }
+                else{
+                    result.gradeName = @"高中部";
+                }
                 result.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:result animated:YES];
 
@@ -173,9 +184,11 @@
         WKGrade *grade = [[WKGrade alloc]init];
         grade= self.arrayGrade[indexPath.row-1];
                 self.Grade = [NSNumber numberWithInteger:grade.id];
+                self.Gradename = grade.gradeName;
+                
             if (grade.gradeName!=nil) {
                 __weak typeof(self) weakself = self;
-                NSDictionary *dic = @{@"gradeId":[NSNumber numberWithInteger:grade.id],@"schoolId":@1};
+                NSDictionary *dic = @{@"gradeId":[NSNumber numberWithInteger:grade.id],@"schoolId":SCOOLID};
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     [WKAcedemyHandler executeGetAcademyCourseWithParameter:dic success:^(id object) {
                         for (WKCourse * course in object) {
@@ -214,10 +227,15 @@
         result.gradeId = self.Grade;
         if (indexPath.row==0) {
             result.courseId = @0;
+            result.gradeName = self.Gradename;
+
         }
         else{
             WKCourse *course = self.arrayCourse[indexPath.row-1];
             result.courseId = [NSNumber numberWithInteger:course.id];
+            result.courseName = course.courseName;
+            result.gradeName = self.Gradename;
+           
         }
         result.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:result animated:YES];
@@ -309,7 +327,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.search.placeholder = @"搜索学科/课程";
-    [self ClickOnTheBlankspace];
+
     [self initStyle];
 //    [self initCollectionView];
     self.search.delegate =self;
@@ -318,12 +336,12 @@
     self.detail=[[WKMenuDetail alloc]init];
     self.arrayGrade = [NSMutableArray array];
     self.arrayCourse = [NSMutableArray array];
+ 
+    NSIndexPath *path1 = [NSIndexPath indexPathForRow:1 inSection:0];
+    [self.onetableview selectRowAtIndexPath:path1 animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self tableView:self.onetableview didSelectRowAtIndexPath:path1];
     
-//    NSIndexPath *path1 = [NSIndexPath indexPathForRow:1 inSection:0];
-//    [self.onetableview selectRowAtIndexPath:path1 animated:YES scrollPosition:UITableViewScrollPositionTop];
-//    [self tableView:self.onetableview didSelectRowAtIndexPath:path1];
-//    
-//    
+//
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        NSIndexPath *path2 = [NSIndexPath indexPathForRow:2 inSection:0];
 //        [self.twotableview selectRowAtIndexPath:path2 animated:YES scrollPosition:UITableViewScrollPositionTop];
@@ -333,6 +351,8 @@
     //});
 
 }
+-(void)viewWillAppear:(BOOL)animated{
+    }
 #pragma mark - Action
 //-(void)freshaction{
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -380,36 +400,11 @@
     return YES;
     
 }//Click on the blank space
--(void)ClickOnTheBlankspace{
-    UITapGestureRecognizer *singletap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Hidekeyboard:)];
-    singletap.delegate =self;
-    [self.view addGestureRecognizer:singletap];
-    
-}
--(void)Hidekeyboard:(UITapGestureRecognizer*)gesture{
-//    [self.view endEditing:YES];
-    [self.search endEditing: YES];
-}
-#pragma mark - 屏蔽手势事件
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    //Tip:我们可以通过打印touch.view来看看具体点击的view是具体是什么名称,像点击UITableViewCell时响应的View则是UITableViewCellContentView.
-    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
-        //返回为NO则屏蔽手势事件
-        return NO;
-    }
-    return YES;
-}
+
 -(void)viewDidAppear:(BOOL)animated{
     
 
 }
--(void)viewWillAppear:(BOOL)animated{
-    
-                //NSLog(@"self.count= %lu",self.arrayGrade.count);
-    
-    
-    
-   }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

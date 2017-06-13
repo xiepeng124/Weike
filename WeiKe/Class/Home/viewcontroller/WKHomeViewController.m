@@ -12,6 +12,7 @@
 #import "WKHomeAdHandler.h"
 #import "WKHomeFooterCollectionReusableView.h"
 #import "WKplayViewController.h"
+#import "WKHomeOutLinkViewController.h"
 @interface WKHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(strong,nonatomic)UICollectionView *collectionview;
 @property(strong,nonatomic)NSMutableArray *advertiselist;
@@ -55,6 +56,13 @@
                 
                 [[UIApplication sharedApplication]openURL:[NSURL URLWithString:new.videoLink]];
             }
+            else{
+                WKHomeOutLinkViewController *outlink = [[WKHomeOutLinkViewController alloc]init];
+                outlink.myId = new.id;
+                   outlink.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:outlink animated:YES];
+            }
+
     }
         else{
         UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -62,7 +70,7 @@
         //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
         WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
             player.myId = new.id;
-        
+            player.hidesBottomBarWhenPushed = YES;
         //跳转事件
         [self.navigationController pushViewController:player animated:YES];
         }
@@ -71,11 +79,16 @@
     if (indexPath.section ==2) {
         WKHomeNew *new= self.HotVideo[indexPath.row];
         NSLog(@"new.link = %@",new.videoLink);
-
-        if(new.videoLink.length){
+               if(new.videoLink.length){
             if (![new.videoLink  isEqual: @"1"]) {
                 [[UIApplication sharedApplication]openURL:[NSURL URLWithString:new.videoLink]];
 
+            }
+            else{
+                WKHomeOutLinkViewController *outlink = [[WKHomeOutLinkViewController alloc]init];
+                   outlink.myId = new.id;
+                outlink.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:outlink animated:YES];
             }
         }
         else{
@@ -86,6 +99,7 @@
         WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
                      player.myId = new.id;
         //跳转事件
+            player.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:player animated:YES];
         }
     }
@@ -111,6 +125,13 @@
     }
     if (indexPath.section==1) {
         WKHomeNew *new=self.NewVideo[indexPath.row];
+        if (new.videoLink.length) {
+            cell.outLinkButton.hidden = NO;
+        }
+        else{
+            cell.outLinkButton.hidden = YES;
+
+        }
         if (new.videoImage.length==0) {
             [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:new.videoImgUrl]placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
 
@@ -127,6 +148,14 @@
 
     }
     WKHomeNew *hot = self.HotVideo[indexPath.row];
+    if (hot.videoLink.length) {
+        cell.outLinkButton.hidden = NO;
+    }
+    else{
+        cell.outLinkButton.hidden = YES;
+        
+    }
+
     [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImgUrl] placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
     cell.Title.text = hot.title;
     cell.TeacherName.text = hot.teacherName;

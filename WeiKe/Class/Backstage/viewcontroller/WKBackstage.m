@@ -347,6 +347,28 @@
     }];
     
 }
++(void)executeGetBackstageVideoStatistWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:VIDEO_STATIST parameters:dic success:^(id responseObject) {
+        NSLog(@"resp = %@",responseObject);
+     
+        NSArray *arr = [WKVIdeoStatisticsModel mj_objectArrayWithKeyValuesArray:responseObject[@"tempDp"]];
+           success(arr);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageVideoStatistListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:VIDEO_STATIST_TEACHER parameters:dic success:^(id responseObject) {
+        NSLog(@"resp = %@",responseObject);
+        
+        NSArray *arr = [WKTeacherVideoList mj_objectArrayWithKeyValuesArray:responseObject[@"teaVideoList"]];
+        success(arr);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
 
 
 @end

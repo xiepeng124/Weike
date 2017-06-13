@@ -11,6 +11,7 @@
 #import "WKTeacherHeaderCollectionReusableView.h"
 #import "WKTeacherHandler.h"
 #import "WKTeacherScreenViewController.h"
+#import "WKTeacherVideoListViewController.h"
 @interface WKTeacherViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,TeacherHeaderDelegate,TeacherScreenDelegate>
 @property(strong,nonatomic)UICollectionView *collectionview;
 @property(strong,nonatomic)NSNumber* page;
@@ -188,9 +189,25 @@
 -(UICollectionReusableView*)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     WKTeacherHeaderCollectionReusableView *header=(WKTeacherHeaderCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     self.headCollection = header;
+    if ([USERTYPE intValue]== 2) {
+        header.selectedbutton.hidden = NO;
+        header.myteacher.hidden = NO;
+    }
+    else{
+        header.selectedbutton.hidden = YES;
+        header.myteacher.hidden = YES;
+        
+    }
+
     //[header.bottomButton setHidden:NO];
     header.delegate = self;
         return header;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    WKTeacherVideoListViewController *list = [[WKTeacherVideoListViewController alloc]init];
+    WKTeacherList *model = self.teacherList[indexPath.row];
+    list.myId=model.id;
+    [self.navigationController pushViewController:list animated:YES];
 }
 #pragma mark - collectiondelegate
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
@@ -259,16 +276,13 @@
     return YES;
     
 }//Click on the blank space
--(void)ClickOnTheBlankspace{
-    UITapGestureRecognizer *singletap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(Hidekeyboard:)];
-    [self.view addGestureRecognizer:singletap];
-    
-}
--(void)Hidekeyboard:(UITapGestureRecognizer*)gesture{
-    [self.search endEditing:YES];
-    //[self.view endEditing:YES];
-}
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    if (touch.view.frame.size.height==40) {
+//        return YES;
+//    }
+    return NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

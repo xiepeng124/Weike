@@ -14,7 +14,8 @@
 #import "WKJobDetail.h"
 #import "WKJobGradeModel.h"
 #import "WKJobStu.h"
-
+#import "WKVIdeoStatisticsModel.h"
+#import "WKTeacherVideoList.h"
 @interface WKBackstage : WKHttpbase
 +(void)executeGetBackstageAllorSearchWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageAddWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
@@ -53,4 +54,6 @@
 +(void)executeGetBackstageJobSendStudentWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageJobScoreWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageJobShareWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageVideoStatistWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageVideoStatistListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 @end

@@ -17,7 +17,7 @@
           for (WKPlayVideoModel * model in arr) {
               model.total = [responseObject objectForKey:@"total"];
           }
-
+          NSLog(@"/////%@..",responseObject);
           success(arr);
       } failure:^(NSError *error) {
           failed(error);
@@ -33,7 +33,7 @@
                                   success(arr);
 
                     
-                       NSLog(@"respn = %@",responseObject);
+                      // NSLog(@"respn = %@",responseObject);
                            //success(responseObject);
                           } failure:^(NSError *error) {
                               failed(error);
@@ -56,4 +56,19 @@
         
     }];
 }
++(void)executeGetOutVideoWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    [WKHttpTool postWithURLString: VIDEO_PLAY parameters:dic
+                          success:^(id responseObject) {
+                              
+                              NSArray *arr = [WKPlayOutVideo mj_objectArrayWithKeyValuesArray:responseObject[@"videoList"]];
+                              for (WKPlayOutVideo * model in arr) {
+                                  model.bigTitle = [responseObject objectForKey:@"title"];
+                              }
+                             /// NSLog(@"/////%@..",responseObject);
+                              success(arr);
+                          } failure:^(NSError *error) {
+                              failed(error);
+                          }];
+}
+
 @end

@@ -14,5 +14,7 @@
 @property(strong,nonatomic)NSNumber *gradeId;
 @property(strong,nonatomic)NSNumber *courseId;
 @property(strong,nonatomic)NSNumber *sectionId;
+@property(strong,nonatomic)NSString *gradeName;
+@property(strong,nonatomic)NSString *courseName;
 
 @end

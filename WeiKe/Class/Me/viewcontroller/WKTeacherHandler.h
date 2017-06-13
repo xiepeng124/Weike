@@ -10,8 +10,10 @@
 #import "WKTeacherList.h"
 #import "WKGrade.h"
 #import "WKCourse.h"
+#import "WKTeacherVideoList.h"
 @interface WKTeacherHandler : WKHttpbase
 +(void)executeGetTeacherListWithParameters:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetAcademyGradeWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetAcademyCourseWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
++(void)executeGetTeacherOutListWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
 @end

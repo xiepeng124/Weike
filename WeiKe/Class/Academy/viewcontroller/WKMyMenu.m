@@ -14,12 +14,12 @@
     if (self) {
         NSArray *onedata=@[@"我的作业",@"本班老师",@"观看记录"];
         NSArray *twodata=@[@"个人资料",@"密码安全"];
-        NSArray *threedata=@[@"视频传输",@"后台管理"];
-        self.Datalist = [NSArray arrayWithObjects:onedata,twodata,threedata,nil];
+        //NSArray *threedata=@[@"视频传输",@"后台管理"];
+        self.Datalist = [NSArray arrayWithObjects:onedata,twodata,nil];
         NSArray *oneImage = @[@"my_work",@"my_teacher",@"my_video"];
         NSArray *twoImage = @[@"my_data",@"my_password"];
-        NSArray *threeImage = @[@"my_transfer",@"my_back"];
-        self.Imagelist = [NSArray arrayWithObjects:oneImage,twoImage,threeImage, nil];
+       // NSArray *threeImage = @[@"my_transfer",@"my_back"];
+        self.Imagelist = [NSArray arrayWithObjects:oneImage,twoImage, nil];
     }
     return self;
 }

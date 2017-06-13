@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface WKPlayVideoModel : NSObject
+@property (nonatomic,assign)NSInteger commentFlag;
 @property (nonatomic, strong) NSString * courseName;
 @property (nonatomic, strong) NSString * gradeName;
 @property (nonatomic, assign) NSInteger id;

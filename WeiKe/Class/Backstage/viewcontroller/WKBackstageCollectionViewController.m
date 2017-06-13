@@ -14,6 +14,7 @@
 #import "WKApprovalViewController.h"
 #import "WKIndicatorSetViewController.h"
 #import "WKJobManagerViewController.h"
+#import "WKVideoStatisticsViewController.h"
 @interface WKBackstageCollectionViewController ()
 @property (strong,nonatomic) WKBackmenu *menulist;
 @end
@@ -94,6 +95,14 @@ static NSString * const reuseIdentifier = @"Cell";
     if (indexPath.row ==6) {
         WKVideoManagerViewController *videomanager = [[WKVideoManagerViewController alloc]init];
         [self.navigationController pushViewController:videomanager animated:YES];
+    }
+    if (indexPath.row ==6) {
+        WKVideoManagerViewController *videomanager = [[WKVideoManagerViewController alloc]init];
+        [self.navigationController pushViewController:videomanager animated:YES];
+    }
+    if (indexPath.row ==7) {
+        WKVideoStatisticsViewController *videosta = [[WKVideoStatisticsViewController alloc]init];
+        [self.navigationController pushViewController:videosta animated:YES];
     }
     if (indexPath.row == 9) {
         WKIndicatorSetViewController *indicator = [[WKIndicatorSetViewController alloc]init];

@@ -214,7 +214,7 @@
             self.gradeId =[NSNumber numberWithInteger:grade.id];
             if (grade.gradeName!=nil) {
                 __weak typeof(self) weakself = self;
-                NSDictionary *dic = @{@"gradeId":[NSNumber numberWithInteger:grade.id],@"schoolId":@1};
+                NSDictionary *dic = @{@"gradeId":[NSNumber numberWithInteger:grade.id],@"schoolId":SCOOLID};
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     [WKTeacherHandler executeGetAcademyCourseWithParameter:dic success:^(id object) {
                         for (WKCourse * course in object) {
@@ -359,6 +359,13 @@
     self.cell2.TeachLabel.text = nil;
     self.courseId = @0;
 }
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    if (touch.view.frame.size.height==40) {
+//        return YES;
+//    }
+    return NO;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
