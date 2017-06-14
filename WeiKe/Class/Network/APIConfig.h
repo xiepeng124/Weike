@@ -16,6 +16,8 @@
 #define NEW_VIDEO @"http://192.168.1.151:8080/wksys/index/app/isNewVideo"
 //最热视频
 #define HOT_VIDEO @"http://192.168.1.151:8080/wksys/index/app/isHotVideo"
+//
+#define SEARCH_VIDEO @"http://192.168.1.151:8080/wksys/index/app/searchVideo"
 
                               /*微课堂*/
 //学段接口

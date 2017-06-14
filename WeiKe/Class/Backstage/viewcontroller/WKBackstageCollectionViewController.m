@@ -96,11 +96,7 @@ static NSString * const reuseIdentifier = @"Cell";
         WKVideoManagerViewController *videomanager = [[WKVideoManagerViewController alloc]init];
         [self.navigationController pushViewController:videomanager animated:YES];
     }
-    if (indexPath.row ==6) {
-        WKVideoManagerViewController *videomanager = [[WKVideoManagerViewController alloc]init];
-        [self.navigationController pushViewController:videomanager animated:YES];
-    }
-    if (indexPath.row ==7) {
+       if (indexPath.row ==7) {
         WKVideoStatisticsViewController *videosta = [[WKVideoStatisticsViewController alloc]init];
         [self.navigationController pushViewController:videosta animated:YES];
     }

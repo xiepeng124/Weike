@@ -136,19 +136,23 @@
     self.hud2.mode =MBProgressHUDModeDeterminateHorizontalBar;
     [self.view addSubview:self.hud2];
     self.mediaView.hud = self.hud2;
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.selectgrade];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.selectcourse];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.titleTextfield];
-    [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
-    [self.SureButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
-    self.SureButton.userInteractionEnabled = NO;
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.selectgrade];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.selectcourse];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.titleTextfield];
+    [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"72c456"]];
+    [self.SureButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
+    self.SureButton.userInteractionEnabled = YES ;
+
+//    [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
+//    [self.SureButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
+//    self.SureButton.userInteractionEnabled = NO;
     self.SureButton.layer.cornerRadius = 3;
 
 
 }
 -(void)textchangge:(NSNotification*)notifi{
  
-    if (!self.selectgrade.text.length||!self.selectcourse.text.length||(!self.titleTextfield.text.length&&self.selectedMerge.selectedSegmentIndex ==0)) {
+    if (!self.selectgrade.text.length||!self.selectcourse.text.length) {
         [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
         [self.SureButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         self.SureButton.userInteractionEnabled = NO;
@@ -297,6 +301,7 @@
         WKUploadModel *model = self.mediaView.upModelarr[i];
         if (i==0) {
             videoMsg = [NSString stringWithFormat:@"%lu|%lu|%@|%@|%@|%@|%lu",model.fileName,model.fileSize,model.fileType,model.realPath,model.imageUrl,model.sourceName,model.videoTime];
+            NSLog(@"....videmasg = %@",videoMsg);
         }
         else{
              videoMsg = [NSString stringWithFormat:@"%@,%lu|%lu|%@|%@|%@|%@|%lu",videoMsg,model.fileName,model.fileSize,model.fileType,model.realPath,model.imageUrl,model.sourceName,model.videoTime];
@@ -340,7 +345,7 @@
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.selectgrade];
      [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.selectcourse];
-     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.titleTextfield];
+   //  [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.titleTextfield];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

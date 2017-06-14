@@ -9,5 +9,7 @@
 #import "WKBaseViewController.h"
 
 @interface WKSearchResultViewController : WKBaseViewController
-
+@property (nonatomic,strong) UICollectionView *resultCollectionView;
+@property (nonatomic,strong) NSString *searchtext;
+-(void)initData;
 @end

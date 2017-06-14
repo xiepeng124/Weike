@@ -278,10 +278,10 @@
 }//Click on the blank space
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-//    if (touch.view.frame.size.height==40) {
-//        return YES;
-//    }
-    return NO;
+    if (touch.view.frame.size.height<20||touch.view.frame.size.height>50) {
+        return NO;
+    }
+    return YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

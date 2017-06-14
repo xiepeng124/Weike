@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="s7O-wC-n3c" customClass="WKSearchResultHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SL7-Hd-tKr">
+                    <rect key="frame" x="159.5" y="5" width="1" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.69999999999999996" id="5gb-wa-z3Z"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-Sm-0DK">
+                    <rect key="frame" x="93.5" y="15" width="16" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="1ks-PK-5PI"/>
+                        <constraint firstAttribute="height" constant="10" id="LaO-0e-w7m"/>
+                    </constraints>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFh-Lp-YoD">
+                    <rect key="frame" x="26.5" y="0.0" width="62" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="oXB-Od-fnv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="综合排序"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPi-Nb-rlz">
+                    <rect key="frame" x="210.5" y="0.0" width="62" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="YfU-ob-XVd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="年级"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-4U-mFe">
+                    <rect key="frame" x="277.5" y="15" width="16" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="Ity-7F-pBO"/>
+                        <constraint firstAttribute="height" constant="10" id="qh4-UY-9dz"/>
+                    </constraints>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="A5M-4U-mFe" firstAttribute="leading" secondItem="cPi-Nb-rlz" secondAttribute="trailing" constant="5" id="0Bu-eD-bYh"/>
+                <constraint firstItem="cPi-Nb-rlz" firstAttribute="top" secondItem="s7O-wC-n3c" secondAttribute="top" id="36P-Pc-anf"/>
+                <constraint firstItem="cPi-Nb-rlz" firstAttribute="leading" secondItem="SL7-Hd-tKr" secondAttribute="trailing" constant="50" id="Iff-RY-MpU"/>
+                <constraint firstItem="XcL-Sm-0DK" firstAttribute="centerY" secondItem="s7O-wC-n3c" secondAttribute="centerY" id="Q5x-bU-ntg"/>
+                <constraint firstItem="XcL-Sm-0DK" firstAttribute="leading" secondItem="LFh-Lp-YoD" secondAttribute="trailing" constant="5" id="Qpq-qj-mEW"/>
+                <constraint firstItem="A5M-4U-mFe" firstAttribute="centerY" secondItem="s7O-wC-n3c" secondAttribute="centerY" id="XTP-eA-GGC"/>
+                <constraint firstItem="SL7-Hd-tKr" firstAttribute="centerX" secondItem="s7O-wC-n3c" secondAttribute="centerX" id="emp-cu-PyH"/>
+                <constraint firstItem="LFh-Lp-YoD" firstAttribute="top" secondItem="s7O-wC-n3c" secondAttribute="top" id="g0B-CU-SMk"/>
+                <constraint firstItem="SL7-Hd-tKr" firstAttribute="leading" secondItem="XcL-Sm-0DK" secondAttribute="trailing" constant="50" id="gvD-Mm-PjL"/>
+                <constraint firstAttribute="bottom" secondItem="LFh-Lp-YoD" secondAttribute="bottom" id="pO6-S9-GvC"/>
+                <constraint firstAttribute="bottom" secondItem="SL7-Hd-tKr" secondAttribute="bottom" constant="5" id="qeL-YG-Wae"/>
+                <constraint firstItem="SL7-Hd-tKr" firstAttribute="top" secondItem="s7O-wC-n3c" secondAttribute="top" constant="5" id="rXM-L1-RbV"/>
+                <constraint firstAttribute="bottom" secondItem="cPi-Nb-rlz" secondAttribute="bottom" id="zeU-Um-bnu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="Updowngrade" destination="A5M-4U-mFe" id="5gf-Xg-nL1"/>
+                <outlet property="Updpwnclassify" destination="XcL-Sm-0DK" id="0Te-Xo-V0h"/>
+                <outlet property="classifyButton" destination="LFh-Lp-YoD" id="LxQ-Ag-4U4"/>
+                <outlet property="gradebutton" destination="cPi-Nb-rlz" id="Yoo-B0-br3"/>
+                <outlet property="verLine" destination="SL7-Hd-tKr" id="pr6-Gb-Vph"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="34"/>
+        </view>
+    </objects>
+</document>

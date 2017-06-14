@@ -16,6 +16,7 @@
 @property(strong,nonatomic)NSMutableArray *courseList;
 @property (strong,nonatomic)WKTeachScreenCollectionViewCell *cell1;
 @property (strong,nonatomic)WKTeachScreenCollectionViewCell *cell2;
+
 @property(strong,nonatomic)NSNumber *gradeId;
 @property(strong,nonatomic)NSNumber *courseId;
 @end
