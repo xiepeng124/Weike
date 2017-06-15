@@ -10,4 +10,5 @@
 #import "WKPlayerHandler.h"
 @interface WKHomeOutLinkViewController : WKBaseViewController
 @property (nonatomic,assign) NSInteger myId;
+@property (nonatomic,assign) NSInteger myNumber;
 @end

@@ -16,4 +16,5 @@
 +(void)executeGetVideoCommentSendWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetVideoReplySendWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetOutVideoWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetVideoPlaycountWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 @end

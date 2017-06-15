@@ -122,6 +122,16 @@
     [self.playerTable registerClass:[WKPlayerTableViewCell class] forCellReuseIdentifier:@"VideoCell"];
      [self.playerTable registerNib:[UINib nibWithNibName:@"WKPlaycommentTableViewCell" bundle:nil] forCellReuseIdentifier:@"CommentCell"];
 }
+-(void)initdataWithVideo:(NSInteger)videoId{
+    NSDictionary *dic =@{@"id":[NSNumber numberWithInteger:videoId],@"schoolId":SCOOLID,@"loginUserId":LOGINUSERID};
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKPlayerHandler executeGetVideoPlaycountWithParameter:dic success:^(id object) {
+            
+        } failed:^(id object) {
+            
+        }];
+    });
+}
 -(void)initVideodata{
     NSDictionary *dic = @{@"id":[NSNumber numberWithInteger:self.myId]};
     __weak typeof(self) weakself = self;
@@ -135,10 +145,11 @@
                            WKPlayVideoModel *model = weakself.arrlist[0];
                             weakself.playerModel.videoURL = [NSURL URLWithString:model.videoFilePath];
                            //NSLog(@" self.playerModel.videoURL = %@",self.playerModel.videoURL);
-                     weakself.playerModel.title = model.title;
+                        weakself.playerModel.title = model.title;
                           ZFPlayerControlView *defaultControlView = [[ZFPlayerControlView alloc] init];
-                             [weakself.playerView playerControlView:defaultControlView playerModel:weakself.playerModel];
-                    [weakself.playerView autoPlayTheVideo];
+                        [weakself.playerView playerControlView:defaultControlView playerModel:weakself.playerModel];
+                        [weakself.playerView autoPlayTheVideo];
+                           [self initdataWithVideo:model.id];
                            NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 2)];
                            [weakself.playerTable reloadSections:set withRowAnimation:UITableViewRowAnimationNone];
                            
@@ -175,6 +186,7 @@
                  //NSLog(@"%@ ...count",self.arrComment);
                  NSIndexSet *set = [NSIndexSet indexSetWithIndex:2];
                  [weakself.playerTable reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
+  
                  
              });
             } failed:^(id object) {
@@ -192,6 +204,7 @@
          [self initVideodata];
     [self initTableview];
        self.videoIndex = 0;
+//    self.myNumber= 0;
     self.page = 1;
     NSIndexPath *index = [NSIndexPath indexPathForItem:0 inSection:0];
     [self.collectionView deselectItemAtIndexPath:index animated:YES];
@@ -565,6 +578,7 @@
     [self.playerView resetToPlayNewVideo:self.playerModel];
     NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:0];
     [self.playerTable reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+    [self initdataWithVideo:model.id];
     [self initCommentData];
     
     cell.backView.hidden = NO;
@@ -644,7 +658,14 @@
 #pragma mark - ZFPlayerDelegate
 
 - (void)zf_playerBackAction {
-    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"self.myNumber = %lu",self.myNumber);
+   if (self.myNumber==0) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+       [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+ }
+
 }
 
 - (void)zf_playerDownload:(NSString *)url {

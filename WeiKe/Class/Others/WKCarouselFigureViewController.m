@@ -51,8 +51,8 @@
 }
 -(void)selectRightAction:(id)sender{
     WKSearcherViewController *searcher=[[WKSearcherViewController alloc]init];
-    [self presentViewController:searcher animated:YES
-                     completion:nil];
+[self presentViewController:searcher animated:YES completion:nil];
+   // [self.navigationController pushViewController:searcher animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

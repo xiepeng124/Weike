@@ -111,11 +111,23 @@
     return sectionview;
 
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.searchcontroller.searchBar.text = self.searTXT[indexPath.row];
+    //self.searchcontroller.searchBar.isSearchResultsButtonSelected= YES;
+   // [self searchBarSearchButtonClicked:self.searchcontroller.searchBar];
+   self.result.searchtext =  self.searchcontroller.searchBar.text;
+    [self.result initData];
+ // [self.navigationController pushViewController:self.result animated:YES];
+}
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    return YES;
+}
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     //searchController.searchBar.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [self dismissViewControllerAnimated:YES completion:nil];
+   // [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
@@ -204,9 +216,11 @@
     
     //设置搜索控制器的结果更新代理对象
     self.searchcontroller.searchResultsUpdater=self;
-    self.searchcontroller.hidesNavigationBarDuringPresentation = YES;
+    //self.searchcontroller.hidesNavigationBarDuringPresentation = YES;
     //为了响应scope改变时候，对选中的scope进行处理 需要设置search代理
     self.searchcontroller.searchBar.delegate=self;
+    self.searchcontroller.hidesNavigationBarDuringPresentation = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
      self.definesPresentationContext=YES;
     [self.view addSubview:self.searchcontroller.searchBar];
     

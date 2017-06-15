@@ -59,8 +59,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[WKColor colorWithHexString:LIGHT_COLOR]];
+    self.navigationItem.hidesBackButton = YES;
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(receiveMessageAction)];
+    leftButton.image=[UIImage imageNamed:@"back"];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]   initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace   target:nil action:nil];
+    negativeSpacer.width=-10;
+    self.navigationItem.leftBarButtonItems = @[negativeSpacer,leftButton];
     [self initTableView];
     [self initData];
+  
+    NSLog(@"111111111111111");
     // Do any additional setup after loading the view.
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -103,6 +111,14 @@
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
     return NO;
+}
+-(void)receiveMessageAction{
+    if (self.myNumber==0) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 /*
 #pragma mark - Navigation

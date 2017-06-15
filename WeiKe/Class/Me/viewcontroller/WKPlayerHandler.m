@@ -70,5 +70,12 @@
                               failed(error);
                           }];
 }
++(void)executeGetVideoPlaycountWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    [WKHttpTool postWithURLString:VIDEO_PLAY_COUNT parameters:dic success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 @end

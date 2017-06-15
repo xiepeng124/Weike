@@ -37,6 +37,8 @@
                             /*视频播放和评论*/
 //视频获取
 #define VIDEO_PLAY @"http://192.168.1.151:8080/wksys/app/video/play"
+//视频播放记录次数
+#define VIDEO_PLAY_COUNT @"http://192.168.1.151:8080/wksys/app/video/saveTime"
 //视频评论获取
 #define VIDEO_COMMENT @"http://192.168.1.151:8080/wksys/app/message/comment/loadCommentList"
 //视频根评论
@@ -129,12 +131,15 @@
 #define JOB_SCORE @"http://192.168.1.151:8080/wksys/app/task/taskInfo/saveTaskScore"
 //作业分享
 #define JOB_SHARE @"http://192.168.1.151:8080/wksys/app/task/taskInfo/saveShareTask"
+              /*个人中心 */
 //学生上交查询
 #define JOB_HAND_SEARCH @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/handTaskQuery"
 //上交作业
 #define JOB_HAND @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/handInTask"
 //作业查看
 #define JOB_WATCH @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/queryStuTask"
+//观看记录
+#define WATCH_RECORD @"http://192.168.1.151:8080/wksys/app/video/watchHistory"
 
 //视频统计管理
 //查询

@@ -13,4 +13,5 @@
 +(void)executeGetMyJobSearchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMyJobHandWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMyJobWatchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetWatchVideorecordWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 @end

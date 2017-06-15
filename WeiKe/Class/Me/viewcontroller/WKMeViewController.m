@@ -13,6 +13,7 @@
 #import "WKMyteacherViewController.h"
 #import "WKBackstageCollectionViewController.h"
 #import "WKMyJobViewController.h"
+#import "WKViewingrecordViewController.h"
 @interface WKMeViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *MineTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *MeImage;
@@ -80,6 +81,15 @@
                     [self.navigationController pushViewController:mytecher animated:YES];
                     break;
                 }
+                case 2:
+                {
+                    WKViewingrecordViewController *record = [[WKViewingrecordViewController alloc]init];
+                    record.navigationItem.title = @"观看记录";
+                    record.hidesBottomBarWhenPushed =YES;
+                    [self.navigationController pushViewController:record animated:YES];
+                    break;
+                }
+
                     
                 default:
                     break;
@@ -88,6 +98,13 @@
         
     }
     else{
+        if (indexPath.section == 0) {
+            WKViewingrecordViewController *record = [[WKViewingrecordViewController alloc]init];
+            record.navigationItem.title = @"观看记录";
+            record.hidesBottomBarWhenPushed =YES;
+            [self.navigationController pushViewController:record animated:YES];
+          
+        }
         if (indexPath.section ==2) {
             switch (indexPath.row) {
                 case 0:

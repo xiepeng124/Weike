@@ -11,6 +11,8 @@
 #import "WKTeachScreenCollectionViewCell.h"
 #import "WKSearchHandler.h"
 #import "WKHomeCollectionViewCell.h"
+#import "WKHomeOutLinkViewController.h"
+#import "WKplayViewController.h"
 @interface WKSearchResultViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic ,strong) WKSearchResultHeaderView *headerview;
 @property (nonatomic,strong) UICollectionView *classfityCollectionView;
@@ -22,6 +24,7 @@
 @property (assign,nonatomic)NSInteger index;
 @property (assign,nonatomic)NSInteger twoIndex;
 @property (strong,nonatomic)NSMutableArray *arrlist;
+@property (assign,nonatomic)NSInteger page;
 @end
 
 @implementation WKSearchResultViewController
@@ -33,7 +36,7 @@
 }
 -(NSArray*)arrClassfity{
     if (!_arrClassfity) {
-        _arrClassfity = [NSArray arrayWithObjects:@"综合排序",@"人气排序",@"最新排序", nil];
+        _arrClassfity = [NSArray arrayWithObjects:@"综合排序",@"最新排序",@"人气排序", nil];
     }
     return _arrClassfity;
 }
@@ -79,12 +82,13 @@
     [self.view addSubview:self.headerview];
 }
 -(void)initTableView{
-    self.gradeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 45, SCREEN_WIDTH, 165) style:UITableViewStylePlain];
+    self.gradeTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 85, SCREEN_WIDTH, 125) style:UITableViewStylePlain];
     self.gradeTableView.delegate = self;
     self.gradeTableView.dataSource = self;
     self.gradeTableView.scrollEnabled = NO;
     self.gradeTableView.hidden = YES;
     self.gradeTableView.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
+    self.gradeTableView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.gradeTableView];
     self.oneBack = [[UIView alloc]initWithFrame:CGRectMake(0, 210, SCREEN_WIDTH, SCREEN_HEIGHT-210)];
     self.oneBack.backgroundColor = [UIColor blackColor];
@@ -117,11 +121,15 @@
     collectionflowlayout.minimumInteritemSpacing=5;
     collectionflowlayout.itemSize=CGSizeMake(SCREEN_WIDTH/2-15, 142);
     collectionflowlayout.sectionInset=UIEdgeInsetsMake(10, 10, 10, 10);
-    self.resultCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 85, SCREEN_WIDTH, SCREEN_HEIGHT-85) collectionViewLayout:collectionflowlayout];
+    self.resultCollectionView=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 45, SCREEN_WIDTH, SCREEN_HEIGHT-45) collectionViewLayout:collectionflowlayout];
+    self.resultCollectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.resultCollectionView.showsVerticalScrollIndicator = NO;
     self.resultCollectionView.delegate=self;
     self.resultCollectionView.dataSource=self;
     self.resultCollectionView.backgroundColor=[WKColor colorWithHexString:LIGHT_COLOR];
     [self.resultCollectionView registerNib:[UINib nibWithNibName:@"WKHomeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Cellid"];
+    self.resultCollectionView.mj_footer =[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
+    self.resultCollectionView.mj_footer.automaticallyChangeAlpha=YES;
     [self.view addSubview:self.resultCollectionView];
 
 }
@@ -132,9 +140,19 @@
      [self initStyle];
     self.index = 0;
     self.twoIndex = 0;
+    self.page = 1;
+      self.definesPresentationContext = YES;
     self.view.backgroundColor = [ WKColor colorWithHexString:LIGHT_COLOR];
- 
+    NSIndexPath *indexpath = [NSIndexPath indexPathForItem:0 inSection:0];
+    [self.classfityCollectionView selectItemAtIndexPath:indexpath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+    WKTeachScreenCollectionViewCell *cell=(WKTeachScreenCollectionViewCell*)  [self.classfityCollectionView cellForItemAtIndexPath:indexpath];
+    cell.TeachLabel.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
+    cell.TeachLabel.textColor = [WKColor colorWithHexString:@"4481c2"];
+    cell.selectedImage.image =[UIImage imageNamed:@"pitch-up"];
     // Do any additional setup after loading the view.
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    self.navigationController.navigationBar.translucent = NO;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -163,6 +181,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 10;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.twoIndex = indexPath.row;
+    [self initData];
+    [self.headerview.classifyButton setTitle:self.arrClassfity[indexPath.row] forState:UIControlStateNormal];
+    self.headerview.classifyButton.selected = NO;
+    self.headerview.Updpwnclassify.selected = NO;
+    self.gradeTableView.hidden = YES;
+    self.oneBack.hidden = YES;
+    
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (collectionView == self.classfityCollectionView) {
         return self.arrGrade.count;
@@ -190,6 +218,14 @@
             cell.Title.text = model.title;
             cell.TeacherName.text = model.teacherName;
             cell.gradeLabel.text = model.gradeName;
+            if (model.videoLink.length) {
+                cell.outLinkButton.hidden = NO;
+            }
+            else{
+                cell.outLinkButton.hidden = YES;
+                
+            }
+
             [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageLowPriority|SDWebImageRetryFailed ];
             return cell;
             
@@ -204,9 +240,75 @@
         cell.TeachLabel.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
         cell.TeachLabel.textColor = [WKColor colorWithHexString:@"4481c2"];
         cell.selectedImage.image =[UIImage imageNamed:@"pitch-up"];
+        self.headerview.gradebutton.selected = NO;
+        self.headerview.Updowngrade.selected = NO;
+        self.classfityCollectionView.hidden = YES;
+        self.twoBack.hidden = YES;
+        self.index = indexPath.row;
+        [self initData];
+
+    }
+    else{
+        WKHomeNew *new= self.arrlist[indexPath.row];
+        NSLog(@"new.link = %@",new.videoLink);
+        if(new.videoLink.length ){
+            if (![new.videoLink  isEqual: @"1"]) {
+        NSLog(@"111");
+                
+                [[UIApplication sharedApplication]openURL:[NSURL URLWithString:new.videoLink]];
+            }
+            else{
+                WKHomeOutLinkViewController *outlink = [[WKHomeOutLinkViewController alloc]init];
+                
+                outlink.myId = new.id;
+                outlink.myNumber = 1;
+                UIViewController * controller = self.view.window.rootViewController;
+                
+                controller.modalPresentationStyle = UIModalPresentationCurrentContext;
+                
+               outlink.view.backgroundColor = [UIColor clearColor];
+                
+              outlink.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                UINavigationController * jackNavigationController = [[UINavigationController alloc] initWithRootViewController:outlink];
+                [self presentViewController:jackNavigationController animated:YES completion:nil];
+
+               // outlink.hidesBottomBarWhenPushed = YES;
+               // [self dismissViewControllerAnimated:YES completion:nil];
+               // [self.navigationController pushViewController:outlink animated:YES];
+            }
+            
+        }
+        else{
+            UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            
+            //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
+            WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
+            player.myId = new.id;
+            player.myNumber = 1;
+            //player.hidesBottomBarWhenPushed = YES;
+            //跳转事件
+            UIViewController * controller = self.view.window.rootViewController;
+           // player.navigationItem.hidesBackButton = NO;
+            controller.modalPresentationStyle = UIModalPresentationCurrentContext;
+            
+            player.view.backgroundColor = [UIColor clearColor];
+            
+            player.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            UINavigationController * jackNavigationController = [[UINavigationController alloc] initWithRootViewController:player];
+            
+            //jackNavigationController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"boy"] style:UIBarButtonItemStylePlain target:self action:@selector(backTopAction)];
+            //jackNavigationController.navigationItem.hidesBackButton = NO;
+            
+            [self presentViewController:jackNavigationController animated:YES completion:nil];
+
+          //  [self presentViewController:player animated:YES completion:nil];
+        }
 
     }
    }
+-(void)backTopAction{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (collectionView == self.classfityCollectionView) {
         WKTeachScreenCollectionViewCell *cell = (WKTeachScreenCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
@@ -264,13 +366,51 @@
         //返回为NO则屏蔽手势事件
         return NO;
     }
- 
+    if (touch.view.frame.size.height>60) {
+        return NO;
+    }
     if ([touch.view isKindOfClass:[UIButton class]]) {
         return NO;
     }
     return YES;
 }
+-(void)loadmore{
+    self.page+=1;
+    NSDictionary *dic;
+    if (self.index==0) {
+        dic = @{@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID,@"searchMsg":self.searchtext,@"newOrHot":[NSNumber numberWithInteger:self.twoIndex]};
+    }
+    else{
+        NSString *string = [self.arrGrade[self.index] substringToIndex:2];
+        dic = @{@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID,@"searchMsg":self.searchtext,@"gradeName":string,@"newOrHot":[NSNumber numberWithInteger:self.twoIndex]};
+    }
+    __weak typeof(self) weakself = self;
+  
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKSearchHandler executeGetSearchVideoWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (WKHomeNew *model in object) {
+                
+                                     [weakself.arrlist addObject:model];
+                }
+                NSArray *arr = (NSArray*)object;
+                NSLog(@"1111111 %lu",arr.count);
+                if (arr.count) {
+                    [weakself.resultCollectionView reloadData];
+                    [weakself.resultCollectionView.mj_footer endRefreshing];
 
+                }
+                else{
+                    [weakself.resultCollectionView.mj_footer endRefreshingWithNoMoreData];
+
+                }
+                           });
+        } failed:^(id object) {
+            
+        }];
+    });
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -43,5 +43,13 @@
         failed(error);
     }];
 }
++(void)executeGetWatchVideorecordWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    [WKHttpTool postWithURLString:WATCH_RECORD parameters:dic success:^(id responseObject) {
+        NSLog(@"respner = %@",responseObject);
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+}
 
 @end
