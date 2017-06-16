@@ -155,8 +155,10 @@
         cell.outLinkButton.hidden = YES;
         
     }
-
-    [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImgUrl] placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+    if (!hot.videoImage.length) {
+         [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImgUrl] placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+    }
+    [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImage] placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
     cell.Title.text = hot.title;
     cell.TeacherName.text = hot.teacherName;
     cell.gradeLabel.text= hot.gradeName;

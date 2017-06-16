@@ -140,12 +140,22 @@
 #define JOB_WATCH @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/queryStuTask"
 //观看记录
 #define WATCH_RECORD @"http://192.168.1.151:8080/wksys/app/video/watchHistory"
+//我的数据
+#define MY_DATA @"http://192.168.1.151:8080/wksys/app/myInfo/perData"
+//我的头像
+#define MY_HEAD @"http://192.168.1.151:8080/wksys/app/myInfo/fileUpload"
+//保存个人资料
+#define MY_DATA_KEEP @"http://192.168.1.151:8080/wksys/app/myInfo/modifyPerData"
+//密码修改
+#define MY_PASSWORD @"http://192.168.1.151:8080/wksys/app/myInfo/modifyPsd"
+
 
 //视频统计管理
 //查询
 #define VIDEO_STATIST @"http://192.168.1.151:8080/wksys/app/video/statistics/query"
 //对应教师视频
 #define VIDEO_STATIST_TEACHER @"http://192.168.1.151:8080/wksys/app/video/statistics/queryTeaVideo"
+
 
 
 #endif /* APIConfig_h */

@@ -14,6 +14,9 @@
 #import "WKBackstageCollectionViewController.h"
 #import "WKMyJobViewController.h"
 #import "WKViewingrecordViewController.h"
+#import "WKTeachImforEditViewController.h"
+#import "WKPasswordViewController.h"
+#import "WKMeHandler.h"
 @interface WKMeViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *MineTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *MeImage;
@@ -29,6 +32,25 @@
           return [self.menulist.Datalist[section] count];
     }
     return [self.teacherlist.Datalist[section] count];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    NSDictionary *dic  =@{@"token":TOKEN};
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [WKMeHandler executeGetMyDataWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                WKTeacherData *model = object;
+                weakSelf.myName.text = model.teacherName;
+                               [weakSelf.MeImage sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
+                
+  
+          
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
+
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
@@ -105,6 +127,31 @@
             [self.navigationController pushViewController:record animated:YES];
           
         }
+        if (indexPath.section == 1) {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    WKTeachImforEditViewController *teachimfor = [[WKTeachImforEditViewController alloc]init];
+                   teachimfor.hidesBottomBarWhenPushed = YES;
+                   teachimfor.navigationItem.title = @"个人资料";
+                    [self.navigationController pushViewController:teachimfor animated:YES];
+                    break;
+                }
+                case 1:
+                {
+                    WKPasswordViewController *tpass = [[WKPasswordViewController alloc]init];
+                    tpass.hidesBottomBarWhenPushed = YES;
+                    tpass.navigationItem.title = @"修改密码";
+                    [self.navigationController pushViewController:tpass animated:YES];
+                    break;
+                }
+
+                    
+                default:
+                    break;
+            }
+
+        }
         if (indexPath.section ==2) {
             switch (indexPath.row) {
                 case 0:
@@ -147,6 +194,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self inittableview];
+    if ([USERTYPE intValue]==2) {
+        self.classLabel.hidden = NO;
+    }
+    else{
+        self.classLabel.hidden = YES;
+    }
     // Do any additional setup after loading the view.
 }
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {

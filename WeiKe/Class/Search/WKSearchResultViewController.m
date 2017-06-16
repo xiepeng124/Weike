@@ -48,6 +48,7 @@
 }
 -(void)initData{
     NSDictionary *dic;
+    self.page = 1;
     if (self.index==0) {
         dic = @{@"page":@1,@"schoolId":SCOOLID,@"searchMsg":self.searchtext,@"newOrHot":[NSNumber numberWithInteger:self.twoIndex]};
     }
@@ -225,8 +226,13 @@
                 cell.outLinkButton.hidden = YES;
                 
             }
+            if (model.videoImage.length==0) {
+                [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:model.videoImgUrl] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageLowPriority|SDWebImageRetryFailed ];
 
+            }
+            else{
             [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageLowPriority|SDWebImageRetryFailed ];
+            }
             return cell;
             
         }
@@ -393,17 +399,13 @@
                 
                                      [weakself.arrlist addObject:model];
                 }
-                NSArray *arr = (NSArray*)object;
-                NSLog(@"1111111 %lu",arr.count);
-                if (arr.count) {
+              
                     [weakself.resultCollectionView reloadData];
                     [weakself.resultCollectionView.mj_footer endRefreshing];
 
-                }
-                else{
-                    [weakself.resultCollectionView.mj_footer endRefreshingWithNoMoreData];
+                  //  [weakself.resultCollectionView.mj_footer endRefreshingWithNoMoreData];
 
-                }
+    
                            });
         } failed:^(id object) {
             

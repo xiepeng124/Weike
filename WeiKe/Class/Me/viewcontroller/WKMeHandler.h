@@ -8,10 +8,15 @@
 
 #import "WKHttpbase.h"
 #import "WKMyJobModel.h"
+#import "WKTeacherData.h"
 @interface WKMeHandler : WKHttpbase
 +(void)executeGetmyTeacherListWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMyJobSearchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMyJobHandWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMyJobWatchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetWatchVideorecordWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMyDataWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:
+(FailedBlock)failed;
++(void)executeGetMyDataKeepWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMyPasswordWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 @end

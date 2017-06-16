@@ -104,6 +104,7 @@
 //        <#code#>
 //    })
     [WKHttpTool uploadWithURLString:self.url parameters:self.diction images:image success:^(id responseObject) {
+       // NSLog(@"res = %@",responseObject);
         if ([[responseObject objectForKey:@"flag"]intValue]) {
             [self.delegate selctedImage:responseObject];
             self.hud.label.text = @"上传成功";
