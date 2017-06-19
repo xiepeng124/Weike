@@ -13,6 +13,7 @@
 #import "WKHomeFooterCollectionReusableView.h"
 #import "WKplayViewController.h"
 #import "WKHomeOutLinkViewController.h"
+
 @interface WKHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(strong,nonatomic)UICollectionView *collectionview;
 @property(strong,nonatomic)NSMutableArray *advertiselist;
@@ -240,6 +241,7 @@
     [self loadadvertisement];
     [self loadNewVideo];
     [self loadHotVideo];
+
 }
 #pragma mark - 获取数据
 -(void)loadadvertisement{
@@ -314,7 +316,6 @@
     });
 
 }
-
 #pragma mark - Action
 -(void)freshaction{
     [self loadmore];
@@ -334,9 +335,7 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return NO;
 }
--(void)viewDidAppear:(BOOL)animated{
-    
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

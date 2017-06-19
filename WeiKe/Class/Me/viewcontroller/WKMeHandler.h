@@ -9,6 +9,7 @@
 #import "WKHttpbase.h"
 #import "WKMyJobModel.h"
 #import "WKTeacherData.h"
+#import "WKStudentData.h"
 @interface WKMeHandler : WKHttpbase
 +(void)executeGetmyTeacherListWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMyJobSearchWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;

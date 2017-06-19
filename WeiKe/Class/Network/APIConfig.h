@@ -19,6 +19,17 @@
 //
 #define SEARCH_VIDEO @"http://192.168.1.151:8080/wksys/index/app/searchVideo"
 
+                             /*消息中心*/
+//所有消息未读
+#define MESSAGE_NO @"http://192.168.1.151:8080/wksys/app/message/msg/loadNotReadMsgSize"
+//消息列表
+#define MESSAGE_LIST @"http://192.168.1.151:8080/wksys/app/message/msg/loadMsgList"
+//消息删除
+#define MESSAGE_DELETE @"http://192.168.1.151:8080/wksys/app/message/msg/delete"
+//消息标记已读
+#define MESSAGE_SAW @"http://192.168.1.151:8080/wksys/app/message/msg/signAllRead"
+
+
                               /*微课堂*/
 //学段接口
 #define WEI_Grade @"http://192.168.1.151:8080/wksys/app/wxy/loadGrade"

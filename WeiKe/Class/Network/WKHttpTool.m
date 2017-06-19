@@ -8,7 +8,7 @@
 
 #import "WKHttpTool.h"
 #import "WKHttpmanager.h"
-
+#import "WKTeacherData.h"
 @interface WKHttpTool  () <UIAlertViewDelegate,NSURLSessionDataDelegate,NSURLSessionDelegate,NSURLSessionTaskDelegate>
 
 @end

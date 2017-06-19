@@ -9,8 +9,10 @@
 
 #import "WKCarouselFigureViewController.h"
 #import "WKSearcherViewController.h"
+#import "WKMessageHandler.h"
+#import "WKMessageViewController.h"
 @interface WKCarouselFigureViewController ()
-
+@property (strong ,nonatomic)UIBarButtonItem *rightButton2;
 @end
 
 @implementation WKCarouselFigureViewController
@@ -19,8 +21,8 @@
     [super viewDidLoad];
     UIBarButtonItem *rightButton1 = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(selectRightAction:)];
     rightButton1.image=[UIImage imageNamed:@"home_search"];
-    UIBarButtonItem *rightButton2 = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(receiveMessageAction:)];
-    rightButton2.image=[UIImage imageNamed:@"home_message"];
+    _rightButton2 = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(receiveMessageAction:)];
+    _rightButton2.image=[UIImage imageNamed:@"home_message"];
    
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:nil];
     leftButton.image = [UIImage imageNamed:@"logo"];
@@ -38,7 +40,7 @@
     [button setImage:[UIImage imageNamed:@"home_arrows_down"] forState:UIControlStateNormal];
     [self.navigationItem.titleView addSubview:label];
     [self.navigationItem.titleView addSubview:button];
-     self.navigationItem.rightBarButtonItems=@[negativeSpacer,rightButton2, rightButton1];
+     self.navigationItem.rightBarButtonItems=@[negativeSpacer,_rightButton2, rightButton1];
     self.navigationItem.leftBarButtonItems = @[negativeSpacer,leftButton];
     //self.navigationItem.rightBarButtonItems = @[negativeSpacer,rightButton2];
     self.automaticallyAdjustsScrollViewInsets=NO;
@@ -46,8 +48,31 @@
     
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self initDatacomment];
+}
+-(void)initDatacomment{
+    NSDictionary *dic = @{@"loginUserId":LOGINUSERID,@"schoolId":SCOOLID};
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKMessageHandler executeGetMessageStatusWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([[object objectForKey:@"notReadSize"]intValue]) {
+                    _rightButton2.image = [UIImage imageNamed:@"message_on"];
+                }
+                else{
+                    _rightButton2.image=[UIImage imageNamed:@"home_message"];
+                }
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
+}
+
 -(void)receiveMessageAction:(id)sender{
-    
+    WKMessageViewController *message = [[WKMessageViewController alloc]init];
+    message.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:message animated:YES];
 }
 -(void)selectRightAction:(id)sender{
     WKSearcherViewController *searcher=[[WKSearcherViewController alloc]init];

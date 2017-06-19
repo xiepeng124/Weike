@@ -91,7 +91,7 @@
                 <outlet property="titleLab" destination="GiS-UF-gxl" id="F8r-lg-yXb"/>
                 <outlet property="videoImage" destination="syd-S1-8jz" id="t6l-yD-3ls"/>
             </connections>
-            <point key="canvasLocation" x="-115" y="42"/>
+            <point key="canvasLocation" x="29" y="27"/>
         </tableViewCell>
     </objects>
     <resources>

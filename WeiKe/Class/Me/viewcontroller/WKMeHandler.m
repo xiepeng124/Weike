@@ -7,12 +7,14 @@
 //
 
 #import "WKMeHandler.h"
-
+#import "WKTeacherData.h"
 @implementation WKMeHandler
 +(void)executeGetmyTeacherListWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed{
     //NSDictionary *dic = @{@"userType":@1};
-    [ WKHttpTool postWithURLString:ALL_TEACHER parameters:nil success:^(id responseObject) {
-        success(responseObject);
+    NSDictionary *dic = @{@"schoolId":SCOOLID,@"token":TOKEN};
+    [ WKHttpTool postWithURLString:MY_TEACHER parameters:dic success:^(id responseObject) {
+        NSArray *arr = [WKTeacherData mj_objectArrayWithKeyValuesArray:responseObject[@"teacherList"]];
+        success(arr);
     } failure:^(NSError *error) {
         failed(error);
     }];
@@ -53,13 +55,21 @@
 }
 +(void)executeGetMyDataWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
     [WKHttpTool postWithURLString:MY_DATA parameters:dic success:^(id responseObject) {
-       // NSLog(@"respner = %@",responseObject);
+        NSLog(@"respner = %@",responseObject);
+        if ([USERTYPE integerValue]==2) {
+            WKStudentData *student = [WKStudentData mj_objectWithKeyValues:responseObject[@"info"]];
+            student.className = [responseObject objectForKey:@"className"];;
+            student.gradeName =   [responseObject objectForKey:@"gradeName"];
+            success(student);
+        }
+        else{
         WKTeacherData *teacher = [WKTeacherData mj_objectWithKeyValues:responseObject[@"info"]];
         teacher.className = [responseObject objectForKey:@"className"];
         teacher.courseName = [responseObject objectForKey:@"courseName"];
         teacher.gradeName = [responseObject objectForKey:@"gradeName"];
         teacher.positionName = [responseObject objectForKey:@"positionName"];
         success(teacher);
+        }
     } failure:^(NSError *error) {
         failed(error);
     }];

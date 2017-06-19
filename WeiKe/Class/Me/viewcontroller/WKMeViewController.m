@@ -15,6 +15,7 @@
 #import "WKMyJobViewController.h"
 #import "WKViewingrecordViewController.h"
 #import "WKTeachImforEditViewController.h"
+#import "WKStuImforEditViewController.h"
 #import "WKPasswordViewController.h"
 #import "WKMeHandler.h"
 @interface WKMeViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
@@ -39,11 +40,19 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [WKMeHandler executeGetMyDataWithParameter:dic success:^(id object) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                if ([USERTYPE integerValue]==2) {
+                    WKStudentData *model = object;
+                    weakSelf.myName.text = model.studentName;
+                    weakSelf.classLabel.text  = model.className;
+                    [weakSelf.MeImage sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
+
+                }
+                else{
                 WKTeacherData *model = object;
                 weakSelf.myName.text = model.teacherName;
                                [weakSelf.MeImage sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
                 
-  
+                }
           
             });
         } failed:^(id object) {
@@ -117,6 +126,28 @@
                     break;
             }
         }
+        if (indexPath.section == 1) {
+            switch (indexPath.row) {
+                case 0:
+                {
+                   WKStuImforEditViewController  *stuImfor = [[WKStuImforEditViewController alloc]init];
+                    stuImfor.hidesBottomBarWhenPushed = YES;
+                   stuImfor.navigationItem.title = @"个人资料";
+                    [self.navigationController pushViewController:stuImfor animated:YES];
+                }
+                    break;
+                case 1:
+                {
+                    WKPasswordViewController *tpass = [[WKPasswordViewController alloc]init];
+                    tpass.hidesBottomBarWhenPushed = YES;
+                    tpass.navigationItem.title = @"密码修改";
+                    [self.navigationController pushViewController:tpass animated:YES];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
         
     }
     else{
@@ -141,7 +172,7 @@
                 {
                     WKPasswordViewController *tpass = [[WKPasswordViewController alloc]init];
                     tpass.hidesBottomBarWhenPushed = YES;
-                    tpass.navigationItem.title = @"修改密码";
+                    tpass.navigationItem.title = @"密码修改";
                     [self.navigationController pushViewController:tpass animated:YES];
                     break;
                 }
