@@ -8,9 +8,14 @@
 
 #import "WKHttpbase.h"
 #import "WKMessageModel.h"
+#import "WKCommentListModel.h"
 @interface WKMessageHandler : WKHttpbase
 +(void)executeGetMessageStatusWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMessageListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMessageDeleteWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetMessageSawWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMessageCommentWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMessageTaskShareWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMessageCommentdeleteWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetMessageCommentReplyWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 @end

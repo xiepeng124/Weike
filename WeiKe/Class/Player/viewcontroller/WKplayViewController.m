@@ -232,7 +232,7 @@
     self.tabBarController.tabBar.hidden = YES;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController.navigationBar setHidden:YES];
 
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -633,7 +633,7 @@
                  
              }];
          });
-;
+
         }];
 
 
@@ -661,6 +661,9 @@
     NSLog(@"self.myNumber = %lu",self.myNumber);
    if (self.myNumber==0) {
         [self.navigationController popViewControllerAnimated:YES];
+    }
+    if (self.myNumber==2) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
     else{
        [self.navigationController dismissViewControllerAnimated:YES completion:nil];

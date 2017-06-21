@@ -67,16 +67,37 @@
                         </constraints>
                         <state key="normal" backgroundImage="message_delete"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYK-jv-GeN">
+                        <rect key="frame" x="261" y="35" width="10" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Dqd-r6-fSR"/>
+                            <constraint firstAttribute="width" constant="10" id="iBt-HJ-uIN"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="arrows_left"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AfO-vM-XmC">
+                        <rect key="frame" x="229" y="27" width="28" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="OV3-qL-iB4"/>
+                            <constraint firstAttribute="width" constant="28" id="STc-Eu-taq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="查看"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="hdf-Pu-6oi" secondAttribute="trailing" constant="10" id="1ZG-1w-ate"/>
                     <constraint firstItem="TeW-AR-7P7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="2ar-kX-eju"/>
                     <constraint firstAttribute="trailing" secondItem="f41-jc-9T9" secondAttribute="trailing" constant="10" id="9BS-mK-tOO"/>
+                    <constraint firstItem="hdf-Pu-6oi" firstAttribute="top" secondItem="RYK-jv-GeN" secondAttribute="bottom" constant="10" id="9fI-W6-J8j"/>
                     <constraint firstItem="tlR-Tn-Vn1" firstAttribute="leading" secondItem="TeW-AR-7P7" secondAttribute="trailing" constant="5" id="9fh-GD-UcQ"/>
                     <constraint firstItem="X9w-ss-CBc" firstAttribute="leading" secondItem="TeW-AR-7P7" secondAttribute="trailing" constant="5" id="Aza-1N-XrT"/>
                     <constraint firstItem="hdf-Pu-6oi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FWJ-NB-Ht4"/>
                     <constraint firstItem="hdf-Pu-6oi" firstAttribute="top" secondItem="f41-jc-9T9" secondAttribute="bottom" constant="10" id="Nfc-el-ioD"/>
+                    <constraint firstItem="hdf-Pu-6oi" firstAttribute="top" secondItem="AfO-vM-XmC" secondAttribute="bottom" id="UDI-ZM-Pa0"/>
+                    <constraint firstItem="f41-jc-9T9" firstAttribute="leading" secondItem="RYK-jv-GeN" secondAttribute="trailing" constant="5" id="Wpt-nV-ibq"/>
                     <constraint firstItem="TeW-AR-7P7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WqW-6V-UuU"/>
+                    <constraint firstItem="RYK-jv-GeN" firstAttribute="leading" secondItem="AfO-vM-XmC" secondAttribute="trailing" constant="4" id="nZe-D6-9nW"/>
                     <constraint firstItem="hdf-Pu-6oi" firstAttribute="top" secondItem="TeW-AR-7P7" secondAttribute="bottom" constant="10" id="rRY-e8-BXr"/>
                     <constraint firstItem="tlR-Tn-Vn1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="rac-fP-EIF"/>
                     <constraint firstItem="X9w-ss-CBc" firstAttribute="top" secondItem="tlR-Tn-Vn1" secondAttribute="bottom" constant="6" id="tiZ-NW-OHP"/>
@@ -89,11 +110,14 @@
                 <outlet property="messageImage" destination="TeW-AR-7P7" id="iyS-oz-rSY"/>
                 <outlet property="messageTime" destination="X9w-ss-CBc" id="JyG-bF-UC6"/>
                 <outlet property="messageTitle" destination="tlR-Tn-Vn1" id="7Kj-st-XF4"/>
+                <outlet property="watchButton" destination="AfO-vM-XmC" id="ORB-nh-RJT"/>
+                <outlet property="watchTask" destination="RYK-jv-GeN" id="474-FP-58A"/>
             </connections>
             <point key="canvasLocation" x="61" y="-40"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="arrows_left" width="5" height="10"/>
         <image name="message_delete" width="17" height="16"/>
     </resources>
 </document>

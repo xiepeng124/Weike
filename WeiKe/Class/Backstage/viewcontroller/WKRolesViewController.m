@@ -21,6 +21,7 @@
 @property (strong,nonatomic)NSMutableArray *arrcontent;
 @property(strong,nonatomic)MBProgressHUD *hud;
 @property (strong,nonatomic) NSMutableArray *arrnumber;
+@property (assign ,nonatomic)NSInteger page;
 @end
 
 @implementation WKRolesViewController
@@ -66,6 +67,8 @@
     self.rolestableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
       self.rolestableView.showsVerticalScrollIndicator = NO;
     [self.rolestableView registerNib:[UINib nibWithNibName:@"WKRoleTableViewCell" bundle:nil] forCellReuseIdentifier:@"mycell"];
+    self.rolestableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
+     self.rolestableView.mj_footer.automaticallyChangeAlpha=YES;
     //self.rolestableView.sectionIndexBackgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     [self.view addSubview:self.rolestableView];
     self.hud = [[MBProgressHUD alloc]init];
@@ -76,7 +79,8 @@
 }
 
 -(void)initdata{
-    NSDictionary *dic = @{@"page":@0,@"schoolId":SCOOLID,@"search":self.search.text};
+    self.page = 1;
+    NSDictionary *dic = @{@"page":@1,@"schoolId":SCOOLID,@"search":self.search.text};
     __weak typeof(self) weakself = self;
     [self.arrcontent removeAllObjects];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -114,6 +118,9 @@
     
 //    self.navigationController.navigationBar.barTintColor = [WKColor colorWithHexString:WHITE_COLOR];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [self initdata];
 }
 #pragma mark - Uitableviewdatasourse
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -172,7 +179,10 @@
     
 }
 #pragma mark - Uitableviewdelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section==0) {
+        return 0;
+    }
     return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -182,7 +192,7 @@
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    
 //}
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     //NSLog(@"111");
@@ -313,6 +323,33 @@
     [self.navigationController pushViewController:roleon animated:YES];
    
 }
+-(void)loadmore{
+    self.page +=1;
+    NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID,@"search":self.search.text};
+    __weak typeof(self) weakself = self;
+    //[self.arrcontent removeAllObjects];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKBackstage executeGetBackstageAllorSearchWithParameter:dic success:^(id object) {
+            if (object == nil) {
+                //NSLog(@"13333");
+            }
+            for (WKRolesModel *roles in object ) {
+                [weakself.arrcontent addObject:roles];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [weakself.rolestableView reloadData];
+                [weakself.rolestableView.mj_footer endRefreshing];
+                
+                //[weakself.rolestableView reloadData];
+            });
+        } failed:^(id object) {
+            
+        }];
+        
+    });
+
+}
 #pragma mark - 屏蔽键盘
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     //    [self.navigationItem.titleView resignFirstResponder];
@@ -349,9 +386,7 @@
 //    [self.arrcontent addObject:string];
 //    [self.rolestableView reloadData];
 //}
--(void)viewWillAppear:(BOOL)animated{
-    [self initdata];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

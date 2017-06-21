@@ -28,6 +28,15 @@
 #define MESSAGE_DELETE @"http://192.168.1.151:8080/wksys/app/message/msg/delete"
 //消息标记已读
 #define MESSAGE_SAW @"http://192.168.1.151:8080/wksys/app/message/msg/signAllRead"
+//评论列表
+#define MESSAGE_COMMENT @"http://192.168.1.151:8080/wksys/app/message/msg/initCommentList"
+//删除评论
+#define MESSAGE_COMMENT_DELETE @"http://192.168.1.151:8080/wksys/app/message/comment/delete"
+//回复评论
+#define MESSAGE_COMMENT_REPLY @"http://192.168.1.151:8080/wksys/app/message/comment/addReplyComment"
+//查看作业分享
+#define MESSAGE_TASK_SHARE @"http://192.168.1.151:8080/wksys/app/task/taskInfo/lookShareTask"
+
 
 
                               /*微课堂*/
@@ -142,6 +151,9 @@
 #define JOB_SCORE @"http://192.168.1.151:8080/wksys/app/task/taskInfo/saveTaskScore"
 //作业分享
 #define JOB_SHARE @"http://192.168.1.151:8080/wksys/app/task/taskInfo/saveShareTask"
+//老师作业查看
+#define JOB_TEACH_WATCH @"http://192.168.1.151:8080/wksys/app/task/taskInfo/showTask"
+
               /*个人中心 */
 //学生上交查询
 #define JOB_HAND_SEARCH @"http://192.168.1.151:8080/wksys/app/task/stuTaskDelivery/handTaskQuery"

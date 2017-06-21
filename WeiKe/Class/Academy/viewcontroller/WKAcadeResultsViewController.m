@@ -12,10 +12,11 @@
 #import "WKAcedemyHandler.h"
 #import "WKplayViewController.h"
 #import "WKHomeOutLinkViewController.h"
-@interface WKAcadeResultsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface WKAcadeResultsViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>
 @property (strong,nonatomic) UICollectionView *collectionview ;
 @property (strong,nonatomic)NSMutableArray *Videolist;
 @property (strong,nonatomic)NSDictionary *dic;
+@property (assign,nonatomic)NSInteger page;
 @end
 
 @implementation WKAcadeResultsViewController
@@ -35,6 +36,8 @@
    
     [self.collectionview registerNib:[UINib nibWithNibName:@"WKTeacherHeaderCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
   [self.view addSubview:self.collectionview];
+    self.collectionview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
+    self.collectionview.mj_footer.automaticallyChangeAlpha= YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,12 +45,14 @@
     self.Videolist = [NSMutableArray array];
     [self initcollection];
     [self initdata];
-   self.dic = @{@"schoolId":SCOOLID,@"typeId":self.typeId,@"gradeId":self.gradeId,@"courseId":self.courseId,@"sectionId":self.sectionId, @"page":@1};
+    self.search.delegate = self;
     
     // Do any additional setup after loading the view.
 }
 -(void)initdata{
-    
+    self.page=1;
+    self.dic = @{@"schoolId":SCOOLID,@"typeId":self.typeId,@"gradeId":self.gradeId,@"courseId":self.courseId,@"sectionId":self.sectionId, @"page":@1,@"searchMsg":self.search.text};
+    [self.Videolist removeAllObjects];
     __weak typeof(self) weakself =self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [WKAcedemyHandler executeGetAcademyVideoWithParameter:self.dic success:^(id object) {
@@ -164,13 +169,38 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)loadmore{
+    self.page+=1;
+    self.dic = @{@"schoolId":SCOOLID,@"typeId":self.typeId,@"gradeId":self.gradeId,@"courseId":self.courseId,@"sectionId":self.sectionId, @"page":[NSNumber numberWithInteger:self.page]};
+   
+    __weak typeof(self) weakself =self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKAcedemyHandler executeGetAcademyVideoWithParameter:self.dic success:^(id object) {
+            for(WKHomeNew *viedo in object){
+                [weakself.Videolist addObject:viedo];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakself.collectionview reloadData];
+                [weakself.collectionview.mj_footer endRefreshing];
+            });
+        } failed:^(id object) {
+            
+        }];
+        
+    });
 
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    [self initdata];
+    return YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    if (touch.view.frame.size.height==40) {
+    if (touch.view.frame.size.height<45) {
         return YES;
     }
     if ([touch.view isKindOfClass:[UIButton class]]) {

@@ -31,7 +31,7 @@
     self.teachImf.cardIdText.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
      self.teachImf.phoneNumText.keyboardType = UIKeyboardTypePhonePad;
     self.teachImf.emailText.keyboardType = UIKeyboardTypeEmailAddress;
-    self.teachImf.backgroundColor = [WKColor colorWithHexString:@"4481c2"];
+    self.teachImf.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     self.mytableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.mytableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     self.mytableView.tableHeaderView = self.teachImf;
@@ -99,7 +99,7 @@
     // Do any additional setup after loading the view.
 }
 -(void)textchangge:(NSNotification*)notifi{
-    if (!self.teachImf.nametext.text.length||!self.teachImf.cardIdText.text.length||!self.teachImf.emailText.text.length||!self.teachImf.phoneNumText.text.length) {
+    if (!self.teachImf.nametext.text.length||!self.teachImf.phoneNumText.text.length) {
         [self.teachImf.keepButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
         [self.teachImf.keepButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         self.teachImf.keepButton.userInteractionEnabled = NO;
@@ -120,17 +120,26 @@
 //    return YES;
 //}
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"string = %@",string);
-    if (textField== self.teachImf.cardIdText) {
-        
-            //return NO;
+   // NSLog(@"string = %@",string);
+    if (range.length==1&&string.length==0) {
+        return YES;
+    }
 
-          return [self validateNumber:string];
+    if (textField== self.teachImf.cardIdText) {
+               if (self.teachImf.cardIdText.text.length<=18) {
+            return [self validateNumber:string];
+        }
+        
+
+          return NO ;
         
     }
     if (textField == self.teachImf.phoneNumText) {
+        if (self.teachImf.phoneNumText.text.length<=11) {
+            return [self validateNumber:string];
+        }
+        return NO;
         
-        return [self validateNumber:string];
     }
     
     return YES;
@@ -171,19 +180,46 @@
      [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.teachImf.emailText];
 }
 -(void)keepMydataAction{
-    [self.hud showAnimated:YES];
-    NSDictionary *dic = @{@"token":TOKEN,@"schoolId":SCOOLID,@"id":[NSNumber numberWithInteger:self.dataModel.id],@"imgFileUrl":self.imageS,@"gender":[NSNumber numberWithInteger:self.teachImf.sexSegment.selectedSegmentIndex+1],@"idCode":self.teachImf.cardIdText.text,@"mobilePhone":self.teachImf.phoneNumText.text,@"email":self.teachImf.emailText.text,@"teacherName":self.teachImf.nametext.text};
+    //NSLog(@"%@",self.teachImf.cardIdText.text) ;
+
+    if (![WKCheackModel checkUserIdCard:self.teachImf.cardIdText.text]&&self.teachImf.cardIdText.text.length) {
+      self.hud.label.text = @"身份证输入有误";
+              [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+   
+        return;
+    }
+    if (![WKCheackModel checkTelNumber:self.teachImf.phoneNumText.text]) {
+        self.hud.label.text = @"手机号码输入有误";
+           [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+
+        return;
+    }
+    if (![WKCheackModel IsEmailAdress:self.teachImf.emailText.text]&&self.teachImf.emailText.text.length) {
+        self.hud.label.text = @"邮箱输入有误";
+           [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+      
+        return;
+
+    }
+    else{
+     
+        self.hud.label.text = @"正在保存";
+              [self.hud showAnimated:YES];
+    NSDictionary *dic = @{@"token":TOKEN,@"schoolId":SCOOLID,@"id":[NSNumber numberWithInteger:self.dataModel.id],@"imgFileUrl":self.imageS,@"gender":[NSNumber numberWithInteger:self.teachImf.sexSegment.selectedSegmentIndex+1],@"idCode":self.teachImf.cardIdText.text,@"moblePhone":self.teachImf.phoneNumText.text,@"email":self.teachImf.emailText.text,@"teacherName":self.teachImf.nametext.text};
     __weak typeof(self) weakself = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [WKMeHandler executeGetMyDataKeepWithParameter:dic success:^(id object) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if ([[object objectForKey:@"flag"]intValue]) {
-                     weakself.hud.label.text = @"保存成功";
+                     weakself.hud.label.text = [object objectForKey:@"msg"];
                     [weakself.hud hideAnimated:YES afterDelay:1];
                     [weakself.navigationController popViewControllerAnimated:YES];
                 }
                 else{
-                    weakself.hud.label.text = @"保存失败";
+                    weakself.hud.label.text = [object objectForKey:@"msg"];
                     [weakself.hud hideAnimated:YES afterDelay:1];
 
                 }
@@ -193,7 +229,7 @@
             [weakself.hud hideAnimated:YES afterDelay:1];
         }];
     });
-    
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

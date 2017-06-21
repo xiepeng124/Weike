@@ -17,6 +17,7 @@
 @property(nonatomic,strong)MBProgressHUD *hud;
 @property(nonatomic,strong)NSMutableArray *arrlist;
 @property(nonatomic,strong)NSMutableArray *arrnumber;
+@property (nonatomic,assign) NSInteger page;
 @end
 
 @implementation WKRoleBindAddViewController
@@ -60,6 +61,8 @@
     self.usertableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     self.usertableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.usertableView.showsVerticalScrollIndicator = NO;
+    self.usertableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
+    self.usertableView.mj_footer.automaticallyChangeAlpha = YES;
     [self.view addSubview:self.usertableView];
     self.hud = [[MBProgressHUD alloc]init];
     self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
@@ -68,6 +71,7 @@
     [self.view addSubview:self.hud];
 }
 -(void)initdata{
+    self.page = 1;
     NSDictionary *dic = @{@"page":@1,@"schoolId":SCOOLID,@"search":self.search.text,@"roleId":[NSNumber numberWithInteger:self.rolemodel.id]};
     __weak typeof(self) weakself = self;
     [self.arrlist removeAllObjects];
@@ -270,6 +274,32 @@
     NSLog(@"123");
     return YES;
     
+}
+-(void)loadmore{
+    self.page += 1;
+    NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID,@"search":self.search.text,@"roleId":[NSNumber numberWithInteger:self.rolemodel.id]};
+    __weak typeof(self) weakself = self;
+    [self.arrlist removeAllObjects];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKBackstage executeGetBackstageRoleNoBindWithParameter:dic success:^(id object) {
+            if (object == nil) {
+                //NSLog(@"13333");
+            }
+            for (WKRoleBindUser *roles in object ) {
+                [weakself.arrlist addObject:roles];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [weakself.usertableView reloadData];
+                [weakself.usertableView.mj_footer endRefreshing];
+ 
+            });
+        } failed:^(id object) {
+            
+        }];
+        
+    });
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

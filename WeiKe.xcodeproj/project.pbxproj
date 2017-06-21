@@ -39,6 +39,7 @@
 		4E0E78FD1EC00A0D00DB3C07 /* WKHeadview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E78FC1EC00A0D00DB3C07 /* WKHeadview.m */; };
 		4E0E79001EC00CA400DB3C07 /* UIView+WKFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E78FF1EC00CA400DB3C07 /* UIView+WKFont.m */; };
 		4E0E79061EC05B5300DB3C07 /* WKRolesEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E79051EC05B5300DB3C07 /* WKRolesEditViewController.m */; };
+		4E0F2C811EF8BB4600614BAF /* WKOpenTeachTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F2C801EF8BB4600614BAF /* WKOpenTeachTaskViewController.m */; };
 		4E13B43E1ED03C9C00D98102 /* uploadVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E13B43D1ED03C9C00D98102 /* uploadVideo.xib */; };
 		4E13B4411ED04BF900D98102 /* WKUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E13B4401ED04BF900D98102 /* WKUpload.m */; };
 		4E1744671EF75A9A0091ED2B /* WKStudentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1744661EF75A9A0091ED2B /* WKStudentData.m */; };
@@ -72,6 +73,11 @@
 		4E23FACA1EA9F28200A83674 /* WKAcadeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E23FAC81EA9F28200A83674 /* WKAcadeTableViewCell.xib */; };
 		4E27BE201ED56E1700549975 /* WKUploadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E27BE1F1ED56E1700549975 /* WKUploadModel.m */; };
 		4E27BE271ED595A100549975 /* WKApprovalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E27BE261ED595A100549975 /* WKApprovalViewController.m */; };
+		4E2B021D1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B021B1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.m */; };
+		4E2B021E1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E2B021C1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.xib */; };
+		4E2B02211EF9043C00BBF2AE /* WKCommentHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B02201EF9043C00BBF2AE /* WKCommentHelpViewController.m */; };
+		4E2B02241EF9117500BBF2AE /* WKCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B02231EF9117500BBF2AE /* WKCommentListModel.m */; };
+		4E2B02271EF9392600BBF2AE /* WKWatchShareTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2B02261EF9392600BBF2AE /* WKWatchShareTaskViewController.m */; };
 		4E2CEF291EEF73C50033BFEB /* WKVideoStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF281EEF73C50033BFEB /* WKVideoStatisticsViewController.m */; };
 		4E2CEF2C1EEF78E80033BFEB /* statisticsSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2B1EEF78E80033BFEB /* statisticsSectionView.xib */; };
 		4E2CEF2F1EEF84900033BFEB /* WKStatisticsSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2E1EEF84900033BFEB /* WKStatisticsSectionView.m */; };
@@ -320,6 +326,8 @@
 		4E0E78FF1EC00CA400DB3C07 /* UIView+WKFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WKFont.m"; sourceTree = "<group>"; };
 		4E0E79041EC05B5300DB3C07 /* WKRolesEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKRolesEditViewController.h; sourceTree = "<group>"; };
 		4E0E79051EC05B5300DB3C07 /* WKRolesEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKRolesEditViewController.m; sourceTree = "<group>"; };
+		4E0F2C7F1EF8BB4600614BAF /* WKOpenTeachTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKOpenTeachTaskViewController.h; sourceTree = "<group>"; };
+		4E0F2C801EF8BB4600614BAF /* WKOpenTeachTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKOpenTeachTaskViewController.m; sourceTree = "<group>"; };
 		4E13B43D1ED03C9C00D98102 /* uploadVideo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = uploadVideo.xib; sourceTree = SOURCE_ROOT; };
 		4E13B43F1ED04BF900D98102 /* WKUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUpload.h; sourceTree = SOURCE_ROOT; };
 		4E13B4401ED04BF900D98102 /* WKUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUpload.m; sourceTree = SOURCE_ROOT; };
@@ -375,6 +383,15 @@
 		4E27BE1F1ED56E1700549975 /* WKUploadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKUploadModel.m; path = WeiKe/Class/Backstage/viewcontroller/WKUploadModel.m; sourceTree = SOURCE_ROOT; };
 		4E27BE251ED595A100549975 /* WKApprovalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApprovalViewController.h; sourceTree = "<group>"; };
 		4E27BE261ED595A100549975 /* WKApprovalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApprovalViewController.m; sourceTree = "<group>"; };
+		4E2B021A1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCommentMeTableViewCell.h; sourceTree = "<group>"; };
+		4E2B021B1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCommentMeTableViewCell.m; sourceTree = "<group>"; };
+		4E2B021C1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKCommentMeTableViewCell.xib; sourceTree = "<group>"; };
+		4E2B021F1EF9043C00BBF2AE /* WKCommentHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCommentHelpViewController.h; sourceTree = "<group>"; };
+		4E2B02201EF9043C00BBF2AE /* WKCommentHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCommentHelpViewController.m; sourceTree = "<group>"; };
+		4E2B02221EF9117500BBF2AE /* WKCommentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCommentListModel.h; sourceTree = "<group>"; };
+		4E2B02231EF9117500BBF2AE /* WKCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCommentListModel.m; sourceTree = "<group>"; };
+		4E2B02251EF9392600BBF2AE /* WKWatchShareTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWatchShareTaskViewController.h; sourceTree = "<group>"; };
+		4E2B02261EF9392600BBF2AE /* WKWatchShareTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWatchShareTaskViewController.m; sourceTree = "<group>"; };
 		4E2CEF271EEF73C50033BFEB /* WKVideoStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoStatisticsViewController.h; sourceTree = "<group>"; };
 		4E2CEF281EEF73C50033BFEB /* WKVideoStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoStatisticsViewController.m; sourceTree = "<group>"; };
 		4E2CEF2B1EEF78E80033BFEB /* statisticsSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = statisticsSectionView.xib; sourceTree = SOURCE_ROOT; };
@@ -906,6 +923,8 @@
 			children = (
 				4E1744841EF7C2170091ED2B /* WKMessageModel.h */,
 				4E1744851EF7C2170091ED2B /* WKMessageModel.m */,
+				4E2B02221EF9117500BBF2AE /* WKCommentListModel.h */,
+				4E2B02231EF9117500BBF2AE /* WKCommentListModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -919,6 +938,9 @@
 				4E17447C1EF782BA0091ED2B /* WKMessageTwoTableViewCell.h */,
 				4E17447D1EF782BA0091ED2B /* WKMessageTwoTableViewCell.m */,
 				4E17447E1EF782BA0091ED2B /* WKMessageTwoTableViewCell.xib */,
+				4E2B021A1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.h */,
+				4E2B021B1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.m */,
+				4E2B021C1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -928,6 +950,10 @@
 			children = (
 				4E1744811EF7B53F0091ED2B /* WKMessageViewController.h */,
 				4E1744821EF7B53F0091ED2B /* WKMessageViewController.m */,
+				4E2B021F1EF9043C00BBF2AE /* WKCommentHelpViewController.h */,
+				4E2B02201EF9043C00BBF2AE /* WKCommentHelpViewController.m */,
+				4E2B02251EF9392600BBF2AE /* WKWatchShareTaskViewController.h */,
+				4E2B02261EF9392600BBF2AE /* WKWatchShareTaskViewController.m */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
@@ -1539,6 +1565,8 @@
 				4EEF4CDD1EB1962800259D09 /* WKMyteacherViewController.m */,
 				4E33B4D81EE3A03A003CB8F0 /* WKMyJobViewController.h */,
 				4E33B4D91EE3A03A003CB8F0 /* WKMyJobViewController.m */,
+				4E0F2C7F1EF8BB4600614BAF /* WKOpenTeachTaskViewController.h */,
+				4E0F2C801EF8BB4600614BAF /* WKOpenTeachTaskViewController.m */,
 				4E33B4E81EE3E6E0003CB8F0 /* WKUploadMyJobViewController.h */,
 				4E33B4E91EE3E6E0003CB8F0 /* WKUploadMyJobViewController.m */,
 				4E33B4EA1EE3E6E0003CB8F0 /* WKUploadMyJobViewController.xib */,
@@ -1861,6 +1889,7 @@
 				4EBC28431EAF251E00B920D4 /* WKMeTableViewCell.xib in Resources */,
 				4EF446A91EC2FCE70040EC9C /* WKRoleBindTableViewCell.xib in Resources */,
 				4EF41D681EF2638700F1D553 /* WKViewingTableViewCell.xib in Resources */,
+				4E2B021E1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.xib in Resources */,
 				5AFB76291E949BF4000CE6E8 /* LaunchScreen.storyboard in Resources */,
 				5AFB76261E949BF4000CE6E8 /* Assets.xcassets in Resources */,
 				4EEE6BE71EF10E8D00E8ACE1 /* searchResultHeader.xib in Resources */,
@@ -2051,6 +2080,7 @@
 				4EFC64F71EE80DF3004BF4DE /* UUInputAccessoryView.m in Sources */,
 				4EEB11591ED171210078DF6E /* TZPhotoPreviewCell.m in Sources */,
 				4EA7E5FD1EB34BEF00B2B87C /* WKGrade.m in Sources */,
+				4E2B02211EF9043C00BBF2AE /* WKCommentHelpViewController.m in Sources */,
 				4EEB115D1ED171210078DF6E /* UIView+Layout.m in Sources */,
 				4EF0A2031EC1A1B10043A713 /* WKRolesModel.m in Sources */,
 				4EF4469E1EC2E52D0040EC9C /* WKBindOnView.m in Sources */,
@@ -2072,6 +2102,7 @@
 				4EEB11781ED171D50078DF6E /* ACMediaModel.m in Sources */,
 				4EA7E5E91EB2D21500B2B87C /* WKBackmenu.m in Sources */,
 				4E570BB71EF62BDB00DC9381 /* WKStudentImforHeaderView.m in Sources */,
+				4E0F2C811EF8BB4600614BAF /* WKOpenTeachTaskViewController.m in Sources */,
 				4EEB11511ED171210078DF6E /* TZAssetCell.m in Sources */,
 				4E0C0BE81EF385AC004669EB /* WKTeacherImformation.m in Sources */,
 				4E4135421EC9BF91009CD900 /* WKSetVideoViewController.m in Sources */,
@@ -2130,9 +2161,12 @@
 				4E9BCE1E1EB0492E004787F0 /* UINavigationController+ZFFullscreenPopGesture.m in Sources */,
 				4E392EB51EEE5F3B0052210D /* WKHomeOutLinkViewController.m in Sources */,
 				4EEB11771ED171D50078DF6E /* ACMediaManager.m in Sources */,
+				4E2B02271EF9392600BBF2AE /* WKWatchShareTaskViewController.m in Sources */,
+				4E2B02241EF9117500BBF2AE /* WKCommentListModel.m in Sources */,
 				4E33B4DA1EE3A03A003CB8F0 /* WKMyJobViewController.m in Sources */,
 				4E0A1DFF1ED4025600E99776 /* ACSelectMediaView.m in Sources */,
 				4E1CBA981EE79FB6007185DF /* WKPlaycommentTableViewCell.m in Sources */,
+				4E2B021D1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.m in Sources */,
 				4E7415241EAD93A20023FBAB /* WKCourseTableViewCell.m in Sources */,
 				4E22649C1EC5B835004BD057 /* WKRemindView.m in Sources */,
 				4EEE6BF31EF151B300E8ACE1 /* WKSearchHandler.m in Sources */,

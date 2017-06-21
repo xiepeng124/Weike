@@ -18,12 +18,15 @@
 #import "WKStuImforEditViewController.h"
 #import "WKPasswordViewController.h"
 #import "WKMeHandler.h"
+#import "WKMessageViewController.h"
+#import "WKMessageHandler.h"
 @interface WKMeViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *MineTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *MeImage;
 @property (weak, nonatomic) IBOutlet UILabel *classLabel;
 @property (weak, nonatomic) IBOutlet UILabel *myName;
 @property (strong,nonatomic) WKMyMenu *menulist;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 @property (strong,nonatomic) WKTeacherMenu *teacherlist;
 @end
 
@@ -33,33 +36,6 @@
           return [self.menulist.Datalist[section] count];
     }
     return [self.teacherlist.Datalist[section] count];
-}
--(void)viewWillAppear:(BOOL)animated{
-    NSDictionary *dic  =@{@"token":TOKEN};
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [WKMeHandler executeGetMyDataWithParameter:dic success:^(id object) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if ([USERTYPE integerValue]==2) {
-                    WKStudentData *model = object;
-                    weakSelf.myName.text = model.studentName;
-                    weakSelf.classLabel.text  = model.className;
-                    [weakSelf.MeImage sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
-
-                }
-                else{
-                WKTeacherData *model = object;
-                weakSelf.myName.text = model.teacherName;
-                               [weakSelf.MeImage sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
-                
-                }
-          
-            });
-        } failed:^(id object) {
-            
-        }];
-    });
-
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
@@ -221,6 +197,7 @@
     self.navigationController.delegate =self;
     self.menulist = [[WKMyMenu alloc]init];
     self.teacherlist = [[WKTeacherMenu alloc]init];
+    [self.messageButton addTarget:self action:@selector(goMesseageAction) forControlEvents:UIControlEventTouchUpInside];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -233,6 +210,61 @@
     }
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    NSDictionary *dic  =@{@"token":TOKEN};
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [WKMeHandler executeGetMyDataWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([USERTYPE integerValue]==2) {
+                    WKStudentData *model = object;
+                    weakSelf.myName.text = model.studentName;
+                    weakSelf.classLabel.text  = model.className;
+                    [weakSelf.MeImage sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
+                    
+                }
+                else{
+                    WKTeacherData *model = object;
+                    weakSelf.myName.text = model.teacherName;
+                    [weakSelf.MeImage sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"xie"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
+                    
+                }
+                
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
+    [self initDatacomment];
+}
+
+-(void)goMesseageAction{
+    WKMessageViewController *message = [[WKMessageViewController alloc]init];
+    message.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:message animated:YES];
+
+}
+-(void)initDatacomment{
+    NSDictionary *dic = @{@"loginUserId":LOGINUSERID,@"schoolId":SCOOLID};
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKMessageHandler executeGetMessageStatusWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([[object objectForKey:@"notReadSize"]intValue]) {
+                    [weakSelf.messageButton setBackgroundImage: [UIImage imageNamed:@"message_on"] forState:UIControlStateNormal];
+                 
+                }
+                else{
+                      [weakSelf.messageButton setBackgroundImage: [UIImage imageNamed:@"home_message"] forState:UIControlStateNormal];
+                   
+                }
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
+}
+
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     // 判断要显示的控制器是否是自己
     BOOL isShowHomePage = [viewController isKindOfClass:[self class]];

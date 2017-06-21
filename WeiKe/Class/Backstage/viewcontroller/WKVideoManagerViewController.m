@@ -17,6 +17,8 @@
 #import "WKVideoMergeViewController.h"
 #import "WKUploadOutLinkViewController.h"
 #import "WKEditVideoViewController.h"
+#import "WKplayViewController.h"
+#import "WKHomeOutLinkViewController.h"
 @interface WKVideoManagerViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,VideoDelegate>
 @property(strong,nonatomic)WKRoleView *roleHeadView;
 @property(strong,nonatomic)UIButton *outside;
@@ -27,7 +29,7 @@
 @property(strong,nonatomic)MBProgressHUD *hud;
 @property (strong,nonatomic) NSMutableArray *arrnumber;
 @property (assign,nonatomic) BOOL iscomment;
-//@property (assign,i)
+@property (assign,nonatomic) NSInteger page;
 @end
 
 @implementation WKVideoManagerViewController
@@ -98,6 +100,9 @@
     self.videoTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.videoTableview.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.videoTableview];
+    self.videoTableview.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
+    self.videoTableview.mj_footer.automaticallyChangeAlpha=YES;
+
     self.hud = [[MBProgressHUD alloc]init];
     self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     self.hud.label.font = [UIFont fontWithName:FONT_BOLD size:14];
@@ -105,6 +110,7 @@
     [self.view addSubview:self.hud];
 }
 -(void)initdata{
+    self.page = 1;
     NSDictionary *dic =@{@"page":@1,@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text,@"isOutLink":[NSNumber numberWithBool:self.isOutLink]};
     [self.videolist removeAllObjects];
     __weak typeof(self) weakself = self;
@@ -245,6 +251,37 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.videolist.count;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WKVideoModel *new= self.videolist[indexPath.section];
+    NSLog(@"new.link = %@",new.videoLink);
+    if(new.videoLink.length ){
+        if (![new.videoLink  isEqual: @"1"]) {
+            NSLog(@"111");
+            
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:new.videoLink]];
+        }
+        else{
+            WKHomeOutLinkViewController *outlink = [[WKHomeOutLinkViewController alloc]init];
+            outlink.myId = new.id;
+            outlink.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:outlink animated:YES];
+        }
+        
+    }
+    else{
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
+        WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
+        player.myId = new.id;
+        player.hidesBottomBarWhenPushed = YES;
+        //跳转事件
+        player.myNumber =2;
+        [self presentViewController:player animated:YES completion:nil];
+        // [self.navigationController pushViewController:player animated:YES];
+    }
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60+(SCREEN_WIDTH-233)*0.56;
@@ -563,6 +600,28 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self initdata];
+}
+-(void)loadmore{
+    self.page +=1;
+    NSDictionary *dic =@{@"page":[NSNumber numberWithInteger:self.page],@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text,@"isOutLink":[NSNumber numberWithBool:self.isOutLink]};
+   // [self.videolist removeAllObjects];
+    __weak typeof(self) weakself = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKBackstage executeGetBackstageVideoWithParameter:dic success:^(id object) {
+            // NSLog(@"object  = %@",object);
+            for (WKVideoModel *model  in object) {
+                [weakself.videolist addObject:model];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakself.videoTableview reloadData];
+                [weakself.videoTableview.mj_footer endRefreshing];
+            });
+        } failed:^(id object) {
+            // NSLog(@"nserroer= %@",object);
+        }];
+        
+    });
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

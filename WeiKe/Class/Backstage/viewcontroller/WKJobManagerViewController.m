@@ -12,6 +12,8 @@
 #import "WKBackstage.h"
 #import "WKJobEditViewController.h"
 #import "WKJobScoreViewController.h"
+#import "WKOpenTeachTaskViewController.h"
+#import "WKMeHandler.h"
 @interface WKJobManagerViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) WKRoleView *roleHeadView;
 @property (strong,nonatomic) UITableView *jobTableView;
@@ -151,6 +153,7 @@
     cell.deleteButton.tag = indexPath.section;
     cell.selectButton.tag = indexPath.section;
     cell.scoreButton.tag = indexPath.section;
+    cell.downloadButton.tag = indexPath.section;
     cell.promulgator.text = [NSString stringWithFormat:@"发布者：%@",Model.teacherName];
     cell.schoolYear.text = [NSString stringWithFormat:@"学年：%lu",Model.schoolYear];
     cell.contentLabel.text = [NSString stringWithFormat:@"班级：%@",Model.className];
@@ -161,6 +164,7 @@
     [cell.deleteButton addTarget:self action:@selector(deleteJobAction:) forControlEvents:UIControlEventTouchUpInside];
       [cell.selectButton addTarget:self action:@selector(selectedJobAction:) forControlEvents:UIControlEventTouchUpInside];
     [cell.scoreButton addTarget:self action:@selector(scoreJobAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.downloadButton addTarget:self action:@selector(watchJobAction:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -278,6 +282,24 @@
     } failed:^(id object) {
         
     }];
+}
+-(void)watchJobAction:(UIButton*)sender{
+    WKJobModel *model = self.arrlist[sender.tag];
+    __weak typeof(self) weakself = self;
+    WKOpenTeachTaskViewController *open = [[WKOpenTeachTaskViewController alloc]init];
+    NSDictionary *dic = @{@"id":[NSNumber numberWithInteger:model.id]};
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKMeHandler executeGetMyTeachTaskWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *string = [object objectForKey:@"taskUrl"];
+                open.taskUrl = string;
+                [weakself.navigationController pushViewController:open animated:YES];
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
+
 }
 -(void)selectedJobAction:(UIButton*)button{
     button.selected = !button.selected;

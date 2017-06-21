@@ -21,4 +21,8 @@
 @property (assign,nonatomic)NSInteger schoolId;
 @property (strong,nonatomic)NSString *sendTime;
 @property (assign,nonatomic)NSInteger senderId;
+@property (assign,nonatomic)NSInteger commentLength;
+@property (assign,nonatomic)NSInteger msgId ;
+@property (assign,nonatomic)NSInteger stid ;
+@property (strong,nonatomic)NSString* stuName ;
 @end

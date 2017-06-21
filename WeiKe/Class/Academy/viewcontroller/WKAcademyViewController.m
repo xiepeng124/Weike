@@ -14,7 +14,7 @@
 #import "WKAcadeallTableViewCell.h"
 #import "WKAcadeResultsViewController.h"
 #import "WKAcedemyHandler.h"
-
+#import "WKSearcherViewController.h"
 
 @interface WKAcademyViewController ()<SLSlideMenuProtocol,UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate,UIGestureRecognizerDelegate>
 @property(strong,nonatomic)WKMenuDetail *detail;
@@ -391,6 +391,11 @@
 //    }
 //
 //}
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    WKSearcherViewController *search = [[WKSearcherViewController alloc]init];
+    [self presentViewController:search animated:YES completion:nil];
+    return NO;
+}
 #pragma mark - 隐藏键盘
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
 //    [self.navigationItem.titleView resignFirstResponder];

@@ -10,6 +10,8 @@
 #import "WKMessageOneTableViewCell.h"
 #import "WKMessageTwoTableViewCell.h"
 #import "WKMessageHandler.h"
+#import "WKCommentHelpViewController.h"
+#import "WKWatchShareTaskViewController.h"
 @interface WKMessageViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong ,nonatomic) UITableView *myTableView;
 @property (strong,nonatomic) NSMutableArray *arrList;
@@ -40,7 +42,7 @@
     [_myTableView registerNib:[UINib nibWithNibName:@"WKMessageOneTableViewCell" bundle:nil] forCellReuseIdentifier:@"oneCell"];
       [_myTableView registerNib:[UINib nibWithNibName:@"WKMessageTwoTableViewCell" bundle:nil] forCellReuseIdentifier:@"twoCell"];
     _myTableView.showsVerticalScrollIndicator = YES;
-    _myTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    //_myTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     _myTableView.delegate =self;
     _myTableView.dataSource = self;
     self.myTableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
@@ -88,24 +90,35 @@
   
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section ==0) {
         WKMessageOneTableViewCell *cell = (WKMessageOneTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"oneCell" forIndexPath:indexPath];
         [cell.watchAllButton addTarget:self action:@selector(goCommentList) forControlEvents:UIControlEventTouchUpInside];
            [cell.allCommentButton addTarget:self action:@selector(goCommentList) forControlEvents:UIControlEventTouchUpInside];
+        if (self.arrList.count) {
+            WKMessageModel *model =self.arrList[0];
+            if (model.commentLength) {
+                [cell.commentImage setBackgroundImage:[UIImage imageNamed:@"message_two_on"] forState:UIControlStateNormal];
+            }
+            else{
+                [cell.commentImage setBackgroundImage:[UIImage imageNamed:@"message_two_off"] forState:UIControlStateNormal];
+            }
+        }
         return cell;
     }
     
     WKMessageTwoTableViewCell *cell = (WKMessageTwoTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"twoCell" forIndexPath:indexPath];
     cell.messageDelete.tag = indexPath.section;
+    cell.watchTask.tag = indexPath.section;
+    cell.watchButton.tag = indexPath.section;
     [cell.messageDelete addTarget:self action:@selector(deleteMessageAction:) forControlEvents:UIControlEventTouchUpInside];
     if (self.arrList.count) {
-        WKMessageModel *model = self.arrList[indexPath.section];
+        WKMessageModel *model = self.arrList[indexPath.section-1];
         switch ([model.msgType intValue]) {
             case 2:
             {
+                [cell.watchButton setHidden:YES];
+                [cell.watchTask setHidden:YES];
                 if ([model.readFlag intValue]==0) {
                     [cell.messageImage setBackgroundImage:[UIImage imageNamed:@"inform_on"] forState:UIControlStateNormal];
 
@@ -118,6 +131,8 @@
                 break;
             case 3:
             {
+                [cell.watchButton setHidden:YES];
+                [cell.watchTask setHidden:YES];
                 if ([model.readFlag intValue]==0){
                   [cell.messageImage setBackgroundImage:[UIImage imageNamed:@"work_on"] forState:UIControlStateNormal];
                 }
@@ -129,11 +144,16 @@
                 break;
             case 4:
             {
+                [cell.watchButton setHidden:NO];
+                [cell.watchTask setHidden:NO];
+                [cell.watchButton addTarget:self action:@selector(watchShareTaskButton:) forControlEvents:UIControlEventTouchUpInside];
+                  [cell.watchTask addTarget:self action:@selector(watchShareTaskButton:) forControlEvents:UIControlEventTouchUpInside];
                 if ([model.readFlag intValue]==0){
-                [cell.messageImage setBackgroundImage:[UIImage imageNamed:@"work_on"] forState:UIControlStateNormal];
+                   
+                [cell.messageImage setBackgroundImage:[UIImage imageNamed:@"shareing"] forState:UIControlStateNormal];
                 }
                 else{
-                [cell.messageImage setBackgroundImage:[UIImage imageNamed:@"work"] forState:UIControlStateNormal];
+                [cell.messageImage setBackgroundImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
                 }
             }
                 break;
@@ -157,11 +177,18 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.arrList.count) {
         
-        return self.arrList.count;
+        return self.arrList.count+1;
     }
     return 1;
 }
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        WKCommentHelpViewController *comment = [[WKCommentHelpViewController alloc]init];
+        [self.navigationController pushViewController:comment animated:YES];
+    }
+    [self.myTableView deselectRowAtIndexPath:indexPath animated:YES];
+ }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 60;
@@ -169,20 +196,20 @@
     return 60+15+self.labelHeight+10;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section ==0) {
+        return 0;
+    }
     return 10;
     
 }
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
 
     header.contentView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
 }
--(void)goCommentList{
-    
-}
 
+#pragma mark - MJrefresh(刷新和更多)
 -(void)freshData{
        self.page = 1;
     NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"loginUserId":LOGINUSERID,@"schoolId":SCOOLID};
@@ -205,7 +232,8 @@
     });
 
 }
-#pragma mark - MJrefresh(刷新和更多)
+
+
 -(void)loadmore{
     self.page +=1;
     NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"loginUserId":LOGINUSERID,@"schoolId":SCOOLID};
@@ -233,6 +261,10 @@
 
 }
 #pragma mark - Action(点击事件)
+-(void)goCommentList{
+    WKCommentHelpViewController *comment = [[WKCommentHelpViewController alloc]init];
+    [self.navigationController pushViewController:comment animated:YES];
+}
 -(void)selectRightAction:(UIButton*)sender{
     NSDictionary *dic = @{@"loginUserId":LOGINUSERID,@"schoolId":SCOOLID};
     __weak typeof(self) weakself = self;
@@ -246,6 +278,16 @@
         }];
     });
     
+}
+-(void)watchShareTaskButton:(UIButton*)sender{
+    WKMessageModel *model = self.arrList[sender.tag-1];
+    WKWatchShareTaskViewController *shareTask = [[WKWatchShareTaskViewController alloc]init];
+
+   
+    shareTask.msgId = model.msgId;
+    shareTask.stid = model.stid;
+    shareTask.stuName = model.stuName;
+    [self.navigationController pushViewController:shareTask animated:YES];
 }
 -(void)deleteMessageAction:(UIButton*)sender{
     UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定删除消息" message:nil preferredStyle:UIAlertControllerStyleAlert];

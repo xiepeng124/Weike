@@ -12,6 +12,7 @@
 #import "WKMeHandler.h"
 #import "WKUploadMyJobViewController.h"
 #import "MWPhotoBrowser.h"
+#import "WKOpenTeachTaskViewController.h"
 @interface WKMyJobViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,MWPhotoBrowserDelegate>
 @property (nonatomic,strong) UITableView *jobTableView;
 @property (nonatomic,strong) WKMyJobheader *myJobheader;
@@ -103,7 +104,9 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    WKMyJobTableViewCell *cell = (WKMyJobTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"mycell" forIndexPath:indexPath];
+    WKMyJobTableViewCell *cell = [[WKMyJobTableViewCell alloc]init];
+    cell = [[[NSBundle mainBundle]loadNibNamed:@"WKMyJobTableViewCell" owner:nil options:nil]lastObject];
+    //WKMyJobTableViewCell *cell = (WKMyJobTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"mycell" forIndexPath:indexPath];
     WKMyJobModel *model = self.arrlist[indexPath.section];
     cell.sendbutton.tag = indexPath.section;
     cell.downloadButton.tag = indexPath.section;
@@ -111,6 +114,11 @@
         return nil;
     }
     else{
+        cell.jobName.text = model.taskName;
+        cell.className.text = [NSString stringWithFormat:@"班级: %@", model.className];
+        cell.stuYear.text = [NSString stringWithFormat:@"学年: %lu", model.schoolYear];
+        cell.promulgator.text = [NSString stringWithFormat:@"发布者: %@", model.createrName];
+        cell.remark.text = [NSString stringWithFormat:@"备注: %@", model.remark];
         if (self.isHand) {
             cell.endTime.hidden = YES;
             cell.oneImageView.hidden = NO;
@@ -150,9 +158,13 @@
                     break;
             }
            
-            [cell.sendbutton setTitle:@"下载附件" forState:UIControlStateNormal];
+            [cell.sendbutton setTitle:@"查看附件" forState:UIControlStateNormal];
             [cell.downloadButton setTitle:@"作业查看" forState:UIControlStateNormal];
             [cell.downloadButton addTarget:self action:@selector(watchMytaskAction:) forControlEvents:UIControlEventTouchUpInside];
+            //[cell.sendbutton addTarget:self action:@selector() forControlEvents:<#(UIControlEvents)#>]
+            [cell.sendbutton addTarget:self action:@selector(watchTeacherJobAction:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+
         }
         else{
             cell.oneImageView.hidden = YES;
@@ -164,14 +176,11 @@
             cell.endTime.text = [NSString stringWithFormat:@"上交日期: %@",model.endTime];
             [cell.sendbutton setTitle:@"上交作业" forState:UIControlStateNormal];
             [cell.sendbutton addTarget:self action:@selector(uploadJobAction:) forControlEvents:UIControlEventTouchUpInside];
-            [cell.downloadButton setTitle:@"下载附件" forState:UIControlStateNormal];
-
+            [cell.downloadButton setTitle:@"查看附件" forState:UIControlStateNormal];
+            [cell.downloadButton addTarget:self action:@selector(watchTeacherJobAction:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
         }
-        cell.jobName.text = model.taskName;
-        cell.className.text = [NSString stringWithFormat:@"班级: %@", model.className];
-        cell.stuYear.text = [NSString stringWithFormat:@"学年: %lu", model.schoolYear];
-        cell.promulgator.text = [NSString stringWithFormat:@"发布者: %@", model.createrName];
-        cell.remark.text = [NSString stringWithFormat:@"备注: %@", model.remark];
+   
 
     }
     return cell;
@@ -235,15 +244,10 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [WKMeHandler executeGetMyJobSearchWithParameter:dic success:^(id object) {
                        dispatch_async(dispatch_get_main_queue(), ^{
-                           NSArray *arr = object;
-                           if (arr.count ==0) {
-                               [weakself.jobTableView.mj_footer endRefreshingWithNoMoreData];
-
-                           }
-                           else{
-                           for (WKMyJobModel *model in object) {
+                 
+                            for (WKMyJobModel *model in object) {
                                [weakself.arrlist addObject:model];
-                           }
+                        
 
                          [weakself.jobTableView reloadData];
                         [weakself.jobTableView.mj_footer endRefreshing];
@@ -300,6 +304,24 @@
         }];
     });
 
+}
+-(void)watchTeacherJobAction:(UIButton*)sender{
+    NSLog(@"^^__^^");
+    WKMyJobModel *model = self.arrlist[sender.tag];
+    __weak typeof(self) weakself = self;
+    WKOpenTeachTaskViewController *open = [[WKOpenTeachTaskViewController alloc]init];
+    NSDictionary *dic = @{@"id":[NSNumber numberWithInteger:model.taskId]};
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKMeHandler executeGetMyTeachTaskWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *string = [object objectForKey:@"taskUrl"];
+                open.taskUrl = string;
+                [weakself.navigationController pushViewController:open animated:YES];
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
 }
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
     return self.arrImage.count;

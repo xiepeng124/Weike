@@ -16,6 +16,8 @@
     self.messageTime.textColor = [WKColor colorWithHexString:DARK_COLOR];
     self.messageContent.textColor = [WKColor colorWithHexString:DARK_COLOR];
     self.line.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
+    [self.watchButton setTitleColor: [WKColor colorWithHexString:@"999999"] forState:UIControlStateNormal];
+
     // Initialization code
 }
 

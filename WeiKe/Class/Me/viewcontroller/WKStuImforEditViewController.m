@@ -7,7 +7,7 @@
 //
 
 #import "WKStuImforEditViewController.h"
-
+#import "WKCheackModel.h"
 #import "WKStudentImforHeaderView.h"
 #import "WKMeHandler.h"
 #import "WKUploadImage.h"
@@ -100,7 +100,7 @@
     // Do any additional setup after loading the view.
 }
 -(void)textchangge:(NSNotification*)notifi{
-    if (!self.stuImf.nametext.text.length||!self.stuImf.cardIdText.text.length||!self.stuImf.emailText.text.length||!self.stuImf.phoneNumText.text.length) {
+    if (!self.stuImf.nametext.text.length||!self.stuImf.cardIdText.text.length) {
         [self.stuImf.keepButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
         [self.stuImf.keepButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         self.stuImf.keepButton.userInteractionEnabled = NO;
@@ -121,18 +121,29 @@
 //    return YES;
 //}
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"string = %@",string);
+   // NSLog(@"string = %@",string);
+    if (range.length==1&&string.length==0) {
+        return YES;
+    }
+
     if (textField== self.stuImf.cardIdText) {
+        if (self.stuImf.cardIdText.text.length<=18) {
+            return [self validateNumber:string];
+
+        }
         
-        //return NO;
+     return NO;
         
-        return [self validateNumber:string];
         
     }
     if (textField == self.stuImf.phoneNumText) {
+        if (self.stuImf.phoneNumText.text.length<=11) {
+            return [self validateNumber:string];
+
+        }
+        return NO;
         
-        return [self validateNumber:string];
-    }
+        }
     
     return YES;
 }
@@ -172,19 +183,43 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.stuImf.emailText];
 }
 -(void)keepMydataAction{
+    if (![WKCheackModel checkUserIdCard:self.stuImf.cardIdText.text]) {
+        self.hud.label.text = @"身份证输入有误";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        
+        return;
+    }
+    if (![WKCheackModel checkTelNumber:self.stuImf.phoneNumText.text]&&self.stuImf.phoneNumText.text.length) {
+        self.hud.label.text = @"手机号码输入有误";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        
+        return;
+    }
+    if (![WKCheackModel IsEmailAdress:self.stuImf.emailText.text]&&self.stuImf.emailText.text.length) {
+        self.hud.label.text = @"邮箱输入有误";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        
+        return;
+        
+    }
+    else{
+    self.hud.label.text = @"正在保存";
     [self.hud showAnimated:YES];
-    NSDictionary *dic = @{@"token":TOKEN,@"schoolId":SCOOLID,@"id":[NSNumber numberWithInteger:self.dataModel.id],@"imgFileUrl":self.imageS,@"gender":[NSNumber numberWithInteger:self.stuImf.sexSegment.selectedSegmentIndex+1],@"idCode":self.stuImf.cardIdText.text,@"mobilePhone":self.stuImf.phoneNumText.text,@"email":self.stuImf.emailText.text,@"studentName":self.stuImf.nametext.text};
+    NSDictionary *dic = @{@"token":TOKEN,@"schoolId":SCOOLID,@"id":[NSNumber numberWithInteger:self.dataModel.id],@"imgFileUrl":self.imageS,@"gender":[NSNumber numberWithInteger:self.stuImf.sexSegment.selectedSegmentIndex+1],@"idCode":self.stuImf.cardIdText.text,@"moblePhone":self.stuImf.phoneNumText.text,@"email":self.stuImf.emailText.text,@"studentName":self.stuImf.nametext.text};
     __weak typeof(self) weakself = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [WKMeHandler executeGetMyDataKeepWithParameter:dic success:^(id object) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if ([[object objectForKey:@"flag"]intValue]) {
-                    weakself.hud.label.text = @"保存成功";
+                    weakself.hud.label.text = [object objectForKey:@"msg"];
                     [weakself.hud hideAnimated:YES afterDelay:1];
                     [weakself.navigationController popViewControllerAnimated:YES];
                 }
                 else{
-                    weakself.hud.label.text = @"保存失败";
+                    weakself.hud.label.text = [object objectForKey:@"msg"];
                     [weakself.hud hideAnimated:YES afterDelay:1];
                     
                 }
@@ -194,7 +229,7 @@
             [weakself.hud hideAnimated:YES afterDelay:1];
         }];
     });
-    
+    }
 }
 
 - (void)didReceiveMemoryWarning {

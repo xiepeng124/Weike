@@ -55,7 +55,7 @@
 }
 +(void)executeGetMyDataWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
     [WKHttpTool postWithURLString:MY_DATA parameters:dic success:^(id responseObject) {
-        NSLog(@"respner = %@",responseObject);
+       // NSLog(@"respner = %@",responseObject);
         if ([USERTYPE integerValue]==2) {
             WKStudentData *student = [WKStudentData mj_objectWithKeyValues:responseObject[@"info"]];
             student.className = [responseObject objectForKey:@"className"];;
@@ -84,6 +84,14 @@
 }
 +(void)executeGetMyPasswordWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
     [WKHttpTool postWithURLString:MY_PASSWORD parameters:dic success:^(id responseObject) {
+        success(responseObject);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+}
++(void)executeGetMyTeachTaskWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    [WKHttpTool postWithURLString:JOB_TEACH_WATCH parameters:dic success:^(id responseObject) {
+        NSLog(@"0^^--^^%@",responseObject);
         success(responseObject);
     } failure:^(NSError *error) {
         failed(error);

@@ -17,6 +17,7 @@
 @property(nonatomic,strong)NSMutableArray *arrlist;
 @property(nonatomic,strong)MBProgressHUD *hud;
 @property(nonatomic,strong)NSMutableArray *arrnumber;
+@property (nonatomic,assign) NSInteger page;
 @end
 
 @implementation WKRoleBindOnViewController
@@ -78,6 +79,8 @@
     self.roleBindTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
       self.roleBindTableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.roleBindTableView];
+    self.roleBindTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
+    self.roleBindTableView.mj_footer.automaticallyChangeAlpha = YES;
     self.hud = [[MBProgressHUD alloc]init];
     self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     self.hud.label.font = [UIFont fontWithName:FONT_BOLD size:14];
@@ -87,6 +90,7 @@
     
 }
 -(void)initdata{
+    self.page = 1;
     NSDictionary *dic = @{@"page":@1,@"schoolId":SCOOLID,@"roleId":[NSNumber numberWithInteger:self.model.id]};
     NSLog(@"id = %lu", self.model.id);
     __weak  typeof(self) weakself = self;
@@ -284,11 +288,42 @@
 -(void)addBindAction:(id)sender{
     
 }
+
 -(void)deleteBindAction:(id)sender{
     
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [self initdata];
+}
+
+-(void)loadmore{
+    self.page += 1;
+    NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID,@"roleId":[NSNumber numberWithInteger:self.model.id]};
+    NSLog(@"id = %lu", self.model.id);
+    __weak  typeof(self) weakself = self;
+   
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKBackstage executeGetBackstageRoleBindWithParameter:dic success:^(id object) {
+            if (object == nil) {
+                //NSLog(@"13333");
+            }
+            for (WKRoleBindUser *roles in object ) {
+                [weakself.arrlist addObject:roles];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [weakself.roleBindTableView reloadData];
+                [weakself.roleBindTableView.mj_footer endRefreshing];
+                
+                //[weakself.rolestableView reloadData];
+            });
+        } failed:^(id object) {
+            
+        }];
+        
+    });
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

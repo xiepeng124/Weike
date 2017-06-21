@@ -262,6 +262,7 @@
                         <outlet property="MeImage" destination="r58-VB-xXD" id="UPZ-Ht-MZ9"/>
                         <outlet property="MineTableView" destination="B3E-lb-w9k" id="erT-hd-jaY"/>
                         <outlet property="classLabel" destination="2ZQ-8V-b1e" id="Mtm-lA-HwV"/>
+                        <outlet property="messageButton" destination="gzm-Xg-iCl" id="O3r-pC-3oS"/>
                         <outlet property="myName" destination="qGv-KL-s1g" id="Lcv-3t-Oe2"/>
                     </connections>
                 </viewController>

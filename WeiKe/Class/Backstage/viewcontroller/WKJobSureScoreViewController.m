@@ -108,6 +108,7 @@
     for (int i=0; i<self.model.urlList.count; i++) {
         NSString *sting =[self.model.urlList[i] objectForKey:@"url"];
         MWPhoto *photo =[MWPhoto photoWithURL:[NSURL URLWithString:sting]];
+   
         [self.arrImage addObject:photo];
     }
     [browser reloadData];

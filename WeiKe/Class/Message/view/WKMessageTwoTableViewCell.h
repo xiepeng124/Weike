@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *messageDelete;
 @property (weak, nonatomic) IBOutlet UIView *line;
 @property (weak, nonatomic) IBOutlet UILabel *messageContent;
+@property (weak, nonatomic) IBOutlet UIButton *watchButton;
+@property (weak, nonatomic) IBOutlet UIButton *watchTask;
 + (CGFloat)heightForLabel:(NSString *)text;
 @end

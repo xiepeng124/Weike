@@ -11,6 +11,8 @@
 #import "WKVideoTableViewCell.h"
 #import "WKBackstage.h"
 #import "WKApprovalingViewController.h"
+#import "WKHomeOutLinkViewController.h"
+#import "WKplayViewController.h"
 @interface WKApprovalViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,VideoDelegate>
 @property (strong ,nonatomic) WKRoleView *roleHeadView;
 @property (strong,nonatomic) UIButton *outside;
@@ -19,7 +21,8 @@
 @property(strong,nonatomic)NSMutableArray *videolist;
 @property (strong,nonatomic)NSMutableArray *arrnumber;
 @property (assign,nonatomic)BOOL isApproal;
-
+@property (assign ,nonatomic) NSInteger onePage;
+@property (assign ,nonatomic) NSInteger twoPage;
 @end
 
 @implementation WKApprovalViewController
@@ -83,10 +86,14 @@
     self.hud.label.font = [UIFont fontWithName:FONT_BOLD size:14];
     self.hud.mode = MBProgressHUDModeText;
     [self.view addSubview:self.hud];
+    self.videoTableview.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
+    self.videoTableview.mj_footer.automaticallyChangeAlpha=YES;
+
 
 }
 -(void)initData{
-    NSDictionary *dic =@{@"page":@1,@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text};
+    self.onePage= 1;
+    NSDictionary *dic =@{@"page":[NSNumber numberWithBool:self.onePage],@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text};
     [self.videolist removeAllObjects];
     __weak typeof(self) weakself = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -106,7 +113,8 @@
 
 }
 -(void)initDataTwo{
-    NSDictionary *dic =@{@"page":@1,@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text};
+    self.twoPage = 1;
+    NSDictionary *dic =@{@"page":[NSNumber numberWithInteger:self.twoPage],@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text};
     [self.videolist removeAllObjects];
     __weak typeof(self) weakself = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -213,6 +221,38 @@
      return self.videolist.count;
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WKVideoModel *new= self.videolist[indexPath.section];
+    NSLog(@"new.link = %@",new.videoLink);
+    if(new.videoLink.length ){
+        if (![new.videoLink  isEqual: @"1"]) {
+            NSLog(@"111");
+            
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:new.videoLink]];
+        }
+        else{
+            WKHomeOutLinkViewController *outlink = [[WKHomeOutLinkViewController alloc]init];
+            outlink.myId = new.id;
+            outlink.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:outlink animated:YES];
+        }
+        
+    }
+    else{
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        //将第二个控制器实例化，"SecondViewController"为我们设置的控制器的ID
+        WKplayViewController *player = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PlayerView"];
+        player.myId = new.id;
+        player.hidesBottomBarWhenPushed = YES;
+        //跳转事件
+    player.myNumber =2;
+       [self presentViewController:player animated:YES completion:nil];
+     // [self.navigationController pushViewController:player animated:YES];
+    }
+    
+
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50+(SCREEN_WIDTH-233)*0.56;
@@ -312,6 +352,53 @@
     }
     [self.videoTableview reloadData];
 
+}
+-(void)loadmore{
+    if (self.isApproal) {
+        self.twoPage+=1;
+        NSDictionary *dic =@{@"page":[NSNumber numberWithInteger:self.twoPage],@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text};
+        //[self.videolist removeAllObjects];
+        __weak typeof(self) weakself = self;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [WKBackstage executeGetBackstageApprovaledVideoWithParameter:dic success:^(id object) {
+                // NSLog(@"object  = %@",object);
+                for (WKVideoModel *model  in object) {
+                    [weakself.videolist addObject:model];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakself.videoTableview reloadData];
+                    [weakself.videoTableview.mj_footer endRefreshing];
+                });
+            } failed:^(id object) {
+                // NSLog(@"nserroer= %@",object);
+            }];
+            
+        });
+
+    }
+    else{
+        self.onePage+=1;
+        NSDictionary *dic =@{@"page":[NSNumber numberWithBool:self.onePage],@"token": TOKEN,@"schoolId":SCOOLID,@"searchMsg":self.search.text};
+       
+        __weak typeof(self) weakself = self;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [WKBackstage executeGetBackstageNotApprovalVideoWithParameter:dic success:^(id object) {
+          
+                for (WKVideoModel *model  in object) {
+                    [weakself.videolist addObject:model];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakself.videoTableview reloadData];
+                    [weakself.videoTableview.mj_footer endRefreshing];
+                });
+            } failed:^(id object) {
+                
+            }];
+            
+        });
+        
+
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
