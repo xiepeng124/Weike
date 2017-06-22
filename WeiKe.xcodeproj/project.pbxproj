@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E047C4B1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E047C491EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m */; };
 		4E047C4C1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E047C4A1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib */; };
+		4E0655681EFB9A8F00FFF458 /* selectSchoolType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0655671EFB9A8F00FFF458 /* selectSchoolType.xib */; };
 		4E0A1DFC1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A1DFA1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m */; };
 		4E0A1DFD1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0A1DFB1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib */; };
 		4E0A1DFF1ED4025600E99776 /* ACSelectMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A1DFE1ED4025600E99776 /* ACSelectMediaView.m */; };
@@ -133,6 +134,7 @@
 		4EA7E5F41EB31DA000B2B87C /* WKAcadeResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5F31EB31DA000B2B87C /* WKAcadeResultsViewController.m */; };
 		4EA7E5F71EB33A5900B2B87C /* WKAcedemyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5F61EB33A5900B2B87C /* WKAcedemyHandler.m */; };
 		4EA7E5FD1EB34BEF00B2B87C /* WKGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA7E5FC1EB34BEF00B2B87C /* WKGrade.m */; };
+		4EB760891EFBA81900527922 /* WKSelectSchoolTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB760881EFBA81900527922 /* WKSelectSchoolTypeView.m */; };
 		4EBC283E1EAEFCC300B920D4 /* WKMyMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC283D1EAEFCC300B920D4 /* WKMyMenu.m */; };
 		4EBC28421EAF251E00B920D4 /* WKMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC28401EAF251E00B920D4 /* WKMeTableViewCell.m */; };
 		4EBC28431EAF251E00B920D4 /* WKMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC28411EAF251E00B920D4 /* WKMeTableViewCell.xib */; };
@@ -274,6 +276,7 @@
 		4E047C481EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKHomeFooterCollectionReusableView.h; path = WeiKe/Class/Home/model/WKHomeFooterCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
 		4E047C491EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKHomeFooterCollectionReusableView.m; path = WeiKe/Class/Home/model/WKHomeFooterCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
 		4E047C4A1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WKHomeFooterCollectionReusableView.xib; path = WeiKe/Class/Home/model/WKHomeFooterCollectionReusableView.xib; sourceTree = SOURCE_ROOT; };
+		4E0655671EFB9A8F00FFF458 /* selectSchoolType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = selectSchoolType.xib; path = WeiKe/Class/Message/viewcontroller/selectSchoolType.xib; sourceTree = SOURCE_ROOT; };
 		4E0A1DF91ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUpVideoCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
 		4E0A1DFA1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUpVideoCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		4E0A1DFB1ED3FF6F00E99776 /* WKUpVideoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKUpVideoCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -488,6 +491,8 @@
 		4EA7E5F61EB33A5900B2B87C /* WKAcedemyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKAcedemyHandler.m; path = WeiKe/Class/Academy/viewcontroller/WKAcedemyHandler.m; sourceTree = SOURCE_ROOT; };
 		4EA7E5FB1EB34BEF00B2B87C /* WKGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKGrade.h; path = WeiKe/Class/Academy/viewcontroller/WKGrade.h; sourceTree = SOURCE_ROOT; };
 		4EA7E5FC1EB34BEF00B2B87C /* WKGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKGrade.m; path = WeiKe/Class/Academy/viewcontroller/WKGrade.m; sourceTree = SOURCE_ROOT; };
+		4EB760871EFBA81900527922 /* WKSelectSchoolTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKSelectSchoolTypeView.h; path = WeiKe/Class/Message/viewcontroller/WKSelectSchoolTypeView.h; sourceTree = SOURCE_ROOT; };
+		4EB760881EFBA81900527922 /* WKSelectSchoolTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKSelectSchoolTypeView.m; path = WeiKe/Class/Message/viewcontroller/WKSelectSchoolTypeView.m; sourceTree = SOURCE_ROOT; };
 		4EBC283C1EAEFCC300B920D4 /* WKMyMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMyMenu.h; path = WeiKe/Class/Academy/viewcontroller/WKMyMenu.h; sourceTree = SOURCE_ROOT; };
 		4EBC283D1EAEFCC300B920D4 /* WKMyMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WKMyMenu.m; path = WeiKe/Class/Academy/viewcontroller/WKMyMenu.m; sourceTree = SOURCE_ROOT; };
 		4EBC283F1EAF251E00B920D4 /* WKMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WKMeTableViewCell.h; path = WeiKe/Class/Academy/viewcontroller/WKMeTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -1414,6 +1419,9 @@
 				4E047C481EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.h */,
 				4E047C491EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.m */,
 				4E047C4A1EA6F9F2003FBD3C /* WKHomeFooterCollectionReusableView.xib */,
+				4E0655671EFB9A8F00FFF458 /* selectSchoolType.xib */,
+				4EB760871EFBA81900527922 /* WKSelectSchoolTypeView.h */,
+				4EB760881EFBA81900527922 /* WKSelectSchoolTypeView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1939,6 +1947,7 @@
 				4E192B721ED7FE2100082C9C /* WKJobEditViewController.xib in Resources */,
 				4E1CBA991EE79FB6007185DF /* WKPlaycommentTableViewCell.xib in Resources */,
 				4E33B4DF1EE3A194003CB8F0 /* WKMyJobTableViewCell.xib in Resources */,
+				4E0655681EFB9A8F00FFF458 /* selectSchoolType.xib in Resources */,
 				4EA142E11EAE06D20043F5B3 /* WKTeacherHeaderCollectionReusableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2102,6 +2111,7 @@
 				4EEB11781ED171D50078DF6E /* ACMediaModel.m in Sources */,
 				4EA7E5E91EB2D21500B2B87C /* WKBackmenu.m in Sources */,
 				4E570BB71EF62BDB00DC9381 /* WKStudentImforHeaderView.m in Sources */,
+				4EB760891EFBA81900527922 /* WKSelectSchoolTypeView.m in Sources */,
 				4E0F2C811EF8BB4600614BAF /* WKOpenTeachTaskViewController.m in Sources */,
 				4EEB11511ED171210078DF6E /* TZAssetCell.m in Sources */,
 				4E0C0BE81EF385AC004669EB /* WKTeacherImformation.m in Sources */,

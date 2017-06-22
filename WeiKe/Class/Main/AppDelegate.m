@@ -7,11 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WKSelectedViewController.h"
-#import "WKHomeViewController.h"
-#import "WKAcademyViewController.h"
-#import "WKTeacherViewController.h"
-#import "WKMeViewController.h"
+#import "WKTeacherStyleViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,26 +16,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  
-    NSLog(@"job_edit= %@",JOB_SEARCH);
-    // Override point for customization after application launch.
-//    WKHomeViewController *home=[[WKHomeViewController alloc]init];
-//    home.tabBarItem.title=@"消息";
-//    
-//    WKAcademyViewController *academy=[[WKAcademyViewController alloc]init];
-//    academy.tabBarItem.title=@"微学院";
-//    WKTeacherViewController *teacher=[[WKTeacherViewController alloc]init];
-//    teacher.tabBarItem.title=@"教师专栏";
-//    WKMeViewController *me=[[WKMeViewController alloc]init];
-//    me.tabBarItem.title=@"我的";
-//    UITabBarController *tabbar=[[UITabBarController alloc]init];
-//    tabbar.viewControllers=@[home,academy,teacher,me];
-//    self.nav=[[UINavigationController alloc]initWithRootViewController:tabbar];
-    WKSelectedViewController *selectView=[[WKSelectedViewController alloc]init];
-    //self.window.rootViewController=nav;
-//    [self.window addSubview:self.nav.view];
-//    [self.window makeKeyAndVisible];
-    //[[UIApplication sharedApplication]setStatusBarHidden:NO];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *string = [userDefault objectForKey:@"loginUserId"];
+    NSString *string2 = [userDefault objectForKey:@"token"];
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    if (string&&string2){
+        WKTabBarViewController *tabbar = [main instantiateViewControllerWithIdentifier:@"wktabbar"];
+        self.window.rootViewController = tabbar;
+    }
+    else{
+        WKTeacherStyleViewController *teach = [main instantiateViewControllerWithIdentifier:@"loginViewController"];
+        self.window.rootViewController = teach;
+    }
+
     return YES;
 }
 

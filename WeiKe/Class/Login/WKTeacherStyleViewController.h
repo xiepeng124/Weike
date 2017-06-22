@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WKTabBarViewController.h"
 @interface WKTeacherStyleViewController : UIViewController
 
 @end

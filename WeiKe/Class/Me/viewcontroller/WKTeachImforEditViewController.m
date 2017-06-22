@@ -52,6 +52,11 @@
     self.hud.mode = MBProgressHUDModeIndeterminate;
     self.hud.label.text = @"正在保存";
     [self.view addSubview:self.hud];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(selectRightAction:)];
+    rightButton.title = @"退出登录";
+    rightButton.tintColor = [WKColor colorWithHexString:DARK_COLOR];
+    [rightButton setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:FONT_REGULAR size:15]} forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightButton;
 
 
 }
@@ -230,6 +235,37 @@
         }];
     });
     }
+}
+-(void)selectRightAction:(UIBarButtonItem*)button{
+    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"是否退出登录" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self logon];
+    }];
+    [alertcontrller addAction:cancel];
+    [alertcontrller addAction:sure];
+    [self presentViewController:alertcontrller animated:YES completion:^{
+        
+    }];
+
+}
+-(void)logon{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault removeObjectForKey:@"loginUserId"];
+    [userDefault removeObjectForKey:@"schSecType"];
+    [userDefault removeObjectForKey:@"schoolId"];
+    [userDefault removeObjectForKey:@"token"];
+    [userDefault removeObjectForKey:@"userType"];
+    [userDefault synchronize];
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    id  story = [main instantiateViewControllerWithIdentifier:@"loginViewController"];
+    [self presentViewController:story animated:YES completion:nil];
+    
+
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

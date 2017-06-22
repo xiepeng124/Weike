@@ -205,7 +205,9 @@
         WKViewRecordModel *model = self.arrBefore[indexPath.row];
         player.myId = model.id;
     }
-    [self.navigationController pushViewController:player animated:YES];
+    player.myNumber = 2;
+    [self presentViewController:player animated:YES completion:nil];
+   // [self.navigationController pushViewController:player animated:YES];
 }
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {

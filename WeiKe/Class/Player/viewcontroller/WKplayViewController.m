@@ -660,12 +660,15 @@
 - (void)zf_playerBackAction {
     NSLog(@"self.myNumber = %lu",self.myNumber);
    if (self.myNumber==0) {
+       NSLog(@"1");
         [self.navigationController popViewControllerAnimated:YES];
     }
-    if (self.myNumber==2) {
+  else  if (self.myNumber==2) {
+        NSLog(@"2");
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     else{
+         NSLog(@"3");
        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
  }
 

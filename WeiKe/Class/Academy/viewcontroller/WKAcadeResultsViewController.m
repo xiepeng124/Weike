@@ -156,7 +156,9 @@
         player.myId = new.id;
         //跳转事件
        player.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:player animated:YES];
+        player.myNumber = 2;
+        [self presentViewController:player animated:YES completion:nil];
+       // [self.navigationController pushViewController:player animated:YES];
     }
 
    

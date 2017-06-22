@@ -10,7 +10,7 @@
 #import "WKHomeAD.h"
 #import "WKHomeNew.h"
 @interface WKHomeAdHandler : WKHttpbase
-+(void)executeGetHomeAdWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
-+(void)executeGetHomeNewVideoWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
-+(void)executeGetHomeHotVideoWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetHomeAdWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed parameter:(NSDictionary*)dic;
++(void)executeGetHomeNewVideoWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed parameter:(NSDictionary*)dic;
++(void)executeGetHomeHotVideoWithSuccess:(SuccessBlock)success failed:(FailedBlock)failed parameter:(NSDictionary*)dic;
 @end

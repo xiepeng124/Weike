@@ -8,7 +8,7 @@
 
 #import "WKPasswordViewController.h"
 #import "WKMeHandler.h"
-@interface WKPasswordViewController ()
+@interface WKPasswordViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *oldPassword;
 @property (weak, nonatomic) IBOutlet UILabel *againPassword;
 @property (weak, nonatomic) IBOutlet UILabel *newpass;
@@ -43,7 +43,9 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.againpassText];
     self.backview.layer.cornerRadius = 3;
     self.backview.layer.masksToBounds = YES;
-
+    self.oldPassText.delegate = self;
+    self.newpassText.delegate = self;
+    self.againpassText.delegate = self;
 
 }
 - (void)viewDidLoad {
@@ -73,10 +75,24 @@
         self.keepButton.userInteractionEnabled = YES;
     }
 }
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (range.length==1&&string.length==0) {
+        return YES;
+    }
+
+    if (textField.text.length<18) {
+        if ([string isEqualToString:@" "]) {
+            return NO;
+        }
+        return YES;
+    }
+    return NO;
+}
 -(void)keepPasswordAction{
      self.hud.label.text = @"正在保存";
     [self.hud showAnimated:YES];
     if ([self.newpassText.text isEqualToString:self.againpassText.text]) {
+        
         NSDictionary *dic = @{@"loginUserId":LOGINUSERID,@"oldPassword":self.oldPassText.text,@"newPassword":self.newpassText.text,@"newPassword2":self.againpassText.text};
         __weak typeof(self) weakself = self;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -102,7 +118,7 @@
         });
     }
     else{
-        self.hud.label.text = @"请保存新密码输入一致";
+        self.hud.label.text = @"新密码输入不一致";
         [self.hud hideAnimated:YES afterDelay:1];
     }
 }

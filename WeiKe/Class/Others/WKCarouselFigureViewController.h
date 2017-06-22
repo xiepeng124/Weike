@@ -9,5 +9,6 @@
 #import "WKBaseViewController.h"
 
 @interface WKCarouselFigureViewController : WKBaseViewController
-
+@property (strong ,nonatomic) UILabel *label;
+@property (strong ,nonatomic) UIButton *button;
 @end

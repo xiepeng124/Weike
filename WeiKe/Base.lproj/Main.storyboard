@@ -1469,7 +1469,7 @@
         <!--教师版-->
         <scene sceneID="vvi-Ts-J70">
             <objects>
-                <viewController id="eW9-GW-1sR" customClass="WKTeacherStyleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="eW9-GW-1sR" customClass="WKTeacherStyleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F2s-gy-l83"/>
                         <viewControllerLayoutGuide type="bottom" id="QGQ-6U-Me1"/>

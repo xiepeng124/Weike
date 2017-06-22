@@ -129,7 +129,8 @@
         else{
             WKHomeOutLinkViewController *outlink = [[WKHomeOutLinkViewController alloc]init];
             outlink.myId = new.id;
-            //outlink.hidesBottomBarWhenPushed = YES;
+            outlink.hidesBottomBarWhenPushed = YES;
+            
             [self.navigationController pushViewController:outlink animated:YES];
         }
         
@@ -143,7 +144,9 @@
         player.myId = new.id;
         //跳转事件
         player.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:player animated:YES];
+        player.myNumber=2;
+        [self presentViewController:player animated:YES completion:nil];
+       // [self.navigationController pushViewController:player animated:YES];
     }
     
     
