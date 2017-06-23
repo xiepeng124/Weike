@@ -320,6 +320,7 @@
 -(void)BindUser:(UIButton *)button{
     WKRoleBindOnViewController *roleon = [[WKRoleBindOnViewController alloc]init];
      roleon.model = self.arrcontent[button.tag];
+
     [self.navigationController pushViewController:roleon animated:YES];
    
 }

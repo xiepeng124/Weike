@@ -62,7 +62,7 @@
     [self.threetableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     //[self.view insertSubview:self.oneTableView atIndex:0];
 //    self.twotableview.hidden = YES;
-//    self.threetableview.hidden = YES;
+    self.threetableview.hidden = YES;
 
     [self.view addSubview:self.onetableview];
     [self.view addSubview:self.twotableview];
@@ -76,7 +76,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView == self.onetableview) {
-               //       self.twotableview.hidden =NO;
+        [self.arrayGrade removeAllObjects];
+
+              self.threetableview.hidden =YES;
         self.subject = [NSNumber numberWithInteger:indexPath.row];
         [self.arrayGrade removeAllObjects];
         CATransition* trans = [CATransition animation];
@@ -87,6 +89,7 @@
         CALayer *layer = self.twotableview.layer;
         [layer addAnimation:trans forKey:nil];
         if (indexPath.row==0) {
+            self.twotableview.hidden = YES;
             WKAcadeResultsViewController *result = [[WKAcadeResultsViewController alloc]init];
             result.hidesBottomBarWhenPushed = YES;
             result.schoolId = @1;
@@ -99,10 +102,11 @@
       
         }
         if (indexPath.row ==1) {
-            self.threetableview.hidden = NO;
+            self.twotableview.hidden = NO;
+           // self.threetableview.hidden = NO;
             NSDictionary *dic = @{@"typeId":[NSNumber numberWithInteger:indexPath.row],@"schoolId":SCOOLID};
             __weak typeof(self) weakself = self;
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 [WKAcedemyHandler executeGetAcademyGradeWithParameter:dic success:^(id object) {
                    
                     for (WKGrade * grade in object) {
@@ -120,9 +124,11 @@
             });
         }
         if (indexPath.row ==2||indexPath.row == 3) {
+            self.twotableview.hidden = NO;
             self.threetableview.hidden = YES;
             NSDictionary *dic = @{@"typeId":[NSNumber numberWithInteger:indexPath.row],@"schoolId":SCOOLID};
             __weak typeof(self) weakself = self;
+            [self.arrayGrade removeAllObjects];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 [WKAcedemyHandler executeGetAcademySectionWithParameter:dic success:^(id object) {
                     for (WKGrade * grade in object) {
@@ -146,8 +152,10 @@
         
     }
     if (tableView == self.twotableview) {
-        //self.threetableview.hidden = NO;
+        [self.arrayCourse removeAllObjects];
+
         if (indexPath.row==0) {
+            self.threetableview.hidden = YES;
             WKAcadeResultsViewController *result = [[WKAcadeResultsViewController alloc]init];
             result.schoolId = @1;
             result.typeId = self.subject;
@@ -160,8 +168,8 @@
             
         }
         else{
-         [self.arrayCourse removeAllObjects];
-            if (self.subject.intValue !=1) {
+                   if (self.subject.intValue !=1) {
+                 self.threetableview.hidden = YES;
                 WKAcadeResultsViewController *result = [[WKAcadeResultsViewController alloc]init];
                 WKGrade *grade= self.arrayGrade[indexPath.row-1];
                 result.schoolId = @1;
@@ -181,6 +189,7 @@
 
             }
             else{
+                self.threetableview.hidden = NO;
         WKGrade *grade = [[WKGrade alloc]init];
         grade= self.arrayGrade[indexPath.row-1];
                 self.Grade = [NSNumber numberWithInteger:grade.id];

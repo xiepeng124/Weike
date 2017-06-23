@@ -25,7 +25,7 @@
     label1.textColor = [WKColor colorWithHexString:@"666666"];
     label1.font = [UIFont fontWithName:FONT_REGULAR size:17];
     label1.textAlignment = NSTextAlignmentRight;
-    label1.text = @"职务名称";
+    label1.text = @"角色名称";
     [self.PositionLabel.leftView addSubview:label1];
     self.authorTextLabel.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
     self.authorTextLabel.font = [UIFont fontWithName:FONT_REGULAR size:17];
@@ -42,8 +42,7 @@
     self.remarkTextView.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
     self.remarkTextView.font = [UIFont fontWithName:FONT_REGULAR size:17];
    
-    self.remarkTextView.textColor = [WKColor colorWithHexString:@"999999"];
-    self.remark.textColor = [WKColor colorWithHexString:@"666666"];
+      self.remark.textColor = [WKColor colorWithHexString:@"666666"];
     self.remark.font = [UIFont fontWithName:FONT_REGULAR size:17];
     self.remark.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
     self.keepButton.titleLabel.font = [UIFont fontWithName:FONT_REGULAR size:17];
@@ -52,9 +51,19 @@
     //self.remarkTextView.contentInset = UIEdgeInsetsMake(8.f, 0.f, -8.f, 0.f);
 //    self.remarkTextView.layoutManager.allowsNonContiguousLayout = NO;
 //    [self.remarkTextView scrollRangeToVisible:NSMakeRange(0,1)];
+    if (self.number==2) {
+        [self.keepButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
+        [self.keepButton setBackgroundColor:[WKColor colorWithHexString:GREEN_COLOR]];
+        self.keepButton.userInteractionEnabled = YES;
+        self.remarkTextView.textColor = [WKColor colorWithHexString:@"333333"];
+    }
+    else{
     [self.keepButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
      [self.keepButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
     self.keepButton.userInteractionEnabled = NO;
+    self.remarkTextView.textColor = [WKColor colorWithHexString:@"999999"];
+
+    }
     self.backgroundView.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
     self.backgroundView.layer.cornerRadius = 3;
     self.lineView1.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
@@ -92,7 +101,7 @@
 
    }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    if([textView.text isEqualToString:@"请输入备注"]){
+    if([textView.text isEqualToString:@"请输入备注(不超过两百字)"]){
         textView.text=@"";
         textView.textColor=[WKColor colorWithHexString:@"333333"];
     }
@@ -103,10 +112,21 @@
 }
 - (void)textViewDidEndEditing:(UITextView *)textView{
     if(!textView.text.length ){
-        textView.text = @"请输入备注";
+        textView.text = @"请输入备注(不超过两百字)";
         textView.textColor = [WKColor colorWithHexString:@"999999"];
     }
 }
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if (range.length==1&&text.length==0) {
+        return YES;
+    }
+    if (self.remarkTextView.text.length<200) {
+        return YES;
+    }
+    return NO;
+
+}
+
 - (IBAction)keepback:(id)sender {
     //[self.delegate comeback:self.remarkTextView.text];
     [self.hud showAnimated:YES];
@@ -174,9 +194,19 @@
         [self.hud hideAnimated:YES afterDelay:1];
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-   
-    return [self validateNumber:string];
-}
+    if (textField == self.authorTextLabel) {
+        if (range.length==1&&string.length==0) {
+            return YES;
+        }
+        if (self.authorTextLabel.text.length<4) {
+            return [self validateNumber:string];
+
+        }
+        return NO;
+    }
+    return YES;
+
+    }
 
 - (BOOL)validateNumber:(NSString*)number {
     BOOL res = YES;

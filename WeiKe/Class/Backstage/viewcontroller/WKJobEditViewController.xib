@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -71,8 +71,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入作业备注" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-SW-7br">
-                            <rect key="frame" x="115" y="144" width="240" height="50"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入备注(不超过200字)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fnG-SW-7br">
+                            <rect key="frame" x="110" y="144" width="245" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="eGm-ql-FcV"/>
@@ -203,7 +203,7 @@
                         <constraint firstAttribute="trailing" secondItem="0NC-VO-lgC" secondAttribute="trailing" id="VCc-So-Djx"/>
                         <constraint firstAttribute="trailing" secondItem="ZgU-J5-CoI" secondAttribute="trailing" id="VdK-WS-BYu"/>
                         <constraint firstItem="iRE-Lz-2rn" firstAttribute="leading" secondItem="qt0-Dg-9YL" secondAttribute="trailing" constant="15" id="Vjg-iU-3Uh"/>
-                        <constraint firstItem="fnG-SW-7br" firstAttribute="leading" secondItem="Dos-ra-OBq" secondAttribute="trailing" constant="15" id="aCN-Wb-wOs"/>
+                        <constraint firstItem="fnG-SW-7br" firstAttribute="leading" secondItem="Dos-ra-OBq" secondAttribute="trailing" constant="10" id="aCN-Wb-wOs"/>
                         <constraint firstItem="Bld-km-mCd" firstAttribute="leading" secondItem="fbQ-ik-Xxr" secondAttribute="trailing" constant="10" id="apm-Vl-qtO"/>
                         <constraint firstItem="Dos-ra-OBq" firstAttribute="leading" secondItem="nqs-wd-oF5" secondAttribute="leading" id="bwD-M8-z5Z"/>
                         <constraint firstItem="6uJ-D8-MBN" firstAttribute="leading" secondItem="nqs-wd-oF5" secondAttribute="leading" id="chk-tL-5eK"/>

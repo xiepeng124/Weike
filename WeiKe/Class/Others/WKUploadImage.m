@@ -48,6 +48,7 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;///<设置数据来源为拍照
         picker.allowsEditing = YES;
         picker.delegate = self;///<代理设置
+
         
         [self.viewcontro presentViewController:picker animated:YES completion:nil];///<推出视图控制器
         
@@ -89,7 +90,16 @@
     //获取编辑之后的图片
     image = [info objectForKey:UIImagePickerControllerOriginalImage];
     imageUrl = [info objectForKey:UIImagePickerControllerReferenceURL];
-    
+    NSLog(@"imageurl =%@",imageUrl);
+    if (!imageUrl) {
+        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+           NSString *fileName = [NSString stringWithFormat:@"%@.png", str];
+        [self.delegate sendImagesource:fileName];
+    }
+    else{
     PHAsset *asset;
     PHFetchResult *result = [PHAsset fetchAssetsWithALAssetURLs:@[imageUrl] options:nil];
     asset = [result firstObject];
@@ -97,6 +107,7 @@
     NSString *imageName = resource.originalFilename;
     NSLog(@"<<<%@",imageName);
     [self.delegate sendImagesource:imageName];
+}
     [self.hud showAnimated:YES];
     
   //  __weak typeof(self) weakself = self;

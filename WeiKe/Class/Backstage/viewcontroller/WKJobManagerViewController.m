@@ -201,13 +201,20 @@
 }
 -(void)deleteTapGesture:(UITapGestureRecognizer*)gesture{
     self.isMore = YES;
+    if (self.arrNumber.count<2) {
+        self.hud.label.text = @"请选中两个及以上作业";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+
+    }
     UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定进行批量删除?" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
     UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self deleteJobAction:nil];
+        [self deleteMoreJob];
     }];
     [alertcontrller addAction:cancel];
     [alertcontrller addAction:sure];
@@ -215,19 +222,7 @@
         
     }];
 
-//    for (int i=0; i<self.arrNumber.count; i++) {
-//        NSString *cellid;
-//        WKJobModel *model = self.arrlist[[self.arrNumber[i]integerValue]];
-//        if (i==0) {
-//            cellid = [NSString stringWithFormat:@"%lu",model.id];
-//        }
-//        else{
-//            cellid =[NSString stringWithFormat:@"%@,%lu",cellid,model.id];
-//        }
-//        
-//        
-//    }
-//
+
 }
 -(void)selectedAllAction:(UIButton*)sender{
     sender.selected = !sender.selected;
@@ -248,30 +243,64 @@
     edit.isAdd = NO;
     [self.navigationController pushViewController:edit animated:YES];
 }
--(void)deleteJobAction:(UIButton*)button{
-    NSLog(@";;;;");
-    NSString *cellid;
-    if (self.isMore) {
-        for (int i=0; i<self.arrNumber.count; i++) {
-          
-            WKJobModel *model = self.arrlist[[self.arrNumber[i]integerValue]];
-            if (i==0) {
-                cellid = [NSString stringWithFormat:@"%lu",model.id];
-            }
-            else{
-                cellid =[NSString stringWithFormat:@"%@,%lu",cellid,model.id];
-            }
-            
-            
+-(void)deleteMoreJob{
+        NSString *cellid;
+    for (int i=0; i<self.arrNumber.count; i++) {
+        
+        WKJobModel *model = self.arrlist[[self.arrNumber[i]integerValue]];
+        if (i==0) {
+            cellid = [NSString stringWithFormat:@"%lu",model.id];
         }
-        self.isMore = NO;
+        else{
+            cellid =[NSString stringWithFormat:@"%@,%lu",cellid,model.id];
+        }
+     
+        
     }
-    else{
-          WKJobModel *job = self.arrlist[button.tag];
-        cellid = [NSString stringWithFormat:@"%lu",job.id];
-    }
-    NSLog(@"button.tag =%lu",button.tag);
-  
+    NSDictionary *dic = @{@"schoolId":SCOOLID,@"ids":
+                              cellid};
+
+    __weak typeof(self) weakself =self;
+ 
+    [WKBackstage executeGetBackstageIJobDeleteWithParameter:dic success:^(id object) {
+        if ([[object objectForKey:@"flag"]intValue]) {
+          
+            [weakself initData];
+        }
+        weakself.hud.label.text = [object objectForKey:@"msg"];
+        [weakself.hud showAnimated:YES];
+        [weakself.hud hideAnimated:YES afterDelay:1];
+                                   
+    } failed:^(id object) {
+        
+    }];
+
+
+}
+-(void)deleteJobAction:(UIButton*)button{
+    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定删除作业?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self deleteOnejob:button.tag];
+    }];
+    [alertcontrller addAction:cancel];
+    [alertcontrller addAction:sure];
+    [self presentViewController:alertcontrller animated:YES completion:^{
+        
+    }];
+
+
+}
+-(void)deleteOnejob:(NSInteger)tag{
+    NSString *cellid;
+    
+    WKJobModel *job = self.arrlist[tag];
+    cellid = [NSString stringWithFormat:@"%lu",job.id];
+    //  }
+    
     NSDictionary *dic = @{@"schoolId":SCOOLID,@"ids":
                               cellid};
     __weak typeof(self) weakself =self;
@@ -279,9 +308,13 @@
         if ([[object objectForKey:@"flag"]intValue]) {
             [weakself initData];
         }
+        weakself.hud.label.text = [object objectForKey:@"msg"];
+        [weakself.hud showAnimated:YES];
+        [weakself.hud hideAnimated:YES afterDelay:1];
     } failed:^(id object) {
         
     }];
+
 }
 -(void)watchJobAction:(UIButton*)sender{
     WKJobModel *model = self.arrlist[sender.tag];

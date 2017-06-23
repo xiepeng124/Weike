@@ -56,7 +56,7 @@
     [self.roleHeadView.localButton setHidden:NO];
     self.roleHeadView.roleLable.hidden = YES;
    self.outside = [UIButton buttonWithType:UIButtonTypeCustom];
-     self.outside.frame = CGRectMake(130, 0, 70, 44);
+     self.outside.frame = CGRectMake(150, 0, 70, 44);
      self.outside.titleLabel.font = [UIFont fontWithName:FONT_BOLD size:17];
      [self.outside setTitleColor:[WKColor colorWithHexString:@"999999"] forState:UIControlStateNormal];
     [ self.outside  setTitleColor:[WKColor colorWithHexString:GREEN_COLOR] forState:UIControlStateSelected];
@@ -357,7 +357,7 @@
 
 }
 -(void)deleteTapGesture:(UITapGestureRecognizer *)tap{
-    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定批量删除角色" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定批量删除视频" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
@@ -372,6 +372,13 @@
     }];
 }
 -(void)deleteaction{
+    if (self.arrnumber.count<2) {
+        self.hud.label.text = @"请选中两个及以上视频";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+
+    }
     NSString *cellid =@"0";
     for (int i=0; i<self.arrnumber.count; i++) {
         WKVideoModel *model = self.videolist[[self.arrnumber[i]integerValue]];
@@ -557,7 +564,24 @@
 
 }
 -(void)deleteVideo:(UIButton *)sender{
-    WKVideoModel *model = self.videolist[sender.tag];
+    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定删除视频" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self deleteOneVideo:sender.tag];
+    }];
+    [alertcontrller addAction:cancel];
+    [alertcontrller addAction:sure];
+    [self presentViewController:alertcontrller animated:YES completion:^{
+        
+    }];
+
+  
+}
+-(void)deleteOneVideo:(NSInteger)tag{
+    WKVideoModel *model = self.videolist[tag];
     NSDictionary *dic = @{@"schoolId":SCOOLID, @"ids":[NSNumber numberWithInteger:model.id]};
     __weak typeof(self) weakself = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

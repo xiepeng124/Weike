@@ -126,6 +126,7 @@
 //}
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
    // NSLog(@"string = %@",string);
+    
     if (range.length==1&&string.length==0) {
         return YES;
     }

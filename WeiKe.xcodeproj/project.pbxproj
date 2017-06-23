@@ -243,7 +243,6 @@
 		5AFB761B1E949BF4000CE6E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB761A1E949BF4000CE6E8 /* main.m */; };
 		5AFB76241E949BF4000CE6E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB76221E949BF4000CE6E8 /* Main.storyboard */; };
 		5AFB76261E949BF4000CE6E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB76251E949BF4000CE6E8 /* Assets.xcassets */; };
-		5AFB76291E949BF4000CE6E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB76271E949BF4000CE6E8 /* LaunchScreen.storyboard */; };
 		5AFB76341E949BF4000CE6E8 /* WeiKeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB76331E949BF4000CE6E8 /* WeiKeTests.m */; };
 		5AFB763F1E949BF4000CE6E8 /* WeiKeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB763E1E949BF4000CE6E8 /* WeiKeUITests.m */; };
 		5AFB76A11E94A159000CE6E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB768A1E94A159000CE6E8 /* AppDelegate.m */; };
@@ -690,7 +689,6 @@
 		5AFB761A1E949BF4000CE6E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5AFB76231E949BF4000CE6E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AFB76251E949BF4000CE6E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5AFB76281E949BF4000CE6E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AFB762A1E949BF4000CE6E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AFB762F1E949BF4000CE6E8 /* WeiKeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeiKeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFB76331E949BF4000CE6E8 /* WeiKeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiKeTests.m; sourceTree = "<group>"; };
@@ -1185,7 +1183,6 @@
 			children = (
 				5AFB76221E949BF4000CE6E8 /* Main.storyboard */,
 				5AFB76251E949BF4000CE6E8 /* Assets.xcassets */,
-				5AFB76271E949BF4000CE6E8 /* LaunchScreen.storyboard */,
 				5AFB762A1E949BF4000CE6E8 /* Info.plist */,
 				5AFB761A1E949BF4000CE6E8 /* main.m */,
 			);
@@ -1898,7 +1895,6 @@
 				4EF446A91EC2FCE70040EC9C /* WKRoleBindTableViewCell.xib in Resources */,
 				4EF41D681EF2638700F1D553 /* WKViewingTableViewCell.xib in Resources */,
 				4E2B021E1EF8F97A00BBF2AE /* WKCommentMeTableViewCell.xib in Resources */,
-				5AFB76291E949BF4000CE6E8 /* LaunchScreen.storyboard in Resources */,
 				5AFB76261E949BF4000CE6E8 /* Assets.xcassets in Resources */,
 				4EEE6BE71EF10E8D00E8ACE1 /* searchResultHeader.xib in Resources */,
 				4EFE98A01EB9D4BC006F3703 /* WKTeScreenFootCollectionReusableView.xib in Resources */,
@@ -2246,14 +2242,6 @@
 				5AFB76231E949BF4000CE6E8 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5AFB76271E949BF4000CE6E8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5AFB76281E949BF4000CE6E8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -17,8 +17,8 @@
     self.gradeLabel.textColor = [WKColor colorWithHexString:@"333333"];
     [self.selectButton setBackgroundImage:[UIImage imageNamed:@"role_off"] forState:UIControlStateNormal];
     [self.selectButton setBackgroundImage:[UIImage imageNamed:@"role_on"] forState:UIControlStateSelected];
-    [self.updownButton setBackgroundImage:[UIImage imageNamed:@"my_arrows_but"] forState:UIControlStateNormal];
-    [self.updownButton setBackgroundImage:[UIImage imageNamed:@"my_arrows_top"] forState:UIControlStateSelected];
+    [self.updownButton setImage:[UIImage imageNamed:@"my_arrows_but"] forState:UIControlStateNormal];
+    [self.updownButton setImage:[UIImage imageNamed:@"my_arrows_top"] forState:UIControlStateSelected];
     // Drawing code
 }
 - (IBAction)updown:(UIButton *)sender {

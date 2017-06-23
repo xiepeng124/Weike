@@ -52,9 +52,9 @@
     self.outside.titleLabel.font = [UIFont fontWithName:FONT_BOLD size:17];
     [self.outside setTitleColor:[WKColor colorWithHexString:@"999999"] forState:UIControlStateNormal];
     [ self.outside  setTitleColor:[WKColor colorWithHexString:GREEN_COLOR] forState:UIControlStateSelected];
-    [self.roleHeadView.localButton setTitle:@"待审批" forState:  UIControlStateNormal];
+    [self.roleHeadView.localButton setTitle:@"待审核" forState:  UIControlStateNormal];
 
-    [self.outside setTitle:@"已审批" forState:  UIControlStateNormal];
+    [self.outside setTitle:@"已审核" forState:  UIControlStateNormal];
     self.roleHeadView.localButton.selected = YES;
     self.outside.selected = NO;
     self.roleHeadView.onvideoImage.hidden = YES;
@@ -167,7 +167,7 @@
     cell.delegate = self;
     cell.selectedButton.tag = indexPath.section;
     cell.promuButton.tag = indexPath.section;
-   [ cell.promuButton setTitle:@"审批" forState: UIControlStateNormal ];
+   [ cell.promuButton setTitle:@"审核" forState: UIControlStateNormal ];
     for (int i= 0; i<self.arrnumber.count; i++) {
         if ([self.arrnumber[i]integerValue]==indexPath.section) {
             cell.selectedButton.selected = YES;
@@ -335,6 +335,19 @@
     return YES;
 }
 -(void)moreApprovalTapGesture:(id)sender{
+    if (!self.arrnumber.count) {
+        self.hud.label.text = @"请勾选相关视频";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+    }
+    if (self.arrnumber.count==1) {
+        self.hud.label.text = @"请选中两个及以上视频";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+
+    }
     WKApprovalingViewController *set = [[WKApprovalingViewController alloc]init];
     set.videoarr = [NSMutableArray array];
     set.isMore =1;

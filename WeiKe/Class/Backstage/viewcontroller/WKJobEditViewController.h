@@ -8,7 +8,7 @@
 
 #import "WKClassViewController.h"
 #import "WKBackstage.h"
-@interface WKJobEditViewController : WKClassViewController
+@interface WKJobEditViewController : WKBaseViewController
 @property (strong , nonatomic) WKJobModel *jobModel;
 @property (assign , nonatomic)BOOL isAdd;
 @end

@@ -15,13 +15,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krm-5t-Ydw">
-                    <rect key="frame" x="10" y="10" width="10" height="20"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krm-5t-Ydw">
+                    <rect key="frame" x="10" y="0.0" width="50" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="YoT-11-pkS"/>
-                        <constraint firstAttribute="width" constant="10" id="j5s-zm-uC5"/>
+                        <constraint firstAttribute="width" constant="50" id="j5s-zm-uC5"/>
                     </constraints>
-                    <state key="normal" backgroundImage="back"/>
+                    <state key="normal" image="back"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyf-UU-SgB">
                     <rect key="frame" x="270" y="0.0" width="40" height="40"/>
@@ -94,7 +93,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="est-sx-xgN">
-                    <rect key="frame" x="40" y="5" width="70" height="30"/>
+                    <rect key="frame" x="60" y="5" width="70" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="CnX-zb-m0u"/>
                         <constraint firstAttribute="height" constant="30" id="EFA-R8-Msg"/>
@@ -107,16 +106,18 @@
             <constraints>
                 <constraint firstItem="qyf-UU-SgB" firstAttribute="leading" secondItem="0GT-FP-QYy" secondAttribute="trailing" constant="10" id="2GU-Nr-EeE"/>
                 <constraint firstItem="qyf-UU-SgB" firstAttribute="top" secondItem="jPv-oG-hVA" secondAttribute="top" id="4Mp-Gw-dOY"/>
-                <constraint firstItem="est-sx-xgN" firstAttribute="leading" secondItem="Krm-5t-Ydw" secondAttribute="trailing" constant="20" id="Adp-P2-7BM"/>
+                <constraint firstItem="est-sx-xgN" firstAttribute="leading" secondItem="Krm-5t-Ydw" secondAttribute="trailing" id="Adp-P2-7BM"/>
                 <constraint firstItem="Slt-xl-OCc" firstAttribute="centerX" secondItem="jPv-oG-hVA" secondAttribute="centerX" id="Axv-e9-JV2"/>
                 <constraint firstItem="Krm-5t-Ydw" firstAttribute="leading" secondItem="jPv-oG-hVA" secondAttribute="leading" constant="10" id="IQB-Uz-8BP"/>
                 <constraint firstAttribute="bottom" secondItem="qyf-UU-SgB" secondAttribute="bottom" id="PFy-HA-9KP"/>
                 <constraint firstItem="Slt-xl-OCc" firstAttribute="top" secondItem="jPv-oG-hVA" secondAttribute="top" id="QcL-Me-37P"/>
                 <constraint firstItem="est-sx-xgN" firstAttribute="centerY" secondItem="jPv-oG-hVA" secondAttribute="centerY" id="azn-Zj-5NP"/>
+                <constraint firstAttribute="bottom" secondItem="Krm-5t-Ydw" secondAttribute="bottom" id="bRx-iz-K4K"/>
                 <constraint firstItem="Krm-5t-Ydw" firstAttribute="centerY" secondItem="jPv-oG-hVA" secondAttribute="centerY" id="ckc-tn-ahk"/>
                 <constraint firstItem="0GT-FP-QYy" firstAttribute="top" secondItem="jPv-oG-hVA" secondAttribute="top" id="ggV-48-4aT"/>
                 <constraint firstAttribute="bottom" secondItem="Slt-xl-OCc" secondAttribute="bottom" id="p8I-x1-sIB"/>
                 <constraint firstAttribute="bottom" secondItem="0GT-FP-QYy" secondAttribute="bottom" id="uWW-50-290"/>
+                <constraint firstItem="Krm-5t-Ydw" firstAttribute="top" secondItem="jPv-oG-hVA" secondAttribute="top" id="yT8-b3-2FX"/>
                 <constraint firstAttribute="trailing" secondItem="qyf-UU-SgB" secondAttribute="trailing" constant="10" id="yui-dN-Xbl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

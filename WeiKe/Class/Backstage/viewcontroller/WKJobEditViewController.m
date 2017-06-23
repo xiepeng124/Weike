@@ -34,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineH;
 @property(strong,nonatomic) NSString *gradeAndclass;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *upBuutonW;
-
+@property (strong,nonatomic) MBProgressHUD *hud;
 @end
 @implementation WKJobEditViewController
 -(void)initStyle{
@@ -45,7 +45,12 @@
     self.joinClass.textColor = [WKColor colorWithHexString:DARK_COLOR];
     self.jobNameText.textColor = [WKColor colorWithHexString:@"333333"];
     self.duringText.textColor = [WKColor colorWithHexString:@"333333"];
+    if (_isAdd) {
+         self.remarkText.textColor = [WKColor colorWithHexString:@"999999"];
+    }
+    else{
     self.remarkText.textColor = [WKColor colorWithHexString:@"333333"];
+    }
     self.classText.textColor = [WKColor colorWithHexString:@"333333"];
     self.classText.enabled = NO;
     self.line1.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
@@ -57,19 +62,40 @@
     [self.jobFileButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
     self.jobFileButton.backgroundColor = [WKColor colorWithHexString:GREEN_COLOR];
     self.jobFileButton.layer.cornerRadius =3 ;
-    [self.jobFileButton addTarget:self action:@selector( uploadJobAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.jobFileButton addTarget:self action:@selector(uploadJobAction) forControlEvents:UIControlEventTouchUpInside];
     self.duringText.delegate =self;
     self.remarkText.delegate =self;
+    if (self.isAdd) {
+        self.keepButton.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
+        [self.keepButton setTitleColor:[WKColor colorWithHexString:DARK_COLOR] forState:UIControlStateNormal];
+        self.keepButton.userInteractionEnabled = NO;
+    }
+    else{
     self.keepButton.backgroundColor = [WKColor colorWithHexString:GREEN_COLOR];
     [self.keepButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
-    self.jobNameText.text = self.jobModel.taskName;
-    self.duringText.text = [NSString stringWithFormat:@"%lu",self.jobModel.deliveryDeadline];
-    self.remarkText.text = self.jobModel.remark;
-   
+        self.keepButton.userInteractionEnabled = YES;
+    }
+    if (!_isAdd) {
+        self.jobNameText.text = self.jobModel.taskName;
+        self.duringText.text = [NSString stringWithFormat:@"%lu",self.jobModel.deliveryDeadline];
+        self.remarkText.text = self.jobModel.remark;
+        [self.jobFileButton setTitle:@"点击替换" forState:UIControlStateNormal];
+
+      
+    }
+  
+    
     [self.keepButton addTarget:self action:@selector(keepJobAction) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge) name:UITextFieldTextDidChangeNotification object:self.jobNameText];
       [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge) name:UITextFieldTextDidChangeNotification object:self.duringText];
       [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge) name:UITextViewTextDidChangeNotification object:self.remarkText];
+    self.hud = [[MBProgressHUD alloc]init];
+    self.hud.center = self.view.center;
+    self.hud.label.font = [UIFont fontWithName:FONT_BOLD size:14];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    self.hud.label.text = @"正在保存";
+    [self.view addSubview:self.hud];
+
   
 }
 - (void)viewDidLoad {
@@ -112,10 +138,25 @@
     self.jobModel.sourceName = sourceName;
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    return [self validateNumber:string];
-}
+    if (range.length==1&&string.length==0) {
+        return YES;
+    }
 
+    if (self.duringText.text.length<4) {
+         return [self validateNumber:string];
+    }
+    return NO;
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if (range.length==1&&text.length==0) {
+        return YES;
+    }
+
+    if (self.remark.text.length<200) {
+        return YES;
+    }
+    return NO;
+}
 - (BOOL)validateNumber:(NSString*)number {
     BOOL res = YES;
     NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
@@ -132,7 +173,7 @@
     return res;
 }
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    if([textView.text isEqualToString:@"请输入作业备注"]){
+    if([textView.text isEqualToString:@"请输入备注(不超过200字)"]){
         textView.text=@"";
         textView.textColor=[WKColor colorWithHexString:@"333333"];
     }
@@ -143,12 +184,12 @@
 }
 - (void)textViewDidEndEditing:(UITextView *)textView{
     if(!textView.text.length ){
-        textView.text = @"请输入作业备注";
+        textView.text = @"请输入备注(不超过200字)";
         textView.textColor = [WKColor colorWithHexString:@"999999"];
     }
 }
 -(void)textchangge{
-    if (!self.jobNameText.text.length||!self.duringText.text.length) {
+    if (!self.jobNameText.text.length||!self.duringText.text.length||!self.remark.text.length) {
         [self.keepButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
         [self.keepButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         self.keepButton.userInteractionEnabled = NO;
@@ -168,6 +209,23 @@
     selected.delegate = self;
 }
 -(void)keepJobAction{
+  
+    if (!self.classText.text.length&&self.isAdd) {
+        self.hud.label. text = @"请选择参与班级";
+          [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+    }
+    if ([self.jobFileButton.currentTitle isEqualToString:@"点击上传"]) {
+        self.hud.label. text = @"请选择上传作业";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+
+    }
+    else{
+        self.hud.label. text = @"正在保存";
+        [self.hud showAnimated:YES];
     if (!self.isAdd ) {
         NSDictionary *dic = @{@"loginUserId":LOGINUSERID,@"id":[NSNumber numberWithInteger:self.jobModel.id],@"taskName":self.jobNameText.text,@"deliveryDeadline":self.duringText.text,@"remark":self.remarkText.text,@"taskAppendUrl":self.jobModel.taskAppendUrl,@"targetName":self.jobModel.targetName,@"sourceName":self.jobModel.sourceName};
         __weak typeof(self) weakSelf = self;
@@ -176,7 +234,15 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     if ([[object objectForKey:@"flag"]intValue]) {
+                        weakSelf.hud.label.text = [object objectForKey:@"msg"];
+                        [weakSelf.hud hideAnimated:YES afterDelay:1];
+                        sleep(1);
                         [weakSelf.navigationController popViewControllerAnimated:YES];
+                    }
+                    else{
+                           weakSelf.hud.label.text = [object objectForKey:@"msg"];
+                        [weakSelf.hud hideAnimated:YES afterDelay:1];
+
                     }
                 });
             } failed:^(id object) {
@@ -203,7 +269,7 @@
 
 
     }
-    
+    }
     
 }
 -(void)snedCLassNSstring:(NSMutableArray *)string Grade:(NSMutableArray *)grade{

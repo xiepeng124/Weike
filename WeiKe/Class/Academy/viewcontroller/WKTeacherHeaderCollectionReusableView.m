@@ -16,6 +16,9 @@
     self.garde.textColor = [WKColor colorWithHexString:GREEN_COLOR];
     self.course.font = [UIFont fontWithName:FONT_BOLD size:17];
     self.course.textColor = [WKColor colorWithHexString:GREEN_COLOR];
+    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(ChangeBottom)];
+    self.course.userInteractionEnabled = YES;
+    [self.course addGestureRecognizer:ges];
     [self.selectedbutton setImage:[UIImage imageNamed:@"teacher_select_off"] forState:UIControlStateNormal];
     [self.selectedbutton setImage:[UIImage imageNamed:@"teacher_select_on"] forState:UIControlStateSelected];
   [self.selectedbutton addTarget:self action:@selector(ChangeSelectedImage) forControlEvents:UIControlEventTouchUpInside];

@@ -69,6 +69,7 @@
 }
 -(void)initData{
     __weak typeof(self) weakself = self;
+    self.page = @1;
     [self.teacherList removeAllObjects];
    
     self.dic =@{@"page":self.page,@"token":TOKEN,@"schoolId":SCOOLID,@"userType":USERTYPE,@"gradeId":self.gradeId,@"courseId":self.courseId,@"myTea":[NSNumber numberWithBool:self.myTea]};
@@ -90,20 +91,20 @@
 }
 -(void)GetTeacherGradeId:(NSNumber *)grade courseId:(NSNumber *)course{
     if (grade==nil) {
-        self.page=@1;
+ 
         self.gradeId=@0;
         self.courseId=@0;
         //self.myTea=0;
 
     }
    else if (course == nil) {
-        self.page=@1;
+
         self.gradeId=grade;
         self.courseId=@0;
         //self.myTea=0;
     }
     else{
-        self.page =@1;
+    
     self.gradeId=grade;
     self.courseId=course;
     //self.myTea=0;
@@ -112,24 +113,50 @@
     [self initData];
 }
 -(void)GetSelectefResultGradeCell:(NSString *)grade coursecell:(NSString *)course{
-    
-    self.headCollection.garde.text =[grade substringToIndex:2];
-    if (course.length==1) {
-        self.headCollection.course.text = course ;
+    NSString *mygrade;
+    NSString *mycourse;
+    if (grade.length >2) {
+        mygrade = [grade substringToIndex:2];
     }
     else{
-    self.headCollection.course.text = [course substringToIndex:2] ;
+        mygrade= grade;
     }
-    if ([self.headCollection.garde.text isEqualToString:@"全部"]) {
-        self.headCollection.course.text = nil;
-
+    if (course.length>2) {
+        mycourse = [course substringToIndex:2];
     }
-    if (grade.length ==0) {
-        self.headCollection.garde.text =@"全部";
+    else{
+        mycourse = course;
     }
-    else if(course.length ==0&&![self.headCollection.garde.text isEqualToString:@"全部"]){
+    if (mygrade.length ==0) {
         self.headCollection.course.text = @"全部";
     }
+ 
+    else if( [mygrade isEqualToString:@"全部"]){
+        self.headCollection.course.text = mygrade;
+    }
+    else if (mycourse.length ==0&&![self.headCollection.garde.text isEqualToString:@"全部"]){
+        self.headCollection.course.text = [NSString stringWithFormat:@"%@·全部",mygrade];
+    }
+    else{
+        self.headCollection.course.text = [NSString stringWithFormat:@"%@·%@",mygrade,mycourse];
+    }
+//    self.headCollection.garde.text =[grade substringToIndex:2];
+//    if (course.length==1) {
+//        self.headCollection.course.text = course ;
+//    }
+//    else{
+//    self.headCollection.course.text = [course substringToIndex:2] ;
+//    }
+//    if ([self.headCollection.garde.text isEqualToString:@"全部"]) {
+//        self.headCollection.course.text = nil;
+//
+//    }
+//    if (grade.length ==0) {
+//        self.headCollection.garde.text =@"全部";
+//    }
+//    else if(course.length ==0&&![self.headCollection.garde.text isEqualToString:@"全部"]){
+//        self.headCollection.course.text = @"全部";
+//    }
     self.headCollection.bottomButton.selected = NO;
     self.TeacherScreen.view.hidden = YES;
     self.backView.hidden = YES;
@@ -258,13 +285,47 @@
 //-(void)ChangeSelectedImage{
 //    self.selectedbutton.selected = !self.selectedbutton.selected;
 -(void)freshaction{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.collectionview.mj_header endRefreshing];
+    __weak typeof(self) weakself = self;
+    self.page = @1;
+    [self.teacherList removeAllObjects];
+    
+    self.dic =@{@"page":self.page,@"token":TOKEN,@"schoolId":SCOOLID,@"userType":USERTYPE,@"gradeId":self.gradeId,@"courseId":self.courseId,@"myTea":[NSNumber numberWithBool:self.myTea]};
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKTeacherHandler executeGetTeacherListWithParameters:self.dic success:^(id object) {
+            for (WKTeacherList *teach in object) {
+                [weakself.teacherList addObject:teach];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakself.collectionview reloadData];
+                [weakself.collectionview.mj_header endRefreshing];
+            });
+        } failed:^(id object) {
+            
+        }];
+        
     });
 }
 -(void)loadmore{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.collectionview.mj_footer endRefreshing];
+    __weak typeof(self) weakself = self;
+
+    NSInteger page = [self.page integerValue];
+    page +=1;
+    self.page = [NSNumber numberWithInteger:page];
+    
+    self.dic =@{@"page":self.page,@"token":TOKEN,@"schoolId":SCOOLID,@"userType":USERTYPE,@"gradeId":self.gradeId,@"courseId":self.courseId,@"myTea":[NSNumber numberWithBool:self.myTea]};
+       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKTeacherHandler executeGetTeacherListWithParameters:self.dic success:^(id object) {
+            for (WKTeacherList *teach in object) {
+                [weakself.teacherList addObject:teach];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakself.collectionview reloadData];
+                [weakself.collectionview.mj_footer endRefreshing];
+            });
+        } failed:^(id object) {
+            
+        }];
+        
     });
     
     
@@ -279,10 +340,18 @@
 }//Click on the blank space
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    if (touch.view.frame.size.height<20||touch.view.frame.size.height>50) {
+
+//    if (touch.view.frame.size.height<20||touch.view.frame.size.height>50) {
+//        return NO;
+//    }
+//    return YES;
+    if (touch.view != self.collectionview || touch.view !=self.TeacherScreen.view) {
         return NO;
     }
-    return YES;
+//    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UIView"]) {
+//        return YES;
+//    }
+        return NO;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -106,17 +106,31 @@
     WKTeacherHeaderCollectionReusableView *header=(WKTeacherHeaderCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
     [header.bottomButton setHidden:YES];
     if (self.gradeName.length==0) {
-        header.garde.text = @"全部";
-        header.course.text = @"";
+        header.course.text = @"全部";
+       
+    }
+    else if([self.gradeName isEqualToString:@"初中部"]||[self.gradeName isEqualToString:@"高中部"]){
+        header.course.text = self.gradeName;
+    
+        
     }
     else{
-        header.garde.text = [self.gradeName substringToIndex:2];
-          header.course.text = self.courseName;
+        if (!self.courseName.length ) {
+            header.course.text = [NSString stringWithFormat:@"%@·全部", [self.gradeName substringToIndex:2] ];
+                }
+       else if (self.courseName.length>2) {
+            header.course.text = [NSString stringWithFormat:@"%@·%@", [self.gradeName substringToIndex:2] , [self.courseName substringToIndex:2]];
+        }
+
+        else{
+        header.course.text = [NSString stringWithFormat:@"%@·%@", [self.gradeName substringToIndex:2] ,self.courseName];
+        }
     }
  
   
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(10, 10, 10, 20);
+    button.frame = CGRectMake(10, 10, 50, 20);
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 20);
 //    if ([USERTYPE intValue]== 2) {
 //        header.selectedbutton.hidden = NO;
 //        header.myteacher.hidden = NO;
@@ -126,7 +140,7 @@
         header.myteacher.hidden = YES;
 
 //    }
-    [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(goResultViewController:) forControlEvents:UIControlEventTouchUpInside];
     [header addSubview:button];
     return header;

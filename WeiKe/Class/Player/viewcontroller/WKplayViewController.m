@@ -431,7 +431,7 @@
             
             self.commentHeight = [WKPlaycommentTableViewCell heightForLabel:cell.commmentLabel.text];
             cell.commntH.constant = self.commentHeight;
-            
+        cell.replyTableView.frame = CGRectMake(0, 0, 0, 0);
             return cell;
             
         }
@@ -449,7 +449,7 @@
             cell2.replyLabel.frame = CGRectMake(10, 0, SCREEN_WIDTH-60, self.replyHeight);
             return cell2;
         }
-        
+    cell2.replyLabel.frame = CGRectMake(0, 0, 0, 0);
         return nil;
 
   
