@@ -351,7 +351,7 @@
 //    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UIView"]) {
 //        return YES;
 //    }
-        return NO;
+        return YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -146,7 +146,7 @@
         NSDictionary *dic=@{@"userName":self.CellNumber.text,@"password":self.password.text};
         NSLog(@"%@",[dic objectForKey:@"userName"]);
     __weak typeof(self) weakself=self;
-     [WKHttpTool postWithURLString:@"http://192.168.1.151:8080/wksys/index/app/login/" parameters:dic success:^(id responseObject) {
+     [WKHttpTool postWithURLString:SERVER_LOGIN parameters:dic success:^(id responseObject) {
          //NSLog(@"%@",dic);
         // NSLog(@"responseObject=%@",responseObject);
          

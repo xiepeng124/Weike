@@ -15,6 +15,7 @@
 #import "WKIndicatorSetViewController.h"
 #import "WKJobManagerViewController.h"
 #import "WKVideoStatisticsViewController.h"
+#import "WKUserManagerViewController.h"
 @interface WKBackstageCollectionViewController ()
 @property (strong,nonatomic) WKBackmenu *menulist;
 @end
@@ -99,6 +100,10 @@ static NSString * const reuseIdentifier = @"Cell";
        if (indexPath.row ==7) {
         WKVideoStatisticsViewController *videosta = [[WKVideoStatisticsViewController alloc]init];
         [self.navigationController pushViewController:videosta animated:YES];
+    }
+    if (indexPath.row ==8) {
+        WKUserManagerViewController *user = [[WKUserManagerViewController alloc]init];
+        [self.navigationController pushViewController:user animated:YES];
     }
     if (indexPath.row == 9) {
         WKIndicatorSetViewController *indicator = [[WKIndicatorSetViewController alloc]init];

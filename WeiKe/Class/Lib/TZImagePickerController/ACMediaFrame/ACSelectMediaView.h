@@ -36,6 +36,7 @@ typedef void(^ACSelectMediaBackBlock)(NSArray<ACMediaModel *> *list);
 @protocol ACImageDelegate <NSObject>
 @optional
 -(void)selectedImages:(NSInteger)count;
+-(void)selectedVideos:(NSInteger)count;
 @end
 
 /** 选择媒体 并 排列展示 的页面 */

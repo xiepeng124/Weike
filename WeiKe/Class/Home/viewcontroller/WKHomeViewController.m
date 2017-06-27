@@ -178,19 +178,19 @@
                 
             }
             if (new.videoImage.length==0) {
-                [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:new.videoImgUrl]placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+                [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:new.videoImgUrl]placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
                 
             }
             else{
-                //NSLog(@"me=%@",[NSString stringWithFormat:SERVER_IP@"%@",new.videoImage]);
-                [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:new.videoImage]placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+      
+                [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:new.videoImage]placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
             }
             cell.Title.text = new.title;
             cell.TeacherName.text = new.teacherName;
             cell.gradeLabel.text = new.gradeName;
             return cell;
         }
-               //cell.backgroundColor=[UIColor whiteColor];
+              
         return cell;
 
     }
@@ -204,10 +204,10 @@
             
         }
         if (!hot.videoImage.length) {
-            [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImgUrl] placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+            [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImgUrl] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
         }
         else{
-        [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImage] placeholderImage:[UIImage imageNamed:@"girl"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+        [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:hot.videoImage] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
         }
         cell.Title.text = hot.title;
         cell.TeacherName.text = hot.teacherName;

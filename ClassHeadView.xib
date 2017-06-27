@@ -15,13 +15,12 @@
             <rect key="frame" x="0.0" y="0.0" width="253" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F18-Uw-60Y">
-                    <rect key="frame" x="10" y="38" width="17" height="17"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F18-Uw-60Y">
+                    <rect key="frame" x="0.0" y="0.0" width="27" height="93"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="17" id="98h-mu-tz2"/>
-                        <constraint firstAttribute="width" constant="17" id="bJd-0R-7Dx"/>
+                        <constraint firstAttribute="width" constant="27" id="bJd-0R-7Dx"/>
                     </constraints>
-                    <state key="normal" backgroundImage="role_off"/>
+                    <state key="normal" image="role_off"/>
                     <connections>
                         <action selector="selectedGrade:" destination="VjE-cg-esb" eventType="touchUpInside" id="ppM-LL-2uX"/>
                     </connections>
@@ -48,11 +47,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="F18-Uw-60Y" firstAttribute="leading" secondItem="VjE-cg-esb" secondAttribute="leading" id="Iqe-kf-lwC"/>
                 <constraint firstAttribute="bottom" secondItem="cjh-uD-t7u" secondAttribute="bottom" id="NDx-MY-07z"/>
                 <constraint firstItem="cjh-uD-t7u" firstAttribute="leading" secondItem="F18-Uw-60Y" secondAttribute="trailing" constant="5" id="RDM-Ve-Wcm"/>
-                <constraint firstItem="F18-Uw-60Y" firstAttribute="centerY" secondItem="VjE-cg-esb" secondAttribute="centerY" id="T4y-kJ-NeY"/>
+                <constraint firstItem="F18-Uw-60Y" firstAttribute="top" secondItem="VjE-cg-esb" secondAttribute="top" id="RHA-Hh-X8x"/>
+                <constraint firstAttribute="bottom" secondItem="F18-Uw-60Y" secondAttribute="bottom" id="gqH-42-hCl"/>
                 <constraint firstAttribute="trailing" secondItem="hNR-NU-UV6" secondAttribute="trailing" constant="10" id="iKC-rm-4FL"/>
-                <constraint firstItem="F18-Uw-60Y" firstAttribute="leading" secondItem="VjE-cg-esb" secondAttribute="leading" constant="10" id="nC2-aB-qWQ"/>
                 <constraint firstItem="cjh-uD-t7u" firstAttribute="top" secondItem="VjE-cg-esb" secondAttribute="top" id="nnZ-Bn-nUh"/>
                 <constraint firstAttribute="bottom" secondItem="hNR-NU-UV6" secondAttribute="bottom" id="ujV-jY-HJl"/>
                 <constraint firstItem="hNR-NU-UV6" firstAttribute="top" secondItem="VjE-cg-esb" secondAttribute="top" id="xrP-58-s0S"/>

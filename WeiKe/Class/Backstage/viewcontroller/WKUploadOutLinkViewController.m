@@ -10,6 +10,7 @@
 #import "WKTeachclassificationCollectionViewController.h"
 #import "WKUploadImage.h"
 #import "WKBackstage.h"
+#import "WKCheackModel.h"
 @interface WKUploadOutLinkViewController ()<UITextFieldDelegate,UITextViewDelegate,TeachClassDelegate,upImageDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *videoMenu;
 @property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
@@ -38,6 +39,8 @@
 @property (strong,nonatomic)WKUploadImage *upload;
 @property (strong,nonatomic) NSString *imageUrl;
 @property (strong,nonatomic)WKGrade *gradeModel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *courseH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *coursefieldH;
 
 @end
 
@@ -56,8 +59,8 @@
     self.selectcourse.textColor =[WKColor colorWithHexString:@"333333"];
     self.titleTextfield.textColor =[WKColor colorWithHexString:@"333333"];
      self.videoUrl.textColor =[WKColor colorWithHexString:@"333333"];
-     self.DescriTextView.textColor =[WKColor colorWithHexString:@"333333"];
-    
+     self.DescriTextView.textColor =[WKColor colorWithHexString:@"999999"];
+    self.DescriTextView.delegate =self;
     self.lineview1.backgroundColor = [WKColor colorWithHexString:@"e5e5e5"];
     self.lineview2.backgroundColor = [WKColor colorWithHexString:@"e5e5e5"];
     self.lineview3.backgroundColor = [WKColor colorWithHexString:@"e5e5e5"];
@@ -88,8 +91,13 @@
     self.videoCoverImage.layer.cornerRadius = 3;
     self.videoCoverImage.layer.masksToBounds = YES;
     self.SureButton.layer.cornerRadius = 3;
-    [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"72c456"]];
-    [self.SureButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
+    [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
+    [self.SureButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
+    self.SureButton.userInteractionEnabled = NO;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge) name:UITextFieldTextDidChangeNotification object:self.titleTextfield];
+     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge) name:UITextFieldTextDidChangeNotification object:self.videoUrl];
+    self.videoUrl.keyboardType = UIKeyboardTypeURL;
+    self.imageUrl =@"";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -99,6 +107,37 @@
     self.upload.diction = @{@"loginUserId":LOGINUSERID};
     // Do any additional setup after loading the view.
 }
+-(void)textchangge{
+    if (!self.titleTextfield.text.length||!self.videoUrl.text.length) {
+            [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
+            [self.SureButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
+            self.SureButton.userInteractionEnabled = NO;
+
+    }
+    else{
+    [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"72c456"]];
+    [self.SureButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
+    self.SureButton.userInteractionEnabled = YES ;
+    }
+   
+}
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@"请输入视频描述"]){
+        textView.text=@"";
+        textView.textColor=[WKColor colorWithHexString:@"333333"];
+    }
+    else if (textView.text.length){
+        textView.textColor=[WKColor colorWithHexString:@"333333"];
+        
+    }
+}
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if(!textView.text.length ){
+        textView.text = @"请输入视频描述";
+        textView.textColor = [WKColor colorWithHexString:@"999999"];
+    }
+}
+
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if (textField ==self.selectgrade) {
         self.selectcourse.text = nil;
@@ -130,6 +169,27 @@
     }
 }
 - (IBAction)SureOutLInkAction:(id)sender {
+    if (!self.selectgrade.text.length) {
+        self.hud.label.text = @"请选择年级";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated: YES afterDelay:1];
+        return;
+    }
+    if (!self.selectcourse.text.length&&self.classify.selectedSegmentIndex==0) {
+        self.hud.label.text = @"请选择学科";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated: YES afterDelay:1];
+        return;
+    }
+//    if (![WKCheackModel checkURL:self.videoUrl.text]) {
+//
+//            self.hud.label.text = @"请输入正确的网址";
+//            [self.hud showAnimated:YES];
+//            [self.hud hideAnimated: YES afterDelay:1];
+//            return;
+//
+//    }
+
     NSDictionary *dic = @{@"loginUserId":LOGINUSERID,@"schoolId":SCOOLID,@"videoType":[NSNumber numberWithInteger:self.classify.selectedSegmentIndex +1],@"gradeId":self.selectgrade.text,@"courseId": [NSNumber numberWithInteger:self.gradeModel.id],@"videoImage":self.imageUrl,@"title":self.titleTextfield.text ,@"remark":self.DescriTextView.text,@"videoLink":self.videoUrl.text};
     __weak typeof(self ) weakself = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -156,24 +216,25 @@
     
 }
 - (IBAction)selectedMenuAction:(UISegmentedControl *)sender {
+    self.selectgrade.text = nil;
+    self.selectcourse.text = nil;
     switch (self.classify.selectedSegmentIndex) {
         case 0:
-            
-            self.courseLabel.hidden = NO;
-            self.selectcourse.hidden = NO;
-            self.lineview3.hidden = NO;
-            //            [self.selectedcourse
+            self.courseH.constant = 35;
+            self.coursefieldH.constant = 35;
+                    self.lineview3.hidden = NO;
+    
             break;
         case 1:
             
-            self.courseLabel.hidden = YES;
-            self.selectcourse.hidden = YES;
+            self.courseH.constant = 0;
+            self.coursefieldH.constant = 0;
             self.lineview3.hidden = YES;
             break;
         case 2:
             
-            self.courseLabel.hidden = YES;
-            self.selectcourse.hidden = YES;
+            self.courseH.constant = 0;
+            self.coursefieldH.constant = 0;
             self.lineview3.hidden = YES;
             break;
             

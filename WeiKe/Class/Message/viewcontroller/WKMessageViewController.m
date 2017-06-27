@@ -46,6 +46,7 @@
     _myTableView.delegate =self;
     _myTableView.dataSource = self;
     self.myTableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
+    self.myTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.myTableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
     self.myTableView.mj_footer.automaticallyChangeAlpha=YES;
     self.myTableView.mj_header=[MJRefreshNormalHeader  headerWithRefreshingTarget:self refreshingAction:@selector(freshData)];

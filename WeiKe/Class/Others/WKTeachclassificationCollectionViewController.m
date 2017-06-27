@@ -13,6 +13,7 @@
 @property (strong ,nonatomic) UIView *backgroundView;
 @property (strong,nonatomic)NSMutableArray *arrlist;
 @property (strong, nonatomic)UIButton *button;
+@property (assign,nonatomic) NSInteger myNumber;
 @end
 
 @implementation WKTeachclassificationCollectionViewController
@@ -175,7 +176,7 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.myselected.image = [UIImage imageNamed:@"role_on"];
     cell.selected  =YES;
 //    WKGrade *model = self.arrlist [indexPath.row];
-    self.gradeNumber = indexPath.row ;
+    self.myNumber = indexPath.row ;
         // [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -189,6 +190,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)keepdata{
  self.view.hidden = YES;
+self.gradeNumber = self.myNumber;
     _button.userInteractionEnabled = NO;
     WKGrade *model = self.arrlist [self.gradeNumber];
     
@@ -296,13 +298,13 @@ static NSString * const reuseIdentifier = @"Cell";
      self.view.hidden = NO;
     WKGrade *grade = [[WKGrade alloc]init];
     if (self.gradeNumber==-1) {
-        if (gradeIds == -1) {
-            
-        }
-        else{
-        //       grade.id = self.gradeId;
-        //      NSDictionary *dic = @{@"gradeId":[NSNumber numberWithInteger:grade.id],@"schoolId":SCOOLID};
-        NSLog(@"123456");
+//        if (gradeIds == -1) {
+//              NSLog(@"654321");
+//        }
+//        else{
+//        //       grade.id = self.gradeId;
+//        //      NSDictionary *dic = @{@"gradeId":[NSNumber numberWithInteger:grade.id],@"schoolId":SCOOLID};
+      
         [self.arrlist removeAllObjects];
         
         __weak typeof(self) weakself = self;
@@ -317,7 +319,7 @@ static NSString * const reuseIdentifier = @"Cell";
                     [weakself.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
                         make.centerX.equalTo(weakself.view);
                         make.top.mas_equalTo(154);
-                        make.size.mas_equalTo(CGSizeMake(270, 310));
+                        make.size.mas_equalTo(CGSizeMake(270, 250));
                     }];
                 });
             } failed:^(id object) {
@@ -326,12 +328,12 @@ static NSString * const reuseIdentifier = @"Cell";
         });
         
         
-    }
+//    }
 }
     else{
         grade= self.arrlist[self.gradeNumber];
         
-        
+         NSLog(@"65^^21");
         if (grade.gradeName!=nil) {
             [self.arrlist removeAllObjects];
             gradeIds = grade.id;
@@ -347,7 +349,7 @@ static NSString * const reuseIdentifier = @"Cell";
                         [weakself.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
                             make.centerX.equalTo(weakself.view);
                             make.top.mas_equalTo(154);
-                            make.size.mas_equalTo(CGSizeMake(270, 310));
+                            make.size.mas_equalTo(CGSizeMake(270, 250));
                         }];
                     });
                 } failed:^(id object) {
@@ -359,7 +361,7 @@ static NSString * const reuseIdentifier = @"Cell";
             [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(self.view);
                 make.top.mas_equalTo(154);
-                make.size.mas_equalTo(CGSizeMake(270, 310));
+                make.size.mas_equalTo(CGSizeMake(270, 250));
             }];
             
         }

@@ -51,10 +51,7 @@
         //返回为NO则屏蔽手势事件
         return NO;
     }
-    if ([touch.view isKindOfClass:[UIButton class]]) {
-        return NO;
-    }
-    return YES;
+       return YES;
 }
 
 /*

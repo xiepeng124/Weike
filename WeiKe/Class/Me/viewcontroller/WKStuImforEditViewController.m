@@ -38,6 +38,7 @@
     self.mytableView.tableHeaderView = self.stuImf;
     self.mytableView.showsVerticalScrollIndicator = NO;
     self.mytableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
     [self.view addSubview:self.mytableView];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.stuImf.nametext];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.stuImf.cardIdText];

@@ -13,6 +13,7 @@
 #import "WKRolesModel.h"
 #import "WKRoleBindOnViewController.h"
 #import "WKRoleView.h"
+#import "WKAuthorizeViewController.h"
 @interface WKRolesViewController ()<UITableViewDelegate,UITableViewDataSource,RolesDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate>
 @property(strong,nonatomic)UITableView *rolestableView;
 @property(strong,nonatomic)WKHeadview *headView;
@@ -155,6 +156,7 @@
         cell.editButton.tag = indexPath.section;
         cell.selectButton.tag = indexPath.section;
         cell.bindButton.tag = indexPath.section;
+        cell.authorizeButton.tag = indexPath.section;
        // NSLog(@"cell_tag =%lu",cell.deleteButton.tag);
         self.heightcontent = [WKRoleTableViewCell heightForLabel:
                               cell.contentLabel.text];
@@ -163,7 +165,7 @@
         cell.contentLabel.translatesAutoresizingMaskIntoConstraints = YES;
         cell.contentLabel.frame = CGRectMake(10, 44, SCREEN_WIDTH-40, self.heightcontent);
         //NSLog(@"..%f",cell.contentLabel.frame.size.height);
-        
+        [cell.authorizeButton addTarget:self action:@selector(authorizeAction:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
 
     }
@@ -249,7 +251,14 @@
         [self.arrnumber removeObject:[NSNumber numberWithInteger:button.tag]];
     }
 }
+
 #pragma mark - Action
+-(void)authorizeAction:(UIButton*)sender{
+    
+    WKAuthorizeViewController *auth = [[WKAuthorizeViewController alloc]init];
+    auth.model = self.arrcontent[sender.tag];
+    [self.navigationController pushViewController:auth animated:YES];
+}
 -(void)BackAction{
     [self.navigationController popViewControllerAnimated:YES];
     

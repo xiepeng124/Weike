@@ -89,6 +89,7 @@
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+   
     return 1;
 }
 
@@ -175,7 +176,7 @@
     if (self.arrList.count) {
         return self.arrList.count;
     }
-    return 1;
+    return 0;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -337,7 +338,7 @@
 
 }
 -(void)segmentChangeselected:(UISegmentedControl*)seg{
-    NSLog(@"1244");
+ 
     [self initData];
 }
 

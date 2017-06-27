@@ -21,7 +21,8 @@
 -(instancetype)init{
     if (self=[super init]) {
         /**设置请求超时时间*/
-        self.requestSerializer.timeoutInterval = 10;
+
+              self.requestSerializer.timeoutInterval = 10;
         /**分别设置请求以及相应的序列化器*/
         self.requestSerializer = [AFHTTPRequestSerializer serializer];
         AFJSONResponseSerializer * response = [AFJSONResponseSerializer serializer];

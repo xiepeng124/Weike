@@ -15,7 +15,8 @@
     
     [self.selectedButton setImage:[UIImage imageNamed:@"teacher_select_off"] forState:UIControlStateNormal];
     [self.selectedButton setImage:[UIImage imageNamed:@"teacher_select_on"] forState:UIControlStateSelected];
-    self.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
+    self.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
+    self.backView.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
     // Initialization code
 }
 

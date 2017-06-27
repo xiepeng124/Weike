@@ -7,7 +7,7 @@
 //
 
 #import "WKBackstage.h"
-#import "WKRolesModel.h"
+
 
 @implementation WKBackstage
 +(void)executeGetBackstageAllorSearchWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
@@ -98,6 +98,25 @@
         failed(error);
     }];
 }
++(void)executeGetBackstageRoleAuthorWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    
+    [WKHttpTool postWithURLString:ROLE_AUTHOR  parameters:dic success:^(id responseObject) {
+        NSLog(@"...respnt = %@",responseObject);
+        NSArray *arr = [WKRoleAuthorModel mj_objectArrayWithKeyValuesArray:responseObject[@"sysMenuList"]];
+        success(arr);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+}
++(void)executeGetBackstageRoleAuthorKeepWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
+    
+    [WKHttpTool postWithURLString:ROLE_AUTHOR_KEEP  parameters:dic success:^(id responseObject) {
+              success(responseObject);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+}
+
 +(void)executeGetBackstageVideoWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed{
     
     [WKHttpTool postWithURLString:Video_Search  parameters:dic success:^(id responseObject) {
@@ -364,6 +383,45 @@
         
         NSArray *arr = [WKTeacherVideoList mj_objectArrayWithKeyValuesArray:responseObject[@"teaVideoList"]];
         success(arr);
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageUserListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_LIST parameters:dic success:^(id responseObject) {
+        NSLog(@"resp = %@",responseObject);
+        if ([[responseObject allKeys] containsObject:@"teaUserList"]) {
+            NSArray *arr = [WKUserListModel mj_objectArrayWithKeyValuesArray:responseObject[@"teaUserList"]];
+            success(arr);
+        }
+        else if ([[responseObject allKeys] containsObject:@"stuUserList"]){
+            NSArray *arr = [WKUserListModel mj_objectArrayWithKeyValuesArray:responseObject[@"stuUserList"]];
+          success(arr);
+        }
+        else{
+            NSArray *arr = [WKUserListModel mj_objectArrayWithKeyValuesArray:responseObject[@"DisabledUserList"]];
+            success(arr);
+
+        }
+           } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageUserForbidWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_FORBID parameters:dic success:^(id responseObject) {
+    success(responseObject);
+       
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageUserStartWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_START parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
     } failure:^(NSError *error) {
         failed(error);
     }];

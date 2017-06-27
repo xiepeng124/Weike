@@ -247,11 +247,10 @@
                  
                             for (WKMyJobModel *model in object) {
                                [weakself.arrlist addObject:model];
-                        
 
-                         [weakself.jobTableView reloadData];
-                        [weakself.jobTableView.mj_footer endRefreshing];
-                           }
+                    }
+                           [weakself.jobTableView reloadData];
+                           [weakself.jobTableView.mj_footer endRefreshing];
                          });
         } failed:^(id object) {
             

@@ -87,7 +87,7 @@
 //    self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
 //    self.hud.label.text = @"正在上传";
 //    self.hud.mode =MBProgressHUDModeAnnularDeterminate;
-    
+    self.CoverImageUrl =@"";
     [self configureCollectionView];
     //[self addSubview:self.hud];
 }
@@ -691,6 +691,7 @@
                          [weakself.upModelarr addObject:upmodel];
                          NSLog(@"upmodel..%lu",self.upModelarr.count);
                          [weakself.hud hideAnimated:YES];
+                         [weakself.delegate selectedVideos:weakself.upModelarr.count];
                      }
                      else{
                          NSLog(@"233");

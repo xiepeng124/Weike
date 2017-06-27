@@ -16,6 +16,9 @@
 #import "WKJobStu.h"
 #import "WKVIdeoStatisticsModel.h"
 #import "WKTeacherVideoList.h"
+#import "WKRolesModel.h"
+#import "WKRoleAuthorModel.h"
+#import "WKUserListModel.h"
 @interface WKBackstage : WKHttpbase
 +(void)executeGetBackstageAllorSearchWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageAddWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
@@ -27,6 +30,8 @@
 +(void)executeGetBackstageRoleNoBindWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageRoleAddBindWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageRoleUnMoreBindWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageRoleAuthorWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageRoleAuthorKeepWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageVideoWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageDeleteVideoWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageSetVideoWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
@@ -56,4 +61,7 @@
 +(void)executeGetBackstageJobShareWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageVideoStatistWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageVideoStatistListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageUserListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
++(void)executeGetBackstageUserForbidWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageUserStartWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 @end

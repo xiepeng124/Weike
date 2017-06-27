@@ -422,12 +422,14 @@
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     WKSetVideoViewController *set = [main instantiateViewControllerWithIdentifier:@"setVideo"];
-    if (self.arrnumber.count ==0) {
+     if (self.arrnumber.count<2) {
+        self.hud.label.text = @"请选中两个及以上视频";
         [self.hud showAnimated:YES];
-      self.hud.label.text = @"请选择视频";
-       self.hud.label.textColor = [UIColor redColor];
         [self.hud hideAnimated:YES afterDelay:1];
-    }else{
+  
+        
+    }
+else{
     set.videoModel = self.videolist[[self.arrnumber[0]integerValue]];
      set.videoarr = [NSMutableArray array];
     for (int i=0; i<self.arrnumber.count; i++) {
@@ -449,12 +451,14 @@
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NSLog(@"789098");
     WKVideoMergeViewController *Merge = [main instantiateViewControllerWithIdentifier:@"videoMerge"];
-    if (self.arrnumber.count ==0) {
-          [self.hud showAnimated:YES];
-        self.hud.label.text = @"请选择视频";
-        self.hud.label.textColor = [UIColor redColor];
+    if (self.arrnumber.count<2) {
+        self.hud.label.text = @"请选中两个及以上视频";
+        [self.hud showAnimated:YES];
         [self.hud hideAnimated:YES afterDelay:1];
-    }else{
+        
+        
+    }
+    else{
         Merge.videoModel = self.videolist[[self.arrnumber[0]integerValue]];
         Merge.videoarr = [NSMutableArray array];
         for (int i=0; i<self.arrnumber.count; i++) {

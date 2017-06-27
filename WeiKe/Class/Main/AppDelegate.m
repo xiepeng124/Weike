@@ -16,6 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        NSLog(@"/>>%@",HOME_AD);
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString *string = [userDefault objectForKey:@"loginUserId"];
     NSString *string2 = [userDefault objectForKey:@"token"];

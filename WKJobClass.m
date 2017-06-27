@@ -15,8 +15,8 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     self.gradeLabel.textColor = [WKColor colorWithHexString:@"333333"];
-    [self.selectButton setBackgroundImage:[UIImage imageNamed:@"role_off"] forState:UIControlStateNormal];
-    [self.selectButton setBackgroundImage:[UIImage imageNamed:@"role_on"] forState:UIControlStateSelected];
+    [self.selectButton setImage:[UIImage imageNamed:@"role_off"] forState:UIControlStateNormal];
+    [self.selectButton setImage:[UIImage imageNamed:@"role_on"] forState:UIControlStateSelected];
     [self.updownButton setImage:[UIImage imageNamed:@"my_arrows_but"] forState:UIControlStateNormal];
     [self.updownButton setImage:[UIImage imageNamed:@"my_arrows_top"] forState:UIControlStateSelected];
     // Drawing code

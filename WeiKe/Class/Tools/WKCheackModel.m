@@ -71,9 +71,9 @@
 }
 
 #pragma 正则匹配URL
-+ (BOOL)checkURL : (NSString *) url
++ (BOOL)checkURL: (NSString *) url
 {
-    NSString *pattern = @"^[0-9A-Za-z]{1,50}";
+    NSString *pattern = @"^[0-9A-Za-z]{1,50}$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     BOOL isMatch = [pred evaluateWithObject:url];
     return isMatch;

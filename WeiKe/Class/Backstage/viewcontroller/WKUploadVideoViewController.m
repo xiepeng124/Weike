@@ -12,7 +12,7 @@
 #import "WKUpload.h"
 #import "ACMediaFrame.h"
 #import "WKBackstage.h"
-@interface WKUploadVideoViewController ()<UITextFieldDelegate,TeachClassDelegate>
+@interface WKUploadVideoViewController ()<UITextFieldDelegate,TeachClassDelegate,ACImageDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *updownButton;
 @property (strong,nonatomic) WKRemindView *remindview;
 @property (strong,nonatomic)UIView * blackView;
@@ -52,6 +52,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineH;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleFieldh;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *courseH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *courseFieldH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableviewH;
 
 
 @end
@@ -107,10 +110,8 @@
 //    [self.selectcourse addGestureRecognizer:tap2];
     self.gradeId = -1;
     self.courseId = -1;
-    //self.mianView.translatesAutoresizingMaskIntoConstraints = NO;
-    //self.titleTextfield.delegate = self;
-    self. mediaView = [[ACSelectMediaView alloc] initWithFrame:CGRectMake(0, 0, self.mytableView.frame.size.width, self.mytableView.frame.size.height)];
-    // self.mediaView.translatesAutoresizingMaskIntoConstraints = NO;
+       self.mediaView = [[ACSelectMediaView alloc]initWithFrame:self.mytableView.frame];
+  
     
     _mediaView.type = ACMediaTypeVideoAndCamera;
     _mediaView.allowMultipleSelection = NO;
@@ -120,10 +121,8 @@
     self.mediaView.dic = @{@"loginUserId":LOGINUSERID};
     //self.mediaView.hidden = YES;
        self.mytableView.tableHeaderView = self.mediaView;
-   
-    
-//    self.mytableView.scrollEnabled = NO;
-  self.mediaView.collectionView.contentSize =CGSizeMake(self.mytableView.frame.size.width, self.mytableView.frame.size.height*3);
+    self.mytableView.scrollEnabled = NO;
+    self.mediaView.delegate = self;
     self.hud = [[MBProgressHUD alloc]init];
     self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     self.hud.label.font = [UIFont fontWithName:FONT_BOLD size:14];
@@ -136,9 +135,6 @@
     self.hud2.mode =MBProgressHUDModeDeterminateHorizontalBar;
     [self.view addSubview:self.hud2];
     self.mediaView.hud = self.hud2;
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.selectgrade];
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.selectcourse];
-//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.titleTextfield];
     [self.SureButton setBackgroundColor:[WKColor colorWithHexString:@"72c456"]];
     [self.SureButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
     self.SureButton.userInteractionEnabled = YES ;
@@ -242,24 +238,26 @@
     [self.colletionviewcontroller selectcourseAction:self.gradeId];
 }
 - (IBAction)selectedMenuAction:(UISegmentedControl *)sender {
+    self.selectgrade.text = nil;
+    self.selectcourse.text = nil;
     switch (self.classify.selectedSegmentIndex) {
         case 0:
-            
-            self.courseLabel.hidden = NO;
-            self.selectcourse.hidden = NO;
+            self.courseH.constant = 37;
+            self.courseFieldH.constant = 37;
+          
             self.lineview3.hidden = NO;
             //            [self.selectedcourse
             break;
         case 1:
             
-            self.courseLabel.hidden = YES;
-            self.selectcourse.hidden = YES;
+            self.courseH.constant = 0;
+            self.courseFieldH.constant =0;
             self.lineview3.hidden = YES;
             break;
         case 2:
             
-            self.courseLabel.hidden = YES;
-            self.selectcourse.hidden = YES;
+            self.courseH.constant = 0;
+            self.courseFieldH.constant =0;
             self.lineview3.hidden = YES;
             break;
             
@@ -271,6 +269,7 @@
 }
 - (IBAction)isMergeVideoAction:(id)sender {
     self.mediaView.isMerge = self.selectedMerge.selectedSegmentIndex;
+    
     if (self.selectedMerge.selectedSegmentIndex == 1) {
         self.titleHeight.constant = 35;
         self.titleFieldh.constant = 35;
@@ -295,6 +294,36 @@
      return NO;
 }
 - (IBAction)SureUploadVideoAction:(id)sender {
+    if (!self.selectgrade.text.length) {
+        self.hud.label.text = @"请选择年级";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated: YES afterDelay:1];
+        return;
+    }
+    if (!self.selectcourse.text.length&&self.classify.selectedSegmentIndex==0) {
+        self.hud.label.text = @"请选择学科";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated: YES afterDelay:1];
+        return;
+    }
+    if (!self.titleTextfield.text.length&&self.selectedMerge.selectedSegmentIndex==1) {
+        self.hud.label.text = @"请输入合并标题";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated: YES afterDelay:1];
+        return;
+    }
+    if (!self.mediaView.upModelarr.count) {
+        self.hud.label.text = @"请添加上传视频";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated: YES afterDelay:1];
+        return;
+    }
+    if (self.mediaView.upModelarr.count<2&&self.selectedMerge.selectedSegmentIndex==1) {
+        self.hud.label.text = @"请添加两个及以上视频";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated: YES afterDelay:1];
+        return;
+    }
     NSString *videoMsg;
     NSLog(@" -----%lu",self.mediaView.upModelarr.count);
     for (int i=0; i<self.mediaView.upModelarr.count; i++) {
@@ -310,10 +339,10 @@
     }
     NSDictionary *dic;
     if (self.selectedMerge.selectedSegmentIndex==1) {
-        dic = @{@"schoolId":SCOOLID,@"commentFlag":[NSNumber numberWithInteger:self.selectedMerge.selectedSegmentIndex],@"concatFlag":[NSNumber numberWithInteger:self.selectedMerge.selectedSegmentIndex ],@"title":self.titleTextfield.text,@"videoType":[NSNumber numberWithInteger:self.classify.selectedSegmentIndex+1],@"gradeId":self.selectgrade.text,@"courseId":[NSNumber numberWithInteger:self.gradeModel.id],@"loginUserId":LOGINUSERID,@"videoImage":self.mediaView.CoverImageUrl,@"videMsg":videoMsg};
+        dic = @{@"schoolId":SCOOLID,@"commentFlag":[NSNumber numberWithInteger:self.selectedcomment.selectedSegmentIndex],@"concatFlag":[NSNumber numberWithInteger:self.selectedMerge.selectedSegmentIndex ],@"title":self.titleTextfield.text,@"videoType":[NSNumber numberWithInteger:self.classify.selectedSegmentIndex+1],@"gradeId":self.selectgrade.text,@"courseId":[NSNumber numberWithInteger:self.gradeModel.id],@"loginUserId":LOGINUSERID,@"videoImage":self.mediaView.CoverImageUrl,@"videMsg":videoMsg};
     }
   else {
-        dic = @{@"schoolId":SCOOLID,@"commentFlag":[NSNumber numberWithInteger:self.selectedMerge.selectedSegmentIndex],@"concatFlag":[NSNumber numberWithInteger:self.selectedMerge.selectedSegmentIndex ],@"videoType":[NSNumber numberWithInteger:self.classify.selectedSegmentIndex+1],@"gradeId":self.selectgrade.text,@"courseId":[NSNumber numberWithInteger:self.gradeModel.id],@"loginUserId":LOGINUSERID,@"videMsg":videoMsg};
+        dic = @{@"schoolId":SCOOLID,@"commentFlag":[NSNumber numberWithInteger:self.selectedcomment.selectedSegmentIndex],@"concatFlag":[NSNumber numberWithInteger:self.selectedMerge.selectedSegmentIndex ],@"videoType":[NSNumber numberWithInteger:self.classify.selectedSegmentIndex+1],@"gradeId":self.selectgrade.text,@"courseId":[NSNumber numberWithInteger:self.gradeModel.id],@"loginUserId":LOGINUSERID,@"videMsg":videoMsg};
     }
     __weak typeof(self) weakself = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -342,6 +371,40 @@
 
 
 }
+-(void)selectedVideos:(NSInteger)count{
+    if (self.selectedMerge.selectedSegmentIndex==0) {
+        if (count>2) {
+            self.mainviewHeight.constant = 397;
+            self.tableviewH.constant = 175;
+            self.mediaView.frame = CGRectMake(0, 0, self.mytableView.frame.size.width, 175);
+            
+        }
+        else{
+            self.mainviewHeight.constant = 307;
+            self.tableviewH.constant = 85;
+            self.mediaView.frame = CGRectMake(0, 0, self.mytableView.frame.size.width, 85);
+        }
+
+    }
+    else{
+        if (count>1) {
+            self.mainviewHeight.constant = 397;
+            self.tableviewH.constant = 175;
+            self.mediaView.frame = CGRectMake(0, 0, self.mytableView.frame.size.width, 175);
+            
+        }
+        else{
+            self.mainviewHeight.constant = 307;
+            self.tableviewH.constant = 85;
+            self.mediaView.frame = CGRectMake(0, 0, self.mytableView.frame.size.width, 85);
+        }
+
+    }
+       self.mediaView.collectionView.frame = self.mediaView.frame;
+    self.mytableView.tableHeaderView = self.mediaView;
+    
+}
+
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.selectgrade];
      [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.selectcourse];
