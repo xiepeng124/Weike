@@ -23,6 +23,8 @@
     self.localButton.titleLabel .font = [UIFont fontWithName:FONT_BOLD size:17];
     [self.localButton setTitleColor:[WKColor colorWithHexString:@"999999"] forState:UIControlStateNormal];
     [self.localButton setTitleColor:[WKColor colorWithHexString:GREEN_COLOR] forState:UIControlStateSelected];
+    self.deleteView.userInteractionEnabled = YES;
+    self.addView.userInteractionEnabled = YES;
   // [self.localButton  setHidden:YES];
 }
 

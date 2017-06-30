@@ -23,4 +23,6 @@
 @property (nonatomic, strong) NSString * taskAppendUrl;
 @property (nonatomic, strong) NSString * taskName;
 @property (nonatomic, strong) NSString * teacherName;
+@property (nonatomic, assign) NSInteger haveStuDelivery;
+
 @end

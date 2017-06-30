@@ -26,4 +26,5 @@
 @property (nonatomic, strong) NSString * courseName;
 @property (nonatomic, strong) NSString * gradeName;
 @property (nonatomic, strong) NSString * positionName;
+@property (nonatomic,strong) NSString *posStr;
 @end

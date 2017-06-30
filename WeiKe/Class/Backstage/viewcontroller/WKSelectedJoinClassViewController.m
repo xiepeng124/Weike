@@ -74,11 +74,12 @@
     allJobView.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
     allJobView.layer.cornerRadius = 3;
   _allButton= [UIButton buttonWithType:UIButtonTypeCustom];
-    _allButton.frame = CGRectMake(10, 10, 17, 17);
-    [_allButton setBackgroundImage:[UIImage imageNamed:@"role_off"] forState:UIControlStateNormal];
-    [_allButton setBackgroundImage:[UIImage imageNamed:@"role_on"] forState:UIControlStateSelected];
+    _allButton.frame = CGRectMake(0, 0, 28, 32);
+    _allButton.contentHorizontalAlignment =UIControlContentHorizontalAlignmentRight;
+    [_allButton setImage:[UIImage imageNamed:@"role_off"] forState:UIControlStateNormal];
+    [_allButton setImage:[UIImage imageNamed:@"role_on"] forState:UIControlStateSelected];
     [_allButton addTarget:self action:@selector(selectedAllAction:) forControlEvents:UIControlEventTouchUpInside];
-    _allJobLabel = [[UILabel alloc]initWithFrame:CGRectMake(32, 4, 200, 28)];
+    _allJobLabel = [[UILabel alloc]initWithFrame:CGRectMake(34, 4, 200, 28)];
     _allJobLabel.font = [UIFont fontWithName:FONT_REGULAR size:16];
     _allJobLabel.textColor = [WKColor colorWithHexString:@"333333"];
     _allJobLabel.text = @"全部作业";
@@ -95,6 +96,7 @@
     self.mytableView.showsVerticalScrollIndicator = NO;
     self.mytableView.layer.cornerRadius = 3;
     self.mytableView.layer.masksToBounds = YES;
+    self.mytableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //[self.jobTableView registerNib:[UINib nibWithNibName:@"WKJobTableViewCell" bundle:nil] forCellReuseIdentifier:@"mycell"];
 //    self.mytableView.tableHeaderView = allJobView;
     self.mytableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -143,14 +145,9 @@
     
         WKJobGradeModel *model = self.arrlist[section];
         
-    for (int i= 0; i<self.arrsection.count; i++) {
-        if (section==[self.arrsection[i]integerValue]) {
+ 
             return model.classMap.count;
 
-        }
-        
-          }
-    return 0;
 }
 
 
@@ -161,26 +158,25 @@
     NSArray *arr = [WKJObClassModel mj_objectArrayWithKeyValuesArray:grade.classMap];
     WKJObClassModel *classmodel = arr[indexPath.row];
     cell.classlabel.text = classmodel.className;
-    self.indexsection = indexPath.section;
+
+       cell.selectedButton.tag= indexPath.row;
+    cell.cellSection = indexPath.section;
+     cell.selectedButton.indexpath =indexPath;
     [cell.selectedButton addTarget:self action:@selector(selectedClassAction:) forControlEvents:UIControlEventTouchUpInside];
-//    if (_allButton.selected) {
-//        cell.selectedButton.selected = YES;
-//
-//    }
-//    else{
-//         cell.selectedButton.selected = NO;
-//    }
-    for (int i=0; i<self.arrClass.count; i++) {
-        if (indexPath.row ==[self.arrClass[i][0]integerValue]&&indexPath.section == [self.arrClass[i][1]integerValue]) {
-            cell.selectedButton.selected = YES;
-            
-            
-        }
-       
+    if ([self.arrsection containsObject:[NSNumber numberWithInteger:indexPath.section]]) {
+        cell.hidden = NO;
     }
-    NSLog(@"indexpath  =%@",indexPath);
-    cell.selectedButton.indexpath =indexPath;
-    cell.selectedButton.tag= indexPath.row;
+    else{
+        cell.hidden = YES;
+    }
+
+
+    if ([self.arrClass containsObject:@[[NSNumber numberWithInteger:indexPath.row],[NSNumber numberWithInteger:indexPath.section]]]) {
+         cell.selectedButton.selected = YES;
+    }
+
+   
+ 
     
     return cell;
 }
@@ -190,115 +186,135 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    self.jobClass = [[WKJobClass alloc]initWithFrame:CGRectMake(0, 10, screenH, 37)];
+    self.jobClass = [[WKJobClass alloc]init];
+    
      self.jobClass= [[[NSBundle mainBundle]loadNibNamed:@"ClassHeadView" owner:nil options:nil]lastObject];
     self.jobClass.backgroundColor = [UIColor whiteColor];
     WKJobGradeModel *model = self.arrlist[section];
     self.jobClass.gradeLabel.text = model.gradeName;
     self.jobClass.updownButton.tag = section;
     self.jobClass.selectButton.tag  =section;
-//    if (_allButton.selected) {
-//        self.jobClass.selectButton.selected = YES;
-//    }
-//    else{
-//        self.jobClass.selectButton.selected = NO;
-//
-//    }
-    for (int i = 0; i<self.arrsection.count; i++) {
-        if ([self.arrsection[i]integerValue]==section) {
-            self.jobClass.updownButton.selected = YES;
-            self.isSpread =YES;
-        }
+    if ([self.arrsection containsObject:[NSNumber numberWithInteger:section]]) {
+        self.jobClass.updownButton.selected = YES;
+        self.isSpread =YES;
+
     }
-    for (int i = 0; i<self.arrGrade.count; i++) {
-        if ([self.arrGrade[i]integerValue]==section) {
-            self.jobClass.selectButton.selected = YES;
-            self.isSpread =YES;
-        }
+
+    if ([self.arrGrade containsObject:[NSNumber numberWithInteger:section]]) {
+        self.jobClass.selectButton.selected = YES;
+        self.isSpread =YES;
     }
+
    
     self.jobClass.delegate = self;
     return self.jobClass;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-   // NSLog(@"333666");
-//    if (self.isSpread&&self.section ==indexPath.section) {
+    if ([self.arrsection containsObject:[NSNumber numberWithInteger:indexPath.section]]) {
         return 36;
-//    }
-//    return 0;
+    }
+
+
+   return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 37;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 -(void)selectedClassAction:(UIButton*)sender{
     sender.selected = !sender.selected;
-    NSArray *array = @[[NSNumber numberWithInteger:sender.tag],[NSNumber numberWithInteger:self.indexsection]];
+//    NSIndexPath *index =
+    
+    NSArray *array = @[[NSNumber numberWithInteger:sender.tag],[NSNumber numberWithInteger:sender.indexpath.section]];
     if (sender.selected) {
         [self.arrClass addObject:array];
+        int j=0;
+        WKJobGradeModel *model = self.arrlist[sender.indexpath.section];
+        for (int i=0; i<model.classMap.count; i++) {
+            if (![self.arrClass containsObject:@[[NSNumber numberWithInteger:i],[NSNumber numberWithInteger:sender.indexpath.section]]]) {
+                break;
+            }
+            j+=1;
+        }
+        if (j==model.classMap.count) {
+            if (![self.arrGrade containsObject:[NSNumber numberWithInteger:sender.indexpath.section]]) {
+                [self.arrGrade addObject:[NSNumber numberWithInteger:sender.indexpath.section]];
+
+            }
+                }
+        if (self.arrGrade.count == self.arrlist.count) {
+               self.allButton.selected = YES;
+        }
     }
     else{
         [self.arrClass removeObject:array];
         
-        self.jobClass.selectButton.selected = NO;
+        //self.jobClass.selectButton.selected = NO;
          self.allButton.selected = NO;
-        [self.arrGrade removeObject:[NSNumber numberWithInteger:sender.indexpath.section]];
-        //[self.mytableView reloadData];
-    }
+        if ([self.arrGrade containsObject:[NSNumber numberWithInteger:sender.indexpath.section]]) {
+            [self.arrGrade removeObject:[NSNumber numberWithInteger:sender.indexpath.section]];
+
+        }
+                }
+    NSIndexSet *set = [[NSIndexSet alloc]initWithIndex:sender.indexpath.section];
+    [self.mytableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
 }
 -(void)foldHeaderforbutton:(UIButton *)sender{
     self.section = sender.tag;
 
     if (sender.selected) {
-        //self.isSpread = YES;
+        self.isSpread = YES;
         [self.arrsection addObject:[NSNumber numberWithInteger:sender.tag]];
+        
         
     }
     else{
-        
+        self.isSpread = NO;
          [self.arrsection removeObject:[NSNumber numberWithInteger:sender.tag]];
     }
    // NSLog(@"log.tag = %lu",sender.tag);
   // [self.mytableView reloadData];
+    
     NSIndexSet *set = [[NSIndexSet alloc]initWithIndex:sender.tag];
     [self.mytableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
 }
 -(void)foldHeaderselectedbutton:(UIButton *)sender{
     if (sender.selected) {
+        if (![self.arrGrade containsObject:[NSNumber numberWithInteger:sender.tag]]) {
+            [self.arrGrade addObject:[NSNumber numberWithInteger:sender.tag]];
+
+        }
+        
         WKJobGradeModel *model = self.arrlist[sender.tag];
         for (int i =0; i<model.classMap.count; i++) {
-            NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:sender.tag];
-            WKJobSelectClassTableViewCell *cell = (WKJobSelectClassTableViewCell*)[self.mytableView cellForRowAtIndexPath:index];
-            if ( !cell.selectedButton.selected) {
-                cell.selectedButton.selected = YES;
-                NSArray *arr =  @[[NSNumber numberWithInteger:i],[NSNumber numberWithInteger:sender.tag]];
-                [self.arrClass addObject:arr];
+            if (![self.arrClass containsObject:@[[NSNumber numberWithInteger:i],[NSNumber numberWithInteger:sender.tag]]]) {
+                [self.arrClass addObject:@[[NSNumber numberWithInteger:i],[NSNumber numberWithInteger:sender.tag]]];
             }
+            
         }
-        [self.arrGrade addObject:[NSNumber numberWithInteger:sender.tag]];
+        if (self.arrGrade.count == self.arrlist.count) {
+            self.allButton.selected = YES;
+
         }
+    }
     else {
         WKJobGradeModel *model = self.arrlist[sender.tag];
         for (int i =0; i<model.classMap.count; i++) {
-            NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:sender.tag];
-            WKJobSelectClassTableViewCell *cell =(WKJobSelectClassTableViewCell*)[self.mytableView cellForRowAtIndexPath:index];
-         
-            
-                cell.selectedButton.selected = NO;
                 NSArray *arr =  @[[NSNumber numberWithInteger:i],[NSNumber numberWithInteger:sender.tag]];
                 [self.arrClass removeObject:arr];
   
         }
          self.allButton.selected = NO;
-        [self.arrGrade removeObject:[NSNumber numberWithInteger:sender.tag]];
+        if ([self.arrGrade containsObject:[NSNumber numberWithInteger:sender.tag]]) {
+              [self.arrGrade removeObject:[NSNumber numberWithInteger:sender.tag]];
+        }
+      
 
     }
-//    if (self.arrGrade.count<self.arrlist.count) {
-//       
-//    }
-//    else{
-//        
-//    }
+    NSIndexSet *set = [[NSIndexSet alloc]initWithIndex:sender.tag];
+    [self.mytableView reloadSections:set withRowAnimation:UITableViewRowAnimationFade];
 
 }
 -(void)selectedAllAction:(UIButton*)sender{
@@ -332,38 +348,38 @@
     }
    [self.mytableView reloadData];
 }
--(void)selectRightAction:(id)sender{
-//    for (int i=0; i<self.arrClass.count; i++) {
-//        NSIndexPath *index = [NSIndexPath indexPathForRow:[self.arrClass[i][0]integerValue] inSection: [self.arrClass[i][1]integerValue]];
-//         WKJobSelectClassTableViewCell *cell =(WKJobSelectClassTableViewCell*)[self.mytableView cellForRowAtIndexPath:index];
-//         WKJobGradeModel *model = self.arrlist[ [self.arrClass[i][1]integerValue]];
-//       NSArray *arr = [WKJObClassModel mj_objectArrayWithKeyValuesArray:model.classMap];
-//        WKJObClassModel *model2 = arr[[self.arrClass[i][0]integerValue]];
-//        [self.arrbackgrade addObject:model2];
-//        cell.classlabel.text = model2.className;
-//        NSString *sting = cell.classlabel.text ;
-//     [self.arrbackClass addObject:sting];
-//
-//        NSLog(@"class-grade = %@",model2.gradeId_classId);
+-(void)selectRightAction:(UIButton*)sender{
+
+    
+    for (int i=0; i<self.arrlist.count; i++) {
+        WKJobGradeModel *model = self.arrlist[i];
+        for (int j=0; j<model.classMap.count; j++) {
+            if ([self.arrClass containsObject:@[[NSNumber numberWithInteger:j],[NSNumber numberWithInteger:i]]]) {
+                WKJObClassModel *model2= [WKJObClassModel mj_objectWithKeyValues: model.classMap[j]];
+                [self.arrbackgrade addObject:model2];
+                [self.arrbackClass addObject:model2.className];
+            }
+        }
+        }
+  
+//           for (int i = 0; i<self.arrlist.count; i++) {
+//            //        [self.arrGrade addObject:[NSNumber numberWithInteger:i]];
+//            WKJobGradeModel *model = self.arrlist[i];
+//            for (int j =0; j<model.classMap.count; j++) {
+//                NSIndexPath *index = [NSIndexPath indexPathForRow:j inSection:i];
+//                WKJobSelectClassTableViewCell *cell =[self.mytableView cellForRowAtIndexPath:index];
+//                if ( cell.selectedButton.selected) {
+//                    WKJObClassModel *model2= [WKJObClassModel mj_objectWithKeyValues: model.classMap[j]];
+//                    NSLog(@"class-grade = %@",model2.gradeId_classId);
+//                    [self.arrbackgrade addObject:model2];
+//                    NSString *sting = cell.classlabel.text ;
+//                    [self.arrbackClass addObject:sting];
+//                }
+//                
+//            }
+//            
 //        }
     
-           for (int i = 0; i<self.arrlist.count; i++) {
-            //        [self.arrGrade addObject:[NSNumber numberWithInteger:i]];
-            WKJobGradeModel *model = self.arrlist[i];
-            for (int j =0; j<model.classMap.count; j++) {
-                NSIndexPath *index = [NSIndexPath indexPathForRow:j inSection:i];
-                WKJobSelectClassTableViewCell *cell =[self.mytableView cellForRowAtIndexPath:index];
-                if ( cell.selectedButton.selected) {
-                    WKJObClassModel *model2= [WKJObClassModel mj_objectWithKeyValues: model.classMap[j]];
-                    NSLog(@"class-grade = %@",model2.gradeId_classId);
-                    [self.arrbackgrade addObject:model2];
-                    NSString *sting = cell.classlabel.text ;
-                    [self.arrbackClass addObject:sting];
-                }
-                
-            }
-            
-        }
     if (self.isShare) {
         NSString *gradeAndclass;
         for (int j=0; j<self.arrbackgrade.count; j++) {

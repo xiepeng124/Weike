@@ -289,6 +289,9 @@
     }
     
 }
+-(void)sendImagesource:(NSString *)sourceName{
+    
+}
 - (IBAction)KeepeditVideoAction:(id)sender {
     NSDictionary *dic ;
     NSNumber *couseId ;

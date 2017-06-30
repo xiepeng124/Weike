@@ -284,6 +284,7 @@
    //NSLog(@"...%@",responseObject);
         NSArray *arr = [WKJobModel mj_objectArrayWithKeyValuesArray:responseObject[@"taskList"]];
      
+        
             success(arr);
     } failure:^(NSError *error) {
         failed(error);
@@ -427,6 +428,105 @@
     }];
     
 }
++(void)executeGetBackstageUserTeacherWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_TEACHER parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageUserStudentWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_STUDENT parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageUserPasswordSetWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_PASSWORD_SET parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageUserRoleSetWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_ROLE_SET parameters:dic success:^(id responseObject) {
+        NSArray *arr = [WKRolesModel mj_objectArrayWithKeyValuesArray:responseObject[@"roleList"]];
+        success(arr);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageUserRoleUpWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:USER_ROLE_UP parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesTeachWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_TEA parameters:dic success:^(id responseObject) {
+        NSArray *arr = [WKTeacherData mj_objectArrayWithKeyValuesArray:responseObject[@"teaList"]];
+        success(arr);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesStuWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_STU parameters:dic success:^(id responseObject) {
+        NSArray *arr = [WKStudentData mj_objectArrayWithKeyValuesArray:responseObject[@"stuList"]];
+        success(arr);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesTeachDeleteWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_TEA_DELETE parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesStuDeleteWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_STU_DELETE parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesTeachDetailWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_TEA_DETAIL parameters:dic success:^(id responseObject) {
+         WKTeacherData *teacher = [WKTeacherData mj_objectWithKeyValues:responseObject[@"teacher"]];
+        teacher.className = [responseObject objectForKey:@"classNames"];
+        teacher.courseName = [responseObject objectForKey:@"courseNames"];
+        teacher.gradeName = [responseObject objectForKey:@"gradeNames"];
+        teacher.positionName = [responseObject objectForKey:@"positionNames"];
+        success(teacher);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
+
 
 
 @end

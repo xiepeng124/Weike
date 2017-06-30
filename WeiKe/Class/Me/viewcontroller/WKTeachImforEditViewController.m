@@ -11,6 +11,7 @@
 #import "WKCheackModel.h"
 #import "WKMeHandler.h"
 #import "WKUploadImage.h"
+#import "WKBackstage.h"
 @interface WKTeachImforEditViewController ()<UITextFieldDelegate,upImageDelegate>
 @property(nonatomic,strong)UITableView *mytableView;
 @property (nonatomic,strong) WKTeacherImformation *teachImf;
@@ -42,27 +43,74 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.teachImf.cardIdText];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.teachImf.emailText];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.teachImf.phoneNumText];
-    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(switchImageAction)];
-    self.teachImf.headImageView.userInteractionEnabled = YES;
-    [self.teachImf.headImageView addGestureRecognizer:ges];
-    [self.teachImf.keepButton addTarget:self action:@selector(keepMydataAction) forControlEvents:UIControlEventTouchUpInside ];
+        [self.teachImf.keepButton addTarget:self action:@selector(keepMydataAction) forControlEvents:UIControlEventTouchUpInside ];
     self.hud = [[MBProgressHUD alloc]init];
     self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     self.hud.label.font = [UIFont fontWithName:FONT_BOLD size:14];
     self.hud.mode = MBProgressHUDModeIndeterminate;
     self.hud.label.text = @"正在保存";
     [self.view addSubview:self.hud];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(selectRightAction:)];
-    rightButton.title = @"退出登录";
-    rightButton.tintColor = [WKColor colorWithHexString:DARK_COLOR];
-    [rightButton setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:FONT_REGULAR size:15]} forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    if (!_isDetail) {
+        UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(switchImageAction)];
+        self.teachImf.headImageView.userInteractionEnabled = YES;
+        [self.teachImf.headImageView addGestureRecognizer:ges];
 
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(selectRightAction:)];
+        rightButton.title = @"退出登录";
+        rightButton.tintColor = [WKColor colorWithHexString:DARK_COLOR];
+        [rightButton setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:FONT_REGULAR size:15]} forState:UIControlStateNormal];
+        self.navigationItem.rightBarButtonItem = rightButton;
+
+    }
+    if (_isDetail) {
+        self.teachImf.nametext.userInteractionEnabled = NO;
+        self.teachImf.cardIdText.userInteractionEnabled = NO;
+        self.teachImf.emailText.userInteractionEnabled = NO;
+        self.teachImf.phoneNumText.userInteractionEnabled = NO;
+        [self.teachImf.keepButton setHidden: YES];
+        self.teachImf.sexSegment.userInteractionEnabled = NO;
+        self.teachImf.cardIdText.placeholder = nil;
+        self.teachImf.emailText.placeholder = nil;
+    }
+   
 
 }
 -(void)initData{
+     __weak typeof(self) weakSelf = self;
+    if (_isDetail) {
+        NSDictionary *dic = @{@"schoolId":SCOOLID,@"id":[NSNumber numberWithInteger:self.myId]};
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [WKBackstage executeGetBackstageArchivesTeachDetailWithParameter:dic success:^(id object) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    WKTeacherData *model = object;
+                    weakSelf.teachImf.nametext.text = model.teacherName;
+                    weakSelf.teachImf.cardIdText.text = model.idCode;
+                    weakSelf.teachImf.phoneNumText.text = model.moblePhone;
+                    weakSelf.teachImf.emailText.text = model.email;
+                    [weakSelf.teachImf.headImageView sd_setImageWithURL:[NSURL URLWithString:model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
+                    if (model.gender ==1) {
+                        weakSelf.teachImf.sexSegment.selectedSegmentIndex = 0;
+                    }
+                    else{
+                        weakSelf.teachImf.sexSegment.selectedSegmentIndex = 1;
+                        
+                    }
+                    weakSelf.teachImf.teachGradeText.text = model.gradeName;
+                    weakSelf.teachImf.teachClassText.text = model.className;
+                    weakSelf.teachImf.jobText.text  =model.positionName;
+                    weakSelf.teachImf.subjectText.text  = model.courseName;
+                   
+                });
+
+            } failed:^(id object) {
+                
+            }];
+        });
+        
+    }
+    else{
     NSDictionary *dic  =@{@"token":TOKEN};
-    __weak typeof(self) weakSelf = self;
+   
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [WKMeHandler executeGetMyDataWithParameter:dic success:^(id object) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -89,6 +137,7 @@
             
         }];
     });
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

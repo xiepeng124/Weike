@@ -189,7 +189,8 @@
     }
 }
 -(void)textchangge{
-    if (!self.jobNameText.text.length||!self.duringText.text.length||!self.remark.text.length) {
+    NSLog(@"self.remark.text =%@",self.remark.text);
+    if (!self.jobNameText.text.length||!self.duringText.text.length||!self.remarkText.text.length||[self.remarkText.text isEqualToString:@"请输入备注(不超过200字)"]) {
         [self.keepButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
         [self.keepButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         self.keepButton.userInteractionEnabled = NO;

@@ -109,6 +109,7 @@
                    WKStuImforEditViewController  *stuImfor = [[WKStuImforEditViewController alloc]init];
                     stuImfor.hidesBottomBarWhenPushed = YES;
                    stuImfor.navigationItem.title = @"个人资料";
+                    stuImfor.isDetail = NO;
                     [self.navigationController pushViewController:stuImfor animated:YES];
                 }
                     break;
@@ -141,6 +142,7 @@
                     WKTeachImforEditViewController *teachimfor = [[WKTeachImforEditViewController alloc]init];
                    teachimfor.hidesBottomBarWhenPushed = YES;
                    teachimfor.navigationItem.title = @"个人资料";
+                    teachimfor.isDetail = NO;
                     [self.navigationController pushViewController:teachimfor animated:YES];
                     break;
                 }

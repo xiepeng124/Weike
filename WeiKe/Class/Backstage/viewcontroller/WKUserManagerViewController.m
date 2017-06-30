@@ -10,6 +10,7 @@
 #import "WKHeadview.h"
 #import "WKBackstage.h"
 #import "WKUserManagerTableViewCell.h"
+#import "WKEditUserTableViewController.h"
 @interface WKUserManagerViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (strong,nonatomic) WKHeadview *myHeadView;
 @property (strong,nonatomic)UIButton *teachButton;
@@ -86,6 +87,7 @@
     [self.teachButton addTarget:self action:@selector(searchTeacherUserAction) forControlEvents:UIControlEventTouchUpInside];
       [self.stuButton addTarget:self action:@selector(searchStudentUserAction) forControlEvents:UIControlEventTouchUpInside];
        [self.stopButton addTarget:self action:@selector(searchForbidUserAction) forControlEvents:UIControlEventTouchUpInside];
+      [self.myHeadView.backButton addTarget:self action:@selector(backUserManagerAction) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)initTableView{
     self.mytableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 108, SCREEN_WIDTH-20, SCREEN_HEIGHT-108) style:UITableViewStylePlain];
@@ -94,6 +96,9 @@
     self.mytableView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
     _mytableView.delegate =self;
     _mytableView.dataSource = self;
+    _mytableView.mj_header=[MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadfresh)];
+    _mytableView.mj_header.automaticallyChangeAlpha=YES;
+
     _mytableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadmore)];
     _mytableView.mj_footer.automaticallyChangeAlpha=YES;
 
@@ -210,6 +215,9 @@
     return 0;
 }
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView*)view;
     header.contentView.backgroundColor = [WKColor colorWithHexString:LIGHT_COLOR];
@@ -223,12 +231,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10;
 }
+#pragma mark - UITextFieldDelegate
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     [self initData];
     return YES;
 }
 #pragma mark - Action
+// 返回上一级
+-(void)backUserManagerAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 //教师列表
 -(void)searchTeacherUserAction{
      self.myHeadView.rightImage.image = [UIImage imageNamed:@"forbid"];
@@ -242,6 +255,7 @@
         self.stuButton.selected = NO;
         self.stopButton.selected = NO;
         [self initData];
+        self.AllselectButton.selected = NO;
     }
     
 }
@@ -257,6 +271,7 @@
         self.teachButton.selected = NO;
         self.stopButton.selected = NO;
         [self initData];
+         self.AllselectButton.selected = NO;
     }
 }
 //禁用列表
@@ -271,19 +286,55 @@
         self.teachButton.selected = NO;
         self.stuButton.selected = NO;
         [self initData];
+         self.AllselectButton.selected = NO;
     }
 }
 //全部选择
 -(void)allSeletedUserAction{
     self.AllselectButton.selected = !self.AllselectButton.selected;
+    if (self.AllselectButton.selected) {
+        for (int i=0; i<self.arrList.count; i++) {
+            NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:i];
+            WKUserManagerTableViewCell *cell = (WKUserManagerTableViewCell*)[self.mytableView cellForRowAtIndexPath:index];
+            cell.selectedButton.selected = YES;
+            if (! [self.arrNumber containsObject:[NSNumber numberWithInt:i]]) {
+                [self.arrNumber addObject:[NSNumber numberWithInt:i]];
+            }
+        }
+    }
+    else{
+        for (int i=0; i<self.arrList.count; i++) {
+            NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:i];
+            WKUserManagerTableViewCell *cell = (WKUserManagerTableViewCell*)[self.mytableView cellForRowAtIndexPath:index];
+            cell.selectedButton.selected = NO;
+            
+        }
+        [self.arrNumber removeAllObjects];
+    }
 }
 //禁用
 -(void)forbidUserAction:(UIButton*)sender{
-    WKUserListModel *model = self.arrList[sender.tag];
+    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定禁用此用户" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self forbidUser:sender.tag];
+    }];
+    [alertcontrller addAction:cancel];
+    [alertcontrller addAction:sure];
+    [self presentViewController:alertcontrller animated:YES completion:^{
+        
+    }];
+
+  }
+-(void)forbidUser:(NSInteger)tag{
+    WKUserListModel *model = self.arrList[tag];
     NSDictionary *dic = @{@"ids":[NSNumber numberWithInteger: model.id]};
     __weak typeof(self) weakself =self;
-      self.hud.label.text =@"正在禁用";
-             [self.hud showAnimated:YES];
+    self.hud.label.text =@"正在禁用";
+    [self.hud showAnimated:YES];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [WKBackstage executeGetBackstageUserForbidWithParameter:dic success:^(id object) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -291,18 +342,36 @@
                     [weakself initData];
                 }
                 weakself.hud.label.text = [object objectForKey:@"msg"];
-       
-             [weakself.hud hideAnimated:YES afterDelay:1];
+                
+                [weakself.hud hideAnimated:YES afterDelay:1];
             });
         } failed:^(id object) {
             
         }];
         //[WKBackstage executeGetBackstage]
     });
+
 }
 //启用
 -(void)startUserAction:(UIButton*)sender{
-    WKUserListModel *model = self.arrList[sender.tag];
+    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定启用此用户" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self startUser:sender.tag];
+    }];
+    [alertcontrller addAction:cancel];
+    [alertcontrller addAction:sure];
+    [self presentViewController:alertcontrller animated:YES completion:^{
+        
+    }];
+ 
+
+}
+-(void)startUser:(NSInteger)tag{
+    WKUserListModel *model = self.arrList[tag];
     NSDictionary *dic = @{@"ids":[NSNumber numberWithInteger: model.id]};
     __weak typeof(self) weakself =self;
     self.hud.label.text =@"正在启用";
@@ -323,8 +392,8 @@
         //[WKBackstage executeGetBackstage]
     });
 
-
 }
+//批量禁用和启用
 -(void)moreUserAction{
     if (self.arrNumber.count<2) {
         self.hud.label.text = @"请选中两个及以上用户";
@@ -343,52 +412,93 @@
         }
     }
     NSDictionary *dic = @{@"ids":cellid};
-    __weak typeof(self) weakself =self;
+   
 
     if (self.queryType == 3) {
-        self.hud.label.text =@"正在批量启用";
-        [self.hud showAnimated:YES];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [WKBackstage executeGetBackstageUserStartWithParameter:dic success:^(id object) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if ([[object objectForKey:@"flag"]integerValue]) {
-                        [weakself initData];
-                    }
-                    weakself.hud.label.text = [object objectForKey:@"msg"];
-                    
-                    [weakself.hud hideAnimated:YES afterDelay:1];
-                });
-            } failed:^(id object) {
-                
-            }];
-          
-        });
+        UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定批量启用" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self moreFobidUser:dic];
+        }];
+        [alertcontrller addAction:cancel];
+        [alertcontrller addAction:sure];
+        [self presentViewController:alertcontrller animated:YES completion:^{
+            
+        }];
 
+       
     }
     else{
-        self.hud.label.text =@"正在批量禁用";
-        [self.hud showAnimated:YES];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [WKBackstage executeGetBackstageUserForbidWithParameter:dic success:^(id object) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if ([[object objectForKey:@"flag"]integerValue]) {
-                        [weakself initData];
-                    }
-                    weakself.hud.label.text = [object objectForKey:@"msg"];
-                    
-                    [weakself.hud hideAnimated:YES afterDelay:1];
-                });
-            } failed:^(id object) {
-                
-            }];
+        UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定批量禁用" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
-        });
+        }];
+        UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self moreFobidUser:dic];
+        }];
+        [alertcontrller addAction:cancel];
+        [alertcontrller addAction:sure];
+        [self presentViewController:alertcontrller animated:YES completion:^{
+            
+        }];
 
     }
 }
--(void)editUserAction:(UIButton*)sender{
-    
+-(void)moreFobidUser:(NSDictionary *)dic{
+    self.hud.label.text =@"正在批量启用";
+    [self.hud showAnimated:YES];
+          __weak typeof(self) weakself =self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKBackstage executeGetBackstageUserStartWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([[object objectForKey:@"flag"]integerValue]) {
+                    [weakself initData];
+                }
+                weakself.hud.label.text = [object objectForKey:@"msg"];
+                
+                [weakself.hud hideAnimated:YES afterDelay:1];
+            });
+        } failed:^(id object) {
+            
+        }];
+        
+    });
+
 }
+-(void)moreStartUser:(NSDictionary*)dic{
+    
+    self.hud.label.text =@"正在批量禁用";
+    [self.hud showAnimated:YES];
+    __weak typeof(self) weakself =self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKBackstage executeGetBackstageUserForbidWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([[object objectForKey:@"flag"]integerValue]) {
+                    [weakself initData];
+                }
+                weakself.hud.label.text = [object objectForKey:@"msg"];
+                
+                [weakself.hud hideAnimated:YES afterDelay:1];
+            });
+        } failed:^(id object) {
+            
+        }];
+        
+    });
+
+}
+//编辑用户
+-(void)editUserAction:(UIButton*)sender{
+    WKEditUserTableViewController *edit = [[WKEditUserTableViewController alloc]init];
+    edit.model = self.arrList[sender.tag];
+    edit.queryType = self.queryType;
+    [self.navigationController pushViewController:edit animated:YES];
+}
+//选择用户
 -(void)selectedUserAction:(UIButton*)sender{
     sender.selected = !sender.selected;
     if (sender.selected) {
@@ -397,6 +507,30 @@
     else{
         [self.arrNumber removeObject:[NSNumber numberWithInteger:sender.tag]];
     }
+}
+#pragma mark - 加载更多
+-(void)loadfresh{
+    self.page = 1;
+    NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID,@"searchMsg":self.search.text,@"queryType":[NSNumber numberWithInteger:self.queryType]};
+    __weak typeof(self) weakself= self;
+    [self.arrList removeAllObjects];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [WKBackstage executeGetBackstageUserListWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (WKUserListModel *model in object) {
+                    [weakself.arrList addObject:model];
+                    
+                }
+                [weakself.arrNumber removeAllObjects];
+                [weakself.mytableView reloadData];
+                [weakself.mytableView.mj_header endRefreshing];
+                
+            });
+        } failed:^(id object) {
+            
+        }];
+    });
+
 }
 -(void)loadmore{
     self.page +=1;

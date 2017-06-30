@@ -313,10 +313,10 @@
             }
             // NSLog(@"object1 =%@",object);
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (weakself.advertiselist.count) {
+         
                     [weakself.collectionview reloadData];
                     
-                }
+            
             });
 
         } failed:^(id object) {
@@ -336,10 +336,10 @@
             //  NSLog(@"object2 =%@",object);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //NSLog(@"new=%lu",self.NewVideo.count);
-                if (weakself.NewVideo.count) {
+           
                     [weakself.collectionview reloadData];
                     
-                }
+            
             });
 
         } failed:^(id object) {
@@ -362,10 +362,10 @@
             //NSLog(@"object2 =%@",object);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //NSLog(@"new=%lu",self.NewVideo.count);
-                if (weakself.HotVideo.count) {
+             
                     [weakself.collectionview reloadData];
                     
-                }
+          
             });
 
         } failed:^(id object) {

@@ -14,7 +14,7 @@
 #import "WKJobScoreViewController.h"
 #import "WKOpenTeachTaskViewController.h"
 #import "WKMeHandler.h"
-@interface WKJobManagerViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface WKJobManagerViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (strong,nonatomic) WKRoleView *roleHeadView;
 @property (strong,nonatomic) UITableView *jobTableView;
 @property (strong,nonatomic) MBProgressHUD *hud;
@@ -117,6 +117,7 @@
         [self initTableView];
     self.navigationItem.hidesBackButton  = YES;
     self.search.placeholder = @"搜索相关作业";
+    self.search.delegate =self;
     [self.view setBackgroundColor:[WKColor colorWithHexString:LIGHT_COLOR]];
     self.isMore = NO;
     self.page = 1;
@@ -172,7 +173,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if (self.arrlist.count==0) {
-        return 1;
+        return 0;
     }
    
     return self.arrlist.count;
@@ -238,8 +239,15 @@
     [self.jobTableView reloadData];
 }
 -(void)editJobAction:(UIButton*)button{
+    WKJobModel *model = self.arrlist[button.tag];
+    if (model.haveStuDelivery) {
+        self.hud.label.text = @"已有学生交作业，不可编辑";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+    }
     WKJobEditViewController *edit = [[WKJobEditViewController alloc]init];
-    edit.jobModel = self.arrlist[button.tag];
+    edit.jobModel = model;
     edit.isAdd = NO;
     [self.navigationController pushViewController:edit animated:YES];
 }
@@ -371,6 +379,11 @@
         }];
     });
 
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    [self initData];
+    return YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -18,4 +18,5 @@
 @property (nonatomic, strong) NSString * roleName;
 @property (nonatomic, strong) NSString * updateTime;
 @property (nonatomic, assign) NSInteger updaterId;
+@property (nonatomic, assign) NSInteger isSelect;
 @end

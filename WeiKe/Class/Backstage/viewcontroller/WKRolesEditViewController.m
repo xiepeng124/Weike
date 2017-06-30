@@ -87,7 +87,7 @@
     // Do any additional setup after loading the view.
 }
 -(void)textchangge:(NSNotification*)notifi{
-    if (!self.PositionLabel.text.length||!self.authorTextLabel.text.length||!self.remarkTextView.text.length) {
+    if (!self.PositionLabel.text.length||!self.authorTextLabel.text.length||!self.remarkTextView.text.length||[self.remarkTextView.text isEqualToString:@"请输入备注(不超过两百字)"]) {
         [self.keepButton setBackgroundColor:[WKColor colorWithHexString:@"e5e5e5"]];
         [self.keepButton setTitleColor:[WKColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         self.keepButton.userInteractionEnabled = NO;

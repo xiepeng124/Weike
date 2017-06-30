@@ -161,63 +161,84 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     WKVideoTableViewCell *cell = [[WKVideoTableViewCell alloc]init];
     cell = [[[NSBundle mainBundle]loadNibNamed:@"WKVideoTableViewCell" owner:nil options:nil]lastObject];
-    WKVideoModel *model = self.videolist[indexPath.section];
-    cell.titleLabel.text = model.title;
-    [cell.adButton setHidden: YES];
-    cell.delegate = self;
-    cell.selectedButton.tag = indexPath.section;
-    cell.promuButton.tag = indexPath.section;
-   [ cell.promuButton setTitle:@"审核" forState: UIControlStateNormal ];
-    for (int i= 0; i<self.arrnumber.count; i++) {
-        if ([self.arrnumber[i]integerValue]==indexPath.section) {
-            cell.selectedButton.selected = YES;
+    if (self.videolist.count) {
+        WKVideoModel *model = self.videolist[indexPath.section];
+        cell.titleLabel.text = model.title;
+        [cell.adButton setHidden: YES];
+        cell.delegate = self;
+        cell.selectedButton.tag = indexPath.section;
+        cell.promuButton.tag = indexPath.section;
+        [ cell.promuButton setTitle:@"审核" forState: UIControlStateNormal ];
+        for (int i= 0; i<self.arrnumber.count; i++) {
+            if ([self.arrnumber[i]integerValue]==indexPath.section) {
+                cell.selectedButton.selected = YES;
+            }
         }
-    }
-    if (model.videoImage) {
-        [ cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority ];
-    }
-    else{
-        [ cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImgUrl] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority ];
-    }
-    
-    
-    cell.promulgator.text = [NSString stringWithFormat:@"发布者：%@",model.teacherName];
-    [cell.promuButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-10);
-        make.bottom.mas_equalTo(-10);
-        make.size.mas_equalTo(CGSizeMake([WKVideoTableViewCell widthForLabel:cell.promuButton.currentTitle ]+20, 25));
-    }];
-    if (self.isApproal ) {
-        [cell.promuButton setHidden:YES];
-    }
-    else{
-        [cell.promuButton setHidden:NO];
-    }
-    [cell.promuButton addTarget:self action:@selector(goingApprovalAction:) forControlEvents:UIControlEventTouchUpInside];
-    switch (model.approvalStatus.intValue) {
-        case 1:
-            cell.stateLabel.text = @"待审核";
-            break;
-        case 2:
-            cell.stateLabel.text = @"已发布";
-            break;
-        case 3:
-            cell.stateLabel.text = @"审核不通过";
-            break;
-        case 4:
-            cell.stateLabel.text = @"待发布";
-            break;
+        if (model.videoImage) {
+            [ cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImage] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority ];
+        }
+        else{
+            [ cell.videoImage sd_setImageWithURL:[NSURL URLWithString:model.videoImgUrl] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority ];
+        }
+        NSString *onestring;
+        NSString *twostring;
+        if (model.gradeName.length>2) {
+            onestring = [model.gradeName substringToIndex:2];
+        }
+        else{
+            onestring = model.gradeName;
+        }
+        if (!model.courseName.length) {
+            twostring = @"全体";
+        }
+        else if (model.courseName.length>2){
+            twostring = [model.courseName substringToIndex:2];
+        }
+        else{
+            twostring = model.courseName;
+        }
+        cell.subject.text = [NSString stringWithFormat:@"%@·%@",onestring,twostring];
+        cell.promulgator.text = [NSString stringWithFormat:@"发布者：%@",model.teacherName];
+        [cell.promuButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(-10);
+            make.bottom.mas_equalTo(-10);
+            make.size.mas_equalTo(CGSizeMake([WKVideoTableViewCell widthForLabel:cell.promuButton.currentTitle ]+20, 25));
+        }];
+        if (self.isApproal ) {
+            [cell.promuButton setHidden:YES];
+        }
+        else{
+            [cell.promuButton setHidden:NO];
+        }
+        [cell.promuButton addTarget:self action:@selector(goingApprovalAction:) forControlEvents:UIControlEventTouchUpInside];
+        switch (model.approvalStatus.intValue) {
+            case 1:
+                cell.stateLabel.text = @"待审核";
+                break;
+            case 2:
+                cell.stateLabel.text = @"已发布";
+                break;
+            case 3:
+                cell.stateLabel.text = @"审核不通过";
+                break;
+            case 4:
+                cell.stateLabel.text = @"待发布";
+                break;
+                
+            default:
+                break;
+        }
+        return cell;
 
-        default:
-            break;
     }
     return cell;
-
+    
 }
 
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
      return self.videolist.count;
     
 }

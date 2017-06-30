@@ -54,15 +54,52 @@
     self.hud.mode = MBProgressHUDModeIndeterminate;
     self.hud.label.text = @"正在保存";
     [self.view addSubview:self.hud];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(selectRightAction:)];
-    rightButton.title = @"退出登录";
-    rightButton.tintColor = [WKColor colorWithHexString:DARK_COLOR];
-    [rightButton setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:FONT_REGULAR size:15]} forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = rightButton;
-
+    if (!_isDetail) {
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(selectRightAction:)];
+        rightButton.title = @"退出登录";
+        rightButton.tintColor = [WKColor colorWithHexString:DARK_COLOR];
+        [rightButton setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:FONT_REGULAR size:15]} forState:UIControlStateNormal];
+        self.navigationItem.rightBarButtonItem = rightButton;
+        UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(switchImageAction)];
+        self.stuImf.headImageView.userInteractionEnabled = YES;
+        [self.stuImf.headImageView addGestureRecognizer:ges];
+    
+    }
+    if (_isDetail) {
+        self.stuImf.nametext.userInteractionEnabled = NO;
+        self.stuImf.cardIdText.userInteractionEnabled = NO;
+        self.stuImf.phoneNumText.userInteractionEnabled = NO;
+        self.stuImf.emailText.userInteractionEnabled = NO;
+        self.stuImf.sexSegment.userInteractionEnabled = NO;
+        [self.stuImf.keepButton setHidden: YES];
+        self.stuImf.phoneNumText.placeholder = nil;
+        self.stuImf.emailText.placeholder = nil;
+    }
+    
     
 }
 -(void)initData{
+    if (_isDetail) {
+      
+        self.stuImf.nametext.text = _model.studentName;
+     self.stuImf.cardIdText.text = _model.idCode;
+        self.stuImf.phoneNumText.text = _model.moblePhone;
+        self.stuImf.emailText.text = _model.email;
+        [self.stuImf.headImageView sd_setImageWithURL:[NSURL URLWithString:_model.imgFileUrl] placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageLowPriority|SDWebImageRetryFailed];
+        if (_model.gender == 1) {
+            self.stuImf.sexSegment.selectedSegmentIndex = 0;
+        }
+        else{
+            self.stuImf.sexSegment.selectedSegmentIndex = 1;
+            
+        }
+        self.stuImf.StuGradeText.text = _model.gradeName;
+        self.stuImf.stuClassText.text = _model.className;
+        self.stuImf.stuNumberText.text  =_model.studyNo;
+        self.stuImf.schoolRollText.text  = _model.schoolNo;
+
+    }
+    else{
     NSDictionary *dic  =@{@"token":TOKEN};
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
@@ -91,6 +128,7 @@
             
         }];
     });
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

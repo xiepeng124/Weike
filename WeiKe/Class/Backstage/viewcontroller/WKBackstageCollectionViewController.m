@@ -16,6 +16,7 @@
 #import "WKJobManagerViewController.h"
 #import "WKVideoStatisticsViewController.h"
 #import "WKUserManagerViewController.h"
+#import "WKArchivesManagerViewController.h"
 @interface WKBackstageCollectionViewController ()
 @property (strong,nonatomic) WKBackmenu *menulist;
 @end
@@ -92,6 +93,10 @@ static NSString * const reuseIdentifier = @"Cell";
     if (indexPath.row == 1) {
         WKRolesViewController *roles = [[WKRolesViewController alloc]init];
         [self.navigationController pushViewController:roles animated:YES];
+    }
+    if (indexPath.row == 5) {
+        WKArchivesManagerViewController *archives = [[WKArchivesManagerViewController alloc]init];
+        [self.navigationController pushViewController:archives animated:YES];
     }
     if (indexPath.row ==6) {
         WKVideoManagerViewController *videomanager = [[WKVideoManagerViewController alloc]init];

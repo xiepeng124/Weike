@@ -29,7 +29,6 @@
                             <rect key="frame" x="0.0" y="25" width="40" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="10" id="B7w-7M-Z0D"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="u1j-6u-EIS"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <nil key="textColor"/>
@@ -39,14 +38,13 @@
                             <rect key="frame" x="13" y="6" width="14" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="14" id="ssF-u3-hwg"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="zvm-FH-iEO"/>
                             </constraints>
                         </imageView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="0bi-B6-4kb"/>
                         <constraint firstAttribute="bottom" secondItem="iHa-1I-SWm" secondAttribute="bottom" constant="5" id="9tZ-gT-O18"/>
-                        <constraint firstItem="fjr-lZ-ckS" firstAttribute="top" secondItem="qyf-UU-SgB" secondAttribute="top" constant="6" id="Cp1-6N-xO0"/>
+                        <constraint firstItem="fjr-lZ-ckS" firstAttribute="top" secondItem="qyf-UU-SgB" secondAttribute="top" constant="5.5" id="Cp1-6N-xO0"/>
                         <constraint firstItem="iHa-1I-SWm" firstAttribute="top" secondItem="fjr-lZ-ckS" secondAttribute="bottom" constant="3" id="FdN-hH-WId"/>
                         <constraint firstItem="fjr-lZ-ckS" firstAttribute="leading" secondItem="qyf-UU-SgB" secondAttribute="leading" constant="13" id="P2q-mF-2SO"/>
                         <constraint firstAttribute="trailing" secondItem="iHa-1I-SWm" secondAttribute="trailing" id="pXw-XZ-LOy"/>

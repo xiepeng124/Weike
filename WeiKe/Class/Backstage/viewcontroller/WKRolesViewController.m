@@ -202,39 +202,56 @@
 }
 #pragma mark - Rolestableviewdelegate
 -(void)ChangeRoles:(UIButton *)button{
-   //NSLog(@"t...%lu",button.tag) ;
-    WKRolesModel *role = self.arrcontent[button.tag];
-    [self.hud showAnimated:YES];
-    NSLog(@"role.id =%lu",role.id);
-    __weak typeof(self) weakself = self;
-   
-        NSDictionary *dic = @{@"id":[NSNumber numberWithInteger:role.id]};
+    UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定删除此角色" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [WKBackstage executeGetBackstageDeleteWithParameter:dic success:^(id object) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    weakself.hud.label.text = @"删除成功";
-                    weakself.hud.label.textColor = [WKColor colorWithHexString:GREEN_COLOR];
-                    //[weakself.hud hideAnimated:YES afterDelay:1];
-                    [weakself.arrcontent removeObjectAtIndex:button.tag];
-                    [weakself.rolestableView reloadData];
+    }];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self deleterole:button.tag];
+    }];
+    [alertcontrller addAction:cancel];
+    [alertcontrller addAction:sure];
+    [self presentViewController:alertcontrller animated:YES completion:^{
+        
+    }];
 
-                    });
-                
-            } failed:^(id object) {
-                NSLog(@"err= %@",object);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    weakself.hud.label.text = @"删除失败";
-                    weakself.hud.label.textColor = [UIColor redColor];
-                });
-                
-            }];
-        });
-        [self.hud hideAnimated:YES afterDelay:1];
+   //NSLog(@"t...%lu",button.tag) ;
     
 
  
     }
+-(void)deleterole:(NSInteger)tag{
+    WKRolesModel *role = self.arrcontent[tag];
+    [self.hud showAnimated:YES];
+    NSLog(@"role.id =%lu",role.id);
+    __weak typeof(self) weakself = self;
+    
+    NSDictionary *dic = @{@"id":[NSNumber numberWithInteger:role.id]};
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [WKBackstage executeGetBackstageDeleteWithParameter:dic success:^(id object) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakself.hud.label.text = @"删除成功";
+                weakself.hud.label.textColor = [WKColor colorWithHexString:GREEN_COLOR];
+                //[weakself.hud hideAnimated:YES afterDelay:1];
+                [weakself.arrcontent removeObjectAtIndex:tag];
+                [weakself.rolestableView reloadData];
+                
+            });
+            
+        } failed:^(id object) {
+            NSLog(@"err= %@",object);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakself.hud.label.text = @"删除失败";
+                weakself.hud.label.textColor = [UIColor redColor];
+            });
+            
+        }];
+    });
+    [self.hud hideAnimated:YES afterDelay:1];
+
+}
 -(void)ChangeRolesImformation:(UIButton *)button{
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     WKRolesEditViewController *edit = [main instantiateViewControllerWithIdentifier:@"RolesEditView"];
@@ -276,6 +293,12 @@
   }
 
 -(void)deleteTapGesture:(UITapGestureRecognizer *)tap{
+    if (self.arrnumber.count<2) {
+        self.hud.label.text = @"请选择两个及以上角色";
+        [self.hud showAnimated:YES];
+        [self.hud hideAnimated:YES afterDelay:1];
+        return;
+    }
     UIAlertController *alertcontrller = [UIAlertController alertControllerWithTitle:@"你确定批量删除角色" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

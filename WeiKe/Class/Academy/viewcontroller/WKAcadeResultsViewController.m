@@ -89,12 +89,12 @@
         cell.outLinkButton.hidden = YES;
     }
     if (viedos.videoImage.length==0) {
-        [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:SERVER_IP@"%@",viedos.videoImgUrl]]placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+        [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:viedos.videoImgUrl]placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
         
     }
     else{
         //NSLog(@"me=%@",[NSString stringWithFormat:SERVER_IP@"%@",new.videoImage]);
-        [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:SERVER_IP@"%@",viedos.videoImage]]placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
+        [cell.CeImage sd_setImageWithURL:[NSURL URLWithString:viedos.videoImage]placeholderImage:[UIImage imageNamed:@"water"] options:SDWebImageRetryFailed|SDWebImageLowPriority];
     }
     cell.Title.text = viedos.title;
     cell.TeacherName.text = viedos.teacherName;

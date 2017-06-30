@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *selectedButton;
 @property (weak, nonatomic) IBOutlet UILabel *classlabel;
 @property (weak, nonatomic) IBOutlet UIView *backView;
-
+@property (assign ,nonatomic) NSInteger cellSection;
 @end

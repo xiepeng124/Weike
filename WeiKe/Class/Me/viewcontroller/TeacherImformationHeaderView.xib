@@ -344,7 +344,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5M1-xz-rWs">
-                            <rect key="frame" x="123" y="73.5" width="272" height="36"/>
+                            <rect key="frame" x="122" y="73.5" width="273" height="36"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -394,7 +394,7 @@
                         <constraint firstItem="JYp-ao-pgI" firstAttribute="top" secondItem="diA-CA-hgZ" secondAttribute="bottom" id="hBS-Qj-q5V"/>
                         <constraint firstAttribute="trailing" secondItem="VLC-Uv-6Xf" secondAttribute="trailing" constant="10" id="nTQ-uC-tkM"/>
                         <constraint firstItem="2Gn-Hd-nMw" firstAttribute="top" secondItem="JYp-ao-pgI" secondAttribute="bottom" id="rN0-2l-oAR"/>
-                        <constraint firstItem="5M1-xz-rWs" firstAttribute="leading" secondItem="JYp-ao-pgI" secondAttribute="trailing" constant="12" id="tbL-eF-Rff"/>
+                        <constraint firstItem="5M1-xz-rWs" firstAttribute="leading" secondItem="JYp-ao-pgI" secondAttribute="trailing" constant="11" id="tbL-eF-Rff"/>
                         <constraint firstItem="nB0-gI-Fao" firstAttribute="top" secondItem="5hT-2A-Idj" secondAttribute="bottom" id="u2v-x4-VGi"/>
                         <constraint firstItem="diA-CA-hgZ" firstAttribute="leading" secondItem="vDW-bE-pN5" secondAttribute="leading" id="ygW-he-Mqy"/>
                     </constraints>

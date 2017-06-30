@@ -9,5 +9,6 @@
 #import "WKBaseViewController.h"
 
 @interface WKTeachImforEditViewController : WKBaseViewController
-
+@property (assign,nonatomic) NSInteger myId;
+@property (assign,nonatomic) BOOL isDetail;
 @end

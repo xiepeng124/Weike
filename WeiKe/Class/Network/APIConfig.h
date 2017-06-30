@@ -176,13 +176,38 @@
 //老师作业查看
 #define JOB_TEACH_WATCH [SERVER_IP stringByAppendingString:@"/app/task/taskInfo/showTask"]
 
-//用户管理
+   //用户管理
 //用户数据列表
 #define USER_LIST [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/query"]
 //用户禁用
 #define USER_FORBID [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/disable"]
 //用户启用
 #define USER_START [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/able"]
+//教师信息编辑
+#define USER_TEACHER [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/teaEdit"]
+//学生信息编辑
+#define USER_STUDENT [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/stuEdit"]
+//密码修改
+#define USER_PASSWORD_SET [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/passwdEdit"]
+//用户角色绑定
+#define USER_ROLE_SET [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/roleQuery"]
+//角色提交
+#define USER_ROLE_UP [SERVER_IP stringByAppendingString:@"/app/sys/user/userManage/bindRoleUser"]
+
+///档案管理
+//教师档案查询
+#define ARCHIVES_TEA [SERVER_IP stringByAppendingString:@"/app/sys/teacher/query"]
+//教师档案删除
+#define ARCHIVES_TEA_DELETE [SERVER_IP stringByAppendingString:@"/app/sys/teacher/deletes"]
+//教师档案详情
+#define ARCHIVES_TEA_DETAIL [SERVER_IP stringByAppendingString:@"/app/sys/teacher/detail"]
+//学生档案查询
+#define ARCHIVES_STU [SERVER_IP stringByAppendingString:@"/app/sys/student/query"]
+//学生档案删除
+#define ARCHIVES_STU_DELETE [SERVER_IP stringByAppendingString:@"/app/sys/student/deletes"]
+
+
+
 
 
               /*个人中心 */
