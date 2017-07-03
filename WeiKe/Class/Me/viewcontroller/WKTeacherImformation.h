@@ -45,5 +45,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *keepButton;
 @property (weak, nonatomic) IBOutlet UIView *oneView;
 @property (weak, nonatomic) IBOutlet UIView *twoView;
+@property (weak, nonatomic) IBOutlet UIButton *gradeButton;
+@property (weak, nonatomic) IBOutlet UIButton *classButton;
+@property (weak, nonatomic) IBOutlet UIButton *jobButton;
+@property (weak, nonatomic) IBOutlet UIButton *subjectbutton;
 
 @end

@@ -341,16 +341,9 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
 
-//    if (touch.view.frame.size.height<20||touch.view.frame.size.height>50) {
-//        return NO;
-//    }
-//    return YES;
     if (touch.view != self.collectionview || touch.view !=self.TeacherScreen.view) {
         return NO;
     }
-//    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UIView"]) {
-//        return YES;
-//    }
         return YES;
 }
 - (void)didReceiveMemoryWarning {

@@ -12,6 +12,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.myselected setImage:[UIImage imageNamed:@"role_off"] forState:UIControlStateNormal];
+    [self.myselected setImage:[UIImage imageNamed:@"role_on"] forState:UIControlStateSelected];
+    self.myselected.userInteractionEnabled = NO;
+    
+    self.mylabel.textColor = [WKColor colorWithHexString:@"333333"];
     // Initialization code
 }
 

@@ -21,6 +21,8 @@
 #import "WKUserListModel.h"
 #import "WKTeacherData.h"
 #import "WKStudentData.h"
+#import "WKTeaArchivesData.h"
+#import "WKStuArchivesData.h"
 @interface WKBackstage : WKHttpbase
 +(void)executeGetBackstageAllorSearchWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageAddWithParameter:(NSDictionary*)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
@@ -81,4 +83,10 @@
 +(void)executeGetBackstageArchivesTeachDeleteWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
 +(void)executeGetBackstageArchivesStuDeleteWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageArchivesTeachDetailWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
++(void)executeGetBackstageArchivesTeachListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
++(void)executeGetBackstageArchivesTeachAddWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageArchivesTeachEditListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
++(void)executeGetBackstageArchivesTeachEditWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageArchivesStuAddListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
+
 @end

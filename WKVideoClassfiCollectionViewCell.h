@@ -10,6 +10,7 @@
 
 @interface WKVideoClassfiCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mylabel;
-@property (weak, nonatomic) IBOutlet UIImageView *myselected;
+//@property (weak, nonatomic) IBOutlet UIImageView *myselected;
+@property (weak, nonatomic) IBOutlet UIButton *myselected;
 
 @end

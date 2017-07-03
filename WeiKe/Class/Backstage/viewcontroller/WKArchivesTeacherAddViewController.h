@@ -7,7 +7,8 @@
 //
 
 #import "WKBaseViewController.h"
-
+#import "WKBackstage.h"
 @interface WKArchivesTeacherAddViewController : WKBaseViewController
-
+@property (nonatomic,assign) BOOL isAdd;
+@property (nonatomic,strong) WKTeacherData *model;
 @end

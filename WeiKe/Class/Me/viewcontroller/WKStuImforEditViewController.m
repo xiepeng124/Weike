@@ -44,9 +44,9 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.stuImf.cardIdText];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.stuImf.emailText];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textchangge:) name:UITextFieldTextDidChangeNotification object:self.stuImf.phoneNumText];
-    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(switchImageAction)];
-    self.stuImf.headImageView.userInteractionEnabled = YES;
-    [self.stuImf.headImageView addGestureRecognizer:ges];
+//    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(switchImageAction)];
+//    self.stuImf.headImageView.userInteractionEnabled = YES;
+//    [self.stuImf.headImageView addGestureRecognizer:ges];
     [self.stuImf.keepButton addTarget:self action:@selector(keepMydataAction) forControlEvents:UIControlEventTouchUpInside ];
     self.hud = [[MBProgressHUD alloc]init];
     self.hud.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
@@ -75,7 +75,11 @@
         self.stuImf.phoneNumText.placeholder = nil;
         self.stuImf.emailText.placeholder = nil;
     }
-    
+    [self.stuImf.keepButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
+    self.stuImf.keepButton.backgroundColor = [WKColor colorWithHexString:GREEN_COLOR];
+    [self.stuImf.gradeButton setHidden:YES];
+    [self.stuImf.classButton setHidden:YES];
+
     
 }
 -(void)initData{

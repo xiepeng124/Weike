@@ -72,7 +72,10 @@
         self.teachImf.cardIdText.placeholder = nil;
         self.teachImf.emailText.placeholder = nil;
     }
-   
+    [self.teachImf.gradeButton setHidden:YES];
+    [self.teachImf.classButton setHidden:YES];
+    [self.teachImf.jobButton setHidden:YES];
+    [self.teachImf.subjectbutton setHidden:YES];
 
 }
 -(void)initData{

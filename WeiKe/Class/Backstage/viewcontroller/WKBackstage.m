@@ -526,6 +526,63 @@
     }];
     
 }
++(void)executeGetBackstageArchivesTeachListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_TEA_LIST parameters:dic success:^(id responseObject) {
+        WKTeaArchivesData *model = [WKTeaArchivesData mj_objectWithKeyValues:responseObject];
+        //NSLog(@"^^%@",responseObject);
+        success(model);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesTeachAddWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_TEA_ADD parameters:dic success:^(id responseObject) {
+        success(responseObject);
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesTeachEditListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_TEA_EDIT_LIST parameters:dic success:^(id responseObject) {
+        WKTeaArchivesData *model = [WKTeaArchivesData mj_objectWithKeyValues:responseObject];
+      //  NSLog(@"^^%@",responseObject);
+        success(model);
+
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesTeachEditWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_TEA_EDIT parameters:dic success:^(id responseObject) {
+        //WKTeaArchivesData *model = [WKTeaArchivesData mj_objectWithKeyValues:responseObject];
+        //NSLog(@"^^%@",responseObject);
+        success(responseObject);
+        
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesStuAddListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_STU_LIST parameters:dic success:^(id responseObject) {
+        NSArray *arr = [WKStuArchivesData mj_objectArrayWithKeyValuesArray:responseObject[@"graClsList"]];
+        NSLog(@"^^%@",responseObject);
+        success(arr);
+        
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
+
 
 
 

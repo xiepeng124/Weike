@@ -105,7 +105,7 @@
     asset = [result firstObject];
      PHAssetResource *resource = [[PHAssetResource assetResourcesForAsset:asset] firstObject];
     NSString *imageName = resource.originalFilename;
-    NSLog(@"<<<%@",imageName);
+   // NSLog(@"<<<%@",imageName);
     [self.delegate sendImagesource:imageName];
 }
     [self.hud showAnimated:YES];

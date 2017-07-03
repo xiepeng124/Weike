@@ -173,8 +173,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     WKVideoClassfiCollectionViewCell *cell =(WKVideoClassfiCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
     _button.userInteractionEnabled = YES;
-    cell.myselected.image = [UIImage imageNamed:@"role_on"];
-    cell.selected  =YES;
+    cell.myselected.selected = YES;
+   // cell.selected  =YES;
 //    WKGrade *model = self.arrlist [indexPath.row];
     self.myNumber = indexPath.row ;
         // [collectionView deselectItemAtIndexPath:indexPath animated:YES];
@@ -182,9 +182,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     WKVideoClassfiCollectionViewCell *cell =(WKVideoClassfiCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
     //_button.userInteractionEnabled = NO;
-    cell.selected  =NO;
-    cell.myselected.image = [UIImage imageNamed:@"role_off"];
-    
+    //cell.selected  =NO;
+    cell.myselected.selected = NO;
 }
 
 
@@ -206,7 +205,7 @@ self.gradeNumber = self.myNumber;
 //    }
     
     [self.collectionView deselectItemAtIndexPath:index animated:YES];
-    cell.myselected.image = [UIImage imageNamed:@"role_off"];
+    cell.myselected.selected = NO;
     
     
     
@@ -216,7 +215,7 @@ self.gradeNumber = self.myNumber;
     NSIndexPath *index = [NSIndexPath indexPathForRow:self.gradeNumber inSection:0];
     WKVideoClassfiCollectionViewCell *cell = (WKVideoClassfiCollectionViewCell*)[self.collectionView cellForItemAtIndexPath:index];
     [self.collectionView deselectItemAtIndexPath:index animated:YES];
-    cell.myselected.image = [UIImage imageNamed:@"role_off"];
+    cell.myselected.selected = NO;
     
 }
 -(void)selectgradeAction:(NSInteger)segmentIndex{

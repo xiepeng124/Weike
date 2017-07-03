@@ -201,10 +201,24 @@
 #define ARCHIVES_TEA_DELETE [SERVER_IP stringByAppendingString:@"/app/sys/teacher/deletes"]
 //教师档案详情
 #define ARCHIVES_TEA_DETAIL [SERVER_IP stringByAppendingString:@"/app/sys/teacher/detail"]
+//教师新增档案数据
+#define ARCHIVES_TEA_LIST [SERVER_IP stringByAppendingString:@"/app/sys/teacher/toCreate"]
+//教师新增档案
+#define ARCHIVES_TEA_ADD [SERVER_IP stringByAppendingString:@"/app/sys/teacher/create"]
+//教师编辑档案
+#define ARCHIVES_TEA_EDIT_LIST [SERVER_IP stringByAppendingString:@"/app/sys/teacher/toModify"]
+//教师编辑保存
+#define ARCHIVES_TEA_EDIT [SERVER_IP stringByAppendingString:@"/app/sys/teacher/modify"]
+
+
 //学生档案查询
 #define ARCHIVES_STU [SERVER_IP stringByAppendingString:@"/app/sys/student/query"]
 //学生档案删除
 #define ARCHIVES_STU_DELETE [SERVER_IP stringByAppendingString:@"/app/sys/student/deletes"]
+//学生新增档案数据
+#define ARCHIVES_STU_LIST [SERVER_IP stringByAppendingString:@"/app/sys/student/toCreate"]
+
+
 
 
 

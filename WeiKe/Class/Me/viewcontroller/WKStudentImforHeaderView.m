@@ -40,9 +40,7 @@
     self.oneView.layer.cornerRadius =3;
     self.oneView.layer.masksToBounds = YES;
    
-    [self.keepButton setTitleColor:[WKColor colorWithHexString:WHITE_COLOR] forState:UIControlStateNormal];
-    self.keepButton.backgroundColor = [WKColor colorWithHexString:GREEN_COLOR];
-    self.keepButton.layer.cornerRadius = 3;
+      self.keepButton.layer.cornerRadius = 3;
     self.line1.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
     self.line2.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
     self.line3.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];

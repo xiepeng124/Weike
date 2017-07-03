@@ -14,6 +14,7 @@
 #import "WKTeachImforEditViewController.h"
 #import "WKStuImforEditViewController.h"
 #import "WKArchivesTeacherAddViewController.h"
+#import "WKArchivesStuAddViewController.h"
 @interface WKArchivesManagerViewController ()<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) WKHeadview *archivesHeadView;
 @property(strong,nonatomic)UIButton *stuButton;
@@ -162,6 +163,7 @@
         [cell.selectedButton addTarget:self action:@selector(selectedUserArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
         [cell.deleteButton addTarget:self action:@selector(deleteArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
         [cell.detailButton addTarget:self action:@selector(detailArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
+          [cell.editButton addTarget:self action:@selector(editArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
         if (self.arrList.count) {
             WKTeacherData *model =  self.arrList[indexPath.section];
             cell.teaName.text = model.teacherName;
@@ -195,6 +197,7 @@
     [cell.selectedButton addTarget:self action:@selector(selectedUserArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
        [cell.deleteButton addTarget:self action:@selector(deleteArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
            [cell.detailButton addTarget:self action:@selector(detailArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.editButton addTarget:self action:@selector(editArchivesAction:) forControlEvents:UIControlEventTouchUpInside];
     if (self.arrList.count) {
         WKStudentData *model =  self.arrList[indexPath.section];
         cell.stuName.text = model.studentName;
@@ -461,7 +464,13 @@
 -(void)addArchivesAction{
     if (self.isTeacher) {
         WKArchivesTeacherAddViewController *teaAdd = [[WKArchivesTeacherAddViewController alloc]init];
+        teaAdd.isAdd = YES;
         [self.navigationController pushViewController:teaAdd animated:YES];
+    }
+    else{
+        WKArchivesStuAddViewController *stuAdd = [[WKArchivesStuAddViewController alloc]init];
+        stuAdd.isAdd = YES;
+        [self.navigationController pushViewController:stuAdd animated:YES];
     }
 }
 //详情
@@ -482,6 +491,14 @@
         [self.navigationController pushViewController:stu animated:YES];
     }
     
+}
+-(void)editArchivesAction:(UIButton*)sender{
+    if (self.isTeacher) {
+        WKArchivesTeacherAddViewController *teaAdd = [[WKArchivesTeacherAddViewController alloc]init];
+        teaAdd.isAdd = NO;
+        teaAdd.model = self.arrList[sender.tag];
+        [self.navigationController pushViewController:teaAdd animated:YES];
+    }
 }
 //返回
 -(void)backAction{
