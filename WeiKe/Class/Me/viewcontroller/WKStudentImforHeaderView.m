@@ -35,7 +35,10 @@
     self.stuClassText.textColor = [WKColor colorWithHexString:@"333333"];
 
     self.stuNumberText.textColor = [WKColor colorWithHexString:@"333333"];
+    self.stuNumberText.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.schoolRollText.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     self.schoolRollText.textColor = [WKColor colorWithHexString:@"333333"];
+    
     //self.backgroundColor = [WKColor colorWithHexString:GREEN_COLOR];
     self.oneView.layer.cornerRadius =3;
     self.oneView.layer.masksToBounds = YES;

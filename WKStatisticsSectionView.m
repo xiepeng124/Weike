@@ -20,8 +20,9 @@
     self.videoNumber.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
      self.playNumber.textColor = [WKColor colorWithHexString:DARK_COLOR];
     self.videoStatistics.textColor = [WKColor colorWithHexString:DARK_COLOR];
-    [self.updownButton setBackgroundImage:[UIImage imageNamed:@"my_arrows_but"] forState:UIControlStateNormal];
-      [self.updownButton setBackgroundImage:[UIImage imageNamed:@"my_arrows_top"] forState:UIControlStateSelected];
+    [self.updownButton setImage:[UIImage imageNamed:@"my_arrows_but"] forState:UIControlStateNormal];
+      [self.updownButton setImage:[UIImage imageNamed:@"my_arrows_top"] forState:UIControlStateSelected];
+    self.updownButton.contentHorizontalAlignment =  UIControlContentHorizontalAlignmentRight;
     self.line.backgroundColor = [WKColor colorWithHexString:BACK_COLOR];
     self.backgroundColor = [WKColor colorWithHexString:WHITE_COLOR];
     self.layer.cornerRadius =3 ;

@@ -11,4 +11,5 @@
 @interface WKTeacherVideoListViewController : WKBaseViewController
 @property (nonatomic,assign) NSInteger myId;
 @property (nonatomic,strong) NSString *myIds;
+@property (nonatomic,assign) BOOL isAll;
 @end

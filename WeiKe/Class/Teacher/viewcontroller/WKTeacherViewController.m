@@ -234,6 +234,7 @@
     WKTeacherVideoListViewController *list = [[WKTeacherVideoListViewController alloc]init];
     WKTeacherList *model = self.teacherList[indexPath.row];
     list.myId=model.id;
+    list.isAll = NO;
     list.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:list animated:YES];
 }

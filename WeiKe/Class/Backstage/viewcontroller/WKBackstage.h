@@ -88,5 +88,9 @@
 +(void)executeGetBackstageArchivesTeachEditListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
 +(void)executeGetBackstageArchivesTeachEditWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
 +(void)executeGetBackstageArchivesStuAddListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageArchivesStuAddWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed ;
++(void)executeGetBackstageArchivesStuEditListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
++(void)executeGetBackstageArchivesStuEditWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed;
+
 
 @end

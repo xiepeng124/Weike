@@ -79,6 +79,8 @@
     self.stuImf.keepButton.backgroundColor = [WKColor colorWithHexString:GREEN_COLOR];
     [self.stuImf.gradeButton setHidden:YES];
     [self.stuImf.classButton setHidden:YES];
+    self.stuImf.schoolRollText.userInteractionEnabled = NO;
+    self.stuImf.stuNumberText.userInteractionEnabled = NO;
 
     
 }

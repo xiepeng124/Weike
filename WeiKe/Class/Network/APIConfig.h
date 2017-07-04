@@ -217,7 +217,12 @@
 #define ARCHIVES_STU_DELETE [SERVER_IP stringByAppendingString:@"/app/sys/student/deletes"]
 //学生新增档案数据
 #define ARCHIVES_STU_LIST [SERVER_IP stringByAppendingString:@"/app/sys/student/toCreate"]
-
+//学生新增档案
+#define ARCHIVES_STU_ADD [SERVER_IP stringByAppendingString:@"/app/sys/student/create"]
+//学生编辑档案
+#define ARCHIVES_STU_EDIT_LIST [SERVER_IP stringByAppendingString:@"/app/sys/student/toModify"]
+//学生编辑保存
+#define ARCHIVES_STU_EDIT [SERVER_IP stringByAppendingString:@"/app/sys/student/modify"]
 
 
 

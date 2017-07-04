@@ -369,7 +369,7 @@
 }
 +(void)executeGetBackstageVideoStatistWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
     [WKHttpTool postWithURLString:VIDEO_STATIST parameters:dic success:^(id responseObject) {
-        NSLog(@"resp = %@",responseObject);
+        //NSLog(@"resp = %@",responseObject);
      
         NSArray *arr = [WKVIdeoStatisticsModel mj_objectArrayWithKeyValuesArray:responseObject[@"tempDp"]];
            success(arr);
@@ -380,9 +380,9 @@
 }
 +(void)executeGetBackstageVideoStatistListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
     [WKHttpTool postWithURLString:VIDEO_STATIST_TEACHER parameters:dic success:^(id responseObject) {
-        NSLog(@"resp = %@",responseObject);
+        //NSLog(@"resp = %@",responseObject);
         
-        NSArray *arr = [WKTeacherVideoList mj_objectArrayWithKeyValuesArray:responseObject[@"teaVideoList"]];
+        NSArray *arr = [WKTeacherVideoList mj_objectArrayWithKeyValuesArray:responseObject[@"videoList"]];
         success(arr);
     } failure:^(NSError *error) {
         failed(error);
@@ -573,8 +573,42 @@
 +(void)executeGetBackstageArchivesStuAddListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
     [WKHttpTool postWithURLString:ARCHIVES_STU_LIST parameters:dic success:^(id responseObject) {
         NSArray *arr = [WKStuArchivesData mj_objectArrayWithKeyValuesArray:responseObject[@"graClsList"]];
-        NSLog(@"^^%@",responseObject);
+       // NSLog(@"^^%@",responseObject);
         success(arr);
+        
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesStuAddWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_STU_ADD parameters:dic success:^(id responseObject) {
+//        NSArray *arr = [WKStuArchivesData mj_objectArrayWithKeyValuesArray:responseObject[@"graClsList"]];
+//        NSLog(@"^^%@",responseObject);
+        success(responseObject);
+        
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesStuEditListWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_STU_EDIT_LIST parameters:dic success:^(id responseObject) {
+//                NSArray *arr = [WKStuArchivesData mj_objectArrayWithKeyValuesArray:responseObject[@"graClsList"]];
+              NSLog(@"^^%@",responseObject);
+        success(responseObject);
+        
+        
+    } failure:^(NSError *error) {
+        failed(error);
+    }];
+    
+}
++(void)executeGetBackstageArchivesStuEditWithParameter:(NSDictionary *)dic success:(SuccessBlock)success failed:(FailedBlock)failed {
+    [WKHttpTool postWithURLString:ARCHIVES_STU_EDIT parameters:dic success:^(id responseObject) {
+                success(responseObject);
         
         
     } failure:^(NSError *error) {

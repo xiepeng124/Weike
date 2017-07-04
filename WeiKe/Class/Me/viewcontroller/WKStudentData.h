@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSString * updateTime;
 @property (nonatomic, assign) NSInteger updaterId;
 @property (nonatomic, strong) NSString * className;
+@property (nonatomic, assign) NSInteger classId;
 @property (nonatomic, strong) NSString * gradeName;
-
+@property (nonatomic, assign) NSInteger gradeId;
 @end

@@ -49,9 +49,9 @@
                     </constraints>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw7-HM-HTm">
-                    <rect key="frame" x="274" y="125" width="16" height="12"/>
+                    <rect key="frame" x="254" y="125" width="36" height="12"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="16" id="AAB-5G-bGd"/>
+                        <constraint firstAttribute="width" constant="36" id="AAB-5G-bGd"/>
                         <constraint firstAttribute="height" constant="12" id="vga-EE-4iw"/>
                     </constraints>
                 </button>
@@ -70,7 +70,7 @@
                 <constraint firstItem="KGw-C2-8Dr" firstAttribute="top" secondItem="AuK-Tq-65t" secondAttribute="bottom" id="1qP-QB-3L3"/>
                 <constraint firstItem="RUU-gM-pOr" firstAttribute="leading" secondItem="lPb-hq-0qT" secondAttribute="trailing" constant="20" id="6YN-TR-ONB"/>
                 <constraint firstAttribute="bottom" secondItem="eaJ-WK-bX9" secondAttribute="bottom" constant="5" id="Cst-hA-d7N"/>
-                <constraint firstItem="Kw7-HM-HTm" firstAttribute="leading" secondItem="eaJ-WK-bX9" secondAttribute="trailing" constant="20" id="EAS-Y7-2rA"/>
+                <constraint firstItem="Kw7-HM-HTm" firstAttribute="leading" secondItem="eaJ-WK-bX9" secondAttribute="trailing" id="EAS-Y7-2rA"/>
                 <constraint firstItem="lPb-hq-0qT" firstAttribute="leading" secondItem="jad-7q-ueS" secondAttribute="leading" constant="10" id="FYq-9B-JUS"/>
                 <constraint firstAttribute="trailing" secondItem="Kw7-HM-HTm" secondAttribute="trailing" constant="10" id="Gik-C0-TU2"/>
                 <constraint firstItem="RUU-gM-pOr" firstAttribute="top" secondItem="KGw-C2-8Dr" secondAttribute="bottom" constant="10" id="LZz-ob-N3i"/>

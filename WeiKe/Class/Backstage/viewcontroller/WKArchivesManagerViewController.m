@@ -141,8 +141,11 @@
     self.isTeacher = YES;
     [self initStyle];
     [self initTabeView];
-    [self initData];
+
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+        [self initData];
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -492,12 +495,19 @@
     }
     
 }
+//编辑
 -(void)editArchivesAction:(UIButton*)sender{
     if (self.isTeacher) {
         WKArchivesTeacherAddViewController *teaAdd = [[WKArchivesTeacherAddViewController alloc]init];
         teaAdd.isAdd = NO;
         teaAdd.model = self.arrList[sender.tag];
         [self.navigationController pushViewController:teaAdd animated:YES];
+    }
+    else{
+        WKArchivesStuAddViewController *stuEdit= [[WKArchivesStuAddViewController alloc]init];
+        stuEdit.isAdd = NO;
+        stuEdit.model = self.arrList[sender.tag];
+        [self.navigationController pushViewController:stuEdit animated:YES];
     }
 }
 //返回

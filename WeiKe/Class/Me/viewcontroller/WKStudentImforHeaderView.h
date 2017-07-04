@@ -30,9 +30,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *stuClassText;
 
 @property (weak, nonatomic) IBOutlet UILabel *stuNumber;
-@property (weak, nonatomic) IBOutlet UILabel *stuNumberText;
+@property (weak, nonatomic) IBOutlet UITextField *stuNumberText;
+//@property (weak, nonatomic) IBOutlet UILabel *stuNumberText;
 @property (weak, nonatomic) IBOutlet UILabel *schoolRoll;
-@property (weak, nonatomic) IBOutlet UILabel *schoolRollText;
+@property (weak, nonatomic) IBOutlet UITextField *schoolRollText;
+//@property (weak, nonatomic) IBOutlet UILabel *schoolRollText;
 @property (weak, nonatomic) IBOutlet UIView *line1;
 @property (weak, nonatomic) IBOutlet UIView *line2;
 @property (weak, nonatomic) IBOutlet UIView *line3;

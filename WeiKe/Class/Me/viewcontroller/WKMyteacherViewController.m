@@ -10,6 +10,8 @@
 #import "WKFlowLayout.h"
 #import "WKTeacherCollectionViewCell.h"
 #import "WKMeHandler.h"
+#import "WKTeacherVideoListViewController.h"
+
 @interface WKMyteacherViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CustomeCollectionViewLayoutDelegate,UIScrollViewDelegate>
 @property (nonatomic) NSInteger cellColumn;
 @property (nonatomic) CGFloat cellMargin;
@@ -96,6 +98,13 @@
     }
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    WKTeacherData *model = self.arrlist[indexPath.row];
+    WKTeacherVideoListViewController *list = [[WKTeacherVideoListViewController alloc]init];
+    list.myId = model.id;
+    list.isAll = NO;
+    [self.navigationController pushViewController:list animated:YES];
+}
 #pragma mark - <CustomeCollectionViewLayoutDelegate>
 - (NSInteger) numberOfColumnWithCollectionView:(UICollectionView *)collectionView
                           collectionViewLayout:( WKFlowLayout *)collectionViewLayout{
@@ -130,6 +139,9 @@
     }
     
     self.navigationController.navigationBar.alpha = (SCROLL_OFFSET_Y - offsetY) / SCROLL_OFFSET_Y;
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return NO;
 }
 
 /*

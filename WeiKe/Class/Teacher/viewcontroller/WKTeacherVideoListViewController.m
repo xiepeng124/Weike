@@ -41,10 +41,32 @@
     self.collectionview.mj_footer.automaticallyChangeAlpha=YES;
 }
 -(void)initData{
+    __weak typeof(self) weakself = self;
+    [self.arrlist removeAllObjects];
+    if (_isAll) {
+        NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"ids":_myIds};
+        NSLog(@"...myids = %@",_myIds);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [WKBackstage executeGetBackstageVideoStatistListWithParameter:dic success:^(id object) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    for (WKTeacherVideoList *model in object) {
+                        [weakself.arrlist addObject:model];
+                        weakself.navigationItem.title = model.teacherName;
+                        
+                    }
+                    [weakself.collectionview reloadData];
+                });
+
+            } failed:^(id object) {
+                
+            }];
+        });
+        
+    }
+    else{
 
         NSDictionary *dic = @{@"teacherId":[NSNumber numberWithInteger:self.myId],@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID};
-        __weak typeof(self) weakself = self;
-        [self.arrlist removeAllObjects];
+    
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [WKTeacherHandler executeGetTeacherOutListWithParameter:dic success:^(id object) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -63,7 +85,7 @@
             }];
         });
 
-
+    }
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -156,10 +178,33 @@
 }
 -(void)loadmore{
     self.page +=1;
- 
+    __weak typeof(self) weakself = self;
+
+    if (_isAll) {
+        NSDictionary *dic = @{@"page":[NSNumber numberWithInteger:self.page],@"ids":_myIds};
+       // NSLog(@"...myids = %@",_myIds);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [WKBackstage executeGetBackstageVideoStatistListWithParameter:dic success:^(id object) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    for (WKTeacherVideoList *model in object) {
+                        [weakself.arrlist addObject:model];
+                        //weakself.navigationItem.title = model.teacherName;
+                        
+                    }
+                    [weakself.collectionview reloadData];
+                    [weakself.collectionview.mj_footer endRefreshing];
+
+                });
+                
+            } failed:^(id object) {
+                
+            }];
+        });
+        
+    }
+    else{
         NSDictionary *dic = @{@"teacherId":[NSNumber numberWithInteger:self.myId],@"page":[NSNumber numberWithInteger:self.page],@"schoolId":SCOOLID};
-        __weak typeof(self) weakself = self;
-       // [self.arrlist removeAllObjects];
+             // [self.arrlist removeAllObjects];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [WKTeacherHandler executeGetTeacherOutListWithParameter:dic success:^(id object) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -177,7 +222,7 @@
                 
             }];
         });
-        
+    }
  
     
 }

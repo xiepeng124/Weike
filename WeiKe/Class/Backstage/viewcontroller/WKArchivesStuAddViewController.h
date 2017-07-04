@@ -11,4 +11,5 @@
 @interface WKArchivesStuAddViewController : WKBaseViewController
 @property (strong,nonatomic) WKStudentData *model;
 @property (assign,nonatomic) NSInteger isAdd;
+  //[NSNumber numberWithInteger:self.stuGraCls.id]
 @end

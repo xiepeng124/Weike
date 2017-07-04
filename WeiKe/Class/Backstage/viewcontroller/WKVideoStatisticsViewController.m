@@ -192,7 +192,8 @@
 -(void)videoListlAction:(UIButton*)sender{
     WKTeacherVideoListViewController *videoList= [[WKTeacherVideoListViewController alloc]init];
     WKVIdeoStatisticsModel *model = self.arrlist[sender.tag];
-    videoList.myId =model.teacherId;
+    videoList.myIds =model.ids;
+    videoList.isAll = YES;
     [self.navigationController pushViewController:videoList animated:YES];
 }
 -(void)loadmore{

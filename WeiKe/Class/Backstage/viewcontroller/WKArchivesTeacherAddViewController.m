@@ -348,7 +348,9 @@
     self.uploadImage.url =MY_HEAD;
     NSDictionary *dic = @{@"userType":@1};
     self.uploadImage.diction = dic;
-   
+    self.gradeId = 0;
+    self.classIds = @"";
+    self.courseIds = @"";
     [self initData];
     [self initcollectionView];
     // Do any additional setup after loading the view.
@@ -836,22 +838,22 @@
         return;
         
     }
-    if (!self.teachImf.teachGradeText.text.length) {
-        self.hud.label.text = @"请选择任课年级";
-        [self.hud showAnimated:YES];
-        [self.hud hideAnimated:YES afterDelay:1];
-        
-        return;
-
-    }
-    if (!self.teachImf.teachClassText.text.length) {
-        self.hud.label.text = @"请选择任课班级";
-        [self.hud showAnimated:YES];
-        [self.hud hideAnimated:YES afterDelay:1];
-        
-        return;
-        
-    }
+//    if (!self.teachImf.teachGradeText.text.length) {
+//        self.hud.label.text = @"请选择任课年级";
+//        [self.hud showAnimated:YES];
+//        [self.hud hideAnimated:YES afterDelay:1];
+//        
+//        return;
+//
+//    }
+//    if (!self.teachImf.teachClassText.text.length) {
+//        self.hud.label.text = @"请选择任课班级";
+//        [self.hud showAnimated:YES];
+//        [self.hud hideAnimated:YES afterDelay:1];
+//        
+//        return;
+//        
+//    }
     if (!self.teachImf.jobText.text.length) {
         self.hud.label.text = @"请选择职务";
         [self.hud showAnimated:YES];
@@ -861,14 +863,14 @@
         
     }
 
-    if (!self.teachImf.subjectText.text.length) {
-        self.hud.label.text = @"请选择学科";
-        [self.hud showAnimated:YES];
-        [self.hud hideAnimated:YES afterDelay:1];
-        
-        return;
-        
-    }
+//    if (!self.teachImf.subjectText.text.length) {
+//        self.hud.label.text = @"请选择学科";
+//        [self.hud showAnimated:YES];
+//        [self.hud hideAnimated:YES afterDelay:1];
+//        
+//        return;
+//        
+//    }
 
     __weak typeof(self) weakself = self;
     self.hud.label.text = @"正在保存";
